@@ -1,0 +1,361 @@
+/* =========================================================================
+   PICCARDO — Design system
+   1. Font  2. Token  3. Reset  4. Tipografia  5. Layout  6. Utility  7. Motion
+   ========================================================================= */
+
+/* ---- 1. Font --------------------------------------------------------- */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/fraunces-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---- 2. Token -------------------------------------------------------- */
+:root {
+  /* Colore — l'inchiostro è un nero-verde: nessun grigio neutro nel sistema */
+  --ink:        #0A1714;
+  --ink-2:      #1D302B;
+  --muted:      #5C6C67;
+  --muted-2:    #86928D;
+  --line:       #DFDAD1;
+  --line-soft:  #EBE7E0;
+
+  --paper:      #FBFAF7;
+  --paper-2:    #F4F1EB;
+  --paper-3:    #EDE8DF;
+
+  --green-900:  #08251F;
+  --green-800:  #0B3A31;
+  --green-700:  #114C41;   /* primaria */
+  --green-600:  #16604F;
+  --green-500:  #1F8069;
+  --green-200:  #C9E1D7;
+  --green-100:  #E3EFE9;
+  --green-050:  #F0F7F3;
+
+  --red:        #C4342E;   /* croce di Genova — solo marchio */
+  --brass:      #A87A33;   /* trattamenti ad alto valore */
+  --brass-100:  #F2E7D2;
+  --gold:       #E0A93B;   /* stelle recensioni */
+
+  --focus:      #1F8069;
+
+  /* Tipografia */
+  --sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+
+  --fs-display: clamp(2.9rem, 1.4rem + 6.4vw, 6.5rem);
+  --fs-h1:      clamp(2.4rem, 1.3rem + 4.6vw, 4.4rem);
+  --fs-h2:      clamp(1.95rem, 1.25rem + 2.9vw, 3.2rem);
+  --fs-h3:      clamp(1.35rem, 1.1rem + 1.1vw, 1.85rem);
+  --fs-h4:      clamp(1.1rem, 1rem + .5vw, 1.3rem);
+  --fs-lead:    clamp(1.08rem, 1rem + .55vw, 1.42rem);
+  --fs-body:    1.0625rem;
+  --fs-sm:      .9375rem;
+  --fs-xs:      .8125rem;
+  --fs-eyebrow: .75rem;
+
+  /* Ritmo */
+  --sp-section: clamp(4.5rem, 2.5rem + 7vw, 9rem);
+  --sp-block:   clamp(2rem, 1.2rem + 3vw, 4rem);
+  --gutter:     clamp(1.25rem, .6rem + 2.6vw, 3rem);
+  --maxw:       78rem;
+  --maxw-text:  40rem;
+
+  /* Forma */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 34px;
+  --r-pill: 999px;
+
+  --sh-1: 0 1px 2px rgba(10,23,20,.05), 0 2px 8px rgba(10,23,20,.04);
+  --sh-2: 0 2px 6px rgba(10,23,20,.06), 0 12px 32px -8px rgba(10,23,20,.10);
+  --sh-3: 0 4px 12px rgba(10,23,20,.07), 0 28px 60px -16px rgba(10,23,20,.16);
+  --sh-green: 0 10px 30px -10px rgba(17,76,65,.45);
+
+  /* Movimento */
+  --ease: cubic-bezier(.22,1,.36,1);
+  --ease-io: cubic-bezier(.65,.05,.36,1);
+  --t-fast: .18s var(--ease);
+  --t: .32s var(--ease);
+  --t-slow: .68s var(--ease);
+
+  --header-h: 76px;
+}
+
+@media (max-width: 900px) { :root { --header-h: 60px; } }
+
+/* ---- 3. Reset -------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1.5rem);
+}
+
+body {
+  font-family: var(--sans);
+  font-size: var(--fs-body);
+  line-height: 1.62;
+  font-weight: 450;
+  color: var(--ink-2);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  overflow-x: clip;
+}
+
+img, svg, video, canvas { display: block; max-width: 100%; }
+img, video { height: auto; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; padding: 0; }
+table { border-collapse: collapse; width: 100%; }
+
+:focus-visible {
+  outline: 2.5px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+::selection { background: var(--green-200); color: var(--green-900); }
+
+/* ---- 4. Tipografia --------------------------------------------------- */
+h1, h2, h3, h4, .display {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -.022em;
+  color: var(--ink);
+  font-variation-settings: 'SOFT' 20, 'WONK' 0, 'opsz' 100;
+  text-wrap: balance;
+}
+
+.display { font-size: var(--fs-display); line-height: .98; letter-spacing: -.032em; }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); line-height: 1.06; }
+h3 { font-size: var(--fs-h3); line-height: 1.18; letter-spacing: -.014em; }
+h4 { font-size: var(--fs-h4); line-height: 1.3; letter-spacing: -.008em; font-weight: 500; }
+
+/* L'italico di Fraunces è il "colore" del brand: usato per l'idea chiave */
+.accent-i {
+  font-style: italic;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1, 'opsz' 120;
+  color: var(--green-700);
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--muted);
+  font-weight: 450;
+  letter-spacing: -.008em;
+  text-wrap: pretty;
+}
+
+p { text-wrap: pretty; }
+p + p { margin-top: .9em; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .55em;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--green-600);
+}
+.eyebrow::before {
+  content: '';
+  width: 1.6em; height: 1px;
+  background: currentColor;
+  opacity: .5;
+}
+.eyebrow.is-bare::before { display: none; }
+
+.small { font-size: var(--fs-sm); }
+.xs    { font-size: var(--fs-xs); }
+.muted { color: var(--muted); }
+.mono-num { font-variant-numeric: tabular-nums lining-nums; }
+
+/* Numeri grandi: la voce "dato" del sistema */
+.stat-n {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 1.4rem + 3.6vw, 4.2rem);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -.04em;
+  font-variation-settings: 'SOFT' 0, 'WONK' 0, 'opsz' 144;
+  color: var(--green-700);
+  font-variant-numeric: lining-nums;
+}
+
+.stat-suffix {
+  font-family: var(--sans);
+  font-size: .42em;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  vertical-align: .55em;
+  margin-left: .04em;
+}
+
+.prose { max-width: var(--maxw-text); }
+.prose p, .prose ul { color: var(--muted); }
+.prose h3 { margin: 2.2em 0 .6em; color: var(--ink); }
+.prose strong { color: var(--ink); font-weight: 650; }
+.prose a { color: var(--green-700); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1.5px; }
+.prose a:hover { color: var(--green-500); }
+
+/* ---- 5. Layout ------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.wrap-wide { max-width: 92rem; }
+.wrap-narrow { max-width: 56rem; }
+
+section { position: relative; }
+.section { padding-block: var(--sp-section); }
+.section-sm { padding-block: clamp(3rem, 2rem + 4vw, 5.5rem); }
+
+.bg-paper2 { background: var(--paper-2); }
+.bg-green  { background: var(--green-050); }
+.bg-dark   { background: var(--green-900); color: #DCE9E4; }
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4 { color: #FFFDF9; }
+.bg-dark .lead, .bg-dark .muted { color: #A5BDB5; }
+.bg-dark .eyebrow { color: var(--green-200); }
+.bg-dark .stat-n { color: #F2E9D8; }
+
+.grid { display: grid; gap: var(--gutter); }
+.g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.g3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.g4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 980px) { .g3, .g4 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 620px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+
+.stack   { display: flex; flex-direction: column; }
+.row     { display: flex; align-items: center; flex-wrap: wrap; }
+.between { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+.gap-2 { gap: .5rem; } .gap-3 { gap: .75rem; } .gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; } .gap-8 { gap: 2rem; } .gap-12 { gap: 3rem; }
+.mt-2 { margin-top: .5rem; } .mt-4 { margin-top: 1rem; } .mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; } .mt-12 { margin-top: 3rem; } .mt-16 { margin-top: 4rem; }
+.mb-4 { margin-bottom: 1rem; } .mb-6 { margin-bottom: 1.5rem; } .mb-8 { margin-bottom: 2rem; }
+.center { text-align: center; }
+.center-x { margin-inline: auto; }
+
+.rule { height: 1px; background: var(--line); border: 0; }
+
+.section-head { max-width: 44rem; margin-bottom: var(--sp-block); }
+.section-head.is-center { margin-inline: auto; text-align: center; }
+.section-head .lead { margin-top: 1rem; }
+.section-head h2 + .lead { margin-top: .9rem; }
+
+/* ---- 6. Utility ------------------------------------------------------ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; top: -100%; left: 1rem; z-index: 999;
+  background: var(--green-700); color: #fff;
+  padding: .75rem 1.25rem; border-radius: 0 0 var(--r-sm) var(--r-sm);
+  font-weight: 600;
+}
+.skip-link:focus { top: 0; }
+
+.nowrap { white-space: nowrap; }
+.hide-mobile { }
+.hide-desktop { display: none; }
+@media (max-width: 900px) {
+  .hide-mobile { display: none !important; }
+  .hide-desktop { display: revert; }
+}
+
+/* ---- 7. Motion ------------------------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+  transition-delay: var(--d, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+
+[data-reveal='fade'] { transform: none; }
+[data-reveal='left']  { transform: translateX(-26px); }
+[data-reveal='right'] { transform: translateX(26px); }
+[data-reveal='scale'] { transform: scale(.96); }
+[data-reveal].is-in { transform: none; }
+
+/* Su schermi stretti gli ingressi laterali diventano verticali:
+   evitano di generare overflow orizzontale prima di essere rivelati. */
+@media (max-width: 900px) {
+  [data-reveal='left'], [data-reveal='right'] { transform: translateY(22px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}

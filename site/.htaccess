@@ -1,0 +1,85 @@
+# Redirect 301 dal vecchio sito — vedi docs/02-strategia-ia-wireframe.md
+# Nessuno dei 60 URL storici deve restituire 404.
+Options -Indexes
+ErrorDocument 404 /404.html
+DirectoryIndex index.html
+
+Redirect 301 /assistenti.html /team.html
+Redirect 301 /bagnodisabili.html /studio.html#accessibilita
+Redirect 301 /bambini.html /trattamenti/bambini.html
+Redirect 301 /capsule.html /trattamenti/protesi-e-corone.html
+Redirect 301 /caricoimmediato.html /trattamenti/implantologia.html
+Redirect 301 /caricoimmediato2.html /trattamenti/implantologia.html
+Redirect 301 /chisiamo.html /team.html
+Redirect 301 /contattaci.html /contatti.html
+Redirect 301 /contenziosi-e-risarcimenti.html /note-legali.html#rc
+Redirect 301 /convenzioni.html /prezzi.html#convenzioni
+Redirect 301 /dentiera.html /trattamenti/protesi-e-corone.html
+Redirect 301 /devitalizzazioni.html /trattamenti/cure-conservative.html
+Redirect 301 /direzionesanitaria.html /team.html
+Redirect 301 /domicilio.html /trattamenti/urgenze.html
+Redirect 301 /dovesiamo.html /contatti.html#dove-siamo
+Redirect 301 /emergenze.html /trattamenti/urgenze.html
+Redirect 301 /finanziamenti.html /prezzi.html#finanziamenti
+Redirect 301 /gibelli.html /team.html
+Redirect 301 /giudizio.html /trattamenti/chirurgia-orale.html
+Redirect 301 /gruppocontinuita.html /studio.html#continuita
+Redirect 301 /igiene.html /trattamenti/igiene-e-prevenzione.html
+Redirect 301 /igienista.html /team.html
+Redirect 301 /igienista2.html /team.html
+Redirect 301 /implantologia.html /trattamenti/implantologia.html
+Redirect 301 /innestiosso.html /trattamenti/implantologia.html
+Redirect 301 /interviste.html /team.html#interviste
+Redirect 301 /invisalign.html /trattamenti/invisalign-ortodonzia.html
+Redirect 301 /laboratorio.html /studio.html#laboratorio
+Redirect 301 /lumineers.html /trattamenti/estetica-del-sorriso.html
+Redirect 301 /nylon.html /trattamenti/protesi-e-corone.html
+Redirect 301 /ortodonzia.html /trattamenti/invisalign-ortodonzia.html
+Redirect 301 /otturazioni.html /trattamenti/cure-conservative.html
+Redirect 301 /parodi.html /team.html
+Redirect 301 /parodontologo.html /team.html
+Redirect 301 /pedodonzia.html /trattamenti/bambini.html
+Redirect 301 /pedodonzista.html /team.html
+Redirect 301 /piccardo.html /team.html
+Redirect 301 /policy.html /note-legali.html
+Redirect 301 /polizza-assicurativa-rc-professionale.html /note-legali.html#rc
+Redirect 301 /posteggio.html /studio.html#parcheggio
+Redirect 301 /preventivo.html /prezzi.html#preventivo
+Redirect 301 /protossido.html /trattamenti/paura-del-dentista.html
+Redirect 301 /raggiungerci.html /contatti.html#dove-siamo
+Redirect 301 /reception.html /team.html
+Redirect 301 /richiedi-un-preventivo-on-line.html /prezzi.html#preventivo
+Redirect 301 /salaattesa.html /studio.html
+Redirect 301 /salaraggi.html /studio.html#tecnologia
+Redirect 301 /sbiancamentidenti.html /trattamenti/estetica-del-sorriso.html
+Redirect 301 /scheletrato.html /trattamenti/protesi-e-corone.html
+Redirect 301 /sedazione.html /trattamenti/paura-del-dentista.html
+Redirect 301 /segretariadentista.html /team.html
+Redirect 301 /servizi.html /trattamenti.html
+Redirect 301 /sterilizzazione.html /studio.html#sterilizzazione
+Redirect 301 /tariffario.html /prezzi.html
+Redirect 301 /tariffe.html /prezzi.html
+Redirect 301 /uffici.html /studio.html
+Redirect 301 /virtuale.html /studio.html#tour
+Redirect 301 /zoneoperative.html /studio.html
+
+# Compressione
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml application/json
+</IfModule>
+
+# Cache degli asset con hash-free naming: rivedere alla prima release
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp            "access plus 6 months"
+  ExpiresByType font/woff2            "access plus 1 year"
+  ExpiresByType text/css              "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/html             "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
