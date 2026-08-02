@@ -126,7 +126,7 @@ def render():
     # ───────────────────────────────────────────────────────── I PILASTRI
     pilastri = (
         _pilastro(
-            "calma", "Il dolore si controlla con tecniche precise",
+            "calma", "Il dolore lo togliamo prima che arrivi",
             "Il Dott. Piccardo ha conseguito a Padova un master universitario di secondo livello "
             "in sedazione ed emergenze in odontoiatria, e in quella stessa clinica universitaria "
             "ha poi lavorato come sedazionista. Lo studio pratica la sedazione cosciente "
@@ -134,7 +134,7 @@ def render():
             "che si scelgono in base a quanto è forte l&rsquo;ansia e a quanto durerà l&rsquo;intervento.",
             "trattamenti/paura-del-dentista.html", "Come funziona la sedazione", guida=True)
         + _pilastro(
-            "euro", "Il prezzo lo conosci prima di sederti",
+            "euro", "Sai la cifra prima di aprire bocca",
             "Trentasei prestazioni sono pubblicate online con il loro costo, dalla prima visita "
             "all&rsquo;impianto. Dopo la visita ricevi un piano di cura scritto, con le voci una per "
             "una, i tempi previsti e le alternative possibili. L&rsquo;importo si può rateizzare a "
@@ -142,7 +142,7 @@ def render():
             "convenzionati con lo studio.",
             "prezzi.html", "Apri il tariffario completo")
         + _pilastro(
-            "scan", "Diagnosi, chirurgia e protesi nello stesso posto",
+            "scan", "Non ti mandiamo da nessun'altra parte",
             "La sala raggi ospita una TAC Cone Beam tridimensionale e uno scanner intraorale. Il "
             "laboratorio odontotecnico, iscritto al Ministero della Salute, sta due porte più in "
             "là e fresa le corone in zirconia mentre sei ancora in poltrona. Nessun esame da fare "
@@ -154,11 +154,8 @@ def render():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">1</span>Perché qui</span>
-      <h2 class="mt-4">Tre motivi per sceglierci, e la <span class="accent-i">prova</span> di ciascuno</h2>
-      <p class="lead">Qualsiasi studio può scrivere «professionalità» e «tecnologia
-      all&rsquo;avanguardia»: sono parole che non costano nulla. Qui sotto trovate tre affermazioni
-      precise e, accanto a ognuna, il titolo universitario, il numero o il documento che la
-      sostiene. Sono tutte verificabili.</p>
+      <h2 class="mt-4">Fa male, costa troppo, <span class="accent-i">ci vuole una vita</span></h2>
+      <p class="lead">Sono le frasi che sentiamo più spesso al telefono.</p>
     </div>
     <div class="g-feature" data-stagger="90">{pilastri}</div>
   </div>
@@ -180,10 +177,7 @@ def render():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">2</span>Trattamenti</span>
-      <h2 class="mt-4">Ogni percorso comincia da un <span class="accent-i">problema diverso</span></h2>
-      <p class="lead">Scegli la situazione che ti somiglia di più. Al posto di un elenco di
-      quaranta prestazioni vedrai le tre che riguardano davvero il tuo caso, ciascuna con il
-      costo di partenza e la pagina che la spiega per intero.</p>
+      <h2 class="mt-4">Cosa ti <span class="accent-i">porta qui</span>?</h2>
     </div>
     <div class="intent" data-tabs data-reveal>
       <div class="intent__tabs" role="tablist" aria-label="Scegli il motivo della visita">{tabs}</div>
@@ -204,14 +198,12 @@ def render():
     </div>
     <div data-reveal="right">
       <span class="eyebrow has-n"><span class="eyebrow__n">3</span>Odontofobia</span>
-      <h2 class="mt-4">Se rimandi le cure per paura, ci sono <span class="accent-i">tre strade</span> per uscirne</h2>
-      <p class="lead mt-6">L'odontofobia si comporta come un riflesso condizionato. Nasce quasi
-      sempre da un episodio reale, spesso dell'infanzia, e il corpo la ripropone appena riconosce
-      il rumore del riunito o l'odore dello studio. Chiedere a una persona di farsi coraggio
-      significa chiederle di controllare una reazione automatica, e infatti quasi mai funziona.
-      Qui l'ansia viene valutata prima della seduta e si decide insieme
-      <b style="color:#FFFDF9">quale livello di sedazione usare</b>, con la stessa serietà con
-      cui si sceglie il tipo di anestesia.</p>
+      <h2 class="mt-4">Non ti chiederemo di <span class="accent-i">farti coraggio</span></h2>
+      <p class="lead mt-6">La paura del dentista nasce quasi sempre da qualcosa che è successo
+      davvero, spesso da bambini, e il corpo la ripropone appena riconosce il rumore del riunito
+      o l'odore dello studio. È una reazione automatica: contro una reazione automatica la buona
+      volontà serve a poco. Per questo prima della seduta parliamo di quanto sei in ansia, e
+      decidiamo insieme <b style="color:#FFFDF9">con cosa spegnerla</b>.</p>
       <ul class="ticks mt-8">
         <li>{ico('check')}<span><b style="color:#FFFDF9">Sedazione cosciente inalatoria.</b>
         Una miscela personalizzata di ossigeno e protossido d'azoto, respirata da una mascherina
@@ -243,7 +235,7 @@ def render():
     # ───────────────────────────────────────────────────────── RECENSIONI
     out += blocco_recensioni(
         0, limite=9,
-        titolo="Nelle 310 recensioni pubbliche tornano sempre le <span class='accent-i'>stesse tre cose</span>",
+        titolo="310 persone hanno raccontato <span class='accent-i'>com'è andata</span>",
         occhiello="La parola ai pazienti")
 
     # ────────────────────────────────────────────────────── PREZZI ESTRATTO
@@ -259,11 +251,10 @@ def render():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow has-n"><span class="eyebrow__n">6</span>Prezzi</span>
-      <h2 class="mt-4">Trentasei prezzi online, così puoi confrontarci <span class="accent-i">prima di telefonare</span></h2>
-      <p class="lead mt-6">Chi cerca un dentista sta quasi sempre valutando due o tre studi, e la
-      prima cosa che vorrebbe sapere è da che cifre si parte. Pubblicare il tariffario ci espone
-      al confronto diretto, il che va benissimo: preferiamo che qualcuno decida di non venire
-      leggendo un numero sullo schermo, piuttosto che scoprirlo seduto sulla poltrona.</p>
+      <h2 class="mt-4">Puoi farti i conti <span class="accent-i">adesso</span></h2>
+      <p class="lead mt-6">Il listino è online per intero, dalla pulizia dei denti alla
+      riabilitazione su impianti. Preferiamo che tu decida davanti allo schermo, con la cifra
+      sotto gli occhi, piuttosto che scoprirla da seduto con il tovagliolo al collo.</p>
       <div class="ribbon mt-8">{ico('euro')}<span><b>Finanziamento a tasso 0</b> fino a 5.000 €, fino a 36 rate. Tasso agevolato oltre.</span></div>
       <div class="mt-8 row gap-3">
         <a class="btn" href="prezzi.html">Tariffario completo</a>

@@ -1,5 +1,5 @@
 /* =========================================================================
-   PICCARDO — comportamenti di interfaccia
+   PICCARDO · comportamenti di interfaccia
    Vanilla, nessuna dipendenza. Ogni modulo esce silenziosamente se il
    componente non è presente nella pagina.
    ========================================================================= */
@@ -159,13 +159,24 @@
   /* ---- Slider prima / dopo -------------------------------------------- */
   $$('.ba').forEach(ba => {
     let attivo = false;
-    const imposta = clientX => {
-      const r = ba.getBoundingClientRect();
-      const p = Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100));
+    let anim = null;
+
+    const sposta = p => {
       ba.style.setProperty('--pos', p + '%');
       ba.setAttribute('aria-valuenow', Math.round(p));
     };
-    const giu = e => { attivo = true; imposta((e.touches ? e.touches[0] : e).clientX); };
+    // Il primo contatto ferma qualunque dimostrazione in corso: da lì in poi
+    // il cursore appartiene a chi guarda.
+    const preso = () => {
+      if (ba.classList.contains('is-touched')) return;
+      ba.classList.add('is-touched');
+      if (anim) { cancelAnimationFrame(anim); anim = null; }
+    };
+    const imposta = clientX => {
+      const r = ba.getBoundingClientRect();
+      sposta(Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100)));
+    };
+    const giu = e => { preso(); attivo = true; imposta((e.touches ? e.touches[0] : e).clientX); };
     const muovi = e => { if (attivo) imposta((e.touches ? e.touches[0] : e).clientX); };
     const su = () => { attivo = false; };
 
@@ -175,22 +186,58 @@
     addEventListener('touchmove', muovi, { passive: true });
     addEventListener('mouseup', su);
     addEventListener('touchend', su);
-    ba.addEventListener('mousemove', e => { if (!('ontouchstart' in window)) imposta(e.clientX); });
+    ba.addEventListener('mousemove', e => {
+      if (('ontouchstart' in window)) return;
+      preso();
+      imposta(e.clientX);
+    });
 
     ba.tabIndex = 0;
     ba.setAttribute('role', 'slider');
     ba.setAttribute('aria-label', 'Confronta prima e dopo');
     ba.setAttribute('aria-valuemin', '0');
     ba.setAttribute('aria-valuemax', '100');
+    ba.setAttribute('aria-valuenow', '50');
+    ba.addEventListener('focus', preso);
     ba.addEventListener('keydown', e => {
       const d = { ArrowLeft: -4, ArrowRight: 4, Home: -100, End: 100 }[e.key];
       if (d === undefined) return;
       e.preventDefault();
+      preso();
       const cur = parseFloat(getComputedStyle(ba).getPropertyValue('--pos')) || 50;
-      const p = Math.max(2, Math.min(98, cur + d));
-      ba.style.setProperty('--pos', p + '%');
-      ba.setAttribute('aria-valuenow', Math.round(p));
+      sposta(Math.max(2, Math.min(98, cur + d)));
     });
+
+    /* Dimostrazione automatica: quando il confronto entra nello schermo il
+       cursore fa una passata sola, così si capisce che è mobile senza
+       leggerlo da nessuna parte. */
+    if (!ba.hasAttribute('data-autohint') || RIDOTTO || !('IntersectionObserver' in window)) return;
+
+    const tappe = [[0, 50], [.30, 76], [.72, 26], [1, 50]];
+    const passata = () => {
+      const durata = 2000, t0 = performance.now();
+      const frame = ora => {
+        if (ba.classList.contains('is-touched')) { anim = null; return; }
+        const k = Math.min(1, (ora - t0) / durata);
+        let i = 1;
+        while (i < tappe.length - 1 && k > tappe[i][0]) i++;
+        const [k0, p0] = tappe[i - 1], [k1, p1] = tappe[i];
+        const f = (k - k0) / (k1 - k0);
+        const e = f < .5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
+        sposta(p0 + (p1 - p0) * e);
+        anim = k < 1 ? requestAnimationFrame(frame) : null;
+      };
+      anim = requestAnimationFrame(frame);
+    };
+
+    const osserva = new IntersectionObserver(voci => {
+      voci.forEach(v => {
+        if (!v.isIntersecting) return;
+        osserva.disconnect();
+        setTimeout(passata, 320);
+      });
+    }, { threshold: .55 });
+    osserva.observe(ba);
   });
 
   /* ---- Accordion ------------------------------------------------------ */
@@ -262,11 +309,11 @@
       let rata;
       if (imp <= 5000) {
         rata = imp / mesi;
-        outNota.textContent = 'Tasso 0 — TAN 0%, importo fino a 5.000 €';
+        outNota.textContent = 'Tasso 0 · TAN 0%, importo fino a 5.000 €';
       } else {
         const i = 0.049 / 12;
         rata = (imp * i) / (1 - Math.pow(1 + i, -mesi));
-        outNota.textContent = 'Tasso agevolato — stima indicativa su TAN 4,9%';
+        outNota.textContent = 'Tasso agevolato · stima indicativa su TAN 4,9%';
       }
       outRata.textContent = euro(Math.round(rata));
     };

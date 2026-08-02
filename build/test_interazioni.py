@@ -39,11 +39,20 @@ with sync_playwright() as p:
     # slider prima/dopo
     ba = pg.locator(".ba").first
     ba.scroll_into_view_if_needed(); pg.wait_for_timeout(700)
+    # la passata automatica deve partire da sola, senza che nessuno tocchi nulla
+    auto = pg.evaluate("getComputedStyle(document.querySelector('.ba')).getPropertyValue('--pos')")
+    check("prima/dopo si muove da solo all'ingresso", auto.strip() not in ("50%", ""), f"(--pos={auto.strip()})")
+    check("nessun invito testuale a trascinare nel prima/dopo",
+          "trascina" not in pg.locator(".ba-case").first.inner_text().lower())
+    check("indicatore ancora attivo prima del contatto",
+          "is-touched" not in (ba.get_attribute("class") or ""))
     box = ba.bounding_box()
     pg.mouse.move(box["x"] + box["width"] * .8, box["y"] + box["height"] / 2)
     pg.wait_for_timeout(250)
     pos = pg.evaluate("getComputedStyle(document.querySelector('.ba')).getPropertyValue('--pos')")
     check("slider prima/dopo risponde", pos.strip() not in ("50%", ""), f"(--pos={pos.strip()})")
+    check("l'indicatore sparisce al primo contatto",
+          "is-touched" in (ba.get_attribute("class") or ""))
     ba.press("ArrowLeft"); pg.wait_for_timeout(150)
     check("slider accessibile da tastiera", ba.get_attribute("aria-valuenow") is not None)
 

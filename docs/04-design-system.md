@@ -168,7 +168,7 @@ Il bottone primario ha un riempimento che sale dal basso (`::after` con `transla
 
 ## 7. Iconografia
 
-**42 icone disegnate per questo progetto** (`build/ui.py`), su griglia 24, tratto 1,6, terminali e giunzioni arrotondate. Nessuna libreria di terze parti: le icone di un brand sanitario devono avere la stessa mano del logo.
+**51 icone disegnate per questo progetto** (`build/ui.py`), su griglia 24, tratto 1,6, terminali e giunzioni arrotondate. Nessuna libreria di terze parti: le icone di un brand sanitario devono avere la stessa mano del logo.
 
 Alcune sono specifiche del dominio e non esistono nelle librerie generiche: `impianto` (vite endossea), `mascherina` (allineatore), `corona`, `calma` (piuma: «mano delicata», la parola che ricorre nelle recensioni), `pronto` (tracciato ECG), `accessibile`, `scan`.
 

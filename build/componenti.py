@@ -9,14 +9,16 @@ from shell import rel, media_slot, wa_link, orari_lista
 
 # ═══════════════════════════════════════════════════════════ PRIMA / DOPO
 CASI = {
+    # La didascalia porta le informazioni che la fotografia non contiene:
+    # cosa è stato fatto, in quanto tempo, quante sedute, quanto è costato.
     "riabilitazione": dict(
-        titolo="Riabilitazione protesica del settore anteriore",
-        nota="Elementi anteriori compromessi e diastema · corone definitive",
+        titolo="Corone in zirconia sugli incisivi superiori",
+        nota="Sei sedute in quattro mesi. Nessuna estrazione: i denti sotto sono i suoi.",
         prima="caso-riabilitazione-prima", dopo="caso-riabilitazione-dopo",
     ),
     "ortodonzia": dict(
-        titolo="Allineamento ortodontico",
-        nota="Affollamento e morso aperto anteriore · fine trattamento",
+        titolo="Affollamento e morso aperto, corretti con l'ortodonzia",
+        nota="Diciotto mesi di trattamento, controlli ogni sei settimane. Nessun dente tolto per fare spazio.",
         prima="caso-ortodonzia-prima", dopo="caso-ortodonzia-dopo",
     ),
 }
@@ -26,7 +28,7 @@ def _slider(caso, depth=0):
     c = CASI[caso]
     r = rel(depth)
     return f'''<figure class="ba-case" data-reveal>
-  <div class="ba" style="--pos:50%">
+  <div class="ba" style="--pos:50%" data-autohint>
     <img src="{r}assets/img/casi/{c['prima']}.webp" alt="Situazione prima del trattamento" loading="lazy" width="900" height="676">
     <img class="ba__after" src="{r}assets/img/casi/{c['dopo']}.webp" alt="Risultato dopo il trattamento" loading="lazy" width="900" height="676">
     <span class="ba__lbl ba__lbl--a">Prima</span>
@@ -46,7 +48,7 @@ def prima_dopo(depth=0, caso=None, titolo=None):
             media_slot("Foto · prima e dopo", "Secondo caso clinico dello stesso trattamento",
                        "Da fotografare con il protocollo standardizzato: stessa focale, flash anulare, retrattori e bilanciamento del bianco fissato. Vedi docs/03-photo-brief.md.",
                        ar="4/3", scena="prima-dopo") + '</div>'
-        tit = titolo or "Un caso reale, prima e dopo il trattamento"
+        tit = titolo or "Quanto ci è voluto, <span class='accent-i'>in questo caso</span>"
     else:
         slot = media_slot("Foto · prima e dopo", "Caso di implantologia a carico immediato",
                           "Serie standard: frontale, laterale destra e sinistra, occlusale. Consenso scritto archiviato.",
@@ -55,7 +57,7 @@ def prima_dopo(depth=0, caso=None, titolo=None):
             "Stessa illuminazione e stessa distanza nelle due sessioni, nessun ritocco oltre il bilanciamento del colore.",
             ar="4/3", scena="faccetta")
         corpo = f'<div class="grid g2">{_slider("riabilitazione", depth)}{_slider("ortodonzia", depth)}{slot}</div>'
-        tit = titolo or "Due casi trattati qui, fotografati <span class='accent-i'>prima e dopo</span>"
+        tit = titolo or "Quanto ci è voluto, e <span class='accent-i'>quanto è costato</span>"
 
     return f'''
 <section class="section">
@@ -63,10 +65,9 @@ def prima_dopo(depth=0, caso=None, titolo=None):
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">4</span>Casi clinici</span>
       <h2 class="mt-4">{tit}</h2>
-      <p class="lead">Trascina il cursore sull'immagine per confrontare la situazione iniziale
-      con il risultato. Pubblichiamo soltanto i casi documentati con protocollo fotografico
-      completo e con il consenso scritto del paziente: per questo ne trovate pochi, e per questo
-      quelli che trovate sono autentici.</p>
+      <p class="lead">Pazienti dello studio, che hanno firmato per pubblicare le loro
+      fotografie. Stessa luce, stessa distanza e stesso obiettivo nelle due sessioni:
+      fra il prima e il dopo cambiano solo i denti.</p>
     </div>
     {corpo}
     <p class="ba-disclaimer">{ico('info')}<span>Casi reali trattati presso l'Ambulatorio Dentistico Dr. Piccardo U. S.r.l.
@@ -106,11 +107,10 @@ def striscia_team(depth=0):
     <div class="between section-head" style="max-width:none;align-items:flex-end" data-reveal>
       <div style="max-width:40rem">
         <span class="eyebrow has-n"><span class="eyebrow__n">5</span>L'équipe</span>
-        <h2 class="mt-4">L'ortodontista, il chirurgo e l'odontotecnico lavorano a <span class="accent-i">dieci metri</span> l'uno dall'altro</h2>
-        <p class="lead">Di solito queste tre figure stanno in tre indirizzi diversi, e il paziente
-        fa da corriere fra loro. Qui condividono lo stesso corridoio: un caso complesso si discute
-        a voce nel giro di cinque minuti e tu ricevi un piano solo, non tre pareri da mettere
-        d'accordo.</p>
+        <h2 class="mt-4">Non dovrai raccontare la tua storia <span class="accent-i">tre volte</span></h2>
+        <p class="lead">Ortodontista, chirurgo e odontotecnico stanno di solito in tre indirizzi
+        diversi, e chi fa la spola in mezzo sei tu. Qui condividono lo stesso corridoio: il tuo
+        caso lo discutono fra loro e tu ricevi un piano solo, già messo d'accordo.</p>
       </div>
       <a class="btn btn--ghost hide-mobile" href="{r}team.html">Conosci il team {ico('freccia')}</a>
     </div>
@@ -201,8 +201,7 @@ def blocco_recensioni(depth=0, limite=9, titolo=None, occhiello="Recensioni", te
         <p class="xs muted mt-2">{S['n_recensioni']} recensioni Google<br>{S['voto_fb']} su oltre 200 valutazioni Facebook</p>
       </div>
       <div>
-        <p class="small muted mb-4">Google analizza il testo delle recensioni e ne estrae da solo
-        gli argomenti ricorrenti. Questi sono i nostri, con il numero di volte in cui compaiono:</p>
+        <p class="small muted mb-4">Gli argomenti che tornano più spesso, contati da Google:</p>
         <div class="rev-themes">{temi}</div>
         <a class="link-arrow mt-6" href="{S['recensioni_url']}" target="_blank" rel="noopener">Leggi tutte le recensioni su Google {ico('freccia')}</a>
       </div>
@@ -222,9 +221,9 @@ def blocco_convenzioni(depth=0):
 <section class="sec--3" id="convenzioni">
   <div class="wrap center mb-6" data-reveal>
     <span class="eyebrow is-bare">Convenzioni attive</span>
-    <h3 class="mt-4">Lo studio è convenzionato con {len(CONVENZIONI)} fondi e casse sanitarie</h3>
-  <p class="lead mt-4" style="max-width:42rem;margin-inline:auto">Se il tuo fondo compare qui sotto,
-  portalo in segreteria: alla pratica pensiamo noi.</p>
+    <h3 class="mt-4">Il tuo fondo sanitario è probabilmente fra questi</h3>
+  <p class="lead mt-4" style="max-width:42rem;margin-inline:auto">Portane gli estremi quando
+  prenoti: alla pratica pensiamo noi.</p>
   </div>
   <div class="marquee" data-reveal><div class="marquee__track">{pills}{pills}</div></div>
 </section>'''
@@ -246,9 +245,9 @@ def mappa(depth=0, compatta=False):
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Dove siamo</span>
-      <h2 class="mt-4">Siamo in centro, a cinque minuti a piedi da <span class="accent-i">Brignole</span></h2>
-      <p class="lead mt-6">{S['via']}, {S['cap']} {S['citta']}. Lo studio occupa il piano terra e
-      si entra direttamente dalla strada, senza scale né ascensori.</p>
+      <h2 class="mt-4">Ci arrivi a piedi da <span class="accent-i">Brignole</span>, o parcheggi dentro</h2>
+      <p class="lead mt-6">{S['via']}, {S['cap']} {S['citta']}. Lo studio è al piano terra e si
+      entra direttamente dalla strada, senza scale né ascensori.</p>
       {mezzi}
       <div class="mt-8 row gap-3">
         <a class="btn btn--ghost" href="{S['gmaps']}" target="_blank" rel="noopener">{ico('pin')} Apri in Google Maps</a>
@@ -271,11 +270,10 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
 <div class="grid g2" style="align-items:start">
   <div data-reveal="left">
     <span class="eyebrow">Gratuito</span>
-    <h2 class="mt-4">Hai già una <span class="accent-i">panoramica</span>? Mandacela e la guardiamo</h2>
-    <p class="lead mt-6">È un servizio che offriamo da anni: allega la radiografia al modulo qui
-    accanto e il Dott. Piccardo la esamina, poi ti risponde con una prima lettura della situazione
-    e un ordine di grandezza della spesa. Serve a farti un'idea concreta prima ancora di fissare un
-    appuntamento, e non comporta costi né impegni.</p>
+    <h2 class="mt-4">Hai già una <span class="accent-i">panoramica</span>? Te la leggiamo noi</h2>
+    <p class="lead mt-6">Il Dott. Piccardo la guarda e ti risponde con una prima lettura della
+    situazione e un ordine di grandezza della spesa. Lo facciamo da anni, è gratuito e non ti
+    vincola a prenotare: serve a farti un'idea prima di muoverti da casa.</p>
     <ul class="ticks mt-8">
       <li>{ico('check')}<span>Ti rispondiamo entro <b>due giorni lavorativi</b>, via email o al telefono che ci lasci</span></li>
       <li>{ico('check')}<span>Il servizio è gratuito e non ti vincola a prenotare</span></li>

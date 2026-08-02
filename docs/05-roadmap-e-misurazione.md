@@ -129,7 +129,7 @@ docs/          i cinque documenti di progetto: è la parte che si presenta al cl
 build/         sorgenti Python del generatore (contenuti, componenti, icone, diagrammi)
   make.py            genera il sito         → python3 build/make.py
   check.py           controllo qualità      → python3 build/check.py
-  test_interazioni.py  67 test funzionali   → python3 build/test_interazioni.py
+  test_interazioni.py  71 test funzionali   → python3 build/test_interazioni.py
   prep_images.py     lavorazione delle foto ereditate
   icone.py           rasterizza favicon e immagine di condivisione
 site/          il sito generato: HTML statico puro, apribile senza build
