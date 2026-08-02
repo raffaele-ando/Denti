@@ -1343,3 +1343,18 @@ body.hero-scuro .header:not(.is-stuck) .burger span::after { background: #FFFDF9
 
 /* L'icona in filigrana della scheda di scatto respira un po' di più */
 .shotcard__ghost { width: 46%; max-width: 190px; }
+
+/* ===== Lacune dichiarate =============================================== */
+/* Sul sito in proposta ci sono dati che solo lo studio può fornire. Vanno
+   mostrati come lacune riconoscibili, non confusi con il testo della pagina. */
+.da-completare {
+  display: flex; gap: .7rem; align-items: flex-start;
+  margin: 1.25rem 0;
+  padding: .9rem 1.1rem;
+  border: 1px dashed var(--accent-600);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--accent-500) 7%, transparent);
+  font-size: var(--fs-sm); color: var(--ink);
+}
+.da-completare svg { width: 17px; height: 17px; flex: none; margin-top: 2px; color: var(--accent-700); }
+.da-completare b { color: var(--accent-700); }

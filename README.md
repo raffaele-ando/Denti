@@ -68,7 +68,8 @@ python3 build/check_contrasto.py   # contrasto WCAG misurato sul rendering reale
 python3 build/check_copy.py        # controllo editoriale (docs/06)
 python3 build/test_interazioni.py  # 71 test funzionali (richiede Playwright)
 python3 build/estrai_copy.py       # estratto dei blocchi redazionali
-python3 build/estrai_tutto.py      # estratto integrale: meta, alt, etichette, menu, piè di pagina
+python3 build/estrai_tutto.py      # estratto integrale pagina per pagina
+python3 build/inventario.py        # le 511 stringhe uniche del sito, da leggere tutte
 ```
 
 I quattro controlli vanno eseguiti tutti prima di ogni consegna. `check_contrasto.py` e
@@ -119,7 +120,8 @@ build/
   check_contrasto.py     contrasto WCAG misurato sul rendering
   check_copy.py          controllo editoriale
   estrai_copy.py         estratto dei blocchi redazionali
-  estrai_tutto.py        estratto integrale di ogni stringa leggibile
+  estrai_tutto.py        estratto integrale, pagina per pagina
+  inventario.py          le stringhe uniche del sito, deduplicate
   test_interazioni.py    test funzionali
   prep_images.py         lavorazione delle foto ereditate dal vecchio sito
   icone.py               favicon e immagine di condivisione

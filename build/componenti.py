@@ -50,7 +50,7 @@ def prima_dopo(depth=0, caso=None, titolo=None):
     if caso:
         corpo = f'<div class="grid g2">{_slider(caso, depth)}' + \
             media_slot("Foto · prima e dopo", "Secondo caso clinico dello stesso trattamento",
-                       "Da fotografare con il protocollo standardizzato: stessa focale, flash anulare, retrattori e bilanciamento del bianco fissato. Vedi docs/03-photo-brief.md.",
+                       "Protocollo standardizzato: stessa focale, flash anulare, retrattori e bilanciamento del bianco fissato.",
                        ar="4/3", scena="prima-dopo") + '</div>'
         tit = titolo or "Quanto ci è voluto, <span class='accent-i'>in questo caso</span>"
     else:

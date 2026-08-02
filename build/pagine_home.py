@@ -194,7 +194,7 @@ def render():
   <div class="wrap split">
     <div data-reveal="left">
       {media_slot("Video · 60″", "«Non ho sentito niente»: testimonianza di un paziente montata con il Dott. Piccardo che spiega la sedazione",
-                  "Il singolo contenuto a più alto impatto dell'intero sito. Priorità di produzione 1. Vedi docs/03-photo-brief.md → V1.",
+                  "Il paziente racconta la sua seduta, il Dott. Piccardo spiega la sedazione. Volto in campo con liberatoria firmata, audio in presa diretta.",
                   ar="4/3", dark=True, scena="video")}
     </div>
     <div data-reveal="right">

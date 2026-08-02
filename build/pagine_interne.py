@@ -279,18 +279,18 @@ STUDIO_SEZIONI = [
          Le radiografie e la TAC si fanno in questa stanza, e la diagnosi si chiude nella stessa seduta.</p>""",
          dati=[("TAC 3D", "Cone Beam, ossa facciali"), ("−80%", "dose radiante"), ("Scanner", "niente paste da impronta")],
          media=("Foto", "TAC Cone Beam e scanner intraorale, dettaglio ravvicinato",
-                "Ravvicinato e tagliato, non «foto del macchinario». Vedi photo brief #5.", "4/3", "radiologia")),
+                "Inquadratura stretta sul dettaglio, macchinario tagliato dai bordi.", "4/3", "radiologia")),
     dict(id="sterilizzazione", occhiello="Sicurezza biologica", titolo="Ogni strumento arriva da te <span class='accent-i'>sigillato e datato</span>",
          testo="""<p>Sala di sterilizzazione separata, con pareti in smalto lavabile e disinfettabile
          certificate <b>HACCP UNI 11021:2002</b>. Due autoclavi di classe B, protocolli ISO 9001, e ogni kit
          imbustato ed etichettato con tracciabilità individuale.</p>
          <p>A ogni cambio paziente si sostituiscono le pellicole protettive su maniglie, lampada e tastiere,
-         si disinfettano le superfici e le componenti idriche del riunito. Il monouso: tovaglioli, aspirasaliva,
-         guanti, puntali: esce dallo studio con il paziente.</p>""",
+         si disinfettano le superfici e le componenti idriche del riunito. Il monouso, cioè tovaglioli, aspirasaliva,
+         guanti e puntali, viene smaltito a fine seduta.</p>""",
          dati=[("2", "autoclavi classe B"), ("135 °C", "2 atm · 15 min"), ("ISO 9001", "tracciabilità")],
          diagramma="sterilizzazione",
          media=("Foto", "Mani guantate che imbustano lo strumentario",
-                "Dettaglio, non panoramica della stanza. Vedi photo brief #6.", "4/3", "sterilizzazione")),
+                "Dettaglio delle mani e della busta, non panoramica della stanza.", "4/3", "sterilizzazione")),
     dict(id="laboratorio", occhiello="Protesi", titolo="I ritocchi alla protesi <span class='accent-i'>si fanno mentre aspetti</span>",
          testo="""<p>Laboratorio odontotecnico interno <b>iscritto al Ministero della Salute</b>, dove si realizzano
          protesi mobili, riparazioni immediate e tutte le protesi fisse in zirconia o composito con tecnologia CAD-CAM.</p>
@@ -298,7 +298,7 @@ STUDIO_SEZIONI = [
          e una protesi rotta si ripara <b>in giornata</b>, senza spedizioni e senza attese.</p>""",
          dati=[("CAD-CAM", "zirconia e composito"), ("Stesso giorno", "riparazioni"), ("Min. Salute", "lab. iscritto")],
          media=("Foto", "Mani dell'odontotecnico su una corona in zirconia",
-                "È un differenziante forte e merita uno scatto vero. Vedi photo brief #7.", "4/3", "laboratorio")),
+                "Mani in azione sul manufatto, fresa o pennello in campo. Luce laterale.", "4/3", "laboratorio")),
     dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Attrezzati <span class='accent-i'>come un ambulatorio di emergenza</span>",
          testo="""<p>Defibrillatore semiautomatico, ossigeno, pallone ambu e cannule orofaringee, pulsossimetro,
          misuratori di pressione da braccio e da polso, misuratore digitale della glicemia e dell'INR.</p>
@@ -324,7 +324,7 @@ STUDIO_SEZIONI = [
          <b>servizio a domicilio</b>, con attrezzatura portatile, anche presso case di cura.</p>""",
          dati=[("300 mq", "al piano terra"), ("236/89", "norma sulle barriere"), ("A domicilio", "su richiesta")],
          media=("Foto", "Ingresso dalla strada e sala d'attesa riordinata",
-                "Riordinare prima dello scatto. Grandangolo moderato, verticali corrette. Vedi photo brief #2 e #3.", "3/2", "ingresso")),
+                "Riordinare prima dello scatto. Grandangolo moderato, verticali corrette.", "3/2", "ingresso")),
     dict(id="parcheggio", occhiello="Parcheggio", titolo="Parcheggi nel cortile, <span class='accent-i'>gratis</span>",
          testo="""<p>Nel cortile interno attiguo allo studio sono disponibili <b>tre posti auto riservati ai pazienti,
          gratuiti e prenotabili</b> chiamando la segreteria quando fissi l'appuntamento.</p>
@@ -332,7 +332,7 @@ STUDIO_SEZIONI = [
          e una ventina di linee bus con fermata in Via XX Settembre o Via Macaggi.</p>""",
          dati=[("3", "posti auto gratuiti"), ("5 min", "da Brignole"), ("20+", "linee bus")],
          media=("Foto", "Posto auto interno con auto parcheggiata, di giorno",
-                "Risolve un'obiezione reale. Luce diurna, niente notturne mosse. Vedi photo brief #10.", "3/2", "parcheggio")),
+                "Luce diurna, auto in sosta, cancello visibile. Niente scatti notturni.", "3/2", "parcheggio")),
 ]
 
 
@@ -398,7 +398,7 @@ def studio():
                     title="Tour virtuale della sala d'attesa" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="mt-8">{media_slot("Video · 45″", "Tour dello studio in movimento continuo, senza voce",
-                    "Sostituirà il tour statico come apertura di questa pagina. Vedi docs/03-photo-brief.md, scheda V2.", ar="16/9", scena="video")}</div>
+                    "Ripresa continua dall'ingresso alla poltrona, senza stacchi e senza voce fuori campo.", ar="16/9", scena="video")}</div>
         </section>
       </div>
     </div>
@@ -471,7 +471,7 @@ def team():
     </div>
     <div data-reveal="right">
       {media_slot("Foto", "Ritratto d'équipe al completo, in studio, divisa uniforme, bianco e nero",
-                  "Sostituisce la griglia esistente. Uniformare le divise: oggi tre membri hanno la polo scura. Vedi photo brief #11 e #12.",
+                  "Divise uniformi per tutta l'équipe. Fondo chiaro, luce morbida, bianco e nero.",
                   ar="4/5", dark=True, scena="equipe")}
     </div>
   </div>
@@ -485,7 +485,7 @@ def team():
       <p class="lead">Un minuto a testa, sulla domanda che si sentono fare più spesso.</p>
     </div>
     <div class="grid g3" data-stagger="80">
-      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. Piccardo", "Formato verticale, riusabile sui social. Vedi la scheda V4 del photo brief.", ar="4/3", scena="video")}
+      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. Piccardo", "Formato verticale, primo piano, fondo dello studio riconoscibile.", ar="4/3", scena="video")}
       {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott.ssa Gibelli", "Una clip per ciascun clinico dell'équipe.", ar="4/3", scena="video")}
       {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. De Giovanni", "Stessa inquadratura e stesso fondo per tutte e otto.", ar="4/3", scena="video")}
     </div>
@@ -523,7 +523,7 @@ def prezzi():
     conv = "".join(f'<span class="pill">{c}</span>' for c in CONVENZIONI)
 
     out = head(d, "Prezzi e tariffario: studio dentistico Genova | Piccardo",
-               "Il tariffario completo del nostro studio: 37 prestazioni con il prezzo pubblicato. Prima visita 110 €, impianto 770 €, igiene 100 €. Finanziamento a tasso 0 fino a 5.000 €.",
+               "Il tariffario completo dello studio: 36 prestazioni con il prezzo pubblicato. Prima visita 110 €, impianto 770 €, igiene 100 €. Finanziamento a tasso 0 fino a 5.000 €.",
                "prezzi.html")
     out += header(d, "prezzi")
     out += f'''<main id="main">
@@ -648,8 +648,8 @@ def prezzi():
 # ═══════════════════════════════════════════════════════════ RECENSIONI
 def recensioni():
     d = 0
-    out = head(d, "Recensioni: 5,0 su 310 valutazioni Google | Studio Piccardo",
-               "Le recensioni dei pazienti dello studio dentistico Piccardo di Genova: 5,0 su 310 recensioni Google e 4,9 su oltre 200 valutazioni Facebook.",
+    out = head(d, "Recensioni dei pazienti: 310 su Google | Studio Piccardo",
+               "Le recensioni dei pazienti dello studio dentistico Piccardo di Genova: 310 su Google e oltre 200 su Facebook, riportate parola per parola.",
                "recensioni.html")
     out += header(d, "recensioni")
     out += f'''<main id="main">
@@ -767,7 +767,8 @@ def note_legali():
     Telefono {S['tel_display']}.<br>
     {S['autorizzazione']}.<br>
     Direttore Sanitario: {S['dir_san']}.</p>
-    <p><b>Partita IVA, numero REA, PEC e indirizzo email:</b> da inserire prima della pubblicazione.</p>
+    <p class="da-completare">{ico('info')}<span><b>Da completare:</b> partita IVA, numero REA,
+    indirizzo PEC e indirizzo email. Vanno inseriti prima della pubblicazione.</span></p>
 
     <h3 id="privacy">Informativa privacy</h3>
     <p>I dati personali conferiti tramite i moduli presenti su questo sito sono trattati dal Titolare
@@ -787,10 +788,11 @@ def note_legali():
     al Garante per la protezione dei dati personali.</p>
 
     <h3 id="cookie">Cookie</h3>
-    <p>Questo sito non utilizza cookie di profilazione propri. L'utilizzo di cookie tecnici e di
-    strumenti di misurazione, nonché l'eventuale presenza di pixel di terze parti, va dichiarato
-    qui e gestito con un banner di consenso conforme alle Linee guida del Garante del 10 giugno 2021
-    <b>prima della messa online</b>.</p>
+    <p>Questo sito non utilizza cookie di profilazione propri.</p>
+    <p class="da-completare">{ico('info')}<span><b>Da completare:</b> l'elenco dei cookie tecnici e
+    degli strumenti di misurazione effettivamente attivi, insieme al banner di consenso conforme alle
+    Linee guida del Garante del 10 giugno 2021. Il vecchio sito usava un pixel Meta senza raccolta
+    del consenso.</span></p>
     <p>Le mappe e i tour virtuali incorporati sono forniti da Google Maps: la loro visualizzazione
     comporta un collegamento ai server di Google. Si consiglia di caricarli previo consenso.</p>
 
@@ -798,9 +800,11 @@ def note_legali():
     <p>Ai sensi dell'art. 10, comma 4, della <b>Legge 24/2017</b> (Legge Gelli-Bianco), la struttura sanitaria
     è tenuta a pubblicare sul proprio sito gli estremi della polizza assicurativa per la responsabilità
     civile verso terzi e verso i prestatori d'opera, con l'indicazione della compagnia, della classe
-    di rischio e dei massimali. <b>Dati da inserire.</b></p>
-    <p>La medesima norma richiede la pubblicazione dei dati relativi ai risarcimenti erogati nell'ultimo
-    quinquennio. <b>Dati da inserire.</b></p>
+    di rischio e dei massimali. La medesima norma richiede la pubblicazione dei dati relativi ai
+    risarcimenti erogati nell'ultimo quinquennio.</p>
+    <p class="da-completare">{ico('info')}<span><b>Da completare:</b> compagnia assicurativa, classe
+    di rischio, massimali e dati sui risarcimenti dell'ultimo quinquennio. È un obbligo di legge in
+    capo alla struttura.</span></p>
 
     <h3 id="informazione">Natura delle informazioni pubblicate</h3>
     <p>I contenuti di questo sito hanno finalità di informazione sanitaria ai sensi dell'art. 9 della
