@@ -257,7 +257,7 @@ def hub_trattamenti():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Trattamenti", None)])}
     <span class="eyebrow" data-reveal>Trattamenti</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Basta sapere <span class="accent-i">dove ti fa male</span>, al nome ci pensiamo noi</h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Per cominciare basta sapere <span class="accent-i">dove ti fa male</span></h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Quanto dura, chi la esegue e quanto costa
     stanno scritti dentro ogni cura. E in diversi casi la risposta giusta è una cura più
     semplice di quella che immagini, oppure nessuna.</p>
@@ -630,7 +630,7 @@ def prezzi():
     <div class="section-head is-center" data-reveal>
       <span class="eyebrow is-bare">Convenzioni</span>
       <h2 class="mt-4">Se hai un fondo sanitario, <span class="accent-i">probabilmente è qui</span></h2>
-      <p class="lead">Portane gli estremi quando prenoti: alla pratica e ai documenti pensiamo noi,
+      <p class="lead">Portane gli estremi quando prenoti: apriamo noi la pratica e prepariamo i documenti,
       e in molti casi la quota coperta viene già scalata dal preventivo.</p>
     </div>
     <div class="row gap-2 center-x" style="justify-content:center;max-width:56rem;margin-inline:auto" data-reveal>{conv}</div>

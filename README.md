@@ -32,6 +32,7 @@ clinica, sedazione endovenosa) · **sai quanto spendi** (36 prezzi online, tasso
 | [`docs/04-design-system.md`](docs/04-design-system.md) | Marchio, colore, tipografia, movimento, 51 icone, 10 diagrammi, componenti, accessibilità |
 | [`docs/05-roadmap-e-misurazione.md`](docs/05-roadmap-e-misurazione.md) | Dati da confermare, cosa collegare prima di pubblicare, piano di misurazione, priorità successive |
 | [`docs/06-metodo-editoriale.md`](docs/06-metodo-editoriale.md) | Chi legge e in che stato, gli otto difetti di scrittura da evitare, la griglia di valutazione, le decisioni prese sui titoli con le alternative scartate |
+| [`docs/07-tassonomia-dei-difetti.md`](docs/07-tassonomia-dei-difetti.md) | Le frasi contestate in revisione classificate una per una: nome accademico del difetto, meccanismo, fonti, e la procedura per individuarlo prima che finisca in pagina |
 
 ---
 
@@ -104,7 +105,7 @@ poi `make.py`. Il dato si aggiorna in tutte le pagine in cui compare.
 ## Struttura
 
 ```
-docs/                    i sei documenti di progetto
+docs/                    i sette documenti di progetto
 build/
   content.py             dati d'impresa, tariffario, recensioni, team
   trattamenti.py         contenuti delle 10 pagine trattamento

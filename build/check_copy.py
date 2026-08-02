@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """Controllo editoriale automatico.
 
-Cerca nel sito generato le forme che corrispondono ai cinque difetti descritti
-in docs/06-metodo-editoriale.md. Segnala sospetti, non emette sentenze: la
+Cerca nel sito generato le forme che corrispondono ai difetti descritti in
+docs/06-metodo-editoriale.md e analizzati in docs/07-tassonomia-dei-difetti.md. Segnala sospetti, non emette sentenze: la
 decisione resta di chi scrive, ma nulla passa senza essere stato guardato.
 
     python3 build/check_copy.py
@@ -56,6 +56,28 @@ REGOLE = [
     # titoli, che sono la parte che si legge davvero.
     ("F6 titolo in negativo", re.compile(
         r"\b(non|niente|nessun\w*|mai|senza)\b", re.I)),
+    # F9. dislocazione con ripresa pronominale: è un tratto del parlato
+    # (italiano dell'uso medio, Sabatini 1985), fuori registro in un titolo
+    # scritto di una struttura sanitaria. Vedi docs/07, classe C10.
+    # Il marcatore affidabile non è il clitico da solo, che in italiano è
+    # normalissimo, ma il clitico con il soggetto pronominale posposto
+    # enfatico: «te la leggiamo noi», «alla pratica pensiamo noi».
+    ("F9 dislocazione parlata", re.compile(
+        r"\b(te|ce|glie)\s?(la|lo|li|le)\s+\w+(iamo|ate|ano)\s+noi\b|"
+        r"\b(ci\s+)?(pensiamo|facciamo|diciamo|vediamo|scriviamo|troviamo)\s+noi\b", re.I)),
+    # F10. autoelogio: enfatizzatori e parole che ogni concorrente può
+    # scrivere a costo zero. Vedi docs/07, classe C1.
+    ("F10 autoelogio", re.compile(
+        r"\b(verificabil\w+|garantit\w+|all'avanguardia|professionalità|eccellenza|"
+        r"leader|il migliore|la migliore|di altissimo livello|unico nel suo genere|"
+        r"assolutamente)\b", re.I)),
+    # F11. comparazione implicita con un concorrente non nominato. Oltre al
+    # trasferimento spontaneo di tratti, per una struttura sanitaria italiana
+    # c'è un profilo normativo. Vedi docs/07, classe C11.
+    ("F11 frecciata al concorrente", re.compile(
+        r"\b(invece di (scoprir|sapere|dover)|piuttosto che (scoprir|dover|andare)|"
+        r"a differenza di (chi|quelli|altri)|molti (altri )?studi|altri studi|"
+        r"come fanno (in )?(molti|altri)|troppo onerosi)\b", re.I)),
 ]
 
 # L'unica negazione ammessa in un titolo. «Non ho sentito niente» è la frase
@@ -76,6 +98,10 @@ for f in sorted(ROOT.rglob("*.html")):
         continue
     s = f.read_text(encoding="utf-8")
     corpo = s[s.index("<main"):] if "<main" in s else s
+    # Le recensioni sono citazioni testuali e il testo legale è vincolato:
+    # su nessuno dei due si può intervenire, quindi non vanno giudicati.
+    corpo = re.sub(r"<blockquote.*?</blockquote>", " ", corpo, flags=re.S)
+    corpo = re.sub(r'<p class="ba-disclaimer".*?</p>', " ", corpo, flags=re.S)
     for tipo, pat in BLOCCHI:
         for m in re.findall(pat, corpo, re.S):
             t = testo(m)
@@ -107,7 +133,8 @@ for f in sorted(ROOT.rglob("*.html")):
         # riquadro accetta un trascinamento.
         if "Trascina qui il file" in t:
             t = t.replace("Trascina qui il file", "")
-        for nome in ("F2 istruzioni", "F4 formula vietata"):
+        for nome in ("F2 istruzioni", "F4 formula vietata", "F9 dislocazione parlata",
+                     "F10 autoelogio", "F11 frecciata al concorrente"):
             rx = dict(REGOLE)[nome]
             hit = rx.search(t)
             if hit and not any(p[0] == rp and p[3] == hit.group(0) for p in problemi):

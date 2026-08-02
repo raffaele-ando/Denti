@@ -478,7 +478,7 @@ dict(
     meta_desc="Chirurgia orale a Genova: estrazione denti del giudizio inclusi, chirurgia parodontale, innesti di osso. Con sedazione cosciente. Tariffario pubblico.",
     eyebrow="Chirurgia orale",
     h1="Denti del giudizio inclusi ed estrazioni difficili, pianificate sulla <span class='accent-i'>TAC</span> prima di iniziare",
-    lead="Ottavi inclusi nell'osso, estrazioni complesse, chirurgia parodontale e innesti ossei sono interventi che molti studi preferiscono inviare altrove. Qui vengono eseguiti internamente da un chirurgo orale dedicato, con la TAC tridimensionale che mostra il decorso del nervo prima dell'intervento e la sedazione cosciente disponibile su richiesta.",
+    lead="Ottavi inclusi nell'osso, estrazioni complesse, chirurgia parodontale e innesti ossei vengono eseguiti qui, da un chirurgo orale dedicato, con la TAC tridimensionale che mostra il decorso del nervo prima dell'intervento e la sedazione cosciente disponibile su richiesta.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Équipe in sala operatoria, dettaglio mani e strumenti", scena="poltrona",
                     nota="Rifare in alta risoluzione lo scatto esistente `al-lavoro-3`. Vedi photo brief."),
     keyfacts=[

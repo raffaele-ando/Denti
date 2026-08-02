@@ -3,6 +3,10 @@
 Documento di lavoro, non di vendita. Serve a chi scriverà la prossima riga di questo sito
 e a me, per non ripetere gli errori che sono stati contestati in revisione.
 
+Qui ci sono le regole e le decisioni. L'analisi dei difetti, con i nomi tecnici che linguisti,
+retori, psicologi cognitivi e progettisti di interfaccia usano per identificarli, sta in
+[`07-tassonomia-dei-difetti.md`](07-tassonomia-dei-difetti.md).
+
 ---
 
 ## 1. Chi legge, e in che stato
