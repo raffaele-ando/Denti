@@ -327,7 +327,7 @@ STUDIO_SEZIONI = [
                 "Riordinare prima dello scatto. Grandangolo moderato, verticali corrette. Vedi photo brief #2 e #3.", "3/2", "ingresso")),
     dict(id="parcheggio", occhiello="Parcheggio", titolo="Parcheggi nel cortile, <span class='accent-i'>gratis</span>",
          testo="""<p>Nel cortile interno attiguo allo studio sono disponibili <b>tre posti auto riservati ai pazienti,
-         gratuiti e prenotabili</b> chiamando la segreteria. A Genova centro vale più di quanto sembri.</p>
+         gratuiti e prenotabili</b> chiamando la segreteria quando fissi l'appuntamento.</p>
          <p>In alternativa: Piazza della Vittoria a cinque minuti a piedi, Stazione Brignole a cinque minuti,
          e una ventina di linee bus con fermata in Via XX Settembre o Via Macaggi.</p>""",
          dati=[("3", "posti auto gratuiti"), ("5 min", "da Brignole"), ("20+", "linee bus")],
@@ -392,7 +392,7 @@ def studio():
           <h2 class="mt-4">Guarda dove ti siederai, <span class="accent-i">prima di venire</span></h2>
           <p class="lead mt-6" style="max-width:40rem">Sala d'attesa, reception, zone operative,
           sala raggi, sterilizzazione e laboratorio sono tutti su Google Street View. Se l'ansia
-          è il tuo problema, arrivare in un posto che hai già visto ne toglie una buona metà.</p>
+          è il tuo problema, vedere le stanze prima di entrarci cambia molto.</p>
           <div class="map-embed mt-8" data-reveal>
             <iframe src="https://www.google.com/maps/embed?pb=!4v1523268454645!6m8!1m7!1sCAoSLEFGMVFpcFBqTUlxaDktbERtaUItU0lQUGx6SktwZHRzV2haN2ZSb2FKVjdk!2m2!1d44.40396939!2d8.9403753!3f218.3372179200444!4f-3.67608424969697!5f0.7820865974627469"
                     title="Tour virtuale della sala d'attesa" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -438,9 +438,9 @@ def team():
     <span class="eyebrow" data-reveal>L'équipe</span>
     <h1 class="mt-4" data-reveal style="--d:60ms">Chi ti visita la prima volta è chi ti <span class="accent-i">seguirà fino alla fine</span></h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Otto clinici specializzati in discipline
-    diverse, più la segreteria e le assistenti alla poltrona. Nessuno passa il tuo caso a un
-    collega di un'altra sede: quando servono più competenze si mettono d'accordo fra loro, e tu
-    continui a parlare con la stessa persona.</p>
+    diverse, più la segreteria e le assistenti alla poltrona. Il tuo caso resta dentro lo studio:
+    quando servono più competenze si mettono d'accordo fra loro, e tu continui a parlare con la
+    stessa persona.</p>
   </div>
 </section>
 
@@ -572,7 +572,7 @@ def prezzi():
       <div class="calc__grid">
         <div>
           <span class="eyebrow is-bare" style="color:var(--brand-200)">Calcola la rata</span>
-          <h2 class="mt-4" style="color:#FFFDF9">Quanto ti verrebbe <span class="accent-i">al mese</span></h2>
+          <h2 class="mt-4" style="color:#FFFDF9">Quanto pagheresti <span class="accent-i">ogni mese</span></h2>
           <div class="mt-8">
             <label for="calc-importo">Importo del piano di cura</label>
             <div class="calc__amount" id="calc-importo-val">3.500 €</div>
@@ -608,7 +608,7 @@ def prezzi():
     <div class="section-head" data-reveal>
       <span class="eyebrow">Tariffario</span>
       <h2 class="mt-4">Ogni prestazione, con il <span class="accent-i">suo prezzo</span></h2>
-      <p class="lead">Quello che non trovi in elenco esiste comunque: chiedilo in segreteria.</p>
+      <p class="lead">Per le prestazioni non in elenco, chiedi in segreteria.</p>
     </div>
     <div class="tariff-toolbar" data-reveal>
       <div class="tariff-search">{ico('cerca')}
@@ -686,8 +686,7 @@ def recensioni():
     </div>
   </div>
 </section>'''
-    out += cta_finale(d, "La prossima potrebbe essere la tua",
-                      "Si comincia con la prima visita: 110 euro, con esame completo, diagnosi e piano di cura consegnato per iscritto.")
+    out += cta_finale(d)
     out += '</main>' + footer(d)
     return out
 
@@ -705,7 +704,7 @@ def contatti():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Contatti", None)])}
     <span class="eyebrow" data-reveal>Contatti</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Ci trovi dal lunedì al sabato, <span class="accent-i">fino alle otto e mezza</span></h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Ci trovi dal lunedì al sabato, <span class="accent-i">fino alle 20:30</span></h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Al telefono trovi Carlotta. Su WhatsApp
     puoi scrivere anche di sera e ti richiamiamo alla prima apertura. Dal calendario online
     prenoti da solo, a qualunque ora.</p>
@@ -828,7 +827,7 @@ def pagina404():
     <div class="stat-n" style="font-size:6rem">404</div>
     <h1 class="mt-6">Questa pagina <span class="accent-i">si è spostata</span>.</h1>
     <p class="lead mt-6">Quello che cercavi si è spostato altrove. Riparti da qui, oppure
-    chiamaci e in trenta secondi ti diciamo noi dov'è finito.</p>
+    chiamaci e ti diciamo dov'è finito.</p>
     <div class="hero__cta" style="justify-content:center">
       <a class="btn btn--lg" href="index.html">Torna alla home</a>
       <a class="btn btn--lg btn--ghost" href="trattamenti.html">Tutti i trattamenti</a>

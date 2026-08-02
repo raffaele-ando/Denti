@@ -199,7 +199,7 @@ TEAM = [
         slug="uberto-piccardo", nome="Dott. Uberto Piccardo",
         ruolo="Direttore Sanitario · Chirurgo orale, implantologo, protesista, sedazionista",
         albo="Odontoiatra dal 1997",
-        sintesi="Fondatore dello studio. Sei master universitari di II livello, oltre 4.000 impianti osteointegrati e la sedazione cosciente come disciplina, non come cortesia.",
+        sintesi="Fondatore dello studio. Sei master universitari di II livello, oltre 4.000 impianti osteointegrati e la sedazione cosciente praticata con una formazione universitaria dedicata.",
         cv=[
             ("1992", "Diploma di <b>Odontotecnico</b>, Istituto P. Gaslini: 60/60"),
             ("1997", "Laurea in <b>Odontoiatria e Protesi Dentaria</b>, Università di Genova: 108/110"),
@@ -268,7 +268,7 @@ TEAM = [
     dict(
         slug="federico-parodi", nome="Dott. Federico Parodi Baiardi",
         ruolo="Conservativa, endodonzia e protesi",
-        albo="Odontoiatra", sintesi="Si occupa di ciò che permette di non arrivare mai all'estrazione: otturazioni, devitalizzazioni e riabilitazioni protesiche.",
+        albo="Odontoiatra", sintesi="Si occupa di quello che serve per tenere i denti: otturazioni, devitalizzazioni e riabilitazioni protesiche.",
         cv=[], pubblicazioni=[], societa=[],
         tratta=["cure-conservative", "protesi-e-corone"],
     ),

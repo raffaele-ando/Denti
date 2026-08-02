@@ -227,7 +227,7 @@ def blocco_convenzioni(depth=0):
     <span class="eyebrow is-bare">Convenzioni attive</span>
     <h3 class="mt-4">Il tuo fondo sanitario è probabilmente fra questi</h3>
   <p class="lead mt-4" style="max-width:42rem;margin-inline:auto">Portane gli estremi quando
-  prenoti: alla pratica pensiamo noi.</p>
+  prenoti: apriamo noi la pratica.</p>
   </div>
   <div class="marquee" data-reveal><div class="marquee__track">{pills}{pills}</div></div>
 </section>'''
@@ -274,10 +274,10 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
 <div class="grid g2" style="align-items:start">
   <div data-reveal="left">
     <span class="eyebrow">Gratuito</span>
-    <h2 class="mt-4">Hai già una <span class="accent-i">panoramica</span>? Te la leggiamo noi</h2>
+    <h2 class="mt-4">Hai già una <span class="accent-i">panoramica</span>? Possiamo leggerla adesso</h2>
     <p class="lead mt-6">Il Dott. Piccardo la guarda e ti risponde con una prima lettura della
-    situazione e un ordine di grandezza della spesa. Lo facciamo da anni, è gratuito e non ti
-    vincola a prenotare: serve a farti un'idea prima di muoverti da casa.</p>
+    situazione e un ordine di grandezza della spesa. Il servizio è gratuito e dopo resti libero
+    di decidere: serve a farti un'idea prima di venire.</p>
     <ul class="ticks mt-8">
       <li>{ico('check')}<span>Ti rispondiamo entro <b>due giorni lavorativi</b>, via email o al telefono che ci lasci</span></li>
       <li>{ico('check')}<span>Il servizio è gratuito, e dopo resti libero di decidere</span></li>

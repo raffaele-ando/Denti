@@ -187,8 +187,8 @@ def _mobile_bar():
 
 
 # ═════════════════════════════════════════════════════════════════ FOOTER
-def cta_finale(depth, titolo="Il primo passo costa 110 euro e finisce con un foglio in mano",
-               testo="Dentro ci sono l'esame completo della bocca, le radiografie se servono, la diagnosi e il piano di cura con i costi già scritti. Esci sapendo cosa ti aspetta e quanto ti aspetta."):
+def cta_finale(depth, titolo="La prima visita costa 110 euro",
+               testo="Comprende l'esame completo della bocca, le radiografie se servono, la diagnosi e il piano di cura scritto con tutti i costi."):
     return f'''<section class="section">
 <div class="wrap">
   <div class="cta-final" data-reveal>

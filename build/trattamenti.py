@@ -18,7 +18,7 @@ dict(
     meta_title="Paura del dentista a Genova: sedazione cosciente | Piccardo",
     meta_desc="Odontofobia? A Genova trattiamo la paura come una disciplina clinica: sedazione cosciente inalatoria ed endovenosa, ipnosi clinica. Master universitario in sedazione.",
     eyebrow="Odontofobia",
-    h1="La paura del dentista ha una risposta clinica, e qui la usiamo <span class='accent-i'>ogni giorno</span>",
+    h1="La paura del dentista si tratta con la <span class='accent-i'>sedazione cosciente</span>",
     lead="Sedazione cosciente inalatoria, sedazione endovenosa e comunicazione ipnotica sono tre tecniche distinte, che si scelgono in base a quanto è forte l'ansia e a quanto durerà l'intervento. Il Dott. Piccardo le pratica dopo un master universitario di secondo livello in sedazione ed emergenze conseguito all'Università di Padova, dove ha poi lavorato come sedazionista nella clinica odontoiatrica.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Maschera per sedazione cosciente, still life", scena="maschera",
                     nota="Deve risultare rassicurante, non medicale. Luce morbida, fondo neutro caldo. Vedi photo brief #8."),
@@ -52,7 +52,7 @@ dict(
     ],
     diagramma="ansia",
     diagramma_titolo="Cosa succede, minuto per minuto",
-    diagramma_sub="La sedazione cosciente inalatoria è una miscela personalizzata di ossigeno e protossido d'azoto. Resti sveglio, rispondi, collabori. Semplicemente non ti importa.",
+    diagramma_sub="La sedazione cosciente inalatoria è una miscela personalizzata di ossigeno e protossido d'azoto. Resti sveglio, rispondi, collabori. Ma non ti importa.",
     steps=[
         ("Ne parliamo prima", "In prima visita si stabilisce il livello di sedazione, si escludono controindicazioni e si spiega esattamente cosa sentirai. Nessuna sorpresa: è metà del lavoro."),
         ("La mascherina nasale", "Appoggiata sul naso, respiri normalmente. Nel giro di 2–3 minuti arriva una sensazione di leggerezza e distacco. Continui a sentire e a rispondere."),
@@ -127,7 +127,7 @@ dict(
     ],
     diagramma="impianto",
     diagramma_titolo="Come si inserisce un impianto",
-    diagramma_sub="Quattro fasi. Fra la seconda e la terza passa il tempo dell'osteointegrazione: è l'unica attesa vera, e non si può accorciare senza pagarla in affidabilità.",
+    diagramma_sub="Quattro fasi. Fra la seconda e la terza passa il tempo dell'osteointegrazione: è l'unica attesa che non si può accorciare.",
     steps=[
         ("TAC 3D e progetto", "La TAC Cone Beam interna misura altezza, spessore e densità dell'osso e la posizione del nervo. Su quei dati si progetta la posizione dell'impianto <b>prima</b> di entrare in sala."),
         ("Inserimento", "In anestesia locale, con sedazione cosciente se la vuoi. L'impianto viene inserito nell'osso. Se l'osso è di buona qualità e la stabilità primaria è sufficiente, si può procedere al <b>carico immediato</b>: provvisorio fisso in giornata."),
@@ -512,7 +512,7 @@ dict(
     ],
     diagramma="chirurgia",
     diagramma_titolo="Un'estrazione pianificata",
-    diagramma_sub="Il tempo speso sulla TAC prima dell'intervento è quello che accorcia l'intervento stesso.",
+    diagramma_sub="La TAC allunga la preparazione e accorcia l'intervento.",
     steps=[
         ("TAC Cone Beam", "Si visualizza in tre dimensioni la posizione delle radici e il decorso del nervo alveolare inferiore. È l'esame che rende prevedibile l'intervento."),
         ("Anestesia e sedazione", "Anestesia locale, con sedazione cosciente se la scegli. Per gli interventi lunghi è la differenza fra un'ora sopportabile e un'ora terribile."),
@@ -558,7 +558,7 @@ dict(
     meta_title="Igiene dentale professionale a Genova: 100 € | Studio Piccardo",
     meta_desc="Pulizia dei denti professionale a Genova con igienisti dentali laureati. 100 €. Controllo delle mucose incluso. Anche in sedazione cosciente per chi ha sensibilità.",
     eyebrow="Prevenzione",
-    h1="Un'ora di igiene ogni sei mesi costa meno di <span class='accent-i'>qualunque cura</span> che eviterà",
+    h1="Un'ora di igiene ogni sei mesi costa meno delle <span class='accent-i'>cure che evita</span>",
     lead="200 euro all'anno di igiene professionale intercettano le carie mentre ancora non fanno male e non si vedono, cioè mentre costano 130 euro invece di 1.540. Le sedute sono affidate a igienisti dentali laureati, comprendono il controllo delle mucose e, per chi ha denti molto sensibili, si possono eseguire in sedazione cosciente.",
     hero_media=None,
     keyfacts=[
@@ -591,7 +591,7 @@ dict(
     ],
     diagramma="prevenzione",
     diagramma_titolo="Quanto costa aspettare",
-    diagramma_sub="La stessa carie costa 130 euro adesso e 1.540 fra qualche anno. In mezzo non succede nient'altro che il tempo che passa.",
+    diagramma_sub="La stessa carie costa 130 euro adesso e 1.540 fra qualche anno.",
     steps=[
         ("Igiene ogni 6 mesi", "<b>200 € l'anno.</b> Intercetta le carie allo stadio in cui non fanno male e non si vedono."),
         ("Otturazione", "<b>130–160 €</b> per dente. Se la carie viene presa in tempo, il trattamento finisce qui."),
@@ -628,7 +628,7 @@ dict(
     meta_title="Dentista per bambini a Genova: pedodonzia | Studio Piccardo",
     meta_desc="Odontoiatria infantile a Genova: prima visita giocosa, fluoroprofilassi, ortodonzia intercettiva. Area gioco in sala d'attesa e fasciatoio.",
     eyebrow="Pedodonzia",
-    h1="La prima visita di un bambino è <span class='accent-i'>una conta dei denti</span>, e basta",
+    h1="La prima visita di un bambino serve solo a <span class='accent-i'>contare i denti</span>",
     lead="Il modo in cui un bambino vive il primo appuntamento condiziona il suo rapporto con il dentista per i trent'anni successivi, e spesso anche quello dei suoi figli. Per questo la prima volta la dedichiamo interamente a fargli conoscere lo studio: sale sulla poltrona, la fa muovere, conta i denti allo specchietto e torna a casa. Le cure, se servono, cominciano all'appuntamento dopo.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Area gioco in sala d'attesa, bambino di spalle o solo mani", scena="bimbi",
                     nota="Liberatoria genitori obbligatoria. Mai barre nere sugli occhi. Vedi photo brief #9."),
@@ -663,7 +663,7 @@ dict(
     ],
     diagramma="bimbo",
     diagramma_titolo="La prima visita, passo per passo",
-    diagramma_sub="Nessuno strumento nella prima mezz'ora. L'obiettivo non è curare: è che voglia tornare.",
+    diagramma_sub="Nessuno strumento nella prima mezz'ora. L'obiettivo è solo che abbia voglia di tornare.",
     steps=[
         ("Si guarda", "Il bambino esplora lo studio, sale sulla poltrona, la fa salire e scendere. La poltrona diventa un gioco, non un tavolo operatorio."),
         ("Si conta", "«Facciamo la conta dei denti.» Si guarda in bocca con lo specchietto e si contano insieme. È già una visita, ma non lo sembra."),
@@ -693,7 +693,7 @@ dict(
 # ═══════════════════════════════════════════════════════════════════ urgenze
 dict(
     slug="urgenze",
-    breve="Aperti lunedì-sabato 8:00-20:30 e reperibili in urgenza. Se chiami la mattina, uno spazio in giornata lo troviamo quasi sempre.",
+    breve="Aperti lunedì-sabato 8:00-20:30 e reperibili in urgenza. Se chiami la mattina, quasi sempre troviamo uno spazio in giornata.",
     nav="Urgenze e dolore",
     gruppo="Ho paura",
     icona="pronto",

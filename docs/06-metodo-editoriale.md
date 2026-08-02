@@ -116,7 +116,7 @@ quando **è la notizia** («Fino a 5.000 euro puoi rateizzare a tasso zero»).
 
 ## 3. La griglia di valutazione
 
-Ogni titolo e ogni testo di apertura passano queste sette domande. Basta un no per riscrivere.
+Ogni titolo e ogni testo di apertura passano queste otto domande. Basta un no per riscrivere.
 
 | # | Domanda | Se la risposta è no |
 |---|---|---|
@@ -127,6 +127,7 @@ Ogni titolo e ogni testo di apertura passano queste sette domande. Basta un no p
 | 5 | Evita di **annunciare la propria credibilità**? | Togli l'annuncio, tieni la prova |
 | 6 | Ha una **struttura diversa** dai due titoli precedenti? | Cambia la costruzione della frase |
 | 7 | È scritto **in positivo**, senza *non, niente, nessuno, mai, senza*? | Dì quello che c'è al posto di quello che manca |
+| 8 | Si legge **senza notare chi l'ha scritto**: niente metafore, giochi di parole, frecciate? | Togli l'immagine e lascia il fatto |
 
 ---
 
@@ -191,7 +192,8 @@ solo l'esito.
 |---|---|
 | «Trentasei prezzi online, così puoi confrontarci prima di telefonare» | Scartata. F4 e F5: descrive una funzione del sito |
 | «I prezzi non te li diciamo in poltrona» | Scartata. Efficace ma costruita in negativo su un sospetto |
-| **«Puoi farti i conti adesso»** | **Scelta.** Seconda persona, verbo d'azione, e descrive cosa il lettore può fare in questo momento |
+| «Puoi farti i conti adesso» | Scelta al secondo passaggio, **poi scartata al terzo**: registro da bar, e il corpo ci aggiungeva una frecciata agli altri studi |
+| **«I prezzi sono tutti online»** | **Scelta.** Cinque parole, soggetto e verbo, il fatto e basta |
 
 ---
 
@@ -332,7 +334,65 @@ Nello stesso giro sono stati sistemati i testi che nessun controllo guardava:
 
 ---
 
-## 7. Controllo automatico
+## 7. Il registro: F8, la scrittura che si mette in mostra
+
+Il difetto che restava dopo tutti i passaggi precedenti non era nei contenuti ma nel **tono**.
+Le frasi erano corrette, verificate, dal punto di vista giusto, e suonavano comunque sbagliate:
+
+> ✗ «Il primo passo costa 110 euro e finisce con un foglio in mano.»
+>
+> ✗ «Puoi farti i conti adesso, con la cifra sotto gli occhi, invece di scoprirla da seduto
+> con il tovagliolo al collo.»
+>
+> ✗ «Esci sapendo cosa ti aspetta e quanto ti aspetta.»
+>
+> ✗ «Con il tariffario completo pubblicato online, prima che tu entri.»
+
+Tre problemi, tutti dello stesso tipo.
+
+**È scrittura sovra-scritta.** Ogni frase cerca un'immagine: il foglio in mano, il tovagliolo al
+collo, il gioco di parole su *aspetta*. Una immagine forte in una pagina si nota; una per frase
+stanca, e sposta l'attenzione dall'informazione a chi l'ha scritta. La scrittura di marca che
+funziona è **sotto-scritta**: dice la cosa e si ferma. «La prima visita costa 110 euro.»
+
+**È intimità recitata.** *Farti i conti*, *aprire bocca*, *il tovagliolo al collo* sono
+espressioni da bar messe in bocca a uno studio medico. Il registro colloquiale non si ottiene
+scegliendo parole colloquiali: si ottiene con frasi corte e parole comuni. Un'azienda che finge
+di darti del tu da amico ottiene l'effetto opposto di quello che cerca.
+
+**Contiene frecciate.** *Invece di scoprirla da seduto con il tovagliolo al collo* è un colpo agli
+altri studi travestito da immagine. Chi vende bene non nomina il concorrente, nemmeno per
+allusione: espone il proprio dato e lascia fare il confronto a chi legge.
+
+**Regola adottata.** Una frase, un'informazione. Sostantivi concreti e numeri al posto delle
+metafore. Nessuna dislocazione parlata (*te la leggiamo noi*, *alla pratica pensiamo noi*),
+nessuna coda ammiccante (*e basta*, *non è un dettaglio*, *ne toglie una buona metà*), nessuna
+antitesi a effetto (*come disciplina, non come cortesia*). Se una frase si può togliere senza
+perdere un'informazione, si toglie.
+
+| Dove | Prima | Dopo |
+|---|---|---|
+| Richiamo finale, 16 pagine | «Il primo passo costa 110 euro e finisce con un foglio in mano» + «Esci sapendo cosa ti aspetta e quanto ti aspetta» | «La prima visita costa 110 euro» + «Comprende l'esame completo della bocca, le radiografie se servono, la diagnosi e il piano di cura scritto con tutti i costi» |
+| Home, prezzi | «Puoi farti i conti adesso» + il tovagliolo al collo | «I prezzi sono tutti online» + «Dalla seduta di igiene alla riabilitazione su impianti. Dopo la prima visita ricevi un preventivo scritto con il totale, e quel totale vale fino alla fine della cura» |
+| Home, apertura | «…Con il tariffario completo pubblicato online, prima che tu entri» | «Sedazione cosciente disponibile per ogni seduta, otto specialisti nella stessa sede, tariffario pubblico» |
+| Home, prima scheda | «Il dolore lo togliamo prima che arrivi» | «Puoi fare qualunque cura in sedazione» |
+| Contatti | «Hai già una panoramica? Te la leggiamo noi» | «Hai già una panoramica? Possiamo leggerla adesso» |
+| Contatti | «fino alle otto e mezza» | «fino alle 20:30» |
+| Recensioni, richiamo | «La prossima potrebbe essere la tua» | rimosso, usa il richiamo standard |
+| Team, Dott. Piccardo | «la sedazione cosciente come disciplina, non come cortesia» | «la sedazione cosciente praticata con una formazione universitaria dedicata» |
+| Paura del dentista | «La paura del dentista ha una risposta clinica, e qui la usiamo ogni giorno» | «La paura del dentista si tratta con la sedazione cosciente» |
+| Bambini | «L'obiettivo non è curare: è che voglia tornare» | «L'obiettivo è solo che abbia voglia di tornare» |
+| Implantologia | «non si può accorciare senza pagarla in affidabilità» | «è l'unica attesa che non si può accorciare» |
+| Studio, parcheggio | «A Genova centro non è un dettaglio» | rimosso |
+| Studio, tour | «arrivare in un posto che hai già visto ne toglie una buona metà» | «vedere le stanze prima di entrarci cambia molto» |
+
+Il richiamo finale merita una nota a parte: compare in sedici pagine. Un testo che si ripete
+sedici volte deve essere neutro. Una battuta letta una volta è una battuta; letta sedici volte
+è un tic.
+
+---
+
+## 8. Controllo automatico
 
 `build/check_copy.py` cerca nel sito generato le forme che corrispondono ai difetti elencati sopra:
 formule di meta-testo, istruzioni all'utente, la costruzione «non è X, è Y», i numerali scritti

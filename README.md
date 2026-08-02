@@ -31,7 +31,7 @@ clinica, sedazione endovenosa) · **sai quanto spendi** (36 prezzi online, tasso
 | [`docs/03-photo-brief.md`](docs/03-photo-brief.md) | Verdetto su tutti i 102 asset esistenti, direzione artistica, 15 scatti e 4 video da produrre, protocollo per i prima/dopo |
 | [`docs/04-design-system.md`](docs/04-design-system.md) | Marchio, colore, tipografia, movimento, 51 icone, 10 diagrammi, componenti, accessibilità |
 | [`docs/05-roadmap-e-misurazione.md`](docs/05-roadmap-e-misurazione.md) | Dati da confermare, cosa collegare prima di pubblicare, piano di misurazione, priorità successive |
-| [`docs/06-metodo-editoriale.md`](docs/06-metodo-editoriale.md) | Chi legge e in che stato, i sette difetti di scrittura da evitare, la griglia di valutazione, le decisioni prese sui titoli con le alternative scartate |
+| [`docs/06-metodo-editoriale.md`](docs/06-metodo-editoriale.md) | Chi legge e in che stato, gli otto difetti di scrittura da evitare, la griglia di valutazione, le decisioni prese sui titoli con le alternative scartate |
 
 ---
 

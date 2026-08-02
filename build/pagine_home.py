@@ -69,9 +69,9 @@ def render():
         Sai quanto spendi<br>prima di sederti,<br>e <span class="accent-i">non senti niente</span>.
       </h1>
       <p class="lead mt-6" data-reveal style="--d:160ms">
-        Implantologia, ortodonzia invisibile e chirurgia orale, con la sedazione
-        cosciente disponibile per ogni seduta e otto specialisti che lavorano nella
-        stessa sede. Il tariffario è pubblico, voce per voce.
+        Implantologia, ortodonzia invisibile e chirurgia orale. Sedazione cosciente
+        disponibile per ogni seduta, otto specialisti nella stessa sede, tariffario
+        pubblico.
       </p>
       <div class="hero__cta" data-reveal style="--d:240ms">
         <a class="btn btn--lg" href="{S['booking']}" target="_blank" rel="noopener">{ico('calendario')} Prenota la prima visita</a>
@@ -126,7 +126,7 @@ def render():
     # ───────────────────────────────────────────────────────── I PILASTRI
     pilastri = (
         _pilastro(
-            "calma", "Il dolore lo togliamo prima che arrivi",
+            "calma", "Puoi fare qualunque cura in sedazione",
             "Il Dott. Piccardo ha conseguito a Padova un master universitario di secondo livello "
             "in sedazione ed emergenze in odontoiatria, e in quella stessa clinica universitaria "
             "ha poi lavorato come sedazionista. Lo studio pratica la sedazione cosciente "
@@ -252,10 +252,10 @@ def render():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow has-n"><span class="eyebrow__n">6</span>Prezzi</span>
-      <h2 class="mt-4">Puoi farti i conti <span class="accent-i">adesso</span></h2>
-      <p class="lead mt-6">Il listino è online per intero, dalla pulizia dei denti alla
-      riabilitazione su impianti. Puoi farti i conti adesso, con la cifra sotto gli occhi,
-      invece di scoprirla da seduto con il tovagliolo al collo.</p>
+      <h2 class="mt-4">I prezzi sono <span class="accent-i">tutti online</span></h2>
+      <p class="lead mt-6">Dalla seduta di igiene alla riabilitazione su impianti. Dopo la prima
+      visita ricevi un preventivo scritto con il totale, e quel totale vale fino alla fine
+      della cura.</p>
       <div class="ribbon mt-8">{ico('euro')}<span><b>Finanziamento a tasso 0</b> fino a 5.000 €, fino a 36 rate. Tasso agevolato oltre.</span></div>
       <div class="mt-8 row gap-3">
         <a class="btn" href="prezzi.html">Tariffario completo</a>
