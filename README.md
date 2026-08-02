@@ -14,7 +14,7 @@ Lo studio possiede il capitale di fiducia più forte della categoria a Genova, *
 precedente non ne usava quasi nulla. Il redesign non inventa un posizionamento: lo estrae dalle
 recensioni dei pazienti e lo rende visibile in cinque secondi.
 
-> **Il dentista a Genova dove sai quanto spendi e non senti niente.**
+> **Sai quanto spendi prima di sederti, e non senti niente.**
 
 Tre pilastri, ciascuno con la sua prova pubblicabile: **non fa male** (master in sedazione, ipnosi
 clinica, sedazione endovenosa) · **sai quanto spendi** (36 prezzi online, tasso 0, 19 convenzioni) ·
@@ -31,7 +31,7 @@ clinica, sedazione endovenosa) · **sai quanto spendi** (36 prezzi online, tasso
 | [`docs/03-photo-brief.md`](docs/03-photo-brief.md) | Verdetto su tutti i 102 asset esistenti, direzione artistica, 15 scatti e 4 video da produrre, protocollo per i prima/dopo |
 | [`docs/04-design-system.md`](docs/04-design-system.md) | Marchio, colore, tipografia, movimento, 51 icone, 10 diagrammi, componenti, accessibilità |
 | [`docs/05-roadmap-e-misurazione.md`](docs/05-roadmap-e-misurazione.md) | Dati da confermare, cosa collegare prima di pubblicare, piano di misurazione, priorità successive |
-| [`docs/06-metodo-editoriale.md`](docs/06-metodo-editoriale.md) | Chi legge e in che stato, i cinque difetti di scrittura da evitare, la griglia di valutazione, le decisioni prese sui titoli con le alternative scartate |
+| [`docs/06-metodo-editoriale.md`](docs/06-metodo-editoriale.md) | Chi legge e in che stato, i sette difetti di scrittura da evitare, la griglia di valutazione, le decisioni prese sui titoli con le alternative scartate |
 
 ---
 
@@ -66,7 +66,8 @@ python3 -m http.server 8899 --directory site   # anteprima locale, serve ai due 
 python3 build/check_contrasto.py   # contrasto WCAG misurato sul rendering reale
 python3 build/check_copy.py        # controllo editoriale (docs/06)
 python3 build/test_interazioni.py  # 71 test funzionali (richiede Playwright)
-python3 build/estrai_copy.py       # estratto di tutti i testi, per la revisione a mano
+python3 build/estrai_copy.py       # estratto dei blocchi redazionali
+python3 build/estrai_tutto.py      # estratto integrale: meta, alt, etichette, menu, piè di pagina
 ```
 
 I quattro controlli vanno eseguiti tutti prima di ogni consegna. `check_contrasto.py` e
@@ -116,7 +117,8 @@ build/
   check.py               link, asset, alt, heading, meta
   check_contrasto.py     contrasto WCAG misurato sul rendering
   check_copy.py          controllo editoriale
-  estrai_copy.py         estratto dei testi per la revisione a mano
+  estrai_copy.py         estratto dei blocchi redazionali
+  estrai_tutto.py        estratto integrale di ogni stringa leggibile
   test_interazioni.py    test funzionali
   prep_images.py         lavorazione delle foto ereditate dal vecchio sito
   icone.py               favicon e immagine di condivisione

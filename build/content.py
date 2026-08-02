@@ -75,7 +75,7 @@ MEGA = [
         ("estetica-del-sorriso", "Estetica del sorriso", "Faccette Lumineers e sbiancamento"),
     ]),
     ("Prevenzione e famiglia", [
-        ("igiene-e-prevenzione", "Igiene e prevenzione", "Ogni sei mesi, senza fastidio"),
+        ("igiene-e-prevenzione", "Igiene e prevenzione", "Un'ora ogni sei mesi"),
         ("cure-conservative", "Otturazioni e devitalizzazioni", "Conservare il dente, sempre"),
         ("bambini", "Bambini", "Il primo dentista si ricorda per sempre"),
     ]),

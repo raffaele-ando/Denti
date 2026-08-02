@@ -27,7 +27,7 @@ Da qui discende la regola che governa tutte le altre:
 
 ---
 
-## 2. I cinque difetti trovati in revisione
+## 2. I difetti trovati in revisione
 
 Sono difetti reali, presi dalla versione precedente di questo sito. Li elenco con l'esempio
 originale perché servano da campione negativo.
@@ -85,16 +85,16 @@ quanto è costato.
 ### F4. Punto di vista sbagliato: lo studio, o peggio l'analista
 
 > ✗ «L'ortodontista, il chirurgo e l'odontotecnico lavorano a dieci metri l'uno dall'altro»
-> → è la pianta dello studio. Al paziente interessa che **non dovrà raccontare la sua storia
-> tre volte**.
+> → è la pianta dello studio. Al paziente interessa che **la sua storia la racconta una volta
+> sola**.
 >
 > ✗ «Nelle 310 recensioni pubbliche tornano sempre le stesse tre cose»
 > → è l'osservazione di chi ha analizzato il dataset. Al paziente interessa **leggere qualcuno
 > che era nella sua situazione**.
 >
 > ✗ «Ogni strumento attraversa sei passaggi prima di tornare in bocca a un paziente»
-> → è il protocollo visto dall'interno. Al paziente interessa che **nessuno strumento gli
-> arriverà in bocca dopo essere stato in quella di un altro**.
+> → è il protocollo visto dall'interno. Al paziente interessa che **ogni strumento gli arriva
+> sigillato, con la data sopra**.
 
 **Test:** metti «e quindi?» dopo il titolo. Se la risposta non è immediata e non riguarda il
 lettore, il titolo è scritto dal lato sbagliato.
@@ -116,7 +116,7 @@ quando **è la notizia** («Fino a 5.000 euro puoi rateizzare a tasso zero»).
 
 ## 3. La griglia di valutazione
 
-Ogni titolo e ogni testo di apertura passano queste sei domande. Basta un no per riscrivere.
+Ogni titolo e ogni testo di apertura passano queste sette domande. Basta un no per riscrivere.
 
 | # | Domanda | Se la risposta è no |
 |---|---|---|
@@ -126,6 +126,7 @@ Ogni titolo e ogni testo di apertura passano queste sei domande. Basta un no per
 | 4 | Evita di **spiegare l'interfaccia**? | Sistema l'interfaccia, non il testo |
 | 5 | Evita di **annunciare la propria credibilità**? | Togli l'annuncio, tieni la prova |
 | 6 | Ha una **struttura diversa** dai due titoli precedenti? | Cambia la costruzione della frase |
+| 7 | È scritto **in positivo**, senza *non, niente, nessuno, mai, senza*? | Dì quello che c'è al posto di quello che manca |
 
 ---
 
@@ -140,7 +141,8 @@ solo l'esito.
 |---|---|
 | «Tre motivi per sceglierci, e la prova di ciascuno» *(versione precedente)* | Scartata. F1 e F5: annuncia una struttura retorica e conta |
 | «Quello che ti fa rimandare, di solito, è una di queste tre cose» | Scartata. Buon punto di vista, ma conta ancora |
-| **«Fa male, costa troppo, ci vuole una vita»** | **Scelta.** Sono le tre obiezioni nelle parole esatte del paziente. Zero meta, riconoscimento immediato, e le tre card diventano le risposte |
+| «Fa male, costa troppo, ci vuole una vita» | Scelta al secondo passaggio, **poi scartata al terzo**: pianta tre associazioni negative sullo studio e non si spiega da sola. Vedi il punto 6 |
+| **«Prima di cominciare sai cosa sentirai, quanto pagherai e quanto ci vorrà»** | **Scelta.** Dice in positivo la stessa cosa, regge da sola e le tre schede sotto rispondono una per una |
 
 ### Home, selettore per intenzione
 
@@ -156,7 +158,8 @@ solo l'esito.
 |---|---|
 | «Se rimandi le cure per paura, ci sono tre strade per uscirne» | Scartata. F5 |
 | «La paura del dentista si tratta come qualsiasi altra cosa» | Scartata. Vera ma fredda |
-| **«Non ti chiederemo di farti coraggio»** | **Scelta.** È la frase che un odontofobico ha bisogno di sentire per prima, ribalta l'aspettativa, e il corpo spiega con cosa la sostituiamo |
+| «Non ti chiederemo di farti coraggio» | Scelta al secondo passaggio, **poi scartata al terzo** perché costruita su una negazione |
+| **«Puoi decidere tu quanta ansia sentire»** | **Scelta.** Dà al lettore la leva che abbassa davvero l'ansia, cioè il controllo, e la dà in positivo |
 
 ### Home, sezione équipe
 
@@ -246,9 +249,92 @@ eliminato, e `build/test_interazioni.py` verifica che non ricompaia.
 
 ---
 
-## 6. Controllo automatico
+## 6. Terzo passaggio: il framing negativo, e il titolo che non era mai stato giudicato
 
-`build/check_copy.py` cerca nel sito generato le forme che corrispondono ai cinque difetti:
+### F7. La negazione lascia impresso ciò che nega
+
+La ricerca sulla smentita è concorde: ripetere un'affermazione negativa per correggerla la rende
+più familiare, e la familiarità viene scambiata per verità (Skurnik, Yoon, Park e Schwarz, 2005;
+Schwarz e colleghi, 2007, sull'effetto di ritorno della familiarità). A questo si somma il
+peso asimmetrico dell'informazione negativa: una parola sfavorevole pesa più di una favorevole
+a parità di contenuto. In pratica, chi legge **«Fa male, costa troppo, ci vuole una vita»**
+associa quelle tre cose allo studio, anche quando le tre schede sotto le smentiscono una per una.
+
+Ci si aggiunge un difetto di leggibilità: quel titolo non si spiega da solo. Bisogna leggere
+la riga sotto per capire che sono le frasi dei pazienti al telefono, e quindi cade la domanda 3
+della griglia.
+
+**Regola adottata:** un titolo dice quello che c'è, non quello che manca. Si scrive in positivo
+anche quando la notizia è l'assenza di qualcosa: *«è tutto in piano»* invece di *«non c'è un solo
+gradino»*, *«ogni strumento arriva da te sigillato»* invece di *«niente ti arriva in bocca dopo
+essere stato in quella di un altro»*. `check_copy.py` segnala ogni titolo che contiene
+*non, niente, nessuno, mai, senza*.
+
+**L'unica deroga** è *«non senti niente»*, che è la frase che i pazienti scrivono da soli nelle
+recensioni. Lì la negazione cancella una paura che il lettore porta con sé invece di aggiungere
+un difetto al mittente, e la distinzione è proprio quella che regge tutto il resto della regola.
+La deroga è scritta nel codice del controllo, non nascosta: ogni altra eccezione va discussa.
+
+### Il titolo della homepage
+
+Era rimasto invariato dal primo giorno perché era anche la frase di posizionamento del documento
+di strategia, e questo lo aveva sottratto al giudizio. Sbagliato: la frase che vende il progetto
+allo studio e la frase che accoglie un paziente impaurito non sono lo stesso testo.
+
+| Opzione | Giudizio |
+|---|---|
+| «Il dentista a Genova dove sai quanto spendi e non senti niente» *(versione precedente)* | Scartata. Il soggetto è lo studio, i due vantaggi sono attaccati con un «dove» e diventano attributi di una categoria. È la formula SEO parola chiave più differenziatore, cioè esattamente il titolo che scriverebbe chiunque |
+| «Entri sapendo quanto spendi. Esci senza aver sentito niente» | Scartata. Il parallelismo è bello ma «senza aver sentito niente» è una costruzione contorta |
+| «Sai già come andrà, prima di cominciare» | Buona: la prevedibilità è la leva che abbassa davvero l'ansia. Ma è astratta, e non dice né il prezzo né il dolore |
+| **«Sai quanto spendi prima di sederti, e non senti niente»** | **Scelta.** Tre verbi che appartengono a chi legge, i due pilastri in una frase sola, e il secondo è la frase testuale delle recensioni |
+
+Nota SEO, perché la scelta ha un costo: «Genova» esce dall'H1. Resta nel tag `title`, nella
+descrizione, nei dati strutturati con l'indirizzo completo, nella riga sotto i pulsanti, nel
+titolo della sezione sui trasporti e nel piè di pagina. Il peso dell'H1 sul posizionamento locale
+è molto inferiore a quello del `title`, quindi il rischio è contenuto e la scelta è reversibile
+in una riga.
+
+### Le altre riscritture di questo passaggio
+
+| Dove | Prima | Dopo |
+|---|---|---|
+| Home, sezione dei tre argomenti | «Fa male, costa troppo, ci vuole una vita» | «Prima di cominciare sai cosa sentirai, quanto pagherai e quanto ci vorrà» |
+| Home, scheda prezzi | «Sai la cifra prima di aprire bocca» | «Il preventivo che firmi vale fino alla fine» |
+| Home, scheda sede unica | «Non ti mandiamo da nessun'altra parte» | «Cominci e finisci nello stesso studio» |
+| Home, odontofobia | «Non ti chiederemo di farti coraggio» | «Puoi decidere tu quanta ansia sentire» |
+| Home, équipe | «Non dovrai raccontare la tua storia tre volte» | «La tua storia la racconti una volta sola» |
+| Hub trattamenti | «Non sai come si chiama quello che hai? Va bene lo stesso» | «Basta sapere dove ti fa male, al nome ci pensiamo noi» |
+| Studio, sterilizzazione | «Niente ti arriva in bocca dopo essere stato in quella di un altro» | «Ogni strumento arriva da te sigillato e datato» |
+| Studio, emergenze | «Cosa succede se durante una seduta ti senti male» | «Attrezzati come un ambulatorio di emergenza» |
+| Studio, accesso | «Dalla strada alla poltrona non c'è un solo gradino» | «Dalla strada alla poltrona è tutto in piano» |
+| Implantologia | «Perché il titanio non si "rigetta"» | «Il corpo tratta il titanio come osso» |
+| Conservativa | «servono a un solo scopo: evitare l'estrazione» | «servono a tenerti il tuo dente» |
+| Conservativa | «Otturazioni: perché non usiamo l'amalgama» | «Otturazioni in composito, del colore del dente» |
+| Estetica | «Faccette progettate perché nessuno si accorga che li hai fatti» | «Faccette e sbiancamenti che passano per denti tuoi» |
+| Estetica | «"Non voglio sembrare rifatto"» | «"Voglio che sembrino i miei"» |
+| Bambini | «Alla prima visita non curiamo nulla» | «La prima visita di un bambino è una conta dei denti, e basta» |
+| Urgenze | «Orari che nessuno ha» / «Se non puoi muoverti» | «Aperti anche il sabato, tutto il giorno» / «Se resti a casa, veniamo noi» |
+| Igiene | «Cosa costa non farla» | «Quanto costa aspettare» |
+| 404 | «Questa pagina non c'è più» | «Questa pagina si è spostata» |
+
+Nello stesso giro sono stati sistemati i testi che nessun controllo guardava:
+
+- **Testi alternativi delle immagini.** Erano etichette vuote: *«Situazione prima del trattamento»*
+  non dice nulla a chi usa uno screen reader. Ora descrivono la fotografia
+  (*«Incisivi superiori scheggiati e di colore disomogeneo»*), e i ritratti portano nome e ruolo
+  invece di *«Ritratto di Dott. …»*.
+- **Descrizioni per i motori di ricerca.** Quella della 404 raccontava la riorganizzazione del
+  sito; quella della home dichiarava il voto 5,0, che resta un dato non verificato in autonomia.
+- **`build/estrai_tutto.py`**, nuovo: mette in fila ogni stringa leggibile del sito generato,
+  compresi meta, alt, aria-label, etichette dei moduli, voci di menu, testi di aiuto e piè di
+  pagina. 1.700 righe. È lo strumento che ha fatto emergere questi difetti, e il motivo per cui
+  l'estrattore precedente non bastava: guardava solo titoli e aperture.
+
+---
+
+## 7. Controllo automatico
+
+`build/check_copy.py` cerca nel sito generato le forme che corrispondono ai difetti elencati sopra:
 formule di meta-testo, istruzioni all'utente, la costruzione «non è X, è Y», i numerali scritti
 in lettere nei titoli e le ripetizioni della stessa struttura. Va eseguito prima di ogni
 consegna, insieme a `check.py` e `check_contrasto.py`.

@@ -52,7 +52,7 @@ def render():
     out = head(
         0,
         "Dentista a Genova centro: implantologia, Invisalign, sedazione | Studio Piccardo",
-        "Studio odontoiatrico in Via Maragliano 5, Genova. Implantologia, ortodonzia invisibile e cure con sedazione cosciente. Tariffario pubblico, 5,0 su 310 recensioni. Lun–sab 8:00–20:30.",
+        "Studio odontoiatrico in Via Maragliano 5, Genova. Implantologia, ortodonzia invisibile e cure con sedazione cosciente. Tariffario pubblico, 310 recensioni Google. Lun–sab 8:00–20:30.",
         "",
     )
     out += header(0, "home")
@@ -66,12 +66,12 @@ def render():
     <div>
       <div data-reveal>{rating_badge(0)}</div>
       <h1 class="display hero__title" data-reveal style="--d:80ms">
-        Il dentista a Genova<br>dove sai quanto spendi<br>e <span class="accent-i">non senti niente</span>.
+        Sai quanto spendi<br>prima di sederti,<br>e <span class="accent-i">non senti niente</span>.
       </h1>
       <p class="lead mt-6" data-reveal style="--d:160ms">
-        Implantologia, ortodonzia invisibile e chirurgia orale, eseguite con
-        sedazione cosciente da un'équipe di otto specialisti. Con il tariffario
-        completo pubblicato online, prima che tu entri.
+        Implantologia, ortodonzia invisibile e chirurgia orale, con la sedazione
+        cosciente disponibile per ogni seduta e otto specialisti che lavorano nella
+        stessa sede. Il tariffario è pubblico, voce per voce.
       </p>
       <div class="hero__cta" data-reveal style="--d:240ms">
         <a class="btn btn--lg" href="{S['booking']}" target="_blank" rel="noopener">{ico('calendario')} Prenota la prima visita</a>
@@ -134,7 +134,7 @@ def render():
             "che si scelgono in base a quanto è forte l&rsquo;ansia e a quanto durerà l&rsquo;intervento.",
             "trattamenti/paura-del-dentista.html", "Come funziona la sedazione", guida=True)
         + _pilastro(
-            "euro", "Sai la cifra prima di aprire bocca",
+            "euro", "Il preventivo che firmi vale fino alla fine",
             "Trentasei prestazioni sono pubblicate online con il loro costo, dalla prima visita "
             "all&rsquo;impianto. Dopo la visita ricevi un piano di cura scritto, con le voci una per "
             "una, i tempi previsti e le alternative possibili. L&rsquo;importo si può rateizzare a "
@@ -142,11 +142,12 @@ def render():
             "convenzionati con lo studio.",
             "prezzi.html", "Apri il tariffario completo")
         + _pilastro(
-            "scan", "Non ti mandiamo da nessun'altra parte",
+            "scan", "Cominci e finisci nello stesso studio",
             "La sala raggi ospita una TAC Cone Beam tridimensionale e uno scanner intraorale. Il "
             "laboratorio odontotecnico, iscritto al Ministero della Salute, sta due porte più in "
-            "là e fresa le corone in zirconia mentre sei ancora in poltrona. Nessun esame da fare "
-            "altrove, nessuna protesi da spedire e da aspettare per settimane.",
+            "là e fresa le corone in zirconia mentre sei ancora in poltrona. Gli esami si fanno "
+            "qui e le protesi nascono qui, così le settimane di spedizione e di attesa restano "
+            "fuori dal conto.",
             "studio.html", "Guarda com&rsquo;è fatto lo studio")
     )
     out += f'''
@@ -154,8 +155,8 @@ def render():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">1</span>Perché qui</span>
-      <h2 class="mt-4">Fa male, costa troppo, <span class="accent-i">ci vuole una vita</span></h2>
-      <p class="lead">Sono le frasi che sentiamo più spesso al telefono.</p>
+      <h2 class="mt-4">Prima di cominciare sai cosa sentirai, quanto pagherai e <span class="accent-i">quanto ci vorrà</span></h2>
+      <p class="lead">Se poi il lavoro si rivela più lungo del previsto, la differenza resta a carico nostro.</p>
     </div>
     <div class="g-feature" data-stagger="90">{pilastri}</div>
   </div>
@@ -198,12 +199,12 @@ def render():
     </div>
     <div data-reveal="right">
       <span class="eyebrow has-n"><span class="eyebrow__n">3</span>Odontofobia</span>
-      <h2 class="mt-4">Non ti chiederemo di <span class="accent-i">farti coraggio</span></h2>
+      <h2 class="mt-4">Puoi decidere tu <span class="accent-i">quanta ansia sentire</span></h2>
       <p class="lead mt-6">La paura del dentista nasce quasi sempre da qualcosa che è successo
       davvero, spesso da bambini, e il corpo la ripropone appena riconosce il rumore del riunito
-      o l'odore dello studio. È una reazione automatica: contro una reazione automatica la buona
-      volontà serve a poco. Per questo prima della seduta parliamo di quanto sei in ansia, e
-      decidiamo insieme <b style="color:#FFFDF9">con cosa spegnerla</b>.</p>
+      o l'odore dello studio. È una reazione automatica, e contro una reazione automatica servono
+      dei farmaci. Prima della seduta si parla di quanto sei in ansia e si sceglie insieme
+      <b style="color:#FFFDF9">con cosa spegnerla</b>, fino al livello che vuoi tu.</p>
       <ul class="ticks mt-8">
         <li>{ico('check')}<span><b style="color:#FFFDF9">Sedazione cosciente inalatoria.</b>
         Una miscela personalizzata di ossigeno e protossido d'azoto, respirata da una mascherina
@@ -253,8 +254,8 @@ def render():
       <span class="eyebrow has-n"><span class="eyebrow__n">6</span>Prezzi</span>
       <h2 class="mt-4">Puoi farti i conti <span class="accent-i">adesso</span></h2>
       <p class="lead mt-6">Il listino è online per intero, dalla pulizia dei denti alla
-      riabilitazione su impianti. Preferiamo che tu decida davanti allo schermo, con la cifra
-      sotto gli occhi, piuttosto che scoprirla da seduto con il tovagliolo al collo.</p>
+      riabilitazione su impianti. Puoi farti i conti adesso, con la cifra sotto gli occhi,
+      invece di scoprirla da seduto con il tovagliolo al collo.</p>
       <div class="ribbon mt-8">{ico('euro')}<span><b>Finanziamento a tasso 0</b> fino a 5.000 €, fino a 36 rate. Tasso agevolato oltre.</span></div>
       <div class="mt-8 row gap-3">
         <a class="btn" href="prezzi.html">Tariffario completo</a>

@@ -29,7 +29,7 @@ dict(
         ("Costo", "Su richiesta", "valutata in prima visita"),
     ],
     intro=[
-        ("Perché non è una questione di coraggio",
+        ("Il corpo reagisce prima che tu possa decidere",
          "L'odontofobia si comporta come una risposta appresa, non come un tratto del carattere. Quasi sempre nasce da un'esperienza reale: un'anestesia che non ha funzionato, un medico che non si è fermato quando era il momento, un dolore da bambini. Il corpo la registra e la ripropone ogni volta che sente il rumore del riunito. Chiedere a una persona di «farsi coraggio» equivale a chiederle di sopprimere un riflesso: nella pratica non funziona quasi mai, e in compenso aggiunge un senso di inadeguatezza a una paura che c'era già."),
         ("Cosa cambia qui",
          "Trattiamo l'ansia come un parametro clinico. Prima di qualsiasi cura decidiamo insieme <b>quale livello di sedazione serve</b>, esattamente come si decide il tipo di anestesia. Non la riserviamo ai casi difficili: puoi chiederla anche per una semplice seduta di igiene, e succede spesso."),
@@ -64,7 +64,7 @@ dict(
          "Master di II livello in <b>Sedazione ed emergenze in odontoiatria</b> all'Università di Padova (2014-15), dove il Dott. Piccardo ha poi operato come sedazionista nella clinica universitaria."),
         ("goccia", "Anche per via endovenosa",
          "Oltre al protossido, lo studio esegue direttamente la <b>sedazione cosciente endovenosa</b>: un livello di controllo che pochissimi studi odontoiatrici gestiscono internamente."),
-        ("onda", "L'ansia si abbassa anche senza farmaci",
+        ("onda", "Anche il modo di parlare abbassa l'ansia",
          "Diploma di <b>Ipnologo</b> (CIICS Torino, 2017) e socio del Centro Italiano di Ipnosi Clinica Sperimentale. La comunicazione ipnotica riduce l'ansia prima ancora che serva un farmaco."),
     ],
     clinico="uberto-piccardo",
@@ -84,7 +84,7 @@ dict(
 # ══════════════════════════════════════════════════════════════ implantologia
 dict(
     slug="implantologia",
-    breve="Radici in titanio al posto dei denti mancanti, senza limare quelli sani. TAC 3D, chirurgia e corona nella stessa sede.",
+    breve="Radici in titanio al posto dei denti mancanti, e i denti sani accanto restano intatti. TAC 3D, chirurgia e corona nella stessa sede.",
     nav="Implantologia",
     gruppo="Mi manca un dente",
     icona="impianto",
@@ -105,7 +105,7 @@ dict(
     intro=[
         ("Una vite in titanio al posto della radice",
          "Una vite in titanio quasi puro (99%) inserita nell'osso, che nel giro di due-tre mesi si integra con esso: è il processo chiamato <b>osteointegrazione</b>. Sopra si avvita la corona. Il risultato è un dente che si spazzola come gli altri e che, a differenza di un ponte, non obbliga a limare i denti sani accanto."),
-        ("Perché il titanio non si «rigetta»",
+        ("Il corpo tratta il titanio come osso",
          "Il titanio è totalmente biocompatibile: il rigetto immunitario, nel senso in cui lo si intende per i trapianti, <b>non esiste</b>. Può però accadere che l'impianto non si osteointegri, o che perda il suo sostegno per una peri-implantite. In quel caso l'impianto si rimuove senza traumi e, se l'osso lo consente, si sostituisce con uno di dimensioni maggiori, spesso nella stessa seduta."),
         ("Quante probabilità ci sono che duri",
          "Le percentuali di sopravvivenza degli impianti sono del <b>95% nel mascellare superiore</b> e del <b>99% nella mandibola</b>: sono i dati della letteratura internazionale. Chiunque prometta il 100% sta semplificando."),
@@ -250,7 +250,7 @@ dict(
     meta_title="Faccette dentali e sbiancamento a Genova | Studio Piccardo",
     meta_desc="Estetica dentale a Genova: faccette Lumineers sottili come una lente a contatto e sbiancamento professionale. Sbiancamento 275 €, tariffario pubblico.",
     eyebrow="Estetica dentale",
-    h1="Faccette e sbiancamenti progettati perché <span class='accent-i'>nessuno si accorga</span> che li hai fatti",
+    h1="Faccette e sbiancamenti che passano <span class='accent-i'>per denti tuoi</span>",
     lead="Un lavoro estetico riuscito passa inosservato: i denti sembrano semplicemente i tuoi, in una versione migliore. Ci arriviamo con faccette in ceramica dello spessore di una lente a contatto, con lo sbiancamento professionale e soprattutto scegliendo insieme fin dove spingersi, perché il limite giusto cambia da viso a viso.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Faccetta in ceramica su polpastrello, macro", scena="faccetta",
                     nota="Deve leggersi lo spessore quasi nullo. Fondo scuro, luce radente."),
@@ -265,7 +265,7 @@ dict(
          "Sono lamine in ceramica dello spessore di una lente a contatto, applicate sulla superficie esterna dei denti anteriori. Correggono colore, forma, piccole rotazioni e diastemi. Il vantaggio rispetto alle faccette tradizionali è che <b>spesso richiedono una preparazione minima o nulla del dente</b>: si aggiunge, non si toglie."),
         ("Sbiancamento professionale",
          "Si esegue in studio o a domicilio con mascherine personalizzate. Non danneggia lo smalto se eseguito con i protocolli corretti e su denti sani: per questo la prima cosa da fare è <b>l'igiene professionale</b>, che da sola in molti casi restituisce già due o tre gradazioni."),
-        ("«Non voglio sembrare rifatto»",
+        ("«Voglio che sembrino i miei»",
          "È la frase che sentiamo più spesso da chi arriva per l'estetica, e diventa il vincolo del progetto. Si parte dalla proporzione del viso e dalla linea del sorriso, prima ancora di scegliere una gradazione di colore: il bianco più chiaro del catalogo è quasi sempre quello sbagliato."),
     ],
     fit_titolo="Cosa scegliere",
@@ -363,7 +363,7 @@ dict(
         ("Prova e cementazione", "Si prova, si ritocca sul momento se serve, si caratterizza il colore e si cementa. Nessun invio, nessuna settimana di attesa."),
     ],
     proofs=[
-        ("scan", "Impronta digitale, non alginato",
+        ("scan", "L'impronta si prende con uno scanner",
          "Scanner intraorale: la scansione tridimensionale sostituisce la pasta da impronta. Chi ha il riflesso del vomito lo nota subito."),
         ("orologio", "Riparazioni in giornata",
          "Il laboratorio interno esegue <b>riparazioni immediate</b> e aggiunte di elementi sulle protesi mobili. Non resti giorni senza denti in attesa che torni il manufatto."),
@@ -392,14 +392,14 @@ dict(
 # ═══════════════════════════════════════════════════════════ cure conservative
 dict(
     slug="cure-conservative",
-    breve="Otturazioni estetiche e devitalizzazioni: tutto quello che serve per non arrivare mai all'estrazione.",
+    breve="Otturazioni estetiche e devitalizzazioni: tutto quello che serve per tenerti il dente che hai.",
     nav="Otturazioni e devitalizzazioni",
     gruppo="Prevenzione e famiglia",
     icona="scudo",
     meta_title="Otturazioni e devitalizzazioni a Genova | Studio Piccardo",
     meta_desc="Otturazioni estetiche in composito e devitalizzazioni a Genova. Otturazione da 130 €, devitalizzazione da 160 €. Tariffario pubblico, sedazione su richiesta.",
     eyebrow="Conservativa ed endodonzia",
-    h1="Otturazioni e devitalizzazioni servono a un solo scopo: <span class='accent-i'>evitare l'estrazione</span>",
+    h1="Otturazioni e devitalizzazioni servono a <span class='accent-i'>tenerti il tuo dente</span>",
     lead="Un dente naturale, anche compromesso, resta quasi sempre preferibile a qualunque cosa possa sostituirlo. Le otturazioni in composito fermano la carie finché è superficiale; la devitalizzazione recupera denti che sembravano ormai da togliere, rimuovendo la polpa infiammata e sigillando i canali.",
     hero_media=None,
     keyfacts=[
@@ -409,7 +409,7 @@ dict(
         ("Da", "130 €", "otturazione media"),
     ],
     intro=[
-        ("Otturazioni: perché non usiamo l'amalgama",
+        ("Otturazioni in composito, del colore del dente",
          "Le otturazioni si eseguono in composito, un materiale del colore del dente che si lega alla struttura residua. Rispetto alla vecchia amalgama non richiede di rimuovere tessuto sano per creare ritenzione meccanica: <b>si toglie solo la carie</b>. E non si vede."),
         ("Devitalizzazione: il trattamento più temuto e più frainteso",
          "Quando la carie raggiunge la polpa: il tessuto vivo dentro il dente, l'infiammazione provoca il classico mal di denti notturno. La devitalizzazione rimuove la polpa, disinfetta i canali e li sigilla. È l'alternativa all'estrazione. <b>Si esegue in anestesia e non fa male</b>: il dolore che i pazienti ricordano è quello che avevano <i>prima</i> di arrivare in studio."),
@@ -590,7 +590,7 @@ dict(
         "Porti apparecchio ortodontico fisso",
     ],
     diagramma="prevenzione",
-    diagramma_titolo="Cosa costa non farla",
+    diagramma_titolo="Quanto costa aspettare",
     diagramma_sub="La stessa carie costa 130 euro adesso e 1.540 fra qualche anno. In mezzo non succede nient'altro che il tempo che passa.",
     steps=[
         ("Igiene ogni 6 mesi", "<b>200 € l'anno.</b> Intercetta le carie allo stadio in cui non fanno male e non si vedono."),
@@ -621,14 +621,14 @@ dict(
 # ═══════════════════════════════════════════════════════════════════ bambini
 dict(
     slug="bambini",
-    breve="La prima volta non si cura niente: si guarda, si conta, si torna. Perché voglia tornarci anche fra vent'anni.",
+    breve="La prima volta si guarda, si conta e si torna a casa. Perché abbia voglia di tornarci anche fra vent'anni.",
     nav="Bambini",
     gruppo="Prevenzione e famiglia",
     icona="bimbo",
     meta_title="Dentista per bambini a Genova: pedodonzia | Studio Piccardo",
     meta_desc="Odontoiatria infantile a Genova: prima visita giocosa, fluoroprofilassi, ortodonzia intercettiva. Area gioco in sala d'attesa e fasciatoio.",
     eyebrow="Pedodonzia",
-    h1="Alla prima visita di un bambino non curiamo nulla: <span class='accent-i'>contiamo i denti</span> e basta",
+    h1="La prima visita di un bambino è <span class='accent-i'>una conta dei denti</span>, e basta",
     lead="Il modo in cui un bambino vive il primo appuntamento condiziona il suo rapporto con il dentista per i trent'anni successivi, e spesso anche quello dei suoi figli. Per questo la prima volta la dedichiamo interamente a fargli conoscere lo studio: sale sulla poltrona, la fa muovere, conta i denti allo specchietto e torna a casa. Le cure, se servono, cominciano all'appuntamento dopo.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Area gioco in sala d'attesa, bambino di spalle o solo mani", scena="bimbi",
                     nota="Liberatoria genitori obbligatoria. Mai barre nere sugli occhi. Vedi photo brief #9."),
@@ -673,7 +673,7 @@ dict(
     proofs=[
         ("stella", "Un'odontoiatra dedicata",
          "La Dott.ssa <b>Ludovica Tuo</b> si occupa di pedodonzia e odontoiatria infantile. Un bambino richiede tempi, parole e strumenti diversi da quelli di un adulto: non è una versione più piccola dello stesso paziente."),
-        ("calma", "Se non collabora, non si forza",
+        ("calma", "Se si blocca, si riprova un'altra volta",
          "La sedazione cosciente è indicata anche nei bambini, ed evita l'anestesia generale nei casi complessi. Con un bambino che non collabora, insistere serve a poco; molto meglio metterlo nelle condizioni di riuscirci."),
         ("cuore", "Area gioco, fasciatoio, passeggino ovunque",
          "Area gioco dedicata in sala d'attesa, <b>fasciatoio</b> nel servizio igienico e accessibilità totale con passeggino."),
@@ -714,7 +714,7 @@ dict(
          "Dolore che non passa con l'antidolorifico · gonfiore del viso o della gengiva · trauma con dente rotto o espulso · ascesso · protesi o corona che si è staccata · sanguinamento che non si arresta dopo un'estrazione. In tutti questi casi: <b>chiama, non aspettare lunedì</b>."),
         ("Il dente espulso da un trauma",
          "Se un dente permanente viene espulso da un trauma, i minuti contano. Raccoglilo tenendolo <b>per la corona, mai per la radice</b>, non strofinarlo, immergilo nel latte o nella soluzione fisiologica, o, in mancanza d'altro, tienilo nella tua saliva, e vieni subito. Reimpiantato entro 30–60 minuti ha buone probabilità di attecchire."),
-        ("Se non puoi muoverti",
+        ("Se resti a casa, veniamo noi",
          "Lo studio effettua il <b>servizio a domicilio</b>: il dentista si sposta a casa o in casa di cura portando l'attrezzatura necessaria. È pensato per pazienti allettati, anziani e persone con disabilità che non possono raggiungere lo studio."),
     ],
     fit_titolo="Cosa fare nell'attesa",
@@ -735,7 +735,7 @@ dict(
     diagramma=None,
     steps=[],
     proofs=[
-        ("orologio", "Orari che nessuno ha",
+        ("orologio", "Aperti anche il sabato, tutto il giorno",
          "<b>Lunedì–sabato, 8:00–20:30.</b> Il sabato per intero. Per i pazienti dello studio il dentista resta reperibile anche in urgenza fuori orario."),
         ("scan", "Diagnosi immediata",
          "Radiografie endorali, panoramica e TAC 3D si eseguono <b>in studio, nello stesso momento</b>. Non ti mandiamo in giro per la città con un dolore in corso."),

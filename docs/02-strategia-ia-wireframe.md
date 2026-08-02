@@ -196,8 +196,8 @@ Notazione: `[ ]` blocco · `▣` immagine/video · `▶` CTA primaria · `▷` C
 │                                                                            │
 │  ★★★★★ 5,0 · 310 recensioni Google        │                                │
 │                                            │      ▣ ritratto B/N           │
-│  Il dentista a Genova dove                 │        Dr. Piccardo           │
-│  sai quanto spendi                         │        (asset esistente,      │
+│  Sai quanto spendi                         │        Dr. Piccardo           │
+│  prima di sederti,                         │        (asset esistente,      │
 │  e non senti niente.                       │         fusione multiply      │
 │                                            │         su fondo verde)       │
 │  Implantologia, ortodonzia invisibile      │                                │

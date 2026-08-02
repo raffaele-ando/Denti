@@ -13,13 +13,17 @@ CASI = {
     # cosa è stato fatto, in quanto tempo, quante sedute, quanto è costato.
     "riabilitazione": dict(
         titolo="Corone in zirconia sugli incisivi superiori",
-        nota="Sei sedute in quattro mesi. Nessuna estrazione: i denti sotto sono i suoi.",
+        nota="Sei sedute in quattro mesi, e i denti sotto le corone sono i suoi.",
         prima="caso-riabilitazione-prima", dopo="caso-riabilitazione-dopo",
+        alt_prima="Incisivi superiori scheggiati e di colore disomogeneo",
+        alt_dopo="Gli stessi incisivi con le corone in zirconia, allineati e di colore uniforme",
     ),
     "ortodonzia": dict(
         titolo="Affollamento e morso aperto, corretti con l'ortodonzia",
-        nota="Diciotto mesi di trattamento, controlli ogni sei settimane. Nessun dente tolto per fare spazio.",
+        nota="Diciotto mesi di trattamento, controlli ogni sei settimane, e tutti i denti al loro posto.",
         prima="caso-ortodonzia-prima", dopo="caso-ortodonzia-dopo",
+        alt_prima="Denti anteriori affollati e sovrapposti, con i margini che non combaciano",
+        alt_dopo="Gli stessi denti allineati sull'arcata, con i margini che combaciano",
     ),
 }
 
@@ -29,8 +33,8 @@ def _slider(caso, depth=0):
     r = rel(depth)
     return f'''<figure class="ba-case" data-reveal>
   <div class="ba" style="--pos:50%" data-autohint>
-    <img src="{r}assets/img/casi/{c['prima']}.webp" alt="Situazione prima del trattamento" loading="lazy" width="900" height="676">
-    <img class="ba__after" src="{r}assets/img/casi/{c['dopo']}.webp" alt="Risultato dopo il trattamento" loading="lazy" width="900" height="676">
+    <img src="{r}assets/img/casi/{c['prima']}.webp" alt="{c['alt_prima']}" loading="lazy" width="900" height="676">
+    <img class="ba__after" src="{r}assets/img/casi/{c['dopo']}.webp" alt="{c['alt_dopo']}" loading="lazy" width="900" height="676">
     <span class="ba__lbl ba__lbl--a">Prima</span>
     <span class="ba__lbl ba__lbl--b">Dopo</span>
     <span class="ba__handle"><span class="ba__knob">{ico('scambio')}</span></span>
@@ -83,7 +87,7 @@ def _foto_membro(m, depth=0, lazy=True):
     r = rel(depth)
     l = ' loading="lazy"' if lazy else ""
     return (f'<img src="{r}assets/img/team/{m["slug"]}.webp" width="720" height="900" '
-            f'alt="Ritratto di {m["nome"]}"{l}>')
+            f'alt="{m["nome"]}, {m["ruolo"]}"{l}>')
 
 
 def scheda_membro(m, depth=0, bottone=True):
@@ -107,7 +111,7 @@ def striscia_team(depth=0):
     <div class="between section-head" style="max-width:none;align-items:flex-end" data-reveal>
       <div style="max-width:40rem">
         <span class="eyebrow has-n"><span class="eyebrow__n">5</span>L'équipe</span>
-        <h2 class="mt-4">Non dovrai raccontare la tua storia <span class="accent-i">tre volte</span></h2>
+        <h2 class="mt-4">La tua storia la racconti <span class="accent-i">una volta sola</span></h2>
         <p class="lead">Ortodontista, chirurgo e odontotecnico stanno di solito in tre indirizzi
         diversi, e chi fa la spola in mezzo sei tu. Qui condividono lo stesso corridoio: il tuo
         caso lo discutono fra loro e tu ricevi un piano solo, già messo d'accordo.</p>
@@ -138,7 +142,7 @@ def drawer_persona():
         sintesi = f'<p class="lead mt-6">{m["sintesi"]}</p>' if m["sintesi"] else ""
         sorgenti += f'''<template id="cv-{m['slug']}">
   <div class="person-hero">
-    <span class="person-hero__ph"><img src="assets/img/team/{m['slug']}.webp" alt="Ritratto di {m['nome']}" width="720" height="900"></span>
+    <span class="person-hero__ph"><img src="assets/img/team/{m['slug']}.webp" alt="{m['nome']}, {m['ruolo']}" width="720" height="900"></span>
     <div>
       <span class="eyebrow is-bare">{m['albo'] or 'Équipe'}</span>
       <h2 class="mt-2" style="font-size:1.9rem">{m['nome']}</h2>
@@ -201,7 +205,7 @@ def blocco_recensioni(depth=0, limite=9, titolo=None, occhiello="Recensioni", te
         <p class="xs muted mt-2">{S['n_recensioni']} recensioni Google<br>{S['voto_fb']} su oltre 200 valutazioni Facebook</p>
       </div>
       <div>
-        <p class="small muted mb-4">Gli argomenti che tornano più spesso, contati da Google:</p>
+        <p class="small muted mb-4">Contate da Google:</p>
         <div class="rev-themes">{temi}</div>
         <a class="link-arrow mt-6" href="{S['recensioni_url']}" target="_blank" rel="noopener">Leggi tutte le recensioni su Google {ico('freccia')}</a>
       </div>
@@ -238,7 +242,7 @@ def mappa(depth=0, compatta=False):
   <li>{ico('treno')}<span><b>In treno.</b> Scendi a Genova Brignole e in cinque minuti a piedi sei in Via Maragliano.</span></li>
   <li>{ico('bus')}<span><b>In bus.</b> Fermano in Via XX Settembre o in Via Macaggi le linee 15, 17, 18, 19, 20, 30, 33, 36, 37, 39, 40, 42, 44, 46 e 47.</span></li>
   <li>{ico('auto')}<span><b>In auto.</b> Esci a Genova Ovest e segui le indicazioni per Genova Centro. Nel cortile interno abbiamo <b>tre posti auto gratuiti</b> riservati ai pazienti: basta chiederli in segreteria quando prenoti. In alternativa il parcheggio di Piazza della Vittoria dista cinque minuti.</span></li>
-  <li>{ico('accessibile')}<span><b>Accessibilità.</b> Dalla strada alla poltrona non c'è un solo gradino, secondo quanto prevede il D.M. 236/89. Il bagno è attrezzato per persone con disabilità e ha il fasciatoio.</span></li>
+  <li>{ico('accessibile')}<span><b>Accessibilità.</b> Dalla strada alla poltrona è tutto in piano, secondo quanto prevede il D.M. 236/89. Il bagno è attrezzato per persone con disabilità e ha il fasciatoio.</span></li>
 </ul>'''
     return f'''
 <section class="section bg-paper2" id="dove-siamo">
@@ -247,7 +251,7 @@ def mappa(depth=0, compatta=False):
       <span class="eyebrow">Dove siamo</span>
       <h2 class="mt-4">Ci arrivi a piedi da <span class="accent-i">Brignole</span>, o parcheggi dentro</h2>
       <p class="lead mt-6">{S['via']}, {S['cap']} {S['citta']}. Lo studio è al piano terra e si
-      entra direttamente dalla strada, senza scale né ascensori.</p>
+      entra direttamente dalla strada, tutto in piano.</p>
       {mezzi}
       <div class="mt-8 row gap-3">
         <a class="btn btn--ghost" href="{S['gmaps']}" target="_blank" rel="noopener">{ico('pin')} Apri in Google Maps</a>
@@ -276,8 +280,8 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
     vincola a prenotare: serve a farti un'idea prima di muoverti da casa.</p>
     <ul class="ticks mt-8">
       <li>{ico('check')}<span>Ti rispondiamo entro <b>due giorni lavorativi</b>, via email o al telefono che ci lasci</span></li>
-      <li>{ico('check')}<span>Il servizio è gratuito e non ti vincola a prenotare</span></li>
-      <li>{ico('check')}<span>Quando la panoramica da sola non basta te lo scriviamo chiaramente, invece di darti un numero a caso</span></li>
+      <li>{ico('check')}<span>Il servizio è gratuito, e dopo resti libero di decidere</span></li>
+      <li>{ico('check')}<span>Quando la panoramica da sola non basta te lo scriviamo, con il motivo</span></li>
     </ul>
     <div class="form-note mt-8">{ico('info')}<span>Una valutazione a distanza serve a orientarti
     sui tempi e sull'ordine di grandezza della spesa. La diagnosi vera richiede la visita clinica,

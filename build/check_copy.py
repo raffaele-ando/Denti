@@ -50,7 +50,19 @@ REGOLE = [
     ("F5 numerale scritto", re.compile(
         r"\b(due|tre|quattro|cinque|sei|sette|otto|nove|dieci|trecento|trentasei|"
         r"trecentodieci|duecento|centodieci)\b", re.I)),
+    # F6. titolo costruito su una negazione. Una frase negativa lascia
+    # impresso il concetto che nega, anche quando serve a smentirlo: il
+    # lettore ricorda «fa male» e dimentica il «non». Vale doppio nei
+    # titoli, che sono la parte che si legge davvero.
+    ("F6 titolo in negativo", re.compile(
+        r"\b(non|niente|nessun\w*|mai|senza)\b", re.I)),
 ]
+
+# L'unica negazione ammessa in un titolo. «Non ho sentito niente» è la frase
+# che i pazienti scrivono da soli nelle recensioni: qui la negazione cancella
+# una paura che il lettore porta con sé, non aggiunge un difetto al mittente.
+# Ogni altra eccezione va discussa, non aggiunta di nascosto a questa riga.
+DEROGHE_F6 = re.compile(r"non senti niente", re.I)
 
 # Frasi in cui il numerale è la notizia e quindi resta legittimo.
 DEROGHE = re.compile(r"(tasso zero|5\.000|rate|master|impianti|recensioni|specialisti)", re.I)
@@ -75,6 +87,9 @@ for f in sorted(ROOT.rglob("*.html")):
                     continue
                 if nome.startswith("F5"):
                     if tipo != "titolo" or DEROGHE.search(t):
+                        continue
+                if nome.startswith("F6"):
+                    if tipo not in ("titolo", "sottotitolo") or DEROGHE_F6.search(t):
                         continue
                 problemi.append((rp, tipo, nome, hit.group(0), t[:96]))
             # F6. due titoli vicini con la stessa costruzione

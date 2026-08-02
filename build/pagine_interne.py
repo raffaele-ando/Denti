@@ -150,7 +150,7 @@ def trattamento(t):
     <div data-reveal="left" style="max-width:26rem">
       <div class="portrait-card__frame" style="border-radius:var(--r-lg)">
         <img src="{r}assets/img/team/{m['slug']}.webp" width="720" height="900" loading="lazy"
-             alt="Ritratto di {m['nome']}" style="mix-blend-mode:multiply">
+             alt="{m['nome']}, {m['ruolo']}" style="mix-blend-mode:multiply">
       </div>
     </div>
     <div data-reveal="right">
@@ -257,7 +257,7 @@ def hub_trattamenti():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Trattamenti", None)])}
     <span class="eyebrow" data-reveal>Trattamenti</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Non sai come si chiama <span class="accent-i">quello che hai</span>? Va bene lo stesso</h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Basta sapere <span class="accent-i">dove ti fa male</span>, al nome ci pensiamo noi</h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Quanto dura, chi la esegue e quanto costa
     stanno scritti dentro ogni cura. E in diversi casi la risposta giusta è una cura più
     semplice di quella che immagini, oppure nessuna.</p>
@@ -276,11 +276,11 @@ STUDIO_SEZIONI = [
          testo="""<p>Sala raggi interna con <b>TAC Cone Beam 3D</b>, ortopantomografo con braccio tele e teleradiografo, tutti digitali.
          Consente radiografie tridimensionali delle ossa facciali, panoramiche e teleradiografie del cranio per l'ortodonzia.</p>
          <p>Tutti i sistemi radiografici sono digitali, con un <b>abbattimento superiore all'80% della dose</b> rispetto alla pellicola tradizionale.
-         Non ti mandiamo in un centro esterno e non aspetti giorni: la diagnosi si completa nella stessa seduta.</p>""",
+         Le radiografie e la TAC si fanno in questa stanza, e la diagnosi si chiude nella stessa seduta.</p>""",
          dati=[("TAC 3D", "Cone Beam, ossa facciali"), ("−80%", "dose radiante"), ("Scanner", "niente paste da impronta")],
          media=("Foto", "TAC Cone Beam e scanner intraorale, dettaglio ravvicinato",
                 "Ravvicinato e tagliato, non «foto del macchinario». Vedi photo brief #5.", "4/3", "radiologia")),
-    dict(id="sterilizzazione", occhiello="Sicurezza biologica", titolo="Niente ti arriva in bocca <span class='accent-i'>dopo essere stato</span> in quella di un altro",
+    dict(id="sterilizzazione", occhiello="Sicurezza biologica", titolo="Ogni strumento arriva da te <span class='accent-i'>sigillato e datato</span>",
          testo="""<p>Sala di sterilizzazione separata, con pareti in smalto lavabile e disinfettabile
          certificate <b>HACCP UNI 11021:2002</b>. Due autoclavi di classe B, protocolli ISO 9001, e ogni kit
          imbustato ed etichettato con tracciabilità individuale.</p>
@@ -291,7 +291,7 @@ STUDIO_SEZIONI = [
          diagramma="sterilizzazione",
          media=("Foto", "Mani guantate che imbustano lo strumentario",
                 "Dettaglio, non panoramica della stanza. Vedi photo brief #6.", "4/3", "sterilizzazione")),
-    dict(id="laboratorio", occhiello="Protesi", titolo="Se la protesi non ti convince, <span class='accent-i'>si aggiusta mentre aspetti</span>",
+    dict(id="laboratorio", occhiello="Protesi", titolo="I ritocchi alla protesi <span class='accent-i'>si fanno mentre aspetti</span>",
          testo="""<p>Laboratorio odontotecnico interno <b>iscritto al Ministero della Salute</b>, dove si realizzano
          protesi mobili, riparazioni immediate e tutte le protesi fisse in zirconia o composito con tecnologia CAD-CAM.</p>
          <p>In pratica: le prove si fanno mentre sei sulla poltrona, i ritocchi cromatici si eseguono sul momento
@@ -299,7 +299,7 @@ STUDIO_SEZIONI = [
          dati=[("CAD-CAM", "zirconia e composito"), ("Stesso giorno", "riparazioni"), ("Min. Salute", "lab. iscritto")],
          media=("Foto", "Mani dell'odontotecnico su una corona in zirconia",
                 "È un differenziante forte e merita uno scatto vero. Vedi photo brief #7.", "4/3", "laboratorio")),
-    dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Cosa succede se durante una seduta <span class='accent-i'>ti senti male</span>",
+    dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Attrezzati <span class='accent-i'>come un ambulatorio di emergenza</span>",
          testo="""<p>Defibrillatore semiautomatico, ossigeno, pallone ambu e cannule orofaringee, pulsossimetro,
          misuratori di pressione da braccio e da polso, misuratore digitale della glicemia e dell'INR.</p>
          <p>Quattordici farmaci d'emergenza organizzati in scatole dedicate, una per ciascun quadro clinico:
@@ -309,25 +309,25 @@ STUDIO_SEZIONI = [
          su manichino e defibrillatore trainer, perché una manovra si ricorda con le mani.</p>""",
          dati=[("DAE", "defibrillatore in sede"), ("14", "farmaci d'emergenza"), ("Ogni mese", "esercitazione")],
          media=None),
-    dict(id="continuita", occhiello="Continuità", titolo="Se va via la corrente, <span class='accent-i'>l'intervento non si ferma</span>",
+    dict(id="continuita", occhiello="Continuità", titolo="L'intervento va avanti <span class='accent-i'>anche se salta la corrente</span>",
          testo="""<p>Un gruppo di continuità UPS garantisce alle tre zone operative <b>tre ore di autonomia</b>
-         in caso di black-out. Significa che un intervento chirurgico iniziato non si interrompe mai a metà.</p>
+         in caso di black-out. Significa che un intervento iniziato si porta a termine.</p>
          <p>Lo studio dispone inoltre di un piano antincendio a norma.</p>""",
          dati=[("3 ore", "di autonomia elettrica"), ("3", "zone operative protette")],
          media=None),
-    dict(id="accessibilita", occhiello="Accesso", titolo="Dalla strada alla poltrona non c'è un <span class='accent-i'>solo gradino</span>",
+    dict(id="accessibilita", occhiello="Accesso", titolo="Dalla strada alla poltrona <span class='accent-i'>è tutto in piano</span>",
          testo="""<p>Circa 300 mq al piano terra con accesso diretto dalla strada. L'intera struttura è stata
          progettata e realizzata ai fini del superamento e dell'eliminazione delle barriere architettoniche,
          nel rispetto del <b>D.M. 236/89</b>.</p>
          <p>Bagno attrezzato per persone con disabilità, dotato anche di <b>fasciatoio</b>. In sala d'attesa
-         un'area gioco dedicata ai bambini. Per chi non può muoversi da casa è attivo il
+         un'area gioco dedicata ai bambini. Per chi resta a casa è attivo il
          <b>servizio a domicilio</b>, con attrezzatura portatile, anche presso case di cura.</p>""",
-         dati=[("300 mq", "al piano terra"), ("236/89", "nessuna barriera"), ("A domicilio", "su richiesta")],
+         dati=[("300 mq", "al piano terra"), ("236/89", "norma sulle barriere"), ("A domicilio", "su richiesta")],
          media=("Foto", "Ingresso dalla strada e sala d'attesa riordinata",
                 "Riordinare prima dello scatto. Grandangolo moderato, verticali corrette. Vedi photo brief #2 e #3.", "3/2", "ingresso")),
-    dict(id="parcheggio", occhiello="Parcheggio", titolo="Parcheggi dentro, e <span class='accent-i'>non paghi</span>",
+    dict(id="parcheggio", occhiello="Parcheggio", titolo="Parcheggi nel cortile, <span class='accent-i'>gratis</span>",
          testo="""<p>Nel cortile interno attiguo allo studio sono disponibili <b>tre posti auto riservati ai pazienti,
-         gratuiti e prenotabili</b> chiamando la segreteria. A Genova centro non è un dettaglio.</p>
+         gratuiti e prenotabili</b> chiamando la segreteria. A Genova centro vale più di quanto sembri.</p>
          <p>In alternativa: Piazza della Vittoria a cinque minuti a piedi, Stazione Brignole a cinque minuti,
          e una ventina di linee bus con fermata in Via XX Settembre o Via Macaggi.</p>""",
          dati=[("3", "posti auto gratuiti"), ("5 min", "da Brignole"), ("20+", "linee bus")],
@@ -365,7 +365,7 @@ def studio():
 </section>'''
 
     out = head(d, "Lo studio: tecnologia, sterilizzazione e sicurezza | Piccardo",
-               "300 mq in Genova centro: TAC Cone Beam 3D, laboratorio odontotecnico interno, sterilizzazione ISO 9001, defibrillatore, UPS 3 ore, nessuna barriera architettonica, 3 posti auto.",
+               "300 mq in Genova centro: TAC Cone Beam 3D, laboratorio odontotecnico interno, sterilizzazione ISO 9001, defibrillatore, UPS 3 ore, accesso in piano, 3 posti auto.",
                "studio.html")
     out += header(d, "studio")
     out += f'''<main id="main">
@@ -405,7 +405,7 @@ def studio():
   </div>
 </section>'''
     out += mappa(d)
-    out += cta_finale(d, "Vieni a vederlo, senza fare niente",
+    out += cta_finale(d, "Puoi venire solo a guardare",
                       "Puoi fissare un appuntamento in cui non si cura nulla: entri, guardi, parli con qualcuno e te ne vai. Diversi nostri pazienti hanno cominciato esattamente così, e la volta dopo si sono seduti.")
     out += '</main>' + footer(d)
     return out
@@ -533,9 +533,9 @@ def prezzi():
     {breadcrumb(d, [("Prezzi", None)])}
     <span class="eyebrow" data-reveal>Prezzi</span>
     <h1 class="mt-4" data-reveal style="--d:60ms">Il preventivo che firmi è la cifra che <span class="accent-i">pagherai alla fine</span></h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Nessun ritocco in corso d'opera, nessuna
-    voce che spunta a metà cura. Se il lavoro si rivela più lungo del previsto, la differenza
-    resta a carico nostro.</p>
+    <p class="lead mt-6" data-reveal style="--d:120ms">La cifra in fondo al preventivo è quella
+    che pagherai davvero. Se il lavoro si rivela più lungo del previsto, la differenza resta a
+    carico nostro.</p>
     <div class="hero__cta" data-reveal style="--d:180ms">
       <a class="btn btn--lg" href="#preventivo">Preventivo online gratuito</a>
       <a class="btn btn--lg btn--ghost" href="{S['booking']}" target="_blank" rel="noopener">Prenota la prima visita</a>
@@ -550,7 +550,7 @@ def prezzi():
         <h3 class="mt-6">Un preventivo scritto, voce per voce</h3>
         <p class="mt-2">Al termine della prima visita ti consegniamo un piano di cura su carta, con
         ogni lavorazione elencata singolarmente, il tempo previsto, le alternative possibili e il
-        totale. Nel documento non compare mai la dicitura «da definire»: se una cifra dipende da un
+        totale. Ogni voce ha la sua cifra accanto: se una dipende da un
         esame che ancora manca, te lo scriviamo e ti diciamo quando la sapremo.</p></article>
       <article class="card" data-reveal><div class="icon-box icon-box--accent">{ico('euro')}</div>
         <h3 class="mt-6">Fino a 5.000 euro puoi rateizzare a tasso zero</h3>
@@ -561,7 +561,7 @@ def prezzi():
         <h3 class="mt-6">Il 19 per cento torna con la dichiarazione</h3>
         <p class="mt-2">Le spese odontoiatriche rientrano fra gli oneri detraibili, quindi una parte
         di quanto spendi la recuperi l'anno successivo. La ricevuta fiscale viene emessa sempre e
-        per l'importo effettivamente pagato, anche quando nessuno la chiede.</p></article>
+        per l'importo effettivamente pagato, anche se non la chiedi.</p></article>
     </div>
   </div>
 </section>
@@ -617,7 +617,7 @@ def prezzi():
     </div>
     <div class="tariff-toolbar" data-reveal style="margin-bottom:1.5rem">{chips}</div>
     <div class="tariff-table" id="tariffario" data-reveal>{tabella}</div>
-    <p id="tariff-empty" class="center muted mt-8" hidden>Nessuna prestazione corrisponde alla ricerca.
+    <p id="tariff-empty" class="center muted mt-8" hidden>Questa voce non è in elenco.
     Per le voci non elencate rivolgiti alla segreteria: <a href="tel:{S['tel']}" style="color:var(--brand-700);font-weight:650">{S['tel_display']}</a>.</p>
     <p class="xs muted mt-6">Prezzi in euro, IVA esente ai sensi dell'art. 10 DPR 633/72. Per le prestazioni non
     elencate rivolgersi alla segreteria. I prezzi possono variare in funzione della complessità del caso:
@@ -705,7 +705,7 @@ def contatti():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Contatti", None)])}
     <span class="eyebrow" data-reveal>Contatti</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Rispondiamo dal lunedì al sabato, <span class="accent-i">fino alle otto e mezza</span></h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Ci trovi dal lunedì al sabato, <span class="accent-i">fino alle otto e mezza</span></h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Al telefono trovi Carlotta. Su WhatsApp
     puoi scrivere anche di sera e ti richiamiamo alla prima apertura. Dal calendario online
     prenoti da solo, a qualunque ora.</p>
@@ -819,14 +819,14 @@ def note_legali():
 def pagina404():
     d = 0
     out = head(d, "Pagina non trovata | Studio Piccardo",
-               "La pagina che cerchi non esiste più: il sito è stato riorganizzato e molti contenuti sono confluiti in pagine più complete. Torna alla home o chiamaci allo 010 5959492.",
+               "Quello che cercavi si è spostato altrove. Riparti dalla home, dall'elenco dei trattamenti, oppure chiamaci allo 010 5959492.",
                "404.html")
     out += header(d)
     out += f'''<main id="main">
 <section class="section center" style="padding-top:calc(var(--header-h) + 6rem)">
   <div class="wrap" style="max-width:38rem">
     <div class="stat-n" style="font-size:6rem">404</div>
-    <h1 class="mt-6">Questa pagina non c'è <span class="accent-i">più</span>.</h1>
+    <h1 class="mt-6">Questa pagina <span class="accent-i">si è spostata</span>.</h1>
     <p class="lead mt-6">Quello che cercavi si è spostato altrove. Riparti da qui, oppure
     chiamaci e in trenta secondi ti diciamo noi dov'è finito.</p>
     <div class="hero__cta" style="justify-content:center">
