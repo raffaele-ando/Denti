@@ -110,7 +110,7 @@ def render():
     numeri = [
         ("4000", "+", "impianti osteointegrati inseriti dal 1999", False),
         ("99.8", "%", "la percentuale di successo sulla casistica dello studio", False),
-        ("1997", "", "l'anno in cui il Dott. Piccardo ha iniziato a esercitare", True),
+        ("1997", "", "l'anno della laurea in Odontoiatria del Dott. Piccardo", True),
         ("7", "", "clinici, ognuno con la sua disciplina", False),
     ]
     celle = "".join(

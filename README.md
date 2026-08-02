@@ -10,7 +10,7 @@ con un'identità visiva nuova, un design system completo e un sito statico funzi
 
 ## In sintesi
 
-Lo studio possiede il capitale di fiducia più forte della categoria a Genova, **310 recensioni Google**, sei master universitari, oltre 4.000 impianti, un tariffario pubblico completo: e il sito
+Lo studio possiede il capitale di fiducia più forte della categoria a Genova, **310 recensioni Google**, cinque master universitari di II livello, oltre 4.000 impianti, un tariffario pubblico completo: e il sito
 precedente non ne usava quasi nulla. Il redesign non inventa un posizionamento: lo estrae dalle
 recensioni dei pazienti e lo rende visibile in cinque secondi.
 

@@ -715,7 +715,7 @@ dict(
         ("Il dente espulso da un trauma",
          "Se un dente permanente viene espulso da un trauma, i minuti contano. Raccoglilo tenendolo <b>per la corona, mai per la radice</b>, non strofinarlo, immergilo nel latte o nella soluzione fisiologica, o, in mancanza d'altro, tienilo nella tua saliva, e vieni subito. Reimpiantato entro 30–60 minuti ha buone probabilità di attecchire."),
         ("Se resti a casa, veniamo noi",
-         "Lo studio effettua il <b>servizio a domicilio</b>: il dentista si sposta a casa o in casa di cura portando l'attrezzatura necessaria. È pensato per pazienti allettati, anziani e persone con disabilità che non possono raggiungere lo studio."),
+         "Lo studio effettua il <b>servizio a domicilio</b>: il dentista si sposta a casa o in casa di cura con il riunito portatile, insieme a un odontotecnico per le riparazioni di protesi. Allo spostamento si aggiungono <b>150 €</b> sul totale della prestazione. È pensato per pazienti allettati, anziani e persone con disabilità che non possono raggiungere lo studio."),
     ],
     fit_titolo="Cosa fare nell'attesa",
     fit_yes_t="Aiuta",

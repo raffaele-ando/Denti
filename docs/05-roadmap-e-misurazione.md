@@ -48,6 +48,70 @@ contestazione, e su un sito sanitario anche a qualcosa di peggio.
 
 ---
 
+## 1-ter. Verifica integrale delle affermazioni contro l'export
+
+Ogni affermazione fattuale del sito nuovo è stata confrontata con le 61 pagine dell'export del
+sito attuale, lette per intero (43.228 parole, 1.702 righe dopo aver tolto il testo che si ripete
+su ogni pagina). Esito: **cinque errori miei, due contraddizioni interne alla fonte, due dati che
+esistevano e che avevo dichiarato mancanti.**
+
+### Errori corretti
+
+| Affermazione | Fonte | Correzione |
+|---|---|---|
+| «Sei master universitari di II livello» | `piccardo.md` ne elenca **cinque**: Implantoprotesi Genova 2013/14 (110/110), Sedazione ed emergenze Padova 2014/15, Chirurgia orale e d'urgenza Pisa 2015/16, Direzione e Management LUM 2018/19, Implantologia Digitale Padova 2021/22. In più due perfezionamenti universitari e il corso di Lione, che master non sono | «Cinque master universitari di II livello» |
+| «Defibrillatore semiautomatico» | `index.md`: «defibrillatore **automatico**» | «Defibrillatore automatico» |
+| Linee bus: 15, 17, 18, 19, 20, 30, 33, 36, 37, 39, 40, 42, 44, 46, 47 | `raggiungerci.md` include anche la **14** | Aggiunta la 14 |
+| «1997, l'anno in cui il Dott. Piccardo ha iniziato a esercitare» | Laurea e abilitazione sono del 1997, ma `piccardo.md` dice «inizia la libera professione odontoiatrica **nel 1998**» | «L'anno della laurea in Odontoiatria» |
+| Servizio a domicilio senza indicazione di costo | `domicilio.md`: «Il prezzo delle prestazioni sarà gravato esclusivamente per il tempo di spostamento e disponibilità del medico odontoiatra di **150,00 €**» | Il supplemento è ora dichiarato |
+
+### Contraddizioni dentro la fonte, da far sciogliere allo studio
+
+| Dato | Versione A | Versione B |
+|---|---|---|
+| **Autonomia del gruppo di continuità** | `index.md`: «garantisce alle tre zone operative **tre ore** di autonomia» | `gruppocontinuita.md`: «eroga 10 kWora per **2 ore**… garantisce un'autonomia di 2 ore» |
+| **Orario di apertura** | `index.md`: «dalle ore 8.00 alle ore **20.00**» | `contatti.md`, `piccardo.md`, `tariffario.md` e il piè di pagina di tutte le pagine: «dal Lunedì al Sabato **8.00-20.30**» |
+| **Chi segue la pedodonzia** | `chisiamo.md` e `pedodonzista.md`: **Dott.ssa Ludovica Tuo** | `pedodonzia.md`: «la **dott.ssa F. Barbato** da sempre si occupa della cura dei denti dei bambini» |
+| **Assistenti alla poltrona** | `assistenti.md`: **Cecilia Pirone e Virginia La Paglia** | La scheda del team che ho costruito riporta Erika Carbone e Virginia |
+| **Elenco convenzioni** | `convenzioni.md` include **HELP CARD** | `index.md` include **HBM** al suo posto |
+
+Sul sito nuovo ho usato la versione maggioritaria (20:30, Tuo, tre ore), ma **vanno confermate
+tutte**, e le assistenti vanno verificate per nome.
+
+### Dati che esistevano e che avevo dichiarato mancanti
+
+Questo è l'errore opposto, e va detto perché mi ha portato a scrivere «da inserire» su una pagina
+pubblica quando il dato era già online:
+
+- **Polizza RC professionale**, da `polizza-assicurativa-rc-professionale.md`: polizza
+  n. 2024/03/2585668, Reale Mutua Assicurazioni, decorrenza 31/12/2024, scadenza il 31/12 di ogni
+  anno, massimale 2.000.000 €. Ora pubblicata. Va riconfermata alla messa online, perché scade
+  ogni anno.
+- **Risarcimenti dell'ultimo quinquennio**, da `contenziosi-e-risarcimenti.md`: «Negli ultimi
+  cinque anni Ambulatorio Dentistico Dr. Piccardo U. Srl non ha avuto contenziosi con i pazienti e
+  non ha erogato risarcimenti diretti o indiretti attraverso la compagnia assicurativa.» Ora
+  pubblicata: è un obbligo di legge assolto, e anche un argomento di fiducia notevole.
+
+### Fatti verificati che il sito nuovo non usa ancora
+
+Tutti nell'export, tutti concreti, tutti inutilizzati. Sono materiale pronto per la prossima
+iterazione:
+
+- **Lumineers garantite 10 anni**, con certificato di conformità e autenticità rilasciato dal
+  medico abilitato, e «nel 90% dei casi non viene rimossa nessuna struttura dentaria sensibile»
+- **Occhiali video con i cartoni animati** durante le sedute dei bambini
+- **Priorità nella prenotazione dei posti auto** ai pazienti con disabilità o con bimbi piccoli
+- **Sala d'attesa**: 12 poltroncine, wi-fi con password, area bimbi con tavolini, carrozzina a
+  disposizione, e **tutti i diplomi e i master esposti alle pareti**
+- **Reception**: pagamento con Pagodil in 12 rate, buoni regalo per igiene e sbiancamento, foglio
+  di giustificazione per il lavoro
+- **Controindicazioni del protossido** dichiarate esplicitamente: primi tre mesi di gravidanza,
+  tossicodipendenze, terapia antidepressiva, infezioni polmonari acute, gravi malattie mentali
+- **Il riunito portatile** del servizio a domicilio: doppio aspiratore chirurgico, due trapani,
+  lampada UV, ablatore, pistola aria-acqua, con un odontotecnico al seguito
+
+---
+
 ## 2. Da collegare prima della pubblicazione
 
 **1. Endpoint dei moduli.** Oggi i due form validano lato client e mostrano la conferma, ma non inviano nulla (`app.js`, blocco *Form: validazione + invio simulato*). Serve un endpoint. Tre opzioni, in ordine di preferenza:

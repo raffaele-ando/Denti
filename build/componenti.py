@@ -240,7 +240,7 @@ def mappa(depth=0, compatta=False):
              f"&z=16&hl=it&output=embed")
     mezzi = f'''<ul class="ticks">
   <li>{ico('treno')}<span><b>In treno.</b> Scendi a Genova Brignole e in cinque minuti a piedi sei in Via Maragliano.</span></li>
-  <li>{ico('bus')}<span><b>In bus.</b> Fermano in Via XX Settembre o in Via Macaggi le linee 15, 17, 18, 19, 20, 30, 33, 36, 37, 39, 40, 42, 44, 46 e 47.</span></li>
+  <li>{ico('bus')}<span><b>In bus.</b> Fermano in Via XX Settembre o in Via Macaggi le linee 14, 15, 17, 18, 19, 20, 30, 33, 36, 37, 39, 40, 42, 44, 46 e 47.</span></li>
   <li>{ico('auto')}<span><b>In auto.</b> Esci a Genova Ovest e segui le indicazioni per Genova Centro. Nel cortile interno abbiamo <b>tre posti auto gratuiti</b> riservati ai pazienti: basta chiederli in segreteria quando prenoti. In alternativa il parcheggio di Piazza della Vittoria dista cinque minuti.</span></li>
   <li>{ico('accessibile')}<span><b>Accessibilità.</b> Dalla strada alla poltrona è tutto in piano, secondo quanto prevede il D.M. 236/89. Il bagno è attrezzato per persone con disabilità e ha il fasciatoio.</span></li>
 </ul>'''

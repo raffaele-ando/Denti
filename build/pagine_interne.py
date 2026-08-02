@@ -299,7 +299,7 @@ STUDIO_SEZIONI = [
          media=("Foto", "Mani dell'odontotecnico su una corona in zirconia",
                 "Mani in azione sul manufatto, fresa o pennello in campo. Luce laterale.", "4/3", "laboratorio")),
     dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Attrezzati <span class='accent-i'>come un ambulatorio di emergenza</span>",
-         testo="""<p>Defibrillatore semiautomatico, ossigeno, pallone ambu e cannule orofaringee, pulsossimetro,
+         testo="""<p>Defibrillatore automatico, ossigeno, pallone ambu e cannule orofaringee, pulsossimetro,
          misuratori di pressione da braccio e da polso, misuratore digitale della glicemia e dell'INR.</p>
          <p>Quattordici farmaci d'emergenza organizzati in scatole dedicate, una per ciascun quadro clinico:
          arresto cardiaco e respiratorio, lipotimia, angina, aritmie, infarto, crisi ipertensiva, edema polmonare,
@@ -799,11 +799,19 @@ def note_legali():
     <p>Ai sensi dell'art. 10, comma 4, della <b>Legge 24/2017</b> (Legge Gelli-Bianco), la struttura sanitaria
     è tenuta a pubblicare sul proprio sito gli estremi della polizza assicurativa per la responsabilità
     civile verso terzi e verso i prestatori d'opera, con l'indicazione della compagnia, della classe
-    di rischio e dei massimali. La medesima norma richiede la pubblicazione dei dati relativi ai
-    risarcimenti erogati nell'ultimo quinquennio.</p>
-    <p class="da-completare">{ico('info')}<span><b>Da completare:</b> compagnia assicurativa, classe
-    di rischio, massimali e dati sui risarcimenti dell'ultimo quinquennio. È un obbligo di legge in
-    capo alla struttura.</span></p>
+    di rischio e dei massimali.</p>
+    <ul class="ticks mt-4">
+      <li>{ico('check')}<span>Polizza n. <b>2024/03/2585668</b>, <b>Reale Mutua Assicurazioni</b></span></li>
+      <li>{ico('check')}<span>Decorrenza 31/12/2024, scadenza il 31/12 di ogni anno</span></li>
+      <li>{ico('check')}<span>Massimale <b>2.000.000 €</b></span></li>
+    </ul>
+    <p class="mt-6">Ai sensi dell'art. 4, comma 3, della stessa legge, la struttura pubblica i dati
+    sui risarcimenti erogati nell'ultimo quinquennio. <b>Negli ultimi cinque anni l'Ambulatorio
+    Dentistico Dr. Piccardo U. S.r.l. non ha avuto contenziosi con i pazienti e non ha erogato
+    risarcimenti</b>, né diretti né tramite la compagnia assicurativa.</p>
+    <p class="da-completare">{ico('info')}<span><b>Da verificare alla pubblicazione:</b> i dati della
+    polizza sono ripresi dal sito attuale e vanno confermati alla data di messa online, perché la
+    scadenza è annuale.</span></p>
 
     <h3 id="informazione">Natura delle informazioni pubblicate</h3>
     <p>I contenuti di questo sito hanno finalità di informazione sanitaria ai sensi dell'art. 9 della
