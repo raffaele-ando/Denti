@@ -6,7 +6,7 @@ Ogni immagine del sito attuale è stata aperta e valutata. Criteri: risoluzione 
 
 ---
 
-## 1. Da usare — così com'è o con ritaglio
+## 1. Da usare: così com'è o con ritaglio
 
 ### ★★★★★ La serie di ritratti in bianco e nero (14 file)
 
@@ -19,11 +19,11 @@ Alta chiave, fondo bianco, sguardo in camera, illuminazione morbida e frontale. 
 > ⚠️ **Unica incoerenza:** tre membri (Pulitanò, De Giovanni, Grasso) indossano una polo scura, gli altri una polo bianca. In B/N stona poco, ma al prossimo shooting va uniformata la divisa.
 > ⚠️ **Attenzione ai nomi file:** `ceciliapirone.webp` ritrae in realtà **Erika Carbone, Assistente** (leggibile dal ricamo sulla polo). Rinominato correttamente.
 
-### ★★★☆☆ `al-lavoro-3` — intervento in corso
+### ★★★☆☆ `al-lavoro-3`: intervento in corso
 
 Due clinici con occhialini ingranditori e mascherina, in azione. È l'unica foto documentaristica vera dell'archivio. Bassa risoluzione (557×372) → usabile solo come banda editoriale, convertita in B/N per coerenza. **Da rifare in alta risoluzione: è lo scatto più prezioso del set.**
 
-### ★★☆☆☆ Casi clinici prima/dopo — 2 coppie recuperabili su ~20
+### ★★☆☆☆ Casi clinici prima/dopo: 2 coppie recuperabili su ~20
 
 | Caso | Sorgente | Nota |
 |---|---|---|
@@ -43,14 +43,14 @@ Tutto il resto (`protesi1`, `protesi2`, `otturazioni1–3`, `lumineers2`, `caric
 | **Clip-art commerciale** | `finanziamentitassozero` (×2), `finanziamentitassoagevolato`, `convenzioni`, `tariffario`, `contattaci`, `dentista_preventivi_on_line` | Estetica anni '90 (bevel, ombre dure, omino 3D, banconote e salvadanaio, «Risparmia fino al 70%»). In conflitto diretto con il posizionamento "qualità a prezzo onesto". |
 | **Icone di contatto** | `CHIAMA2` (57×57), `whatsapp-dentista-genova` (90×81), `Prenota-online-*` (80×80 e 150×150) | Sostituite da componenti vettoriali e bottoni testuali. |
 | **Badge recensioni** | `recensioni-goolge-compressed`, `recensioni-facebbok2-compressed` | Testo rasterizzato a 345×146. Sostituiti da un componente HTML con dati veri e stelle SVG. |
-| **Foto di gruppo informali** | `dentista3`, `dentista4`, `dentista5`, `dentistabimbigenova`, `dentisti-genova`, `dentista-genova` | Foto di squadra simpatiche ma con mascherine, pupazzi, sfondi disordinati e (in un caso) **il volto di un bambino con gli occhi coperti da una barra nera** — soluzione da non pubblicare mai. |
+| **Foto di gruppo informali** | `dentista3`, `dentista4`, `dentista5`, `dentistabimbigenova`, `dentisti-genova`, `dentista-genova` | Foto di squadra simpatiche ma con mascherine, pupazzi, sfondi disordinati e (in un caso) **il volto di un bambino con gli occhi coperti da una barra nera**: soluzione da non pubblicare mai. |
 | **Illustrazioni cliniche** | `innestiosso1–3`, `caricoimmediato`, `exgiudizio` | Illustrazioni stock di terzi, stile eterogeneo, probabile diritto d'uso non verificato. **Sostituite da diagrammi vettoriali originali** disegnati per il sito. |
 | **Foto esterni** | `dovesiamo1–3`, `comeraggiungerci` | Notturne, mosse, insegna sovraesposta; la mappa è uno screenshot raster. Sostituite da mappa interattiva + foto vetrina da rifare. |
 | **Interne varie** | `filse2024`, `filse-copertina` | Documento amministrativo del bando FILSE. Va in una nota a piè di pagina, non tra le immagini. |
 
 ---
 
-## 3. Brief fotografico — cosa produrre
+## 3. Brief fotografico: cosa produrre
 
 Sul sito, ogni buco è marcato con un **segnaposto progettato** che riporta a schermo il tipo di media, il formato e la nota di scatto. Sono componenti `.media-slot` con attributo `data-shot`: cercabili nel codice, impossibili da dimenticare in pubblicazione.
 
@@ -64,7 +64,7 @@ Un solo linguaggio per tutto il nuovo materiale:
 - **Persone:** sempre in azione o in relazione, mai in posa frontale sorridente (tranne i ritratti). Mani, sguardi, dettagli.
 - **Post:** profilo unico. Neri leggermente alzati, contrasto morbido, nessuna vignettatura, nessun filtro.
 
-### Lista scatti — priorità 1 (indispensabili al lancio)
+### Lista scatti: priorità 1 (indispensabili al lancio)
 
 | # | Soggetto | Formato | Uso | Nota |
 |---|---|---|---|---|
@@ -79,21 +79,21 @@ Un solo linguaggio per tutto il nuovo materiale:
 | 9 | **Area bimbi** con un bambino di spalle o solo mani | 3:2 | Bambini | Liberatoria genitori obbligatoria. Mai barre nere sugli occhi |
 | 10 | **Posto auto interno** con auto parcheggiata, di giorno | 3:2 | Contatti | Risolve un'obiezione reale a Genova centro |
 
-### Lista scatti — priorità 2
+### Lista scatti: priorità 2
 
 11. Ritratto d'équipe al completo, in studio, divisa uniforme, B/N (sostituisce `staff2020`)
 12. Rifacimento dei ritratti dei tre membri in polo scura, per uniformare la serie
 13. Dettaglio delle mascherine Invisalign in mano
 14. Reception con Carlotta al telefono (scatto naturale, non in posa)
-15. Serie *behind the scenes*: riunione mensile di formazione sulle emergenze — è una prova concreta e nessun concorrente ce l'ha
+15. Serie *behind the scenes*: riunione mensile di formazione sulle emergenze: è una prova concreta e nessun concorrente ce l'ha
 
 ### Video
 
 | # | Contenuto | Durata | Uso |
 |---|---|---|---|
-| V1 | **«Non ho sentito niente»** — un paziente racconta, montato con il Dott. Piccardo che spiega la sedazione | 60–75″ | Blocco paura in home + pillar |
+| V1 | **«Non ho sentito niente»**: un paziente racconta, montato con il Dott. Piccardo che spiega la sedazione | 60–75″ | Blocco paura in home + pillar |
 | V2 | **Tour dello studio** in movimento continuo, senza voce, musica sotto | 45″ | Hero della pagina Studio |
-| V3 | **Prima visita: cosa succede davvero** — punto di vista del paziente, dall'ingresso al preventivo | 90″ | Prezzi + pagine trattamento |
+| V3 | **Prima visita: cosa succede davvero**: punto di vista del paziente, dall'ingresso al preventivo | 90″ | Prezzi + pagine trattamento |
 | V4 | 8 clip verticali 15″, una per clinico: «la domanda che mi fanno più spesso» | 15″ | Team + social |
 
 I 36 video YouTube esistenti (incluse le interviste ai clinici) restano validi come **archivio di approfondimento**: vanno però tolti dall'autoplay e raccolti in una sezione dedicata con anteprima e titolo, non incorporati alla rinfusa.
@@ -103,7 +103,7 @@ I 36 video YouTube esistenti (incluse le interviste ai clinici) restano validi c
 Perché i prossimi casi siano pubblicabili, ogni paziente va fotografato con:
 
 1. **Stessa fotocamera, stessa focale, stessa distanza** (idealmente 100 mm macro o telefono con lente tele, sempre la stessa).
-2. **Flash anulare o doppio flash laterale** — mai flash integrato.
+2. **Flash anulare o doppio flash laterale**: mai flash integrato.
 3. **Retrattori labiali** e specchi intraorali per le viste occlusali.
 4. **Bilanciamento del bianco fissato** su cartoncino grigio, identico nelle due sessioni.
 5. **Serie standard:** frontale a denti uniti · frontale sorriso · laterale dx · laterale sx · occlusale sup. · occlusale inf.

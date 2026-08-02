@@ -25,7 +25,7 @@ def head(depth, titolo, descrizione, canonical, schema_extra=None, og_img="asset
         "@context": "https://schema.org",
         "@type": "Dentist",
         "@id": S["sito"] + "/#studio",
-        "name": f"{S['brand']} — Studio odontoiatrico",
+        "name": f"{S['brand']}. Studio odontoiatrico",
         "legalName": S["ragione_sociale"],
         "url": S["sito"],
         "telephone": S["tel"],
@@ -78,7 +78,7 @@ def head(depth, titolo, descrizione, canonical, schema_extra=None, og_img="asset
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
-<meta property="og:site_name" content="{S['brand']} — Studio odontoiatrico Genova">
+<meta property="og:site_name" content="{S['brand']}. Studio odontoiatrico Genova">
 <meta property="og:title" content="{titolo}">
 <meta property="og:description" content="{descrizione}">
 <meta property="og:url" content="{S['sito']}/{canonical}">
@@ -113,7 +113,7 @@ def _mega_menu(depth):
     <p class="mt-2">Visita completa, diagnosi e piano di cura scritto. Il preventivo che ricevi è quello che paghi.</p>
     <div class="stat-n mt-4" style="color:#F2E9D8;font-size:2.2rem">110&nbsp;€</div>
   </div>
-  <a class="link-arrow" style="color:var(--green-200)" href="{r}prezzi.html">Tutto il tariffario {ico('freccia')}</a>
+  <a class="link-arrow" style="color:var(--brand-200)" href="{r}prezzi.html">Tutto il tariffario {ico('freccia')}</a>
 </div>'''
     return f'<div class="mega" role="region" aria-label="Tutti i trattamenti">{cols}</div>'
 
@@ -134,7 +134,7 @@ def header(depth, current=""):
 
     return f'''<header class="header">
 <div class="wrap header__inner">
-  <a class="brand" href="{r}index.html" aria-label="{S['brand']} — home">
+  <a class="brand" href="{r}index.html" aria-label="{S['brand']}: home">
     {marchio()}
     <span class="brand__type">
       <span class="brand__name">{S['brand']}</span>
@@ -186,12 +186,12 @@ def _mobile_bar():
 
 
 # ═════════════════════════════════════════════════════════════════ FOOTER
-def cta_finale(depth, titolo="Il primo passo è una telefonata.",
-               testo="Prima visita, diagnosi e piano di cura scritto: 110 €. Nessuna sorpresa in corso d'opera — è la cosa che i nostri pazienti ci scrivono più spesso."):
+def cta_finale(depth, titolo="Prenota la prima visita e scopri esattamente cosa serve",
+               testo="Centodieci euro comprendono l'esame completo della bocca, le radiografie necessarie, la diagnosi e un piano di cura consegnato per iscritto, con i costi già indicati. Da quel momento sai a cosa vai incontro."):
     return f'''<section class="section">
 <div class="wrap">
   <div class="cta-final" data-reveal>
-    <span class="eyebrow is-bare" style="color:var(--green-200)">Prenota</span>
+    <span class="eyebrow is-bare" style="color:var(--brand-200)">Prenota</span>
     <h2 class="mt-4">{titolo}</h2>
     <p class="lead mt-4">{testo}</p>
     <div class="cta-final__btns">
@@ -270,18 +270,23 @@ def footer(depth):
 
 
 # ═══════════════════════════════════════════════════════════ COMPONENTI
-def media_slot(tipo, testo, nota, ar="3/2", dark=False, extra=""):
-    """Segnaposto progettato per un media da produrre.
+def media_slot(tipo, testo, nota, ar="3/2", dark=False, scena="poltrona", extra=""):
+    """Riquadro che tiene il posto di una fotografia ancora da scattare.
 
-    Compare a schermo con la specifica di scatto: impossibile dimenticarlo
-    in pubblicazione. L'attributo data-shot lo rende cercabile nel codice.
+    Al posto di un rettangolo grigio mostra un'illustrazione vettoriale del
+    soggetto: la pagina resta leggibile e piacevole anche prima dello shooting.
+    La specifica di scatto resta stampata sotto, e `data-shot` la rende
+    cercabile nel codice, così nessun buco può passare inosservato.
     """
-    icona = "video" if tipo.lower().startswith("video") else "camera"
+    from illustrazioni import illustrazione
     d = " media-slot--dark" if dark else ""
-    return f'''<figure class="media-slot{d}" data-kind="{tipo}" data-shot="{testo}" style="--ar:{ar}"{extra}>
-  {ico(icona, "media-slot__icon")}
-  <figcaption class="media-slot__txt">{testo}</figcaption>
-  <p class="media-slot__note">{nota}</p>
+    return f'''<figure class="media-slot{d}" data-reveal="fade" data-shot="{testo}" style="--ar:{ar}"{extra}>
+  <div class="media-slot__art">{illustrazione(scena)}</div>
+  <span class="media-slot__tag">{ico("camera" if not tipo.lower().startswith("video") else "video")}{tipo}</span>
+  <figcaption class="media-slot__cap">
+    <b>{testo}</b>
+    <span>{nota}</span>
+  </figcaption>
 </figure>'''
 
 

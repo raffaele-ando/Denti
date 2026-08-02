@@ -1,6 +1,6 @@
-# Audit UX — dentista-genova-dottpiccardo.it
+# Audit UX: dentista-genova-dottpiccardo.it
 
-**Oggetto:** Ambulatorio Dentistico Dr. Piccardo U. SRL — Via Maragliano 5, Genova
+**Oggetto:** Ambulatorio Dentistico Dr. Piccardo U. SRL. Via Maragliano 5, Genova
 **Base dell'analisi:** export completo del sito (62 pagine, 102 asset immagine, 36 video, 5 mappe) + 310 recensioni Google.
 **Data:** agosto 2026
 
@@ -8,7 +8,7 @@
 
 ## 0. Sintesi in una pagina
 
-Il sito attuale non è un sito debole: è un **archivio ricchissimo con un'interfaccia del 2008**. Il problema non è la mancanza di contenuti — ce ne sono più che nel 90% degli studi odontoiatrici italiani — è che **nessuno di quei contenuti è organizzato per far compiere un'azione a una persona spaventata che sta scegliendo un dentista**.
+Il sito attuale non è un sito debole: è un **archivio ricchissimo con un'interfaccia del 2008**. Il problema non è la mancanza di contenuti, ce ne sono più che nel 90% degli studi odontoiatrici italiani, è che **nessuno di quei contenuti è organizzato per far compiere un'azione a una persona spaventata che sta scegliendo un dentista**.
 
 Tre numeri che riassumono tutto:
 
@@ -18,9 +18,9 @@ Tre numeri che riassumono tutto:
 | **1** | call-to-action reale e ripetuta (un numero di telefono, in testo) |
 | **0** | pagine che rispondono alla domanda che il paziente si fa davvero: *"mi farà male? quanto mi costa? di chi mi sto fidando?"* |
 
-E soprattutto: lo studio possiede **il più forte capitale di fiducia della categoria a Genova** — 5,0/5 su 310 recensioni, 4,9 su 200+ Facebook — e **non lo usa**. Nella homepage è un'immagine JPG di un badge, larga 345 px, senza una sola parola di paziente citata.
+E soprattutto: lo studio possiede **il più forte capitale di fiducia della categoria a Genova**, 5,0/5 su 310 recensioni, 4,9 su 200+ Facebook, e **non lo usa**. Nella homepage è un'immagine JPG di un badge, larga 345 px, senza una sola parola di paziente citata.
 
-> **La tesi del redesign:** non serve inventare nulla. Serve prendere ciò che lo studio è già — indolore, trasparente sui prezzi, tecnologicamente avanti, tutto sotto lo stesso tetto — e renderlo *visibile in 5 secondi* invece che *deducibile in 40 minuti di lettura*.
+> **La tesi del redesign:** non serve inventare nulla. Serve prendere ciò che lo studio è già, indolore, trasparente sui prezzi, tecnologicamente avanti, tutto sotto lo stesso tetto, e renderlo *visibile in 5 secondi* invece che *deducibile in 40 minuti di lettura*.
 
 ---
 
@@ -51,7 +51,7 @@ Prima di criticare: questo è l'attivo. È molto.
 - **20 convenzioni** (FASI, FASDAC, FASIE, FISDE, FASCHIM, CASPIE, Pronto Care, CRAL RINA…).
 - Prenotazione online già attiva via MioDottore.
 - WhatsApp attivo (+39 347 426 8916).
-- Apertura **lun–sab 8:00–20:30** — orario che nessun concorrente regge.
+- Apertura **lun–sab 8:00–20:30**: orario che nessun concorrente regge.
 - Servizio a domicilio.
 
 ### 1.4 Asset sociali
@@ -84,25 +84,25 @@ Metodo: 10 euristiche di Nielsen + criteri di conversione (Fogg Behavior Model: 
 
 **⬤ Il percorso di prenotazione non esiste come percorso.** Ci sono tre modi di contattare (telefono, WhatsApp, form) rappresentati da **tre icone JPG da 57–90 px**, non etichettate, ripetute in ogni pagina senza gerarchia. Nessuna delle tre spiega *cosa succede dopo*. Il modello di Fogg è violato su tutti e tre gli assi: motivazione bassa (nessuna promessa), abilità bassa (non si capisce dove cliccare), trigger assente (nessun bottone).
 
-**⬤ Zero attrito ridotto sull'ansia.** Il paziente odontofobico — che le recensioni dimostrano essere **il segmento emotivamente più forte dello studio** — non trova in homepage una sola parola su dolore, paura o sedazione. La pagina `protossido.html` che risolve il problema è al terzo livello, sotto "LO STUDIO".
+**⬤ Zero attrito ridotto sull'ansia.** Il paziente odontofobico, che le recensioni dimostrano essere **il segmento emotivamente più forte dello studio**, non trova in homepage una sola parola su dolore, paura o sedazione. La pagina `protossido.html` che risolve il problema è al terzo livello, sotto "LO STUDIO".
 
-**⬤ Il prezzo è un'occasione sprecata.** Il tariffario pubblico è l'arma competitiva più affilata che questo studio possiede — le recensioni parlano di *prezzi* 13 volte e di *onestà* 6 volte — ed è presentato come un **elenco di testo non formattato di 37 righe**, senza contesto, senza "cosa è incluso", senza finanziamento affiancato, senza confronto. Un prezzo senza contesto è solo un numero grande.
+**⬤ Il prezzo è un'occasione sprecata.** Il tariffario pubblico è l'arma competitiva più affilata che questo studio possiede, le recensioni parlano di *prezzi* 13 volte e di *onestà* 6 volte, ed è presentato come un **elenco di testo non formattato di 37 righe**, senza contesto, senza "cosa è incluso", senza finanziamento affiancato, senza confronto. Un prezzo senza contesto è solo un numero grande.
 
 **◐ Nessuna prova sociale utilizzabile.** 310 recensioni a 5,0 ridotte a due immagini-badge da 345×146 px. Nessuna citazione, nessun nome, nessun caso. La prova sociale (Cialdini) funziona per **specificità**: "310 recensioni" convince meno di *"58 primavere e prima estrazione del dente del giudizio: non ho sentito niente"*.
 
 **◐ Nessuna scala di impegno.** L'unica offerta è "prima visita 110 €" o "chiamaci". Manca il gradino a basso attrito (preventivo online gratuito) che è **già un servizio dello studio** ma non è posizionato come porta d'ingresso.
 
-**○ Form legacy.** Campi obbligatori tra cui "ripeti EMAIL", allegato **max 100 KB** (una panoramica dentale ne pesa 2–8 MB: il campo è di fatto inutilizzabile), informativa privacy citata come **D.lgs. 196/2003** — superato dal GDPR dal 2018.
+**○ Form legacy.** Campi obbligatori tra cui "ripeti EMAIL", allegato **max 100 KB** (una panoramica dentale ne pesa 2–8 MB: il campo è di fatto inutilizzabile), informativa privacy citata come **D.lgs. 196/2003**: superato dal GDPR dal 2018.
 
 ### 2.3 Contenuto e copy
 
 **◐ Scritto dal medico, per il medico.** «*L'implantologia è quella branca dell'odontoiatria che si avvale dell'ausilio degli impianti dentali endoossei osteointegrati*». Il paziente ha chiesto: *"mi rimetteranno il dente?"*.
 
-**◐ Il contenuto forte è nascosto sotto quello debole.** La pagina implantologia dedica **due paragrafi alla mancata osteointegrazione e al fallimento dell'impianto** prima ancora di aver detto cosa si ottiene. È onestà — che è un valore dello studio — ma è ordinata al contrario: la trasparenza sui rischi convince *dopo* che il beneficio è chiaro, non prima.
+**◐ Il contenuto forte è nascosto sotto quello debole.** La pagina implantologia dedica **due paragrafi alla mancata osteointegrazione e al fallimento dell'impianto** prima ancora di aver detto cosa si ottiene. È onestà, che è un valore dello studio, ma è ordinata al contrario: la trasparenza sui rischi convince *dopo* che il beneficio è chiaro, non prima.
 
 **◐ Keyword stuffing visibile.** Il footer di ogni pagina contiene un paragrafo di ~1.200 caratteri con la frase "dentisti genova / implantologia / protesi" ripetuta **tre volte identica**. La homepage chiude con un blocco di **~90 keyword** in chiaro ("dentista alito cattivo Genova", "dentista bravissimo a Genova"). Nel 2026 questo è un segnale di spam per Google e un segnale di dilettantismo per l'utente.
 
-**○ Refusi in pagina.** "oggiornate", "coscente", "sucessivo", "compiuter", "prorocolli", "tafiffe", "cute dentistiche". Su un sito medico erodono la percezione di precisione — che è esattamente ciò che le recensioni lodano ("maniacale").
+**○ Refusi in pagina.** "oggiornate", "coscente", "sucessivo", "compiuter", "prorocolli", "tafiffe", "cute dentistiche". Su un sito medico erodono la percezione di precisione: che è esattamente ciò che le recensioni lodano ("maniacale").
 
 ### 2.4 Fiducia (E-E-A-T)
 

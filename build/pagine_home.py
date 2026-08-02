@@ -27,7 +27,7 @@ def _tcard(slug, depth=0):
         riga = f'<div class="tcard__price"><span>{prezzo[0]}</span><b>{prezzo[1].replace(",00","")} €</b></div>' \
             if "€" not in prezzo[1] and "/" not in prezzo[1] else \
             f'<div class="tcard__price"><span>{prezzo[0]}</span><b>{prezzo[1]}</b></div>'
-    badge = '<span class="pill pill--brass">Alta specializzazione</span>' if t.get("premium") else ""
+    badge = '<span class="pill pill--accent">Alta specializzazione</span>' if t.get("premium") else ""
     return f'''<article class="tcard" data-reveal>
   <div class="tcard__top"><div class="icon-box">{ico(t['icona'])}</div>{badge}</div>
   <h3>{t['nav']}</h3>
@@ -50,7 +50,7 @@ def render():
     r = ""
     out = head(
         0,
-        "Dentista a Genova centro — implantologia, Invisalign, sedazione | Studio Piccardo",
+        "Dentista a Genova centro: implantologia, Invisalign, sedazione | Studio Piccardo",
         "Studio odontoiatrico in Via Maragliano 5, Genova. Implantologia, ortodonzia invisibile e cure con sedazione cosciente. Tariffario pubblico, 5,0 su 310 recensioni. Lun–sab 8:00–20:30.",
         "",
     )
@@ -107,10 +107,10 @@ def render():
 
     # ─────────────────────────────────────────────────────── BARRA NUMERI
     numeri = [
-        ("4000", "+", "impianti osteointegrati dal 1999", False),
-        ("99.8", "%", "di successo implantare dichiarato", False),
-        ("1997", "", "anno di inizio dell'attività", True),
-        ("8", "", "specialisti in un'unica sede", False),
+        ("4000", "+", "impianti osteointegrati inseriti dal 1999", False),
+        ("99.8", "%", "la percentuale di successo sulla casistica dello studio", False),
+        ("1997", "", "l'anno in cui il Dott. Piccardo ha iniziato a esercitare", True),
+        ("8", "", "clinici specializzati in discipline diverse", False),
     ]
     celle = "".join(
         '''<div class="stat-bar__item" data-reveal style="--d:{d}ms">
@@ -123,19 +123,43 @@ def render():
     out += f'<section class="stat-bar"><div class="wrap"><div class="stat-bar__grid">{celle}</div></div></section>'
 
     # ───────────────────────────────────────────────────────── I PILASTRI
+    pilastri = (
+        _pilastro(
+            "calma", "Il dolore si controlla con tecniche precise",
+            "Il Dott. Piccardo ha conseguito a Padova un master universitario di secondo livello "
+            "in sedazione ed emergenze in odontoiatria, e in quella stessa clinica universitaria "
+            "ha poi lavorato come sedazionista. Lo studio pratica la sedazione cosciente "
+            "inalatoria, quella endovenosa e la comunicazione ipnotica: tre strumenti diversi, "
+            "che si scelgono in base a quanto è forte l&rsquo;ansia e a quanto durerà l&rsquo;intervento.",
+            "trattamenti/paura-del-dentista.html", "Come funziona la sedazione")
+        + _pilastro(
+            "euro", "Il prezzo lo conosci prima di sederti",
+            "Trentasei prestazioni sono pubblicate online con il loro costo, dalla prima visita "
+            "all&rsquo;impianto. Dopo la visita ricevi un piano di cura scritto, con le voci una per "
+            "una, i tempi previsti e le alternative possibili. L&rsquo;importo si può rateizzare a "
+            "tasso zero fino a cinquemila euro, e diciannove fra fondi e casse sanitarie sono "
+            "convenzionati con lo studio.",
+            "prezzi.html", "Apri il tariffario completo")
+        + _pilastro(
+            "scan", "Diagnosi, chirurgia e protesi nello stesso posto",
+            "La sala raggi ospita una TAC Cone Beam tridimensionale e uno scanner intraorale. Il "
+            "laboratorio odontotecnico, iscritto al Ministero della Salute, sta due porte più in "
+            "là e fresa le corone in zirconia mentre sei ancora in poltrona. Nessun esame da fare "
+            "altrove, nessuna protesi da spedire e da aspettare per settimane.",
+            "studio.html", "Guarda com&rsquo;è fatto lo studio")
+    )
     out += f'''
 <section class="section">
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Perché qui</span>
-      <h2 class="mt-4">Tre cose che possiamo <span class="accent-i">dimostrare</span>.</h2>
-      <p class="lead">Non tre valori aziendali. Tre fatti, ciascuno con la sua prova.</p>
+      <h2 class="mt-4">Tre motivi per sceglierci, e la <span class="accent-i">prova</span> di ciascuno</h2>
+      <p class="lead">Qualsiasi studio può scrivere «professionalità» e «tecnologia
+      all&rsquo;avanguardia»: sono parole che non costano nulla. Qui sotto trovate tre affermazioni
+      precise e, accanto a ognuna, il titolo universitario, il numero o il documento che la
+      sostiene. Sono tutte verificabili.</p>
     </div>
-    <div class="grid g3" data-stagger="90">
-      {_pilastro('calma', 'Non fa male', 'Sedazione cosciente inalatoria, sedazione endovenosa e ipnosi clinica. Master universitario di II livello in sedazione, Università di Padova. La paura la trattiamo, non ti chiediamo di sopportarla.', 'trattamenti/paura-del-dentista.html', 'Come funziona')}
-      {_pilastro('euro', 'Sai quanto spendi', '37 prestazioni con il prezzo pubblicato online, prima che tu entri. Preventivo scritto, finanziamento a tasso 0 fino a 5.000 € e 19 convenzioni attive.', 'prezzi.html', 'Vedi il tariffario')}
-      {_pilastro('scan', 'Lo facciamo qui', 'TAC Cone Beam 3D, scanner intraorale e laboratorio odontotecnico interno iscritto al Ministero della Salute. Diagnosi, chirurgia e protesi senza uscire dallo studio.', 'studio.html', 'Visita lo studio')}
-    </div>
+    <div class="grid g3" data-stagger="90">{pilastri}</div>
   </div>
 </section>'''
 
@@ -155,8 +179,10 @@ def render():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Trattamenti</span>
-      <h2 class="mt-4">Da dove vuoi <span class="accent-i">partire</span>?</h2>
-      <p class="lead">Scegli il motivo per cui sei qui. Ti mostriamo solo quello che ti riguarda.</p>
+      <h2 class="mt-4">Ogni percorso comincia da un <span class="accent-i">problema diverso</span></h2>
+      <p class="lead">Scegli la situazione che ti somiglia di più. Al posto di un elenco di
+      quaranta prestazioni vedrai le tre che riguardano davvero il tuo caso, ciascuna con il
+      costo di partenza e la pagina che la spiega per intero.</p>
     </div>
     <div class="intent" data-tabs data-reveal>
       <div class="intent__tabs" role="tablist" aria-label="Scegli il motivo della visita">{tabs}</div>
@@ -171,22 +197,34 @@ def render():
 <section class="section bg-dark">
   <div class="wrap split">
     <div data-reveal="left">
-      {media_slot("Video · 60″", "«Non ho sentito niente» — testimonianza di un paziente montata con il Dott. Piccardo che spiega la sedazione",
+      {media_slot("Video · 60″", "«Non ho sentito niente»: testimonianza di un paziente montata con il Dott. Piccardo che spiega la sedazione",
                   "Il singolo contenuto a più alto impatto dell'intero sito. Priorità di produzione 1. Vedi docs/03-photo-brief.md → V1.",
-                  ar="4/3", dark=True)}
+                  ar="4/3", dark=True, scena="video")}
     </div>
     <div data-reveal="right">
       <span class="eyebrow">Odontofobia</span>
-      <h2 class="mt-4">Se la paura è il motivo per cui <span class="accent-i" style="color:var(--green-200)">rimandi</span>, quello è il nostro lavoro.</h2>
-      <p class="lead mt-6">Non è una questione di coraggio: è un riflesso appreso, quasi sempre da un'esperienza reale.
-      Qui la paura è un parametro clinico. Prima di ogni cura si decide insieme <b style="color:#FFFDF9">quale livello di sedazione serve</b>, esattamente come si decide il tipo di anestesia.</p>
+      <h2 class="mt-4">Se rimandi le cure per paura, ci sono <span class="accent-i">tre strade</span> per uscirne</h2>
+      <p class="lead mt-6">L'odontofobia si comporta come un riflesso condizionato. Nasce quasi
+      sempre da un episodio reale, spesso dell'infanzia, e il corpo la ripropone appena riconosce
+      il rumore del riunito o l'odore dello studio. Chiedere a una persona di farsi coraggio
+      significa chiederle di controllare una reazione automatica, e infatti quasi mai funziona.
+      Qui l'ansia viene valutata prima della seduta e si decide insieme
+      <b style="color:#FFFDF9">quale livello di sedazione usare</b>, con la stessa serietà con
+      cui si sceglie il tipo di anestesia.</p>
       <ul class="ticks mt-8">
-        <li>{ico('check')}<span><b style="color:#FFFDF9">Sedazione cosciente inalatoria</b> — ossigeno e protossido. Resti sveglio, esci e guidi.</span></li>
-        <li>{ico('check')}<span><b style="color:#FFFDF9">Sedazione endovenosa</b> — gestita direttamente in studio, non appaltata.</span></li>
-        <li>{ico('check')}<span><b style="color:#FFFDF9">Ipnosi clinica</b> — diploma di Ipnologo CIICS. La parola prima del farmaco.</span></li>
+        <li>{ico('check')}<span><b style="color:#FFFDF9">Sedazione cosciente inalatoria.</b>
+        Una miscela personalizzata di ossigeno e protossido d'azoto, respirata da una mascherina
+        appoggiata sul naso. Resti sveglio e rispondi alle domande; alla fine bastano cinque minuti
+        di ossigeno puro per tornare a guidare.</span></li>
+        <li>{ico('check')}<span><b style="color:#FFFDF9">Sedazione endovenosa.</b>
+        Gestita direttamente dal Dott. Piccardo, senza appoggiarsi a un anestesista esterno.
+        Serve negli interventi lunghi, o nei pazienti in cui la sola inalatoria non basta.</span></li>
+        <li>{ico('check')}<span><b style="color:#FFFDF9">Comunicazione ipnotica.</b>
+        Diploma di Ipnologo conseguito al CIICS di Torino nel 2017. In molti casi abbassa l'ansia
+        prima ancora che serva somministrare qualcosa.</span></li>
       </ul>
-      <div class="mt-8"><a class="btn btn--ghost" href="trattamenti/paura-del-dentista.html">Come funziona la sedazione {ico('freccia')}</a></div>
-      <figure class="mt-12" style="border-left:2px solid var(--green-500);padding-left:1.25rem">
+      <div class="mt-8"><a class="btn" href="trattamenti/paura-del-dentista.html">{ico('calma')} Leggi come funziona la sedazione</a></div>
+      <figure class="mt-12" style="border-left:2px solid var(--brand-500);padding-left:1.25rem">
         <p class="pull pull--i" style="font-size:clamp(1.15rem,1rem+.8vw,1.5rem);line-height:1.35">«58 primavere sulle spalle e prima estrazione di dente del giudizio. Non ho sentito niente.»</p>
         <figcaption class="pull-cite">Fabio Burlando · recensione Google</figcaption>
       </figure>
@@ -201,12 +239,14 @@ def render():
     out += striscia_team(0)
 
     # ───────────────────────────────────────────────────────── RECENSIONI
-    out += blocco_recensioni(0, limite=9, titolo="310 recensioni. <span class='accent-i'>Media 5,0.</span>",
-                             occhiello="La parola ai pazienti")
+    out += blocco_recensioni(
+        0, limite=9,
+        titolo="Trecentodieci pazienti hanno recensito lo studio, e la media è <span class='accent-i'>cinque su cinque</span>",
+        occhiello="La parola ai pazienti")
 
     # ────────────────────────────────────────────────────── PREZZI ESTRATTO
     voci = [("Prima visita e piano di cura", "110"), ("Igiene orale professionale", "100"),
-            ("Otturazione media", "130"), ("Devitalizzazione — 1 canale", "160"),
+            ("Otturazione media", "130"), ("Devitalizzazione, 1 canale", "160"),
             ("Impianto dentale", "770"), ("Corona in zirconia", "770")]
     righe = "".join(
         f'<div class="tariff-row"><span class="tariff-row__n">{n}</span><span class="tariff-row__p">{p} €</span></div>'
@@ -217,10 +257,11 @@ def render():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Prezzi</span>
-      <h2 class="mt-4">Il tariffario è <span class="accent-i">pubblico</span>. Tutto.</h2>
-      <p class="lead mt-6">Trentasette prestazioni con il prezzo scritto, online, aggiornato.
-      Non è un vezzo di trasparenza: è il modo più rapido che conosciamo per farti capire
-      con chi hai a che fare.</p>
+      <h2 class="mt-4">Il tariffario è <span class="accent-i">pubblico</span> e lo trovi per intero</h2>
+      <p class="lead mt-6">Trentasei prestazioni con il costo indicato accanto, dalla pulizia dei
+      denti alla riabilitazione su impianti. Pubblicarlo ci espone al confronto, e va bene così:
+      chi arriva sapendo già quanto spenderà si siede in poltrona molto più tranquillo, e quella
+      tranquillità vale più di qualche preventivo in meno.</p>
       <div class="ribbon mt-8">{ico('euro')}<span><b>Finanziamento a tasso 0</b> fino a 5.000 €, fino a 36 rate. Tasso agevolato oltre.</span></div>
       <div class="mt-8 row gap-3">
         <a class="btn" href="prezzi.html">Tariffario completo</a>

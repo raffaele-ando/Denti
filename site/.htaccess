@@ -1,4 +1,4 @@
-# Redirect 301 dal vecchio sito — vedi docs/02-strategia-ia-wireframe.md
+# Redirect 301 dal vecchio sito: vedi docs/02-strategia-ia-wireframe.md
 # Nessuno dei 60 URL storici deve restituire 404.
 Options -Indexes
 ErrorDocument 404 /404.html

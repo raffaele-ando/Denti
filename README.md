@@ -1,6 +1,6 @@
-# Piccardo — redesign dello studio odontoiatrico
+# Piccardo, redesign dello studio odontoiatrico
 
-Ridisegno completo di [dentista-genova-dottpiccardo.it](https://www.dentista-genova-dottpiccardo.it) —
+Ridisegno completo di [dentista-genova-dottpiccardo.it](https://www.dentista-genova-dottpiccardo.it) -
 Ambulatorio Dentistico Dr. Piccardo U. S.r.l., Via Maragliano 5, Genova.
 
 Da **62 pagine organizzate per organigramma** a **19 pagine organizzate per intenzione del paziente**,
@@ -10,8 +10,8 @@ con un'identità visiva nuova, un design system completo e un sito statico funzi
 
 ## In sintesi
 
-Lo studio possiede il capitale di fiducia più forte della categoria a Genova — **5,0 su 310 recensioni
-Google**, sei master universitari, oltre 4.000 impianti, un tariffario pubblico completo — e il sito
+Lo studio possiede il capitale di fiducia più forte della categoria a Genova, **5,0 su 310 recensioni
+Google**, sei master universitari, oltre 4.000 impianti, un tariffario pubblico completo: e il sito
 precedente non ne usava quasi nulla. Il redesign non inventa un posizionamento: lo estrae dalle
 recensioni dei pazienti e lo rende visibile in cinque secondi.
 
@@ -73,14 +73,14 @@ Non serve Node, non serve un CMS, non serve un database.
 Il sito vive in `site/`, non nella radice del repository: senza configurazione GitHub Pages
 mostrerebbe il `README.md` al posto della homepage. Sono previste due strade, entrambe già pronte.
 
-**Consigliata — pubblicazione automatica.**
+**Consigliata: pubblicazione automatica.**
 `Settings → Pages → Build and deployment → Source: GitHub Actions`.
 Il workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) rigenera il sito dai
 sorgenti, esegue il controllo qualità e pubblica `site/` sulla radice del dominio Pages.
 Da quel momento ogni push aggiorna il sito da solo.
 Indirizzo risultante: `https://<utente>.github.io/<repo>/`
 
-**Alternativa — pubblicazione dal branch.**
+**Alternativa: pubblicazione dal branch.**
 `Settings → Pages → Source: Deploy from a branch`, branch `claude/dental-studio-redesign-acgd4w`,
 cartella `/ (root)`. In questo caso l'`index.html` nella radice reindirizza automaticamente
 a `site/index.html`: il sito si apre lo stesso, con un indirizzo un livello più profondo.

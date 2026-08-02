@@ -6,33 +6,33 @@
 
 Le 310 recensioni sono il miglior documento di ricerca utente disponibile: sono pazienti reali che dichiarano spontaneamente *perché* hanno scelto e *cosa* li ha colpiti. Da lì emergono quattro segmenti, ordinati per valore economico × frequenza.
 
-### A — «Ho paura, ma non posso più rimandare» (≈35% del traffico utile)
+### A: «Ho paura, ma non posso più rimandare» (≈35% del traffico utile)
 
-> *"Ero terrorizzata al solo pensiero di andare dal dentista, lui mi ha fatto passare completamente la paura."* — Chicca G.
-> *"Ho un passato, fin da bambina, colmo di sedute dai dentisti, molti dei quali mi hanno lasciato un vero e proprio trauma."* — Tina M.
-> *"58 primavere e prima estrazione del dente del giudizio: non ho sentito niente!"* — Fabio B.
+> *"Ero terrorizzata al solo pensiero di andare dal dentista, lui mi ha fatto passare completamente la paura."*. Chicca G.
+> *"Ho un passato, fin da bambina, colmo di sedute dai dentisti, molti dei quali mi hanno lasciato un vero e proprio trauma."*. Tina M.
+> *"58 primavere e prima estrazione del dente del giudizio: non ho sentito niente!"*. Fabio B.
 
 **Job to be done:** *«Fammi credere che stavolta sarà diverso.»*
 **Ostacolo:** il ricordo del dolore, la vergogna dello stato della propria bocca, la paura del giudizio.
 **Cosa deve trovare:** una promessa esplicita, il nome della tecnica che la rende possibile (sedazione cosciente, ipnosi clinica), la faccia di chi la eseguirà, e la parola di qualcuno come lui.
 **Perché conta economicamente:** è il segmento che ha rimandato per anni. Quando si decide, il piano di cura è **grande**. È anche il segmento che genera le recensioni più appassionate e il passaparola familiare ("ora è il nostro dentista di famiglia").
 
-### B — «Mi mancano dei denti / devo rifare tutto» (≈20%, valore più alto)
+### B: «Mi mancano dei denti / devo rifare tutto» (≈20%, valore più alto)
 
-> *"Ho fatto otto impianti e mi sono trovato benissimo. Grazie, mi avete cambiato la vita."* — M.A. Bruzzone
-> *"Dopo aver consultato diversi altri pareri che prevedevano preventivi troppo onerosi, soluzioni invasive e percorsi di cura molto lunghi."* — Ciurlo A.
+> *"Ho fatto otto impianti e mi sono trovato benissimo. Grazie, mi avete cambiato la vita."*. M.A. Bruzzone
+> *"Dopo aver consultato diversi altri pareri che prevedevano preventivi troppo onerosi, soluzioni invasive e percorsi di cura molto lunghi."*. Ciurlo A.
 
-**Job to be done:** *«Dimmi se si può fare, in quanto tempo, e quanto costa — senza sorprese.»*
+**Job to be done:** *«Dimmi se si può fare, in quanto tempo, e quanto costa: senza sorprese.»*
 **Ostacolo:** ha già ricevuto 2–3 preventivi contraddittori. È in modalità **confronto**, non scoperta.
 **Cosa deve trovare:** prezzi, numeri di casistica, tempi, finanziamento, e la differenza tra le opzioni (impianto vs ponte vs mobile) spiegata onestamente.
 
-### C — «Voglio un sorriso migliore» (≈20%, alto margine)
+### C: «Voglio un sorriso migliore» (≈20%, alto margine)
 
 Invisalign, faccette, sbiancamento. Decisione **estetica ed elettiva**: nessuna urgenza, quindi il sito deve creare desiderio. È l'unico segmento per cui il *prima/dopo* è determinante.
 **Job to be done:** *«Fammi vedere il risultato prima di impegnarmi.»*
 **Leva già disponibile:** Invisalign a **125 €/mese** e il ClinCheck ("l'operatore ti mostra il risultato finale prima di iniziare"). È un argomento potentissimo, oggi sepolto in un paragrafo.
 
-### D — «Mi fa male adesso» + «Controllo di routine» (≈25%, valore basso ma è il motore)
+### D: «Mi fa male adesso» + «Controllo di routine» (≈25%, valore basso ma è il motore)
 
 Urgenze, igiene, otturazioni, bambini. Basso valore unitario, ma è la **porta d'ingresso** verso A/B/C e verso la famiglia intera. Il criterio di scelta è: *velocità di risposta, orari, posizione, parcheggio*.
 Lo studio è imbattibile qui (lun–sab 8–20:30, centro, 3 posti auto, urgenze per pazienti) e non lo dice.
@@ -44,8 +44,8 @@ Lo studio è imbattibile qui (lun–sab 8–20:30, centro, 3 posti auto, urgenze
 ### 2.1 Il territorio da occupare
 
 Il mercato odontoiatrico genovese si divide in due poli:
-- **catene low-cost** — comunicano prezzo, perdono su fiducia e continuità;
-- **studi tradizionali** — comunicano competenza, ma sono opachi sui prezzi e freddi sull'ansia.
+- **catene low-cost**: comunicano prezzo, perdono su fiducia e continuità;
+- **studi tradizionali**: comunicano competenza, ma sono opachi sui prezzi e freddi sull'ansia.
 
 Lo studio Piccardo è l'unico che può occupare **contemporaneamente** i due assi, perché li possiede entrambi *per davvero*: tariffario pubblico + 6 master + 4.000 impianti. Il territorio vuoto è:
 
@@ -77,9 +77,9 @@ Quattro coordinate, scelte per neutralizzare l'ansia senza perdere autorevolezza
 ### 2.5 Nome e marca
 
 Oggi il brand è la ragione sociale: *Ambulatorio Dentistico Dr. Piccardo U. SRL*. È burocratico e impronunciabile.
-Il marchio parlante diventa **Piccardo** — con la coda *Studio odontoiatrico · Genova*. La ragione sociale completa resta dove serve (footer, note legali, dati fiscali).
+Il marchio parlante diventa **Piccardo**: con la coda *Studio odontoiatrico · Genova*. La ragione sociale completa resta dove serve (footer, note legali, dati fiscali).
 
-**Marchio grafico:** la croce di San Giorgio — la croce rossa di Genova — è già nel logo dello studio. È un elemento locale, distintivo e proprietario. Va **ridisegnato**: da croce con dentino illustrato dentro (attuale, illustrativo e datato) a una croce geometrica costruita su griglia, in cui il vuoto centrale suggerisce la sagoma di un dente. Radicamento genovese + rigore clinico in un solo segno.
+**Marchio grafico:** la croce di San Giorgio, la croce rossa di Genova, è già nel logo dello studio. È un elemento locale, distintivo e proprietario. Va **ridisegnato**: da croce con dentino illustrato dentro (attuale, illustrativo e datato) a una croce geometrica costruita su griglia, in cui il vuoto centrale suggerisce la sagoma di un dente. Radicamento genovese + rigore clinico in un solo segno.
 
 ---
 
@@ -187,7 +187,7 @@ Quarta colonna: card promozionale con la prima visita e il link al tariffario.
 
 Notazione: `[ ]` blocco · `▣` immagine/video · `▶` CTA primaria · `▷` CTA secondaria · `※` segnaposto media da produrre.
 
-### 5.1 Home — desktop
+### 5.1 Home: desktop
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────┐
@@ -211,7 +211,7 @@ Notazione: `[ ]` blocco · `▣` immagine/video · `▶` CTA primaria · `▷` C
 │  BARRA NUMERI  (contatori animati all'ingresso in viewport)                │
 │   4.000+ impianti  ·  99,8% successo  ·  1997 dal  ·  8 specialisti        │
 ├────────────────────────────────────────────────────────────────────────────┤
-│  I TRE PILASTRI — tre card con icona SVG animata al passaggio              │
+│  I TRE PILASTRI: tre card con icona SVG animata al passaggio              │
 │   ┌───────────────┐ ┌───────────────┐ ┌───────────────┐                    │
 │   │ ◉ Non fa male │ │ € Sai quanto  │ │ ⌂ Lo facciamo │                    │
 │   │   sedazione   │ │   spendi      │ │   qui         │                    │
@@ -219,7 +219,7 @@ Notazione: `[ ]` blocco · `▣` immagine/video · `▶` CTA primaria · `▷` C
 │   │   + ipnosi    │ │   pubblicati  │ │   interni     │                    │
 │   └───────────────┘ └───────────────┘ └───────────────┘                    │
 ├────────────────────────────────────────────────────────────────────────────┤
-│  "DA DOVE VUOI PARTIRE?" — selettore per intenzione (5 pill orizzontali)   │
+│  "DA DOVE VUOI PARTIRE?": selettore per intenzione (5 pill orizzontali)   │
 │   Ho paura · Mi manca un dente · Voglio un sorriso migliore ·              │
 │   Ho un dolore · Prevenzione e bambini                                     │
 │   → il contenuto sotto cambia senza ricaricare: 3 card di trattamento      │
@@ -236,24 +236,24 @@ Notazione: `[ ]` blocco · `▣` immagine/video · `▶` CTA primaria · `▷` C
 │   │                          │  [▷ Come funziona]                         │ │
 │   └──────────────────────────┴───────────────────────────────────────────┘ │
 ├────────────────────────────────────────────────────────────────────────────┤
-│  PRIMA / DOPO — slider a trascinamento, 2 casi reali + 4 slot ※            │
+│  PRIMA / DOPO: slider a trascinamento, 2 casi reali + 4 slot ※            │
 │   con nota di conformità: "Casi reali. I risultati variano."               │
 ├────────────────────────────────────────────────────────────────────────────┤
-│  IL TEAM — striscia orizzontale di 10 ritratti B/N, scroll morbido          │
+│  IL TEAM: striscia orizzontale di 10 ritratti B/N, scroll morbido          │
 │   con nome + ruolo in overlay; il colore appare all'hover                  │
 ├────────────────────────────────────────────────────────────────────────────┤
-│  RECENSIONI — 3 colonne masonry, citazioni reali con nome e tema           │
+│  RECENSIONI: 3 colonne masonry, citazioni reali con nome e tema           │
 │   + barra dei temi ricorrenti (avanguardia 18 · prezzi 13 · ...)           │
 ├────────────────────────────────────────────────────────────────────────────┤
-│  PREZZI IN CHIARO — estratto di 6 voci + finanziamento + [▷ tutto]         │
+│  PREZZI IN CHIARO: estratto di 6 voci + finanziamento + [▷ tutto]         │
 ├────────────────────────────────────────────────────────────────────────────┤
-│  DOVE SIAMO — mappa + orari + 3 posti auto + mezzi                         │
+│  DOVE SIAMO: mappa + orari + 3 posti auto + mezzi                         │
 ├────────────────────────────────────────────────────────────────────────────┤
 │  CTA FINALE a piena larghezza · FOOTER (dati sanitari, legali, social)     │
 └────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.2 Home — mobile (375 px)
+### 5.2 Home: mobile (375 px)
 
 ```
 ┌───────────────────────┐
@@ -287,7 +287,7 @@ Notazione: `[ ]` blocco · `▣` immagine/video · `▶` CTA primaria · `▷` C
 
 ### 5.3 Pagina trattamento (template usato per tutte e 10)
 
-Sequenza progettata secondo l'ordine in cui il paziente si pone le domande — non secondo l'ordine in cui il medico le spiega:
+Sequenza progettata secondo l'ordine in cui il paziente si pone le domande: non secondo l'ordine in cui il medico le spiega:
 
 ```
 1  HERO          claim + sintesi in una frase + prezzo indicativo + [▶] + ▣
@@ -318,15 +318,15 @@ Il punto **4** è il cuore del *show, don't tell*: ogni trattamento ha il propri
 │  │  →   97 €/mese      tasso 0 fino a 5.000 €             │  │
 │  └────────────────────────────────────────────────────────┘  │
 ├──────────────────────────────────────────────────────────────┤
-│  TARIFFARIO — tabella filtrabile per categoria, ricercabile  │
+│  TARIFFARIO: tabella filtrabile per categoria, ricercabile  │
 │   Visite · Prevenzione · Conservativa · Endodonzia ·         │
 │   Protesi · Implantologia · Chirurgia · Estetica             │
 ├──────────────────────────────────────────────────────────────┤
 │  COSA È INCLUSO NELLA PRIMA VISITA (checklist)               │
 ├──────────────────────────────────────────────────────────────┤
-│  CONVENZIONI — marquee dei 20 loghi/nomi                     │
+│  CONVENZIONI: marquee dei 20 loghi/nomi                     │
 ├──────────────────────────────────────────────────────────────┤
-│  FORM PREVENTIVO ONLINE — 4 campi + upload panoramica        │
+│  FORM PREVENTIVO ONLINE: 4 campi + upload panoramica        │
 └──────────────────────────────────────────────────────────────┘
 ```
 

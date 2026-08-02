@@ -44,18 +44,18 @@ def prima_dopo(depth=0, caso=None, titolo=None):
     if caso:
         corpo = f'<div class="grid g2">{_slider(caso, depth)}' + \
             media_slot("Foto · prima e dopo", "Secondo caso clinico dello stesso trattamento",
-                       "Da fotografare con il protocollo standardizzato: stessa focale, flash anulare, retrattori, bilanciamento del bianco fissato. Vedi docs/03-photo-brief.md.",
-                       ar="4/3") + '</div>'
-        tit = titolo or "Casi trattati nello studio"
+                       "Da fotografare con il protocollo standardizzato: stessa focale, flash anulare, retrattori e bilanciamento del bianco fissato. Vedi docs/03-photo-brief.md.",
+                       ar="4/3", scena="prima-dopo") + '</div>'
+        tit = titolo or "Un caso reale, prima e dopo il trattamento"
     else:
         slot = media_slot("Foto · prima e dopo", "Caso di implantologia a carico immediato",
                           "Serie standard: frontale, laterale destra e sinistra, occlusale. Consenso scritto archiviato.",
-                          ar="4/3") + media_slot(
+                          ar="4/3", scena="prima-dopo") + media_slot(
             "Foto · prima e dopo", "Caso di estetica con faccette",
-            "Stessa illuminazione e stessa distanza nelle due sessioni. Nessun ritocco oltre il bilanciamento colore.",
-            ar="4/3")
+            "Stessa illuminazione e stessa distanza nelle due sessioni, nessun ritocco oltre il bilanciamento del colore.",
+            ar="4/3", scena="faccetta")
         corpo = f'<div class="grid g2">{_slider("riabilitazione", depth)}{_slider("ortodonzia", depth)}{slot}</div>'
-        tit = titolo or "Trascina e guarda la <span class='accent-i'>differenza</span>."
+        tit = titolo or "Due casi trattati qui, fotografati <span class='accent-i'>prima e dopo</span>"
 
     return f'''
 <section class="section">
@@ -63,9 +63,10 @@ def prima_dopo(depth=0, caso=None, titolo=None):
     <div class="section-head" data-reveal>
       <span class="eyebrow">Casi clinici</span>
       <h2 class="mt-4">{tit}</h2>
-      <p class="lead">Casi reali trattati nel nostro studio. Pubblichiamo solo quelli documentati
-      con protocollo fotografico completo e consenso scritto del paziente — sono pochi, e per noi
-      è più importante che siano veri.</p>
+      <p class="lead">Trascina il cursore sull'immagine per confrontare la situazione iniziale
+      con il risultato. Pubblichiamo soltanto i casi documentati con protocollo fotografico
+      completo e con il consenso scritto del paziente: per questo ne trovate pochi, e per questo
+      quelli che trovate sono autentici.</p>
     </div>
     {corpo}
     <p class="ba-disclaimer">{ico('info')}<span>Casi reali trattati presso l'Ambulatorio Dentistico Dr. Piccardo U. S.r.l.
@@ -105,9 +106,10 @@ def striscia_team(depth=0):
     <div class="between section-head" style="max-width:none;align-items:flex-end" data-reveal>
       <div style="max-width:40rem">
         <span class="eyebrow">L'équipe</span>
-        <h2 class="mt-4">Dieci persone. <span class="accent-i">Una sola sede.</span></h2>
-        <p class="lead">Otto professionisti clinici più segreteria e assistenti. Non ti passiamo
-        da uno studio all'altro: chi ti visita è chi ti cura.</p>
+        <h2 class="mt-4">Dieci persone che lavorano nella <span class="accent-i">stessa sede</span></h2>
+        <p class="lead">Otto clinici specializzati in discipline diverse, più la segreteria e le
+        assistenti alla poltrona. Quando un caso ne richiede due o tre insieme, se ne discute in
+        équipe nella stanza accanto, invece di rimbalzarti da uno studio all'altro.</p>
       </div>
       <a class="btn btn--ghost hide-mobile" href="{r}team.html">Conosci il team {ico('freccia')}</a>
     </div>
@@ -128,7 +130,7 @@ def drawer_persona():
         soc = "".join(f'<span class="pill">{x}</span>' for x in m["societa"])
         soc_blk = f'<h4 class="mt-8">Società scientifiche</h4><div class="row gap-2 mt-4">{soc}</div>' if soc else ""
         tratta = "".join(
-            f'<a class="pill pill--green" href="trattamenti/{s}.html">{TRATT_NAV.get(s, s)}</a>'
+            f'<a class="pill pill--brand" href="trattamenti/{s}.html">{TRATT_NAV.get(s, s)}</a>'
             for s in m["tratta"]
         )
         tratta_blk = f'<h4 class="mt-8">Si occupa di</h4><div class="row gap-2 mt-4">{tratta}</div>' if tratta else ""
@@ -184,7 +186,7 @@ def blocco_recensioni(depth=0, limite=9, titolo=None, occhiello="Recensioni", te
     tit = titolo or "Cosa dicono i pazienti"
     r = rel(depth)
     return f'''
-<section class="section bg-green">
+<section class="section bg-tint">
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">{occhiello}</span>
@@ -198,7 +200,8 @@ def blocco_recensioni(depth=0, limite=9, titolo=None, occhiello="Recensioni", te
         <p class="xs muted mt-2">{S['n_recensioni']} recensioni Google<br>{S['voto_fb']} su oltre 200 valutazioni Facebook</p>
       </div>
       <div>
-        <p class="small muted mb-4">Gli argomenti che i pazienti citano più spesso, secondo la classificazione automatica di Google:</p>
+        <p class="small muted mb-4">Google analizza il testo delle recensioni e ne estrae da solo
+        gli argomenti ricorrenti. Questi sono i nostri, con il numero di volte in cui compaiono:</p>
         <div class="rev-themes">{temi}</div>
         <a class="link-arrow mt-6" href="{S['recensioni_url']}" target="_blank" rel="noopener">Leggi tutte le recensioni su Google {ico('freccia')}</a>
       </div>
@@ -218,7 +221,9 @@ def blocco_convenzioni(depth=0):
 <section class="section-sm" id="convenzioni">
   <div class="wrap center mb-6" data-reveal>
     <span class="eyebrow is-bare">Convenzioni attive</span>
-    <h3 class="mt-4">Siamo convenzionati con {len(CONVENZIONI)} fondi e casse</h3>
+    <h3 class="mt-4">Lo studio è convenzionato con {len(CONVENZIONI)} fondi e casse sanitarie</h3>
+  <p class="lead mt-4" style="max-width:42rem;margin-inline:auto">Se il tuo fondo compare qui sotto,
+  portalo in segreteria: alla pratica pensiamo noi.</p>
   </div>
   <div class="marquee" data-reveal><div class="marquee__track">{pills}{pills}</div></div>
 </section>'''
@@ -230,18 +235,19 @@ def mappa(depth=0, compatta=False):
     embed = (f"https://www.google.com/maps?q={S['lat']},{S['lng']}"
              f"&z=16&hl=it&output=embed")
     mezzi = f'''<ul class="ticks">
-  <li>{ico('treno')}<span><b>In treno</b> — Stazione Brignole, 5 minuti a piedi.</span></li>
-  <li>{ico('bus')}<span><b>In bus</b> — linee 15, 17, 18, 19, 20, 30, 33, 36, 37, 39, 40, 42, 44, 46, 47. Fermata in Via XX Settembre o Via Macaggi.</span></li>
-  <li>{ico('auto')}<span><b>In auto</b> — uscita Genova Ovest, direzione Genova Centro. <b>Tre posti auto gratuiti</b> nel cortile interno, prenotabili in segreteria. In alternativa Piazza della Vittoria, a 5 minuti.</span></li>
-  <li>{ico('accessibile')}<span><b>Accessibilità</b> — piano terra con accesso diretto dalla strada, nessuna barriera architettonica (D.M. 236/89), bagno attrezzato con fasciatoio.</span></li>
+  <li>{ico('treno')}<span><b>In treno.</b> Scendi a Genova Brignole e in cinque minuti a piedi sei in Via Maragliano.</span></li>
+  <li>{ico('bus')}<span><b>In bus.</b> Fermano in Via XX Settembre o in Via Macaggi le linee 15, 17, 18, 19, 20, 30, 33, 36, 37, 39, 40, 42, 44, 46 e 47.</span></li>
+  <li>{ico('auto')}<span><b>In auto.</b> Esci a Genova Ovest e segui le indicazioni per Genova Centro. Nel cortile interno abbiamo <b>tre posti auto gratuiti</b> riservati ai pazienti: basta chiederli in segreteria quando prenoti. In alternativa il parcheggio di Piazza della Vittoria dista cinque minuti.</span></li>
+  <li>{ico('accessibile')}<span><b>Accessibilità.</b> Dalla strada alla poltrona non c'è un solo gradino, secondo quanto prevede il D.M. 236/89. Il bagno è attrezzato per persone con disabilità e ha il fasciatoio.</span></li>
 </ul>'''
     return f'''
 <section class="section bg-paper2" id="dove-siamo">
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Dove siamo</span>
-      <h2 class="mt-4">Genova centro, a cinque minuti da <span class="accent-i">Brignole</span>.</h2>
-      <p class="lead mt-6">{S['via']} — {S['cap']} {S['citta']}. Piano terra, ingresso diretto dalla strada.</p>
+      <h2 class="mt-4">Siamo in centro, a cinque minuti a piedi da <span class="accent-i">Brignole</span></h2>
+      <p class="lead mt-6">{S['via']}, {S['cap']} {S['citta']}. Lo studio occupa il piano terra e
+      si entra direttamente dalla strada, senza scale né ascensori.</p>
       {mezzi}
       <div class="mt-8 row gap-3">
         <a class="btn btn--ghost" href="{S['gmaps']}" target="_blank" rel="noopener">{ico('pin')} Apri in Google Maps</a>
@@ -264,17 +270,20 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
 <div class="grid g2" style="align-items:start">
   <div data-reveal="left">
     <span class="eyebrow">Gratuito</span>
-    <h2 class="mt-4">Mandaci la tua <span class="accent-i">panoramica</span>.</h2>
-    <p class="lead mt-6">Se hai già una radiografia panoramica, allegala: il Dott. Piccardo la guarda
-    e ti risponde con una prima valutazione e un ordine di grandezza dei costi. Senza impegno
-    e senza costi.</p>
+    <h2 class="mt-4">Hai già una <span class="accent-i">panoramica</span>? Guardiamola insieme</h2>
+    <p class="lead mt-6">Allegala al modulo qui accanto: il Dott. Piccardo la esamina e ti risponde
+    con una prima valutazione della situazione e un ordine di grandezza della spesa. È un modo per
+    farti un'idea concreta prima ancora di prendere un appuntamento, e non comporta né costi né
+    impegni.</p>
     <ul class="ticks mt-8">
-      <li>{ico('check')}<span>Risposta entro <b>2 giorni lavorativi</b></span></li>
-      <li>{ico('check')}<span>Nessun costo e nessun obbligo di prenotare</span></li>
-      <li>{ico('check')}<span>Se serve una valutazione clinica te lo diciamo apertamente</span></li>
+      <li>{ico('check')}<span>Ti rispondiamo entro <b>due giorni lavorativi</b>, via email o al telefono che ci lasci</span></li>
+      <li>{ico('check')}<span>Il servizio è gratuito e non ti vincola a prenotare</span></li>
+      <li>{ico('check')}<span>Quando la panoramica da sola non basta te lo scriviamo chiaramente, invece di darti un numero a caso</span></li>
     </ul>
-    <div class="form-note mt-8">{ico('info')}<span>Una valutazione a distanza non sostituisce la visita:
-    serve a orientarti sui tempi e sui costi prima di muoverti. La diagnosi si fa in studio.</span></div>
+    <div class="form-note mt-8">{ico('info')}<span>Una valutazione a distanza serve a orientarti
+    sui tempi e sull'ordine di grandezza della spesa. La diagnosi vera richiede la visita clinica,
+    perché una radiografia non mostra lo stato delle gengive, la mobilità dei denti né come
+    mastichi.</span></span></div>
   </div>
 
   <div data-reveal="right">
@@ -330,14 +339,14 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
       </div>
 
       <button class="btn btn--lg btn--block mt-8" type="submit">Invia la richiesta</button>
-      <p class="xs muted mt-4 center">Oppure scrivici su <a href="{wa_link()}" target="_blank" rel="noopener" style="color:var(--green-700);font-weight:650">WhatsApp</a>, spesso è più veloce.</p>
+      <p class="xs muted mt-4 center">Oppure scrivici su <a href="{wa_link()}" target="_blank" rel="noopener" style="color:var(--brand-700);font-weight:650">WhatsApp</a>, spesso è più veloce.</p>
     </form>
 
     <div class="form-success">
       {ico('check')}
       <h3>Richiesta inviata</h3>
       <p class="muted mt-4">Ti rispondiamo entro due giorni lavorativi all'indirizzo che ci hai lasciato.
-      Se la questione è urgente chiama il <a href="tel:{S['tel']}" style="color:var(--green-700);font-weight:650">{S['tel_display']}</a>.</p>
+      Se la questione è urgente chiama il <a href="tel:{S['tel']}" style="color:var(--brand-700);font-weight:650">{S['tel_display']}</a>.</p>
     </div>
   </div>
 </div>'''

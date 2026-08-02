@@ -43,7 +43,7 @@ def trattamento(t):
     media = ""
     if t.get("hero_media"):
         hm = t["hero_media"]
-        media = f'<div data-reveal="scale" style="--d:180ms">{media_slot("Foto", hm["testo"], hm["nota"], ar=hm["ar"])}</div>'
+        media = f'<div data-reveal="scale" style="--d:180ms">{media_slot("Foto", hm["testo"], hm["nota"], ar=hm["ar"], scena=hm.get("scena", "poltrona"))}</div>'
     colonne = "hero__grid" if media else ""
     out += f'''
 <section class="hero">
@@ -124,16 +124,17 @@ def trattamento(t):
     # ── prove
     prove = "".join(
         f'''<article class="card" data-reveal>
-        <div class="icon-box {'icon-box--brass' if i==0 else ''}">{ico(ic)}</div>
+        <div class="icon-box {'icon-box--accent' if i==0 else ''}">{ico(ic)}</div>
         <h3 class="mt-6">{tit}</h3><p class="mt-2">{txt}</p></article>'''
         for i, (ic, tit, txt) in enumerate(t["proofs"])
     )
     out += f'''
-<section class="section bg-green">
+<section class="section bg-tint">
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Le prove</span>
-      <h2 class="mt-4">Perché <span class="accent-i">qui</span>.</h2>
+      <h2 class="mt-4">Cosa ci distingue su <span class="accent-i">questo trattamento</span></h2>
+      <p class="lead">Tre elementi concreti, che potete verificare uno per uno.</p>
     </div>
     <div class="grid g3" data-stagger="90">{prove}</div>
   </div>
@@ -152,7 +153,7 @@ def trattamento(t):
       </div>
     </div>
     <div data-reveal="right">
-      <span class="eyebrow">Chi lo esegue</span>
+      <span class="eyebrow">Chi se ne occupa</span>
       <h2 class="mt-4">{m['nome']}</h2>
       <p class="small muted mt-2">{m['ruolo']}</p>
       <p class="lead mt-6">{m['sintesi']}</p>
@@ -173,10 +174,11 @@ def trattamento(t):
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Prezzo</span>
-      <h2 class="mt-4">Scritto <span class="accent-i">prima</span>.</h2>
-      <p class="lead mt-6">Queste sono le voci del nostro tariffario pubblico che riguardano
-      questo trattamento. Il preventivo personalizzato ti viene consegnato in forma scritta
-      dopo la prima visita e non cambia in corso d'opera.</p>
+      <h2 class="mt-4">Quanto costa, secondo il nostro <span class="accent-i">tariffario pubblico</span></h2>
+      <p class="lead mt-6">Le voci qui accanto sono quelle che riguardano questo trattamento e sono
+      le stesse che trovate nel tariffario completo. Dopo la prima visita ricevete un preventivo
+      personalizzato in forma scritta, con le lavorazioni una per una e il totale: quella cifra
+      resta valida fino alla fine della cura.</p>
       {nota}
       <div class="mt-8 row gap-3">
         <a class="btn" href="{r}prezzi.html">Tariffario completo</a>
@@ -199,7 +201,8 @@ def trattamento(t):
   <div class="wrap" style="max-width:56rem">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Domande frequenti</span>
-      <h2 class="mt-4">Le domande che ci fate <span class="accent-i">davvero</span>.</h2>
+      <h2 class="mt-4">Le domande che ci sentiamo fare <span class="accent-i">più spesso</span></h2>
+      <p class="lead">Sono quelle che arrivano in prima visita e al telefono, con le risposte che diamo di persona.</p>
     </div>
     <div class="acc" data-single data-reveal>{faq}</div>
   </div>
@@ -214,7 +217,7 @@ def trattamento(t):
     out += f'''
 <section class="section-sm">
   <div class="wrap">
-    <h3 class="mb-6" data-reveal>Potrebbe interessarti anche</h3>
+    <h3 class="mb-6" data-reveal>Se stai valutando questo, spesso serve anche</h3>
     <div class="grid g3" data-stagger="80">{corr}</div>
   </div>
 </section>'''
@@ -234,8 +237,8 @@ def hub_trattamenti():
     sezioni = ""
     for g, lista in gruppi.items():
         cards = "".join(f'''<a class="tcard" href="trattamenti/{t['slug']}.html" data-reveal>
-  <div class="tcard__top"><div class="icon-box{' icon-box--brass' if t.get('premium') else ''}">{ico(t['icona'])}</div>
-  {'<span class="pill pill--brass">Alta specializzazione</span>' if t.get('premium') else ''}</div>
+  <div class="tcard__top"><div class="icon-box{' icon-box--accent' if t.get('premium') else ''}">{ico(t['icona'])}</div>
+  {'<span class="pill pill--accent">Alta specializzazione</span>' if t.get('premium') else ''}</div>
   <h3>{t['nav']}</h3>
   <p>{t['breve']}</p>
   <div class="tcard__price"><span>{t['prezzi'][0][0]}</span><b>{t['prezzi'][0][1].replace(',00','')}{'' if '/' in t['prezzi'][0][1] or '€' in t['prezzi'][0][1] else ' €'}</b></div>
@@ -255,9 +258,11 @@ def hub_trattamenti():
   <div class="wrap" style="max-width:52rem">
     {breadcrumb(d, [("Trattamenti", None)])}
     <span class="eyebrow" data-reveal>Trattamenti</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Dieci percorsi, <span class="accent-i">una sola sede</span>.</h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Ogni pagina dice cosa si fa, in quanto tempo,
-    chi lo esegue e quanto costa. Comprese le volte in cui la risposta è che non serve farlo.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Dieci percorsi di cura, raggruppati per <span class="accent-i">tipo di problema</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Ogni pagina spiega in cosa consiste il
+    trattamento, quante sedute richiede, chi lo esegue e quanto costa secondo il tariffario. In
+    ciascuna trovate anche una sezione che indica i casi in cui quel trattamento conviene e quelli
+    in cui converrebbe sceglierne un altro.</p>
   </div>
 </section>
 <section class="section" style="padding-top:0"><div class="wrap">{sezioni}</div></section>'''
@@ -269,34 +274,34 @@ def hub_trattamenti():
 
 # ══════════════════════════════════════════════════════════════ LO STUDIO
 STUDIO_SEZIONI = [
-    dict(id="tecnologia", occhiello="Diagnosi", titolo="Le radiografie si fanno <span class='accent-i'>qui</span>.",
+    dict(id="tecnologia", occhiello="Diagnosi", titolo="Una TAC tridimensionale cambia il modo in cui si <span class='accent-i'>pianifica</span> un intervento",
          testo="""<p>Sala raggi interna con <b>TAC Cone Beam 3D</b>, ortopantomografo con braccio tele e teleradiografo, tutti digitali.
          Consente radiografie tridimensionali delle ossa facciali, panoramiche e teleradiografie del cranio per l'ortodonzia.</p>
          <p>Tutti i sistemi radiografici sono digitali, con un <b>abbattimento superiore all'80% della dose</b> rispetto alla pellicola tradizionale.
          Non ti mandiamo in un centro esterno e non aspetti giorni: la diagnosi si completa nella stessa seduta.</p>""",
          dati=[("TAC 3D", "Cone Beam, ossa facciali"), ("−80%", "dose radiante"), ("Scanner", "niente paste da impronta")],
          media=("Foto", "TAC Cone Beam e scanner intraorale, dettaglio ravvicinato",
-                "Ravvicinato e tagliato, non «foto del macchinario». Vedi photo brief #5.", "4/3")),
-    dict(id="sterilizzazione", occhiello="Sicurezza biologica", titolo="Sei passaggi, <span class='accent-i'>tracciati</span> uno per uno.",
+                "Ravvicinato e tagliato, non «foto del macchinario». Vedi photo brief #5.", "4/3", "radiologia")),
+    dict(id="sterilizzazione", occhiello="Sicurezza biologica", titolo="Ogni strumento attraversa <span class='accent-i'>sei passaggi</span> prima di tornare in bocca a un paziente",
          testo="""<p>Sala di sterilizzazione separata, con pareti in smalto lavabile e disinfettabile
          certificate <b>HACCP UNI 11021:2002</b>. Due autoclavi di classe B, protocolli ISO 9001, e ogni kit
          imbustato ed etichettato con tracciabilità individuale.</p>
          <p>A ogni cambio paziente si sostituiscono le pellicole protettive su maniglie, lampada e tastiere,
-         si disinfettano le superfici e le componenti idriche del riunito. Il monouso — tovaglioli, aspirasaliva,
-         guanti, puntali — esce dallo studio con il paziente.</p>""",
+         si disinfettano le superfici e le componenti idriche del riunito. Il monouso: tovaglioli, aspirasaliva,
+         guanti, puntali: esce dallo studio con il paziente.</p>""",
          dati=[("2", "autoclavi classe B"), ("135 °C", "2 atm · 15 min"), ("ISO 9001", "tracciabilità")],
          diagramma="sterilizzazione",
          media=("Foto", "Mani guantate che imbustano lo strumentario",
-                "Dettaglio, non panoramica della stanza. Vedi photo brief #6.", "4/3")),
-    dict(id="laboratorio", occhiello="Protesi", titolo="Il laboratorio odontotecnico è <span class='accent-i'>dentro</span>.",
+                "Dettaglio, non panoramica della stanza. Vedi photo brief #6.", "4/3", "sterilizzazione")),
+    dict(id="laboratorio", occhiello="Protesi", titolo="Avere l'odontotecnico nella stanza accanto accorcia i tempi e <span class='accent-i'>migliora il risultato</span>",
          testo="""<p>Laboratorio odontotecnico interno <b>iscritto al Ministero della Salute</b>, dove si realizzano
          protesi mobili, riparazioni immediate e tutte le protesi fisse in zirconia o composito con tecnologia CAD-CAM.</p>
          <p>In pratica: le prove si fanno mentre sei sulla poltrona, i ritocchi cromatici si eseguono sul momento
          e una protesi rotta si ripara <b>in giornata</b>, senza spedizioni e senza attese.</p>""",
          dati=[("CAD-CAM", "zirconia e composito"), ("Stesso giorno", "riparazioni"), ("Min. Salute", "lab. iscritto")],
          media=("Foto", "Mani dell'odontotecnico su una corona in zirconia",
-                "È un differenziante forte: merita uno scatto vero. Vedi photo brief #7.", "4/3")),
-    dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Attrezzati per il giorno in cui <span class='accent-i'>serve</span>.",
+                "È un differenziante forte e merita uno scatto vero. Vedi photo brief #7.", "4/3", "laboratorio")),
+    dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Cosa succede se durante una seduta un paziente <span class='accent-i'>sta male</span>",
          testo="""<p>Defibrillatore semiautomatico, ossigeno, pallone ambu e cannule orofaringee, pulsossimetro,
          misuratori di pressione da braccio e da polso, misuratore digitale della glicemia e dell'INR.</p>
          <p>Quattordici farmaci d'emergenza organizzati in scatole dedicate, una per ciascun quadro clinico:
@@ -306,13 +311,13 @@ STUDIO_SEZIONI = [
          su manichino e defibrillatore trainer. Non è un adempimento: è un allenamento.</p>""",
          dati=[("DAE", "defibrillatore in sede"), ("14", "farmaci d'emergenza"), ("Ogni mese", "esercitazione")],
          media=None),
-    dict(id="continuita", occhiello="Continuità", titolo="Tre ore di autonomia, anche <span class='accent-i'>al buio</span>.",
+    dict(id="continuita", occhiello="Continuità", titolo="Un gruppo di continuità tiene accese le tre poltrone per <span class='accent-i'>tre ore</span>",
          testo="""<p>Un gruppo di continuità UPS garantisce alle tre zone operative <b>tre ore di autonomia</b>
          in caso di black-out. Significa che un intervento chirurgico iniziato non si interrompe mai a metà.</p>
          <p>Lo studio dispone inoltre di un piano antincendio a norma.</p>""",
          dati=[("3 ore", "di autonomia elettrica"), ("3", "zone operative protette")],
          media=None),
-    dict(id="accessibilita", occhiello="Accesso", titolo="Progettato senza <span class='accent-i'>barriere</span>.",
+    dict(id="accessibilita", occhiello="Accesso", titolo="Dalla strada alla poltrona non c'è un <span class='accent-i'>solo gradino</span>",
          testo="""<p>Circa 300 mq al piano terra con accesso diretto dalla strada. L'intera struttura è stata
          progettata e realizzata ai fini del superamento e dell'eliminazione delle barriere architettoniche,
          nel rispetto del <b>D.M. 236/89</b>.</p>
@@ -321,15 +326,15 @@ STUDIO_SEZIONI = [
          <b>servizio a domicilio</b>, con attrezzatura portatile, anche presso case di cura.</p>""",
          dati=[("300 mq", "al piano terra"), ("236/89", "nessuna barriera"), ("A domicilio", "su richiesta")],
          media=("Foto", "Ingresso dalla strada e sala d'attesa riordinata",
-                "Riordinare prima dello scatto. Grandangolo moderato, verticali corrette. Vedi photo brief #2 e #3.", "3/2")),
-    dict(id="parcheggio", occhiello="Parcheggio", titolo="Tre posti auto. <span class='accent-i'>Gratuiti.</span>",
+                "Riordinare prima dello scatto. Grandangolo moderato, verticali corrette. Vedi photo brief #2 e #3.", "3/2", "ingresso")),
+    dict(id="parcheggio", occhiello="Parcheggio", titolo="Nel cortile interno ci sono tre posti auto riservati ai pazienti, e sono <span class='accent-i'>gratuiti</span>",
          testo="""<p>Nel cortile interno attiguo allo studio sono disponibili <b>tre posti auto riservati ai pazienti,
          gratuiti e prenotabili</b> chiamando la segreteria. A Genova centro non è un dettaglio.</p>
          <p>In alternativa: Piazza della Vittoria a cinque minuti a piedi, Stazione Brignole a cinque minuti,
          e una ventina di linee bus con fermata in Via XX Settembre o Via Macaggi.</p>""",
          dati=[("3", "posti auto gratuiti"), ("5 min", "da Brignole"), ("20+", "linee bus")],
          media=("Foto", "Posto auto interno con auto parcheggiata, di giorno",
-                "Risolve un'obiezione reale. Luce diurna, niente notturne mosse. Vedi photo brief #10.", "3/2")),
+                "Risolve un'obiezione reale. Luce diurna, niente notturne mosse. Vedi photo brief #10.", "3/2", "parcheggio")),
 ]
 
 
@@ -342,8 +347,8 @@ def studio():
         dati = "".join(f'<div class="keyfact"><dt>{b}</dt><dd>{a}</dd></div>' for a, b in s["dati"])
         media = ""
         if s["media"]:
-            k, txt, nota, ar = s["media"]
-            media = f'<div data-reveal="right">{media_slot(k, txt, nota, ar=ar)}</div>'
+            k, txt, nota, ar, scena = s["media"]
+            media = f'<div data-reveal="right">{media_slot(k, txt, nota, ar=ar, scena=scena)}</div>'
         dia = ""
         if s.get("diagramma"):
             dia = f'''<div class="mt-8" data-reveal style="background:var(--paper);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(1rem,3vw,2rem);grid-column:1/-1">
@@ -361,7 +366,7 @@ def studio():
   </div>
 </section>'''
 
-    out = head(d, "Lo studio — tecnologia, sterilizzazione e sicurezza | Piccardo",
+    out = head(d, "Lo studio: tecnologia, sterilizzazione e sicurezza | Piccardo",
                "300 mq in Genova centro: TAC Cone Beam 3D, laboratorio odontotecnico interno, sterilizzazione ISO 9001, defibrillatore, UPS 3 ore, nessuna barriera architettonica, 3 posti auto.",
                "studio.html")
     out += header(d, "studio")
@@ -371,9 +376,12 @@ def studio():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Lo studio", None)])}
     <span class="eyebrow" data-reveal>Lo studio</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Trecento metri quadri dove <span class="accent-i">tutto</span> è già qui.</h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Diagnosi, chirurgia, laboratorio, sterilizzazione e sicurezza.
-    Cinque cose che nella maggior parte degli studi sono altrove — e che qui trovi in una sola visita.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">In questi trecento metri quadri c'è l'intero percorso di una cura, dalla <span class="accent-i">diagnosi</span> alla protesi finita</h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Nella maggior parte degli studi la TAC si fa
+    in un centro radiologico, la protesi viene spedita a un laboratorio esterno e l'ortodonzista
+    riceve in un'altra sede. Qui la sala raggi, il laboratorio odontotecnico e gli otto clinici
+    stanno tutti dietro la stessa porta. Le sezioni che seguono mostrano stanza per stanza come è
+    organizzato lo studio, e perché ogni scelta è stata fatta in quel modo.</p>
   </div>
 </section>
 
@@ -384,24 +392,25 @@ def studio():
       <div>{sezioni}
         <section class="studio-section" id="tour">
           <span class="eyebrow">Tour virtuale</span>
-          <h2 class="mt-4">Guarda dentro, <span class="accent-i">prima</span> di entrare.</h2>
-          <p class="lead mt-6" style="max-width:40rem">Lo studio è interamente mappato su Google Street View:
-          sala d'attesa, reception, zone operative, sala raggi, sterilizzazione e laboratorio.
-          Per molte persone vedere l'ambiente prima di arrivare toglie metà dell'ansia.</p>
+          <h2 class="mt-4">Puoi visitare ogni stanza <span class="accent-i">senza muoverti da casa</span></h2>
+          <p class="lead mt-6" style="max-width:40rem">Lo studio è mappato per intero su Google
+          Street View: sala d'attesa, reception, zone operative, sala raggi, sterilizzazione e
+          laboratorio. Per chi arriva con l'ansia, riconoscere l'ambiente prima di entrarci ne
+          toglie una buona metà, perché sai già dove ti siederai e cosa ti troverai davanti.</p>
           <div class="map-embed mt-8" data-reveal>
             <iframe src="https://www.google.com/maps/embed?pb=!4v1523268454645!6m8!1m7!1sCAoSLEFGMVFpcFBqTUlxaDktbERtaUItU0lQUGx6SktwZHRzV2haN2ZSb2FKVjdk!2m2!1d44.40396939!2d8.9403753!3f218.3372179200444!4f-3.67608424969697!5f0.7820865974627469"
                     title="Tour virtuale della sala d'attesa" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="mt-8">{media_slot("Video · 45″", "Tour dello studio in movimento continuo, senza voce",
-                    "Sostituirà il tour statico come hero di questa pagina. Vedi docs/03-photo-brief.md → V2.", ar="16/9")}</div>
+                    "Sostituirà il tour statico come apertura di questa pagina. Vedi docs/03-photo-brief.md, scheda V2.", ar="16/9", scena="video")}</div>
         </section>
       </div>
     </div>
   </div>
 </section>'''
     out += mappa(d)
-    out += cta_finale(d, "Vieni a vederlo di persona.",
-                      "Se la paura è il tuo problema, si può fissare un primo appuntamento senza alcuna cura: solo per conoscere l'ambiente. Molti pazienti hanno iniziato così.")
+    out += cta_finale(d, "Vieni a vederlo di persona, senza impegno",
+                      "Se il problema è la paura, puoi fissare un primo appuntamento in cui non si cura assolutamente nulla: si entra, si guarda lo studio, si parla e si va via. Diversi nostri pazienti hanno cominciato esattamente così.")
     out += '</main>' + footer(d)
     return out
 
@@ -421,7 +430,7 @@ def team():
         "image": f"{S['sito']}/assets/img/team/{m['slug']}.webp",
     } for m in clinici]
 
-    out = head(d, "Il team — otto specialisti a Genova | Studio Piccardo",
+    out = head(d, "Il team: otto specialisti a Genova | Studio Piccardo",
                "L'équipe dello studio: chirurgo orale e implantologo, ortodonzista specialista Invisalign, parodontologo con 4 pubblicazioni, pedodonzista, due igienisti dentali laureati.",
                "team.html", persone_schema)
     out += header(d, "team")
@@ -431,10 +440,12 @@ def team():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Il team", None)])}
     <span class="eyebrow" data-reveal>L'équipe</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Chi ti visita è <span class="accent-i">chi ti cura</span>.</h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Otto professionisti clinici specializzati nelle diverse discipline
-    odontoiatriche, più segreteria e assistenti alla poltrona. Tutti nella stessa sede, tutti sullo stesso caso quando serve.
-    Clicca su una persona per leggerne il percorso completo.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">La persona che ti visita la prima volta è la stessa che ti <span class="accent-i">seguirà fino alla fine</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Otto clinici specializzati in discipline
+    diverse, insieme alla segreteria e alle assistenti alla poltrona. Lavorano tutti nella stessa
+    sede, così quando un caso richiede più competenze se ne discute fra colleghi invece di spostare
+    il paziente. Clicca su una persona per leggerne il percorso completo, corso per corso e
+    pubblicazione per pubblicazione.</p>
   </div>
 </section>
 
@@ -450,23 +461,25 @@ def team():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Formazione</span>
-      <h2 class="mt-4">Sei master universitari. <span class="accent-i" style="color:var(--green-200)">Quattro pubblicazioni.</span></h2>
-      <p class="lead mt-6">Non pubblichiamo le foto dei diplomi appesi al muro. Preferiamo scrivere
-      cosa sono, dove sono stati conseguiti e in che anno — così puoi verificarli.</p>
+      <h2 class="mt-4">Sei master universitari di secondo livello e quattro <span class="accent-i">pubblicazioni scientifiche</span></h2>
+      <p class="lead mt-6">Sui siti degli studi dentistici si vedono spesso fotografie di diplomi
+      incorniciati, che nessuno legge e che nessuno può verificare. Li abbiamo scritti: titolo
+      esatto, ateneo che lo ha rilasciato, anno accademico. Le pubblicazioni del Dott. De Giovanni
+      sono indicizzate su PubMed e reperibili con il loro identificativo.</p>
       <ul class="ticks mt-8">
-        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Implantoprotesi</b> — Università di Genova, 110/110</span></li>
-        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Sedazione ed emergenze</b> — Università di Padova</span></li>
-        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Chirurgia orale e d'urgenza</b> — Università di Pisa</span></li>
-        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Implantologia digitale</b> — Università di Padova</span></li>
-        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Direzione e Management delle Aziende Sanitarie</b> — LUM Jean Monnet</span></li>
-        <li>{ico('check')}<span>Specializzazione in <b style="color:#FFFDF9">Ortognatodonzia</b> — Università di Milano, 70/70</span></li>
+        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Implantoprotesi</b>. Università di Genova, 110/110</span></li>
+        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Sedazione ed emergenze</b>. Università di Padova</span></li>
+        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Chirurgia orale e d'urgenza</b>. Università di Pisa</span></li>
+        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Implantologia digitale</b>. Università di Padova</span></li>
+        <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Direzione e Management delle Aziende Sanitarie</b>. LUM Jean Monnet</span></li>
+        <li>{ico('check')}<span>Specializzazione in <b style="color:#FFFDF9">Ortognatodonzia</b>. Università di Milano, 70/70</span></li>
         <li>{ico('check')}<span><b style="color:#FFFDF9">Quattro pubblicazioni</b> indicizzate del Dott. De Giovanni (J Clin Med, J Pers Med, Materials, J Prosthodont Res)</span></li>
       </ul>
     </div>
     <div data-reveal="right">
       {media_slot("Foto", "Ritratto d'équipe al completo, in studio, divisa uniforme, bianco e nero",
                   "Sostituisce la griglia esistente. Uniformare le divise: oggi tre membri hanno la polo scura. Vedi photo brief #11 e #12.",
-                  ar="4/5", dark=True)}
+                  ar="4/5", dark=True, scena="equipe")}
     </div>
   </div>
 </section>
@@ -475,14 +488,15 @@ def team():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Video</span>
-      <h2 class="mt-4">Le interviste ai <span class="accent-i">nostri medici</span>.</h2>
-      <p class="lead">Lo studio ha già un archivio di interviste video sul proprio canale YouTube.
-      Vanno raccolte qui, con titolo e anteprima, invece che incorporate alla rinfusa nelle pagine.</p>
+      <h2 class="mt-4">I nostri medici raccontano il proprio lavoro in <span class="accent-i">prima persona</span></h2>
+      <p class="lead">Lo studio ha già un archivio di interviste video sul canale YouTube. Vanno
+      raccolte qui, ciascuna con titolo e anteprima: chi cerca la faccia e la voce di chi lo curerà
+      deve trovarle in un posto solo, non sparse dentro le pagine.</p>
     </div>
     <div class="grid g3" data-stagger="80">
-      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso» — Dott. Piccardo", "Formato verticale, riusabile sui social. Vedi V4.", ar="4/3")}
-      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso» — Dott.ssa Gibelli", "Una clip per ciascun clinico dell'équipe.", ar="4/3")}
-      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso» — Dott. De Giovanni", "Stessa inquadratura e stesso fondo per tutte e otto.", ar="4/3")}
+      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. Piccardo", "Formato verticale, riusabile sui social. Vedi la scheda V4 del photo brief.", ar="4/3", scena="video")}
+      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott.ssa Gibelli", "Una clip per ciascun clinico dell'équipe.", ar="4/3", scena="video")}
+      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. De Giovanni", "Stessa inquadratura e stesso fondo per tutte e otto.", ar="4/3", scena="video")}
     </div>
     <div class="mt-8 center">
       <a class="btn btn--ghost" href="{S['social']['youtube']}" target="_blank" rel="noopener">{ico('youtube')} Il canale YouTube dello studio</a>
@@ -490,7 +504,7 @@ def team():
   </div>
 </section>'''
     out += cta_finale(d, "Vuoi parlare con uno di loro?",
-                      "In prima visita incontri il clinico che seguirà il tuo caso. Se serve più di una competenza, il caso viene discusso in équipe.")
+                      "Alla prima visita incontri direttamente il clinico che seguirà il tuo caso. Se la situazione richiede più competenze la discutiamo in équipe e ti presentiamo un piano unico, invece di tre pareri separati.")
     out += '</main>'
     out += drawer_persona()
     out += footer(d)
@@ -517,7 +531,7 @@ def prezzi():
 
     conv = "".join(f'<span class="pill">{c}</span>' for c in CONVENZIONI)
 
-    out = head(d, "Prezzi e tariffario — studio dentistico Genova | Piccardo",
+    out = head(d, "Prezzi e tariffario: studio dentistico Genova | Piccardo",
                "Il tariffario completo del nostro studio: 37 prestazioni con il prezzo pubblicato. Prima visita 110 €, impianto 770 €, igiene 100 €. Finanziamento a tasso 0 fino a 5.000 €.",
                "prezzi.html")
     out += header(d, "prezzi")
@@ -527,10 +541,11 @@ def prezzi():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Prezzi", None)])}
     <span class="eyebrow" data-reveal>Prezzi</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Nessuna sorpresa. <span class="accent-i">Mai.</span></h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Pubblichiamo il tariffario per intero perché è il modo
-    più rapido di dirti che tipo di studio siamo. Il preventivo che ricevi dopo la prima visita è scritto,
-    dettagliato e non cambia in corso d'opera.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Il preventivo che ricevi dopo la prima visita è quello che <span class="accent-i">pagherai alla fine</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">La ragione per cui pubblichiamo il tariffario
+    completo è semplice: chi cerca un dentista sta quasi sempre confrontando due o tre preventivi, e
+    ha diritto di sapere da che cifre partiamo prima ancora di telefonare. Sotto trovate tutte le
+    prestazioni con il loro costo, il calcolatore delle rate e i fondi con cui siamo convenzionati.</p>
     <div class="hero__cta" data-reveal style="--d:180ms">
       <a class="btn btn--lg" href="#preventivo">Preventivo online gratuito</a>
       <a class="btn btn--lg btn--ghost" href="{S['booking']}" target="_blank" rel="noopener">Prenota la prima visita</a>
@@ -542,17 +557,21 @@ def prezzi():
   <div class="wrap">
     <div class="grid g3" data-stagger="80">
       <article class="card" data-reveal><div class="icon-box">{ico('documento')}</div>
-        <h3 class="mt-6">Preventivo scritto</h3>
-        <p class="mt-2">Dopo la prima visita ricevi un piano di cura con voci, tempi, alternative e totale.
-        Nessuna voce «da definire».</p></article>
-      <article class="card" data-reveal><div class="icon-box">{ico('euro')}</div>
-        <h3 class="mt-6">Tasso 0 fino a 5.000 €</h3>
-        <p class="mt-2">Fino a 36 rate senza interessi. Oltre i 5.000 € il finanziamento è a tasso agevolato.
-        Le pratiche si aprono in segreteria.</p></article>
+        <h3 class="mt-6">Un preventivo scritto, voce per voce</h3>
+        <p class="mt-2">Al termine della prima visita ti consegniamo un piano di cura su carta, con
+        ogni lavorazione elencata singolarmente, il tempo previsto, le alternative possibili e il
+        totale. Nel documento non compare mai la dicitura «da definire»: se una cifra dipende da un
+        esame che ancora manca, te lo scriviamo e ti diciamo quando la sapremo.</p></article>
+      <article class="card" data-reveal><div class="icon-box icon-box--accent">{ico('euro')}</div>
+        <h3 class="mt-6">Fino a 5.000 euro puoi rateizzare a tasso zero</h3>
+        <p class="mt-2">Il finanziamento arriva a trentasei rate senza interessi. Sopra i cinquemila
+        euro passa a tasso agevolato, con condizioni che dipendono dall'istituto convenzionato. La
+        pratica si apre in segreteria e la risposta arriva in genere in giornata.</p></article>
       <article class="card" data-reveal><div class="icon-box">{ico('scudo')}</div>
-        <h3 class="mt-6">Detraibile al 19%</h3>
-        <p class="mt-2">Le spese odontoiatriche sono detraibili nella dichiarazione dei redditi.
-        La ricevuta fiscale è sempre emessa, per l'importo effettivo.</p></article>
+        <h3 class="mt-6">Il 19 per cento torna con la dichiarazione</h3>
+        <p class="mt-2">Le spese odontoiatriche rientrano fra gli oneri detraibili, quindi una parte
+        di quanto spendi la recuperi l'anno successivo. La ricevuta fiscale viene emessa sempre e
+        per l'importo effettivamente pagato, anche quando nessuno la chiede.</p></article>
     </div>
   </div>
 </section>
@@ -562,8 +581,8 @@ def prezzi():
     <div class="calc" id="calc" data-reveal>
       <div class="calc__grid">
         <div>
-          <span class="eyebrow is-bare" style="color:var(--green-200)">Calcola la rata</span>
-          <h2 class="mt-4" style="color:#FFFDF9">Quanto pagherei <span class="accent-i" style="color:var(--green-200)">al mese</span>?</h2>
+          <span class="eyebrow is-bare" style="color:var(--brand-200)">Calcola la rata</span>
+          <h2 class="mt-4" style="color:#FFFDF9">Muovi il cursore e scopri quanto pagheresti <span class="accent-i">al mese</span></h2>
           <div class="mt-8">
             <label for="calc-importo">Importo del piano di cura</label>
             <div class="calc__amount" id="calc-importo-val">3.500 €</div>
@@ -581,7 +600,7 @@ def prezzi():
         <div class="calc__out">
           <div class="xs" style="color:#8FAAA2;letter-spacing:.1em;text-transform:uppercase;font-weight:700">Rata mensile</div>
           <div class="calc__rate mt-4"><span id="calc-rata">97</span> €</div>
-          <p class="xs mt-6" id="calc-nota" style="color:#8FAAA2">Tasso 0 — TAN 0%, importo fino a 5.000 €</p>
+          <p class="xs mt-6" id="calc-nota" style="color:#8FAAA2">Tasso 0. TAN 0%, importo fino a 5.000 €</p>
         </div>
       </div>
       <p class="xs mt-8" style="color:#6E8880;border-top:1px solid rgba(255,255,255,.1);padding-top:1rem">
@@ -598,7 +617,9 @@ def prezzi():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Tariffario</span>
-      <h2 class="mt-4">{sum(len(v) for _, v in TARIFFARIO)} prestazioni, <span class="accent-i">tutte con il prezzo</span>.</h2>
+      <h2 class="mt-4">{sum(len(v) for _, v in TARIFFARIO)} prestazioni con il prezzo indicato, <span class="accent-i">cercabili e filtrabili</span></h2>
+      <p class="lead">Scrivi il nome di una prestazione nella casella di ricerca, oppure filtra per
+      categoria. Le voci che non trovi qui esistono comunque: chiedile in segreteria.</p>
     </div>
     <div class="tariff-toolbar" data-reveal>
       <div class="tariff-search">{ico('cerca')}
@@ -608,7 +629,7 @@ def prezzi():
     <div class="tariff-toolbar" data-reveal style="margin-bottom:1.5rem">{chips}</div>
     <div class="tariff-table" id="tariffario" data-reveal>{tabella}</div>
     <p id="tariff-empty" class="center muted mt-8" hidden>Nessuna prestazione corrisponde alla ricerca.
-    Per le voci non elencate rivolgiti alla segreteria: <a href="tel:{S['tel']}" style="color:var(--green-700);font-weight:650">{S['tel_display']}</a>.</p>
+    Per le voci non elencate rivolgiti alla segreteria: <a href="tel:{S['tel']}" style="color:var(--brand-700);font-weight:650">{S['tel_display']}</a>.</p>
     <p class="xs muted mt-6">Prezzi in euro, IVA esente ai sensi dell'art. 10 DPR 633/72. Per le prestazioni non
     elencate rivolgersi alla segreteria. I prezzi possono variare in funzione della complessità del caso:
     l'importo definitivo è quello indicato nel preventivo scritto consegnato dopo la prima visita.</p>
@@ -619,8 +640,10 @@ def prezzi():
   <div class="wrap">
     <div class="section-head is-center" data-reveal>
       <span class="eyebrow is-bare">Convenzioni</span>
-      <h2 class="mt-4">Siamo convenzionati con <span class="accent-i">{len(CONVENZIONI)}</span> fondi e casse</h2>
-      <p class="lead">Se il tuo fondo è in elenco, portalo in segreteria: gestiamo noi la pratica.</p>
+      <h2 class="mt-4">Lo studio è convenzionato con <span class="accent-i">{len(CONVENZIONI)}</span> fra fondi e casse sanitarie</h2>
+      <p class="lead">Se il tuo fondo compare in questo elenco, portane gli estremi in segreteria
+      quando prenoti: alla pratica e alla documentazione pensiamo noi, e in molti casi la quota
+      coperta viene scalata direttamente dal preventivo.</p>
     </div>
     <div class="row gap-2 center-x" style="justify-content:center;max-width:56rem;margin-inline:auto" data-reveal>{conv}</div>
   </div>
@@ -637,7 +660,7 @@ def prezzi():
 # ═══════════════════════════════════════════════════════════ RECENSIONI
 def recensioni():
     d = 0
-    out = head(d, "Recensioni — 5,0 su 310 valutazioni Google | Studio Piccardo",
+    out = head(d, "Recensioni: 5,0 su 310 valutazioni Google | Studio Piccardo",
                "Le recensioni dei pazienti dello studio dentistico Piccardo di Genova: 5,0 su 310 recensioni Google e 4,9 su oltre 200 valutazioni Facebook.",
                "recensioni.html")
     out += header(d, "recensioni")
@@ -647,10 +670,12 @@ def recensioni():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Recensioni", None)])}
     <span class="eyebrow" data-reveal>Recensioni</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Trecentodieci recensioni.<br><span class="accent-i">Media cinque su cinque.</span></h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Non le abbiamo selezionate per convenienza: su Google
-    sono tutte pubbliche e verificabili. Qui riportiamo integralmente quelle che raccontano meglio
-    <i>perché</i> i pazienti ci scelgono — comprese quelle di quindici anni fa.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Trecentodieci pazienti hanno recensito lo studio su Google, e la media è <span class="accent-i">cinque su cinque</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Su un campione di trecentodieci valutazioni,
+    una media piena è un risultato raro. Le recensioni sono tutte pubbliche sulla scheda Google
+    dello studio e chiunque può leggerle per intero. Qui sotto ne riportiamo integralmente una
+    selezione, scelta per raccontare i motivi ricorrenti per cui i pazienti tornano: alcune
+    risalgono a quindici anni fa.</p>
   </div>
 </section>'''
     out += blocco_recensioni(d, limite=99, titolo="La parola ai pazienti", occhiello="Google · Facebook")
@@ -665,13 +690,15 @@ def recensioni():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Come le leggiamo</span>
-      <h2 class="mt-4">Quello che i pazienti citano <span class="accent-i">più spesso</span>.</h2>
-      <p class="lead mt-6">Le etichette qui sotto sono generate automaticamente da Google
-      a partire dai testi delle recensioni. Non le scegliamo noi — ed è esattamente per questo
-      che sono interessanti: dicono su cosa lo studio è realmente percepito.</p>
-      <p class="mt-6 muted small">Le prime tre — <b>avanguardia</b>, <b>ambiente</b>, <b>prezzi</b> —
-      corrispondono ai tre pilastri su cui abbiamo costruito questo sito. Non è un caso:
-      il posizionamento non l'abbiamo inventato, l'abbiamo letto.</p>
+      <h2 class="mt-4">Gli argomenti che i pazienti citano <span class="accent-i">più spesso</span></h2>
+      <p class="lead mt-6">Le etichette qui accanto le genera Google da sola, analizzando il testo
+      delle recensioni e contando le parole ricorrenti. Nessuno le sceglie e nessuno le può
+      modificare, ed è proprio questo che le rende interessanti: dicono su cosa lo studio viene
+      percepito davvero, al netto di come sceglie di raccontarsi.</p>
+      <p class="mt-6 muted small">Le prime tre voci, <b>avanguardia</b>, <b>ambiente</b> e
+      <b>prezzi</b>, coincidono con i tre argomenti attorno a cui abbiamo costruito questo sito.
+      Il posizionamento, insomma, non lo abbiamo immaginato a tavolino: lo abbiamo letto nelle
+      parole dei pazienti e ci siamo limitati a metterlo in evidenza.</p>
       <a class="btn mt-8" href="{S['recensioni_url']}" target="_blank" rel="noopener">{ico('stella')} Leggile tutte su Google</a>
     </div>
     <div data-reveal="right">
@@ -679,8 +706,8 @@ def recensioni():
     </div>
   </div>
 </section>'''
-    out += cta_finale(d, "La prossima recensione potrebbe essere la tua.",
-                      "Il primo passo è una prima visita: 110 €, con diagnosi e piano di cura scritto.")
+    out += cta_finale(d, "La prossima recensione potrebbe essere la tua",
+                      "Si comincia con la prima visita: centodieci euro, comprensivi di esame completo, diagnosi e piano di cura consegnato per iscritto.")
     out += '</main>' + footer(d)
     return out
 
@@ -688,7 +715,7 @@ def recensioni():
 # ═══════════════════════════════════════════════════════════════ CONTATTI
 def contatti():
     d = 0
-    out = head(d, "Contatti — Via Maragliano 5, Genova | Studio Piccardo",
+    out = head(d, "Contatti. Via Maragliano 5, Genova | Studio Piccardo",
                "Studio dentistico in Via Maragliano 5, Genova centro. Telefono 010 5959492, WhatsApp, prenotazione online. Aperti lunedì-sabato 8:00-20:30. Tre posti auto gratuiti.",
                "contatti.html")
     out += header(d, "contatti")
@@ -698,9 +725,11 @@ def contatti():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Contatti", None)])}
     <span class="eyebrow" data-reveal>Contatti</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Tre modi per <span class="accent-i">iniziare</span>.</h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Scegli quello che ti viene più naturale.
-    Al telefono risponde Carlotta, su WhatsApp risponde lo studio, online prenoti da solo a qualsiasi ora.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Puoi prenotare al telefono, su WhatsApp o dal <span class="accent-i">calendario online</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Scegli il canale che ti viene più naturale,
+    perché arrivano tutti nello stesso posto. Al telefono risponde Carlotta dal lunedì al sabato,
+    su WhatsApp puoi scrivere anche fuori orario e ti richiamiamo appena riapriamo, mentre dal
+    calendario online scegli data e ora da solo, a qualunque ora del giorno o della notte.</p>
   </div>
 </section>
 
@@ -709,17 +738,17 @@ def contatti():
     <div class="contact-cards" data-stagger="80">
       <a class="ccard" href="tel:{S['tel']}" data-reveal>
         <div class="icon-box">{ico('telefono')}</div>
-        <div class="ccard__val mt-4">{S['tel_display']}<small>Lun–sab 8:00–20:30 · risponde la segreteria</small></div>
+        <div class="ccard__val mt-4">{S['tel_display']}<small>Dal lunedì al sabato, 8:00-20:30. Risponde la segreteria dello studio.</small></div>
         <span class="link-arrow mt-4">Chiama adesso {ico('freccia')}</span>
       </a>
       <a class="ccard" href="{wa_link()}" target="_blank" rel="noopener" data-reveal>
         <div class="icon-box">{ico('whatsapp')}</div>
-        <div class="ccard__val mt-4">{S['whatsapp_display']}<small>Scrivici anche fuori orario, rispondiamo appena possibile</small></div>
+        <div class="ccard__val mt-4">{S['whatsapp_display']}<small>Scrivici quando vuoi, anche di sera. Ti rispondiamo alla prima apertura utile.</small></div>
         <span class="link-arrow mt-4">Apri WhatsApp {ico('freccia')}</span>
       </a>
       <a class="ccard" href="{S['booking']}" target="_blank" rel="noopener" data-reveal>
-        <div class="icon-box icon-box--brass">{ico('calendario')}</div>
-        <div class="ccard__val mt-4">Prenota online<small>Scegli tu data e ora, 24 ore su 24</small></div>
+        <div class="icon-box icon-box--accent">{ico('calendario')}</div>
+        <div class="ccard__val mt-4">Prenota online<small>Scegli tu il giorno e l'orario, ventiquattro ore su ventiquattro.</small></div>
         <span class="link-arrow mt-4">Vai al calendario {ico('freccia')}</span>
       </a>
     </div>
@@ -756,7 +785,7 @@ def note_legali():
 <section class="section" style="padding-top:0">
   <div class="wrap prose" style="max-width:44rem">
     <h3 id="titolare">Titolare</h3>
-    <p>{S['ragione_sociale']} — {S['via']}, {S['cap']} {S['citta']} (IT).<br>
+    <p>{S['ragione_sociale']}, {S['via']}, {S['cap']} {S['citta']} (IT).<br>
     Telefono {S['tel_display']}.<br>
     {S['autorizzazione']}.<br>
     Direttore Sanitario: {S['dir_san']}.</p>
@@ -767,7 +796,7 @@ def note_legali():
     ai sensi del <b>Regolamento UE 2016/679 (GDPR)</b> e del D.lgs. 196/2003 come modificato dal D.lgs. 101/2018.</p>
     <p><b>Finalità.</b> Rispondere alle richieste di informazioni, di preventivo e di appuntamento.
     Base giuridica: esecuzione di misure precontrattuali su richiesta dell'interessato (art. 6.1.b GDPR).
-    Gli eventuali dati relativi alla salute — comprese le radiografie allegate — sono <b>categorie particolari
+    Gli eventuali dati relativi alla salute, comprese le radiografie allegate, sono <b>categorie particolari
     di dati</b> ai sensi dell'art. 9 GDPR e vengono trattati sulla base del consenso esplicito
     dell'interessato (art. 9.2.a) e per finalità di medicina preventiva e diagnosi (art. 9.2.h).</p>
     <p><b>Conservazione.</b> I dati di contatto sono conservati per il tempo necessario a dare riscontro

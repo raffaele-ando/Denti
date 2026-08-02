@@ -14,7 +14,7 @@ Nessuno di questi è stato inventato: dove non conoscevamo il valore, l'abbiamo 
 | Dove | Cosa manca | Perché serve |
 |---|---|---|
 | `note-legali.html` | **Partita IVA, REA, PEC, email** | Obbligo di legge |
-| `note-legali.html#rc` | **Estremi della polizza RC professionale** — compagnia, classe di rischio, massimali | **Obbligo dell'art. 10 c. 4 L. 24/2017** per le strutture sanitarie |
+| `note-legali.html#rc` | **Estremi della polizza RC professionale**: compagnia, classe di rischio, massimali | **Obbligo dell'art. 10 c. 4 L. 24/2017** per le strutture sanitarie |
 | `note-legali.html#rc` | **Risarcimenti erogati nell'ultimo quinquennio** | Stesso obbligo |
 | `note-legali.html#cookie` | Elenco effettivo di cookie e pixel | Il sito attuale monta un **Meta Pixel** (`id=441213099860271`): va dichiarato e subordinato a consenso |
 | `build/content.py` → `email` | Indirizzo email reale | Attualmente `info@dentista.ge`, da verificare |
@@ -27,7 +27,7 @@ Nessuno di questi è stato inventato: dove non conoscevamo il valore, l'abbiamo 
 
 **1. Endpoint dei moduli.** Oggi i due form validano lato client e mostrano la conferma, ma non inviano nulla (`app.js`, blocco *Form: validazione + invio simulato*). Serve un endpoint. Tre opzioni, in ordine di preferenza:
 
-- uno script PHP sul dominio, se l'hosting è Apache/PHP — nessun terzo, nessun trasferimento di dati sanitari fuori;
+- uno script PHP sul dominio, se l'hosting è Apache/PHP: nessun terzo, nessun trasferimento di dati sanitari fuori;
 - un servizio di form con contratto GDPR e server UE;
 - integrazione diretta con il gestionale dello studio.
 
@@ -47,7 +47,7 @@ Nessuno di questi è stato inventato: dove non conoscevamo il valore, l'abbiamo 
 
 Vedi `docs/03-photo-brief.md` per la lista completa. In sintesi: **10 scatti in priorità 1**, 5 in priorità 2, **4 video**. Il sito segnala da solo i 22 punti in cui manca un media, con la specifica di scatto stampata a schermo.
 
-Il contenuto a più alto ritorno è **V1 — «Non ho sentito niente»**: la testimonianza di un paziente montata con il Dott. Piccardo che spiega la sedazione. Occupa il blocco più emotivo della homepage e la pagina che regge il posizionamento.
+Il contenuto a più alto ritorno è **V1: «Non ho sentito niente»**: la testimonianza di un paziente montata con il Dott. Piccardo che spiega la sedazione. Occupa il blocco più emotivo della homepage e la pagina che regge il posizionamento.
 
 Da adottare **subito**, indipendentemente dal sito: il protocollo fotografico per i casi clinici (§3 del photo brief). Ogni mese in cui non lo si applica è un mese di casi non pubblicabili.
 
@@ -103,7 +103,7 @@ Prima di sostituire il sito, registrare per almeno 30 giorni: sessioni, sorgenti
 ## 6. Struttura del repository
 
 ```
-docs/          i cinque documenti di progetto — è la parte che si presenta al cliente
+docs/          i cinque documenti di progetto: è la parte che si presenta al cliente
 build/         sorgenti Python del generatore (contenuti, componenti, icone, diagrammi)
   make.py            genera il sito         → python3 build/make.py
   check.py           controllo qualità      → python3 build/check.py

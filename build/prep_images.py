@@ -63,7 +63,7 @@ def salva(im, path, w, q=86):
     r.save(path.with_suffix(".webp"), "WEBP", quality=q, method=6)
     return r.size
 
-print("— Ritratti —")
+print("- Ritratti -")
 for slug, (fname, box) in RITRATTI.items():
     im = Image.open(SRC / fname).convert("RGB")
     w, h = im.size
@@ -73,7 +73,7 @@ for slug, (fname, box) in RITRATTI.items():
     im = ImageEnhance.Contrast(im).enhance(1.04)
     print(f"  {slug:22s} {salva(im, OUT/'team'/slug, 720)}")
 
-print("— Casi clinici —")
+print("- Casi clinici -")
 CASI = {
     "caso-riabilitazione-prima": ("protesi3.webp",       (2, 214, 276, 414)),
     "caso-riabilitazione-dopo":  ("protesi3.webp",       (280, 214, 554, 414)),
@@ -88,7 +88,7 @@ for slug, (fname, box) in CASI.items():
     im = ImageEnhance.Contrast(im).enhance(1.06)
     print(f"  {slug:28s} {salva(im, OUT/'casi'/slug, 900, 88)}")
 
-print("— Editoriale —")
+print("- Editoriale -")
 im = Image.open(SRC / "al-lavoro-3.webp").convert("RGB")
 im = crop_ratio(im, 3/2)
 im = ImageOps.grayscale(im).convert("RGB")

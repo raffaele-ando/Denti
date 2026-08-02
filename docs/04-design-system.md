@@ -1,4 +1,4 @@
-# Design system — Piccardo
+# Design system
 
 Tutto quanto segue è implementato in `site/assets/css/base.css` (token e fondamenta) e
 `site/assets/css/components.css` (componenti). I nomi dei token qui riportati sono i nomi reali
@@ -6,25 +6,38 @@ delle variabili CSS: il documento e il codice non possono divergere.
 
 ---
 
-## 1. Il principio
+## 1. I principi
 
-> Uno studio dentistico è un luogo dove le persone hanno paura.
-> Il design non deve essere allegro: deve essere **calmo, preciso e chiaro sui numeri**.
+> Uno studio dentistico è un luogo dove le persone hanno paura, e dove quasi tutti
+> stanno confrontando due o tre preventivi. Il design deve fare due cose insieme:
+> **abbassare l'attivazione emotiva** e **rendere immediatamente leggibile ogni numero**.
 
-Tre conseguenze operative, che spiegano ogni scelta successiva:
+Quattro conseguenze operative, che spiegano ogni scelta successiva.
 
-1. **Niente ciano.** Il celeste dentale è la scelta di default della categoria e nel contesto medico è associato al freddo clinico. Il sistema è costruito su un **verde profondo** e su una **carta calda**: due colori che abbassano l'attivazione emotiva invece di alzarla.
-2. **Ogni affermazione è un numero.** Nel sistema tipografico esiste una voce dedicata al dato (`.stat-n`) che ha la stessa dignità di un titolo. «Avanguardia» non è un contenuto; «4.000 impianti» sì.
-3. **Show, don't tell.** Dove il sito precedente descriveva un processo a parole, qui c'è un diagramma vettoriale animato. Nessuna pagina è di solo testo.
+1. **Un blu della fiducia, con un complementare che fa da richiamo.** La letteratura sul
+   colore in ambito sanitario e finanziario è concorde nell'associare il blu a competenza,
+   affidabilità e calma. Il rischio è che un impianto tutto blu risulti freddo e piatto, così il
+   sistema affianca al blu un **ambra caldo**, che sta quasi all'opposto sulla ruota cromatica.
+   L'ambra non decora niente: marca solo i punti in cui vogliamo un'azione o uno sguardo.
+2. **Distribuzione 60-30-10.** Il 60 per cento della superficie è carta calda, il 30 è blu, il 10
+   è ambra. Superata quella soglia il richiamo smette di richiamare, perché l'occhio si abitua.
+3. **Il dato ha la stessa dignità del titolo.** Nel sistema tipografico esiste una voce dedicata
+   ai numeri (`.stat-n`). «Avanguardia» non è un contenuto, «4.000 impianti» sì.
+4. **Show, don't tell.** Dove il sito precedente descriveva un processo a parole, qui c'è un
+   diagramma o un'illustrazione. Nessuna pagina è di solo testo, e nessun buco fotografico resta
+   un rettangolo grigio.
 
 ---
 
 ## 2. Marchio
 
-**Nome:** `Piccardo` · sottotitolo `STUDIO ODONTOIATRICO`.
-La ragione sociale completa (*Ambulatorio Dentistico Dr. Piccardo U. S.r.l.*) resta nel footer, nelle note legali e nei dati strutturati.
+**Nome:** `Piccardo`, con sottotitolo `STUDIO ODONTOIATRICO`.
+La ragione sociale completa (*Ambulatorio Dentistico Dr. Piccardo U. S.r.l.*) resta nel footer,
+nelle note legali e nei dati strutturati.
 
-**Simbolo.** La croce di San Giorgio — la croce rossa di Genova, già presente nel logo storico dello studio — ricostruita su griglia geometrica: quattro bracci uguali su una matrice 32×32. Al centro, in negativo, la sagoma di un dente.
+**Simbolo.** La croce di San Giorgio, la croce rossa di Genova già presente nel logo storico
+dello studio, ricostruita su griglia geometrica: quattro bracci uguali su una matrice 32×32, con
+la sagoma di un dente ritagliata in negativo al centro.
 
 ```
  ┌──────────────┐   croce  : #C4342E  (rosso Genova)
@@ -35,42 +48,79 @@ La ragione sociale completa (*Ambulatorio Dentistico Dr. Piccardo U. S.r.l.*) re
  └──────────────┘
 ```
 
-Perché funziona: è **locale** (identifica Genova senza scriverlo), è **già dello studio** (continuità con il logo esistente), è **geometrico** (regge a 16 px come a 3 metri) e non assomiglia a nessun altro logo dentistico — che sono quasi tutti un dente stilizzato azzurro.
+Funziona per tre ragioni. È **locale**, perché identifica Genova senza doverlo scrivere. È **già
+dello studio**, quindi mantiene continuità con quindici anni di insegna. Ed è **geometrico**, per
+cui regge alla stessa maniera a 16 pixel e su una vetrina. In più non somiglia a nessun altro
+logo dentistico, visto che sono quasi tutti un dente stilizzato azzurro.
 
-Il rosso è riservato **al solo marchio**. Non compare mai su bottoni, sfondi o grafici vicino a immagini cliniche: in un contesto odontoiatrico il rosso in campo ampio richiama il sangue.
+Il rosso resta confinato al marchio. Non compare mai su bottoni, campiture o grafici vicino a
+immagini cliniche: in odontoiatria il rosso in campo ampio richiama il sangue.
 
 ---
 
 ## 3. Colore
 
+### 3.1 La struttura
+
+| Ruolo | Quota | Token | Dove |
+|---|---|---|---|
+| **Base** | 60% | `--paper` `#FAF8F5` | Fondo di quasi tutte le sezioni. È una carta calda, non un bianco: raffredda meno del bianco puro e riduce l'affaticamento in lettura |
+| **Primaria** | 30% | `--brand-700` `#134B7A` | Titoli di sezione scure, link, bordi, dati, footer, illustrazioni |
+| **Richiamo** | 10% | `--accent-500` `#E4913B` | Bottone primario, parola in corsivo nei titoli, occhielli, prezzi, barra mobile |
+
+### 3.2 La scala completa
+
 | Token | Valore | Uso |
 |---|---|---|
-| `--ink` | `#0A1714` | Titoli. È un **nero-verde**, non un grigio: nel sistema non esiste un neutro puro |
-| `--ink-2` | `#1D302B` | Testo corrente |
-| `--muted` | `#5C6C67` | Testo secondario, lead |
-| `--muted-2` | `#86928D` | Didascalie, metadati |
-| `--paper` | `#FBFAF7` | Fondo principale, carta calda |
-| `--paper-2` | `#F4F1EB` | Sezioni alternate |
-| `--paper-3` | `#EDE8DF` | Superfici piene, osso nei diagrammi |
-| `--line` / `--line-soft` | `#DFDAD1` / `#EBE7E0` | Bordi |
-| **`--green-700`** | **`#114C41`** | **Primaria**: bottoni, link, dati |
-| `--green-900` | `#08251F` | Sezioni scure, footer, CTA finale |
-| `--green-500` | `#1F8069` | Accento vivo, hover, grafici |
-| `--green-100/200` | `#E3EFE9` / `#C9E1D7` | Superfici tenui, icone su fondo |
-| `--red` | `#C4342E` | **Solo marchio** e curva «senza sedazione» |
-| `--brass` | `#A87A33` | Trattamenti ad alto valore (implantologia, estetica) |
+| `--ink` | `#0B1A28` | Titoli. Un nero-blu: nel sistema non esiste un grigio neutro |
+| `--ink-2` | `#1B2F42` | Testo corrente |
+| `--muted` | `#5A6B7A` | Testo secondario e occhielli di paragrafo |
+| `--muted-2` | `#74838F` | Didascalie e metadati |
+| `--paper` / `--paper-2` / `--paper-3` | `#FAF8F5` `#F3F0EA` `#EAE5DC` | Fondi in tre gradazioni, per dare ritmo alle sezioni |
+| `--brand-900` | `#08243C` | Sezioni scure, footer, blocco emotivo, CTA finale |
+| `--brand-700` | `#134B7A` | Primaria |
+| `--brand-500` | `#2A7CBF` | Accento vivo nelle illustrazioni e nei grafici |
+| `--brand-200` / `--brand-100` / `--brand-050` | `#B4D3EC` `#DBEAF7` `#EEF6FC` | Superfici tenui, cornici dei ritratti, fondi delle icone |
+| `--accent-500` | `#E4913B` | Riempimento dei richiami |
+| `--accent-700` | `#96560F` | Testo ambra su fondo chiaro, dove serve il contrasto |
+| `--accent-400` | `#F2AC5E` | Richiami sulle sezioni scure |
+| `--red` | `#C4342E` | Solo marchio, più la curva «senza sedazione» nel diagramma dell'ansia |
 | `--gold` | `#E0A93B` | Stelle delle recensioni |
 
-**Contrasto.** Le combinazioni di testo del sistema superano il rapporto 4,5:1 richiesto da WCAG 2.2 AA:
-`--ink` su `--paper` ≈ 16,8:1 · `--muted` su `--paper` ≈ 6,3:1 · bianco su `--green-700` ≈ 9,1:1 · `#A5BDB5` su `--green-900` ≈ 7,4:1.
+### 3.3 Contrasti verificati
 
----
+Tutte le combinazioni di testo del sistema superano il 4,5:1 richiesto da WCAG 2.2 AA, misurate
+con la formula di luminanza relativa WCAG:
+
+| Combinazione | Rapporto |
+|---|---|
+| `--ink` su `--paper` | 16,6 : 1 |
+| `--ink-2` su `--paper` | 12,9 : 1 |
+| `--muted` su `--paper` | 5,2 : 1 |
+| `--brand-700` su `--paper` | 8,6 : 1 |
+| bianco su `--brand-700` | 9,1 : 1 |
+| bianco su `--brand-900` | 15,8 : 1 |
+| **`--ink` su `--accent-500`** (bottone primario) | **7,1 : 1** |
+| `--accent-700` su `--paper` | 5,5 : 1 |
+
+Il bottone primario è ambra con testo blu-nero, invece che bianco su ambra: il bianco su questo
+arancio arriverebbe a 2,5:1 e sarebbe illeggibile. La combinazione scelta passa perfino il
+livello AAA, e in più è visivamente più distintiva del solito bottone pieno con testo bianco.
+
+### 3.4 Gerarchia dei bottoni
+
+| Livello | Aspetto | Quando |
+|---|---|---|
+| Primario | Ambra pieno, testo blu-nero | Prenotare, chiamare, inviare. Uno per schermata |
+| Secondario | Blu pieno, testo bianco (`.btn--brand`) | Azioni importanti che non sono la principale |
+| Terziario | Contorno blu su trasparente (`.btn--ghost`) | Approfondire, navigare |
+| Testuale | Freccia animata (`.link-arrow`) | Rimandi dentro le card |
 
 ## 4. Tipografia
 
 **Fraunces** (display, variabile) + **Manrope** (testo, variabile). Entrambi **self-hosted** in `site/assets/fonts/` come woff2 con `unicode-range` latin e latin-ext: nessuna richiesta a Google, nessun problema GDPR, nessun rendering bloccante.
 
-- **Fraunces** è una serif a contrasto medio-alto con assi `SOFT` e `WONK`. Il sistema la usa con `SOFT 20` nei titoli (morbida ma seria) e con `SOFT 60 / WONK 1` nel corsivo d'accento. Il suo corsivo è **la voce del brand**: compare una sola volta per titolo, sulla parola che porta il significato — *non senti niente*, *dimostrare*, *differenza*.
+- **Fraunces** è una serif a contrasto medio-alto con assi `SOFT` e `WONK`. Il sistema la usa con `SOFT 20` nei titoli (morbida ma seria) e con `SOFT 60 / WONK 1` nel corsivo d'accento. Il suo corsivo è **la voce del brand**: compare una sola volta per titolo, sulla parola che porta il significato, *non senti niente*, *dimostrare*, *differenza*.
 - **Manrope** è una sans geometrica con terminali leggermente aperti: chiara come Inter ma più calda, e meno vista.
 
 | Ruolo | Token | Scala fluida |
@@ -93,13 +143,13 @@ Ritmo su base 4 px. Le sezioni respirano con `--sp-section` (4,5 → 9 rem) e il
 
 Raggi: `6 / 10 / 16 / 24 / 34 px` più `999px` per le pillole. Le forme sono **morbide ma non gommose**: le card a 24 px leggono come oggetti tattili, i bottoni a pillola invitano al tocco. È una scelta di riduzione dell'ansia: gli angoli vivi in ambito medico leggono come strumenti.
 
-Tre livelli di ombra soltanto (`--sh-1/2/3`), tutti con una componente verde nel nero (`rgba(10,23,20,…)`): nessuna ombra grigia neutra.
+Tre livelli di ombra soltanto (`--sh-1/2/3`), tutti con una componente blu nel nero (`rgba(11,26,40,…)`), più un'ombra ambra dedicata al bottone primario. Nessuna ombra grigia neutra.
 
 ---
 
 ## 6. Movimento
 
-Una sola curva per tutto il sistema: `cubic-bezier(.22, 1, .36, 1)` — partenza rapida, arrivo lungo. È la curva che si percepisce come "sicura di sé" senza risultare lenta.
+Una sola curva per tutto il sistema: `cubic-bezier(.22, 1, .36, 1)`: partenza rapida, arrivo lungo. È la curva che si percepisce come "sicura di sé" senza risultare lenta.
 
 | Comportamento | Durata | Note |
 |---|---|---|
@@ -112,7 +162,7 @@ Una sola curva per tutto il sistema: `cubic-bezier(.22, 1, .36, 1)` — partenza
 
 Il bottone primario ha un riempimento che sale dal basso (`::after` con `translateY`): un dettaglio piccolo, ma è ciò che distingue un bottone progettato da un rettangolo colorato.
 
-**`prefers-reduced-motion: reduce` disattiva tutto** — reveal, contatori, marquee, tracciati — senza che nulla scompaia. Nessun contenuto dipende dall'animazione per essere leggibile.
+**`prefers-reduced-motion: reduce` disattiva tutto**, reveal, contatori, marquee, tracciati, senza che nulla scompaia. Nessun contenuto dipende dall'animazione per essere leggibile.
 
 ---
 
@@ -120,7 +170,7 @@ Il bottone primario ha un riempimento che sale dal basso (`::after` con `transla
 
 **42 icone disegnate per questo progetto** (`build/ui.py`), su griglia 24, tratto 1,6, terminali e giunzioni arrotondate. Nessuna libreria di terze parti: le icone di un brand sanitario devono avere la stessa mano del logo.
 
-Alcune sono specifiche del dominio e non esistono nelle librerie generiche: `impianto` (vite endossea), `mascherina` (allineatore), `corona`, `calma` (piuma — «mano delicata», la parola che ricorre nelle recensioni), `pronto` (tracciato ECG), `accessibile`, `scan`.
+Alcune sono specifiche del dominio e non esistono nelle librerie generiche: `impianto` (vite endossea), `mascherina` (allineatore), `corona`, `calma` (piuma: «mano delicata», la parola che ricorre nelle recensioni), `pronto` (tracciato ECG), `accessibile`, `scan`.
 
 ---
 
@@ -134,12 +184,61 @@ Dieci illustrazioni vettoriali originali, generate da codice e animate all'ingre
 | `allineatori` | 2 paragrafi | Un'arcata che si ordina progressivamente, mascherina dopo mascherina |
 | `ansia` | l'intera pagina sedazione | **Due curve sovrapposte**: l'ansia con e senza sedazione lungo la seduta. È il pezzo più persuasivo del sito |
 | `carie` | 2 paragrafi | Quattro stadi, ciascuno con il costo reale a fianco |
-| `prevenzione` | — | Istogramma: 200 € l'anno di igiene contro 1.540 € di impianto |
+| `prevenzione` |, | Istogramma: 200 € l'anno di igiene contro 1.540 € di impianto |
 | `sterilizzazione` | 887 parole | I sei passaggi del protocollo su una linea temporale |
 | `protesi` | 2 paragrafi | Scansione → CAD → CAM → prova |
 | `chirurgia` | 2 paragrafi | TAC con il nervo evidenziato → anestesia → sutura → controllo |
 | `sorriso` | 3 paragrafi | L'ordine corretto: salute → posizione → colore → forma |
 | `bimbo` | 3 paragrafi | La prima visita in quattro momenti |
+
+---
+
+## 8-bis. Illustrazioni
+
+Tredici scene vettoriali originali (`build/illustrazioni.py`), disegnate per stare dove una
+fotografia manca ancora e dove, in diversi casi, direbbe comunque meno di un disegno: una
+sezione, un movimento o una sequenza sono cose che l'obiettivo non inquadra.
+
+Linguaggio comune: campiture piatte su tre valori di blu, **un solo richiamo ambra per scena**,
+contorni a 1,8, nessuna ombra e nessun gradiente. Ogni scena entra animata quando raggiunge il
+viewport, con elementi che salgono, compaiono o scattano in sequenza scaglionata.
+
+`poltrona` · `maschera` · `laboratorio` · `radiologia` · `sterilizzazione` · `ingresso` ·
+`parcheggio` · `bimbi` · `equipe` · `mascherine` · `faccetta` · `video` · `prima-dopo`
+
+Sono usate dentro il componente `media-slot`, che al posto del vecchio rettangolo grigio mostra
+l'illustrazione del soggetto e conserva, sotto, la specifica di scatto. La pagina resta piacevole
+già prima dello shooting, e nessun buco può passare inosservato: `data-shot` li rende cercabili
+tutti con un `grep`.
+
+---
+
+## 8-ter. Come si scrive su questo sito
+
+Regole di redazione applicate a ogni titolo e a ogni paragrafo del sito.
+
+**Un titolo deve portare un'informazione.** «Il laboratorio odontotecnico è dentro» dice al
+lettore qualcosa che aveva già capito dal contesto. «Avere l'odontotecnico nella stanza accanto
+accorcia i tempi e migliora il risultato» dice perché dovrebbe interessargli. Ogni titolo del
+sito supera questa prova.
+
+**Vietata la formula «non è X, è Y».** È una costruzione che sembra profonda e non spiega niente,
+e ripetuta due volte in una pagina diventa un tic riconoscibile. Al suo posto: una frase che
+dichiara direttamente la cosa, con la spiegazione subito dopo.
+
+**Niente frasi mozze come titolo.** «Scritto prima.» «Nessuna sorpresa. Mai.» «Tre posti auto.
+Gratuiti.» Sono formule da manifesto pubblicitario che in un sito medico suonano vuote. I titoli
+sono frasi complete, anche lunghe.
+
+**Nessun trattino lungo.** Al suo posto due punti, virgole o punto fermo, scelti in base a cosa
+la frase sta facendo davvero.
+
+**Il paragrafo può essere lungo.** La brevità a tutti i costi produce testi che non dicono niente.
+Dove c'è qualcosa da spiegare, si spiega: il paziente che sta scegliendo un impianto da
+millecinquecento euro legge volentieri sei righe in più.
+
+**Varietà sintattica.** Frasi di lunghezza diversa, subordinate vere, e mai due paragrafi vicini
+costruiti allo stesso modo.
 
 ---
 

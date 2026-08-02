@@ -90,15 +90,15 @@ def stelle(n=5, cls=""):
 
 _STILE_DIAG = """<style>
  .dg{font-family:'Manrope',sans-serif}
- .dg-lbl{font-size:8.5px;font-weight:700;fill:#5C6C67;letter-spacing:.04em;text-transform:uppercase}
- .dg-n{font-size:9px;font-weight:800;fill:#114C41}
- .dg-cap{font-size:9.5px;font-weight:600;fill:#0A1714}
- .dg-bone{fill:#EDE8DF;stroke:#DFDAD1;stroke-width:.8}
+ .dg-lbl{font-size:8.5px;font-weight:700;fill:#5A6B7A;letter-spacing:.04em;text-transform:uppercase}
+ .dg-n{font-size:9px;font-weight:800;fill:#134B7A}
+ .dg-cap{font-size:9.5px;font-weight:600;fill:#0B1A28}
+ .dg-bone{fill:#EAE5DC;stroke:#DDD9D2;stroke-width:.8}
  .dg-gum{fill:#E9C9C4}
- .dg-tooth{fill:#FBFAF7;stroke:#DFDAD1;stroke-width:.8}
- .dg-metal{fill:#114C41}
- .dg-line{stroke:#DFDAD1;stroke-width:1;stroke-dasharray:3 3}
- .dg-acc{fill:#1F8069}
+ .dg-tooth{fill:#FBFAF7;stroke:#DDD9D2;stroke-width:.8}
+ .dg-metal{fill:#134B7A}
+ .dg-line{stroke:#DDD9D2;stroke-width:1;stroke-dasharray:3 3}
+ .dg-acc{fill:#2A7CBF}
  [data-reveal].is-in .dg-draw{stroke-dashoffset:0}
  .dg-draw{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.6s cubic-bezier(.22,1,.36,1) .2s}
  .dg-pop{opacity:0;transform:scale(.7);transform-origin:center;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
@@ -114,7 +114,7 @@ _STILE_DIAG = """<style>
 
 def _fase_impianto(x, fase):
     """Un riquadro del diagramma implantare: osso, gengiva, denti con radici."""
-    def dente(cx, w=26, h=30, r=26, op=1.0, bordo="#DFDAD1"):
+    def dente(cx, w=26, h=30, r=26, op=1.0, bordo="#DDD9D2"):
         """Corona sopra gengiva + due radici nell'osso."""
         g = (f'<path d="M{cx-w/2} 62V{62-h}c0-{h*0.55:.0f} {w*0.22:.0f}-{h*0.42:.0f} {w/2:.0f}-{h*0.42:.0f}'
              f's{w/2:.0f} {h*0.14:.0f} {w/2:.0f} {h*0.42:.0f}V62z" class="dg-tooth" opacity="{op}"/>')
@@ -125,10 +125,10 @@ def _fase_impianto(x, fase):
         return g
 
     g = f'<g transform="translate({x},0)">'
-    g += '<rect x="0" y="0" width="118" height="132" rx="10" fill="#FBFAF7" stroke="#EBE7E0"/>'
+    g += '<rect x="0" y="0" width="118" height="132" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
     g += '<path class="dg-bone" d="M12 58h94v54a6 6 0 0 1-6 6H18a6 6 0 0 1-6-6z"/>'
     for i in range(9):          # trabecolatura ossea
-        g += f'<circle cx="{18+i*10.5}" cy="{86+((i*37)%17)-8}" r="1.6" fill="#DFDAD1" opacity=".8"/>'
+        g += f'<circle cx="{18+i*10.5}" cy="{86+((i*37)%17)-8}" r="1.6" fill="#DDD9D2" opacity=".8"/>'
     g += '<path class="dg-gum" d="M12 58h94v9H12z"/>'
     g += '<path d="M12 58h94" stroke="#D9AFA8" stroke-width="1"/>'
 
@@ -141,24 +141,24 @@ def _fase_impianto(x, fase):
         g += '<path class="dg-metal" d="M52 62h14l-1.6 40a5.4 5.4 0 0 1-10.8 0z"/>'
         for i in range(7):
             g += f'<path d="M52.4 {67+i*5.2}h13.2" stroke="#FBFAF7" stroke-width="1.2" opacity=".85"/>'
-        g += '<path class="dg-draw" d="M59 16v34" stroke="#1F8069" stroke-width="1.6" stroke-dasharray="40" stroke-dashoffset="40"/>'
+        g += '<path class="dg-draw" d="M59 16v34" stroke="#2A7CBF" stroke-width="1.6" stroke-dasharray="40" stroke-dashoffset="40"/>'
         g += '<path d="M55.4 48l3.6 6.4 3.6-6.4z" class="dg-acc"/>'
     elif fase == 3:
         g += dente(34, op=.35) + dente(84, op=.35)
         g += '<path class="dg-metal" d="M52 62h14l-1.6 40a5.4 5.4 0 0 1-10.8 0z"/>'
         for i in range(7):
             g += f'<path d="M52.4 {67+i*5.2}h13.2" stroke="#FBFAF7" stroke-width="1.2" opacity=".85"/>'
-        g += '<ellipse cx="59" cy="84" rx="24" ry="26" fill="none" stroke="#1F8069" stroke-width="1.1" stroke-dasharray="3 4" opacity=".55"/>'
+        g += '<ellipse cx="59" cy="84" rx="24" ry="26" fill="none" stroke="#2A7CBF" stroke-width="1.1" stroke-dasharray="3 4" opacity=".55"/>'
         for cx, cy in [(42, 74), (77, 80), (44, 96), (76, 98), (40, 86), (79, 90)]:
-            g += f'<circle class="dg-pop" cx="{cx}" cy="{cy}" r="2.6" fill="#1F8069" opacity=".45"/>'
+            g += f'<circle class="dg-pop" cx="{cx}" cy="{cy}" r="2.6" fill="#2A7CBF" opacity=".45"/>'
     else:
         g += '<path class="dg-metal" d="M52 62h14l-1.6 40a5.4 5.4 0 0 1-10.8 0z"/>'
         for i in range(7):
             g += f'<path d="M52.4 {67+i*5.2}h13.2" stroke="#FBFAF7" stroke-width="1.2" opacity=".85"/>'
         g += dente(34) + dente(84)
         g += ('<path d="M46 62V34c0-16 6-24 13-24s13 8 13 24v28z" fill="#FBFAF7" '
-              'stroke="#1F8069" stroke-width="1.5"/>')
-        g += '<path d="M50 24q9 -6 18 0" fill="none" stroke="#C9E1D7" stroke-width="2.4" stroke-linecap="round"/>'
+              'stroke="#2A7CBF" stroke-width="1.5"/>')
+        g += '<path d="M50 24q9 -6 18 0" fill="none" stroke="#B4D3EC" stroke-width="2.4" stroke-linecap="round"/>'
     g += '</g>'
     return g
 
@@ -175,7 +175,7 @@ def diagramma(tipo):
             s += f'<text class="dg-n" x="{x+10}" y="150">0{i+1}</text>'
             s += f'<text class="dg-lbl" x="{x+28}" y="150">{eti[i]}</text>'
             if i < 3:
-                s += f'<path d="M{x+122} 66h5" stroke="#DFDAD1" stroke-width="1.4" stroke-linecap="round"/>'
+                s += f'<path d="M{x+122} 66h5" stroke="#DDD9D2" stroke-width="1.4" stroke-linecap="round"/>'
         s += '</svg>'
         return s
 
@@ -186,7 +186,7 @@ def diagramma(tipo):
         for step in range(4):
             x0 = step * 131
             dis = 1 - step / 3.0           # disordine residuo
-            s += f'<rect x="{x0}" y="0" width="118" height="120" rx="10" fill="#FBFAF7" stroke="#EBE7E0"/>'
+            s += f'<rect x="{x0}" y="0" width="118" height="120" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
             s += f'<path d="M{x0+18} 86a41 34 0 0 1 82 0" fill="none" class="dg-gum" stroke="#E9C9C4" stroke-width="9" stroke-linecap="round"/>'
             for k in range(9):
                 a = math.pi * (0.09 + k * 0.1025)
@@ -199,13 +199,13 @@ def diagramma(tipo):
                       f'class="dg-tooth" transform="rotate({rot:.1f} {cx+dx:.1f} {cy:.1f})"/>')
             # mascherina
             op = 0.85 if step > 0 else 0.0
-            s += (f'<path d="M{x0+16} 88a43 36 0 0 1 86 0" fill="none" stroke="#1F8069" '
+            s += (f'<path d="M{x0+16} 88a43 36 0 0 1 86 0" fill="none" stroke="#2A7CBF" '
                   f'stroke-width="2" opacity="{op}" stroke-linecap="round"/>')
             lab = ["Situazione iniziale", "Mascherina 1", "A metà percorso", "Risultato"][step]
             s += f'<text class="dg-n" x="{x0+10}" y="140">0{step+1}</text>'
             s += f'<text class="dg-lbl" x="{x0+28}" y="140">{lab}</text>'
             if step == 0:
-                s += f'<text class="dg-lbl" x="{x0+10}" y="156" fill="#86928D">ClinCheck: lo vedi prima</text>'
+                s += f'<text class="dg-lbl" x="{x0+10}" y="156" fill="#74838F">ClinCheck: lo vedi prima</text>'
         s += '</svg>'
         return s
 
@@ -218,28 +218,28 @@ def diagramma(tipo):
         for i, t in enumerate(["Sala d'attesa", "Poltrona", "Anestesia", "Intervento", "Fine"]):
             x = 76 + i * 100
             s += f'<text class="dg-lbl" x="{x}" y="184" text-anchor="middle">{t}</text>'
-            s += f'<line x1="{x}" y1="164" x2="{x}" y2="172" stroke="#DFDAD1" stroke-width="1"/>'
+            s += f'<line x1="{x}" y1="164" x2="{x}" y2="172" stroke="#DDD9D2" stroke-width="1"/>'
         # senza sedazione
         s += ('<path class="dg-draw" d="M76 118 C126 92 146 44 176 40 C216 34 226 32 276 30 C326 28 346 60 376 92 L476 140" '
               'fill="none" stroke="#C4342E" stroke-width="2.2" stroke-linecap="round" opacity=".75"/>')
         # con sedazione
         s += ('<path class="dg-draw" d="M76 118 C126 122 146 136 176 142 C216 148 226 150 276 152 C326 153 346 152 376 152 L476 156" '
-              'fill="none" stroke="#1F8069" stroke-width="2.8" stroke-linecap="round" style="transition-delay:.5s"/>')
+              'fill="none" stroke="#2A7CBF" stroke-width="2.8" stroke-linecap="round" style="transition-delay:.5s"/>')
         s += '<circle class="dg-pop" cx="276" cy="30" r="4" fill="#C4342E"/>'
-        s += '<circle class="dg-pop" cx="276" cy="152" r="4" fill="#1F8069"/>'
+        s += '<circle class="dg-pop" cx="276" cy="152" r="4" fill="#2A7CBF"/>'
         s += '<g class="dg-pop"><rect x="286" y="16" width="128" height="24" rx="12" fill="#FBEEED"/><text class="dg-cap" x="298" y="31" fill="#C4342E">Senza sedazione</text></g>'
-        s += '<g class="dg-pop"><rect x="286" y="140" width="120" height="24" rx="12" fill="#E3EFE9"/><text class="dg-cap" x="298" y="155" fill="#114C41">Con sedazione</text></g>'
-        s += '<text class="dg-lbl" x="46" y="206" fill="#86928D">Rappresentazione qualitativa dell\'esperienza riferita dai pazienti.</text>'
+        s += '<g class="dg-pop"><rect x="286" y="140" width="120" height="24" rx="12" fill="#DBEAF7"/><text class="dg-cap" x="298" y="155" fill="#134B7A">Con sedazione</text></g>'
+        s += '<text class="dg-lbl" x="46" y="206" fill="#74838F">Rappresentazione qualitativa dell\'esperienza riferita dai pazienti.</text>'
         s += '</svg>'
         return s
 
     if tipo == "carie":
         s = '<svg class="dg" viewBox="0 0 512 168" role="img" aria-label="I quattro stadi di evoluzione di una carie">' + _STILE_DIAG
         prof = [12, 26, 44, 58]
-        colori = ["#EDE8DF", "#D9CFBE", "#B08A5B", "#8C5A3C"]
+        colori = ["#EAE5DC", "#D9CFBE", "#B08A5B", "#8C5A3C"]
         for i in range(4):
             x = i * 131
-            s += f'<rect x="{x}" y="0" width="118" height="122" rx="10" fill="#FBFAF7" stroke="#EBE7E0"/>'
+            s += f'<rect x="{x}" y="0" width="118" height="122" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
             s += f'<path class="dg-tooth" d="M{x+30} 96V44c0-13 9-22 29-22s29 9 29 22v52c0 9-6 14-11 14-6 0-7-8-9-14-2-5-4-9-9-9s-7 4-9 9c-2 6-3 14-9 14-5 0-11-5-11-14z"/>'
             # polpa
             s += f'<path d="M{x+52} 92V54c0-6 3-9 7-9s7 3 7 9v38z" fill="#E9C9C4"/>'
@@ -252,7 +252,7 @@ def diagramma(tipo):
             cost = ["controllo", "130 €", "310 € + corona", "estrazione o 1.540 €"][i]
             s += f'<text class="dg-n" x="{x+10}" y="140">0{i+1}</text>'
             s += f'<text class="dg-lbl" x="{x+28}" y="140">{lab}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="156" fill="#86928D">{cost}</text>'
+            s += f'<text class="dg-lbl" x="{x+10}" y="156" fill="#74838F">{cost}</text>'
         s += '</svg>'
         return s
 
@@ -260,14 +260,14 @@ def diagramma(tipo):
         passi = ["Pre-lavaggio", "Ultrasuoni", "Multisteril", "Imbustamento", "Autoclave B", "Stoccaggio"]
         det = ["vasca", "lavaggio", "asciugatura", "tracciabilità", "135 °C", "ISO 9001"]
         s = '<svg class="dg" viewBox="0 0 512 116" role="img" aria-label="Il percorso di sterilizzazione dello strumentario in sei passaggi">' + _STILE_DIAG
-        s += '<line x1="34" y1="40" x2="478" y2="40" stroke="#DFDAD1" stroke-width="1.4"/>'
-        s += '<line class="dg-draw" x1="34" y1="40" x2="478" y2="40" stroke="#1F8069" stroke-width="1.8" stroke-dasharray="450" stroke-dashoffset="450"/>'
+        s += '<line x1="34" y1="40" x2="478" y2="40" stroke="#DDD9D2" stroke-width="1.4"/>'
+        s += '<line class="dg-draw" x1="34" y1="40" x2="478" y2="40" stroke="#2A7CBF" stroke-width="1.8" stroke-dasharray="450" stroke-dashoffset="450"/>'
         for i in range(6):
             x = 34 + i * 88.8
-            s += f'<circle class="dg-pop" cx="{x:.0f}" cy="40" r="10" fill="#FBFAF7" stroke="#1F8069" stroke-width="1.8" style="transition-delay:{i*.1}s"/>'
+            s += f'<circle class="dg-pop" cx="{x:.0f}" cy="40" r="10" fill="#FBFAF7" stroke="#2A7CBF" stroke-width="1.8" style="transition-delay:{i*.1}s"/>'
             s += f'<text class="dg-n" x="{x:.0f}" y="43.5" text-anchor="middle" font-size="8.5">{i+1}</text>'
             s += f'<text class="dg-cap" x="{x:.0f}" y="70" text-anchor="middle" font-size="8">{passi[i]}</text>'
-            s += f'<text class="dg-lbl" x="{x:.0f}" y="83" text-anchor="middle" font-size="7" fill="#86928D">{det[i]}</text>'
+            s += f'<text class="dg-lbl" x="{x:.0f}" y="83" text-anchor="middle" font-size="7" fill="#74838F">{det[i]}</text>'
         s += '</svg>'
         return s
 
@@ -277,7 +277,7 @@ def diagramma(tipo):
         s = '<svg class="dg" viewBox="0 0 512 150" role="img" aria-label="L\'ordine corretto di un percorso estetico">' + _STILE_DIAG
         for i, (t, d) in enumerate(fasi):
             x = i * 131
-            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#EBE7E0"/>'
+            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
             # bocca schematica che migliora
             y = 60
             s += f'<path d="M{x+26} {y} q33 {26 + i*2} 66 0" fill="none" stroke="#E9C9C4" stroke-width="8" stroke-linecap="round"/>'
@@ -286,11 +286,11 @@ def diagramma(tipo):
                 dy = y + 9 + abs(k - 2.5) * -1.6 + (3 - i) * (((k * 29) % 7) - 3) * 0.5
                 w = 8.4
                 s += f'<rect x="{dx-w/2:.1f}" y="{dy:.1f}" width="{w}" height="10" rx="2" class="dg-tooth" opacity="{0.55+i*0.15}"/>'
-            s += f'<circle class="dg-pop" cx="{x+96}" cy="26" r="7.5" fill="#E3EFE9" style="transition-delay:{i*.12}s"/>'
-            s += f'<path class="dg-pop" d="M{x+92.5} 26l2.5 2.6 4.5-5" fill="none" stroke="#114C41" stroke-width="1.6" stroke-linecap="round" style="transition-delay:{i*.12}s"/>'
+            s += f'<circle class="dg-pop" cx="{x+96}" cy="26" r="7.5" fill="#DBEAF7" style="transition-delay:{i*.12}s"/>'
+            s += f'<path class="dg-pop" d="M{x+92.5} 26l2.5 2.6 4.5-5" fill="none" stroke="#134B7A" stroke-width="1.6" stroke-linecap="round" style="transition-delay:{i*.12}s"/>'
             s += f'<text class="dg-n" x="{x+10}" y="118">0{i+1}</text>'
             s += f'<text class="dg-lbl" x="{x+28}" y="118">{t}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#86928D">{d}</text>'
+            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#74838F">{d}</text>'
         s += '</svg>'
         return s
 
@@ -300,26 +300,26 @@ def diagramma(tipo):
         s = '<svg class="dg" viewBox="0 0 512 150" role="img" aria-label="Dal dente al manufatto protesico con flusso digitale">' + _STILE_DIAG
         for i, (t, d) in enumerate(fasi):
             x = i * 131
-            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#EBE7E0"/>'
+            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
             cx, cy = x + 59, 54
             if i == 0:
                 s += f'<path class="dg-tooth" d="M{cx-18} {cy+22}V{cy-8}c0-9 7-15 18-15s18 6 18 15v30z"/>'
                 for k in range(5):
-                    s += f'<path class="dg-pop" d="M{cx-20} {cy-14+k*9}h40" stroke="#1F8069" stroke-width="1" opacity=".5" style="transition-delay:{k*.06}s"/>'
+                    s += f'<path class="dg-pop" d="M{cx-20} {cy-14+k*9}h40" stroke="#2A7CBF" stroke-width="1" opacity=".5" style="transition-delay:{k*.06}s"/>'
             elif i == 1:
-                s += f'<path d="M{cx-18} {cy+22}V{cy-8}c0-9 7-15 18-15s18 6 18 15v30z" fill="none" stroke="#1F8069" stroke-width="1.2" stroke-dasharray="3 2"/>'
+                s += f'<path d="M{cx-18} {cy+22}V{cy-8}c0-9 7-15 18-15s18 6 18 15v30z" fill="none" stroke="#2A7CBF" stroke-width="1.2" stroke-dasharray="3 2"/>'
                 for k in range(4):
-                    s += f'<circle class="dg-pop" cx="{cx-14+k*10}" cy="{cy-6}" r="2" fill="#1F8069" style="transition-delay:{k*.08}s"/>'
+                    s += f'<circle class="dg-pop" cx="{cx-14+k*10}" cy="{cy-6}" r="2" fill="#2A7CBF" style="transition-delay:{k*.08}s"/>'
             elif i == 2:
-                s += f'<rect x="{cx-22}" y="{cy-16}" width="44" height="40" rx="4" fill="#EDE8DF" stroke="#DFDAD1"/>'
+                s += f'<rect x="{cx-22}" y="{cy-16}" width="44" height="40" rx="4" fill="#EAE5DC" stroke="#DDD9D2"/>'
                 s += f'<path class="dg-tooth" d="M{cx-14} {cy+18}V{cy-6}c0-7 6-12 14-12s14 5 14 12v24z"/>'
-                s += f'<path class="dg-pop" d="M{cx} {cy-30}v10" stroke="#114C41" stroke-width="2.4" stroke-linecap="round"/>'
+                s += f'<path class="dg-pop" d="M{cx} {cy-30}v10" stroke="#134B7A" stroke-width="2.4" stroke-linecap="round"/>'
             else:
                 s += f'<path class="dg-gum" d="M{cx-24} {cy+12}h48v14h-48z"/>'
-                s += f'<path class="dg-tooth" d="M{cx-16} {cy+14}V{cy-10}c0-8 7-13 16-13s16 5 16 13v24z" stroke="#1F8069" stroke-width="1.2"/>'
+                s += f'<path class="dg-tooth" d="M{cx-16} {cy+14}V{cy-10}c0-8 7-13 16-13s16 5 16 13v24z" stroke="#2A7CBF" stroke-width="1.2"/>'
             s += f'<text class="dg-n" x="{x+10}" y="118">0{i+1}</text>'
             s += f'<text class="dg-lbl" x="{x+28}" y="118">{t}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#86928D">{d}</text>'
+            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#74838F">{d}</text>'
         s += '</svg>'
         return s
 
@@ -331,14 +331,14 @@ def diagramma(tipo):
         for i, v in enumerate(val):
             x = 44 + i * 116
             h = max(10, v / 1540 * hmax)
-            col = "#1F8069" if i == 0 else ("#8FA9A1" if i == 1 else "#C4342E")
+            col = "#2A7CBF" if i == 0 else ("#8FA9A1" if i == 1 else "#C4342E")
             op = "1" if i == 0 else (".55" if i == 1 else ".8")
             s += (f'<rect class="dg-grow" x="{x}" y="{base-h:.0f}" width="62" height="{h:.0f}" rx="5" '
                   f'fill="{col}" opacity="{op}" style="transition-delay:{i*.13}s"/>')
             s += f'<text class="dg-cap" x="{x+31}" y="{base-h-8:.0f}" text-anchor="middle">{v} €</text>'
             s += f'<text class="dg-lbl" x="{x+31}" y="166" text-anchor="middle">{lab[i]}</text>'
-        s += f'<line x1="30" y1="{base}" x2="490" y2="{base}" stroke="#DFDAD1" stroke-width="1.2"/>'
-        s += '<text class="dg-lbl" x="30" y="184" fill="#86928D">Prezzi reali del nostro tariffario, per singolo dente.</text>'
+        s += f'<line x1="30" y1="{base}" x2="490" y2="{base}" stroke="#DDD9D2" stroke-width="1.2"/>'
+        s += '<text class="dg-lbl" x="30" y="184" fill="#74838F">Prezzi reali del nostro tariffario, per singolo dente.</text>'
         s += '</svg>'
         return s
 
@@ -349,28 +349,28 @@ def diagramma(tipo):
         for i, (t, d) in enumerate(fasi):
             x = i * 131
             cx, cy = x + 59, 54
-            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#EBE7E0"/>'
+            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
             s += f'<path class="dg-bone" d="M{x+16} {cy+2}h86v30a5 5 0 0 1-5 5H{x+21}a5 5 0 0 1-5-5z"/>'
             if i == 0:
                 s += f'<path class="dg-tooth" d="M{cx-14} {cy+2}V{cy-16}c0-7 6-11 14-11s14 4 14 11v18z" opacity=".9"/>'
-                s += f'<path class="dg-tooth" d="M{cx-10} {cy+2}l3 22M{cx+10} {cy+2}l-3 22" stroke="#DFDAD1" fill="none"/>'
+                s += f'<path class="dg-tooth" d="M{cx-10} {cy+2}l3 22M{cx+10} {cy+2}l-3 22" stroke="#DDD9D2" fill="none"/>'
                 s += f'<path class="dg-draw" d="M{x+20} {cy+26}h82" stroke="#C4342E" stroke-width="1.6" stroke-dasharray="90" stroke-dashoffset="90"/>'
                 s += f'<text class="dg-lbl" x="{x+20}" y="{cy+38}" font-size="7" fill="#C4342E">nervo</text>'
             elif i == 1:
                 s += f'<path class="dg-tooth" d="M{cx-14} {cy+2}V{cy-16}c0-7 6-11 14-11s14 4 14 11v18z" opacity=".55"/>'
                 for k in range(3):
-                    s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-8}" r="{10+k*8}" fill="none" stroke="#1F8069" stroke-width="1" opacity="{.5-k*.13}" style="transition-delay:{k*.14}s"/>'
+                    s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-8}" r="{10+k*8}" fill="none" stroke="#2A7CBF" stroke-width="1" opacity="{.5-k*.13}" style="transition-delay:{k*.14}s"/>'
             elif i == 2:
-                s += f'<path class="dg-pop" d="M{cx-16} {cy-4}q16 -16 32 0" fill="none" stroke="#1F8069" stroke-width="1.6"/>'
+                s += f'<path class="dg-pop" d="M{cx-16} {cy-4}q16 -16 32 0" fill="none" stroke="#2A7CBF" stroke-width="1.6"/>'
                 for k in range(4):
-                    s += f'<path class="dg-pop" d="M{cx-11+k*7.5} {cy-13}v10" stroke="#114C41" stroke-width="1.4" style="transition-delay:{k*.09}s"/>'
+                    s += f'<path class="dg-pop" d="M{cx-11+k*7.5} {cy-13}v10" stroke="#134B7A" stroke-width="1.4" style="transition-delay:{k*.09}s"/>'
             else:
                 s += f'<path class="dg-gum" d="M{cx-18} {cy-4}h36v8h-36z"/>'
-                s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-16}" r="9" fill="#E3EFE9"/>'
-                s += f'<path class="dg-pop" d="M{cx-4} {cy-16}l3 3 5.5-6" fill="none" stroke="#114C41" stroke-width="1.7" stroke-linecap="round"/>'
+                s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-16}" r="9" fill="#DBEAF7"/>'
+                s += f'<path class="dg-pop" d="M{cx-4} {cy-16}l3 3 5.5-6" fill="none" stroke="#134B7A" stroke-width="1.7" stroke-linecap="round"/>'
             s += f'<text class="dg-n" x="{x+10}" y="118">0{i+1}</text>'
             s += f'<text class="dg-lbl" x="{x+28}" y="118">{t}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#86928D">{d}</text>'
+            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#74838F">{d}</text>'
         s += '</svg>'
         return s
 
@@ -381,15 +381,15 @@ def diagramma(tipo):
         for i, (t, d) in enumerate(fasi):
             x = i * 131
             cx, cy = x + 59, 52
-            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#EBE7E0"/>'
-            s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-8}" r="13" fill="#EDE8DF" style="transition-delay:{i*.1}s"/>'
-            s += f'<path class="dg-pop" d="M{cx-16} {cy+24}a16 16 0 0 1 32 0z" fill="#E3EFE9" style="transition-delay:{i*.1+.05}s"/>'
-            s += f'<circle cx="{cx-4.5}" cy="{cy-10}" r="1.4" fill="#0A1714"/><circle cx="{cx+4.5}" cy="{cy-10}" r="1.4" fill="#0A1714"/>'
+            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
+            s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-8}" r="13" fill="#EAE5DC" style="transition-delay:{i*.1}s"/>'
+            s += f'<path class="dg-pop" d="M{cx-16} {cy+24}a16 16 0 0 1 32 0z" fill="#DBEAF7" style="transition-delay:{i*.1+.05}s"/>'
+            s += f'<circle cx="{cx-4.5}" cy="{cy-10}" r="1.4" fill="#0B1A28"/><circle cx="{cx+4.5}" cy="{cy-10}" r="1.4" fill="#0B1A28"/>'
             arco = 4 + i * 1.6
-            s += f'<path d="M{cx-5} {cy-3}q5 {arco} 10 0" fill="none" stroke="#0A1714" stroke-width="1.3" stroke-linecap="round"/>'
+            s += f'<path d="M{cx-5} {cy-3}q5 {arco} 10 0" fill="none" stroke="#0B1A28" stroke-width="1.3" stroke-linecap="round"/>'
             s += f'<text class="dg-n" x="{x+10}" y="118">0{i+1}</text>'
             s += f'<text class="dg-lbl" x="{x+28}" y="118">{t}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#86928D">{d}</text>'
+            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#74838F">{d}</text>'
         s += '</svg>'
         return s
 

@@ -23,26 +23,26 @@ FONTS = f'''<style>
 ICON = FONTS + '''<body style="width:180px;height:180px;background:#FBFAF7;display:grid;place-items:center">
 <div style="width:120px;height:120px">''' + MARK + '''</div></body>'''
 
-OG = FONTS + '''<body style="width:1200px;height:630px;background:#08251F;position:relative;overflow:hidden;font-family:Manrope">
-<div style="position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,#114C41,transparent 68%);top:-330px;right:-180px"></div>
-<div style="position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(31,128,105,.5),transparent 68%);bottom:-260px;left:-130px"></div>
+OG = FONTS + '''<body style="width:1200px;height:630px;background:#08243C;position:relative;overflow:hidden;font-family:Manrope">
+<div style="position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,#134B7A,transparent 68%);top:-330px;right:-180px"></div>
+<div style="position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(42,124,191,.5),transparent 68%);bottom:-260px;left:-130px"></div>
 <div style="position:relative;padding:64px 80px;height:100%;display:flex;flex-direction:column;justify-content:space-between">
   <div style="display:flex;align-items:center;gap:14px">
-    <div style="width:44px;height:44px">''' + MARK.replace('#FBFAF7', '#08251F') + '''</div>
+    <div style="width:44px;height:44px">''' + MARK.replace('#FBFAF7', '#08243C') + '''</div>
     <div style="line-height:1">
       <div style="font-family:Fraunces;font-size:32px;color:#FFFDF9;font-weight:500">Piccardo</div>
-      <div style="font-size:10px;letter-spacing:.22em;color:#7E958D;font-weight:700;margin-top:5px">STUDIO ODONTOIATRICO · GENOVA</div>
+      <div style="font-size:10px;letter-spacing:.22em;color:#7E96A8;font-weight:700;margin-top:5px">STUDIO ODONTOIATRICO · GENOVA</div>
     </div>
   </div>
   <div>
     <div style="font-family:Fraunces;font-size:70px;line-height:1.02;color:#FFFDF9;letter-spacing:-.03em;font-weight:400">
-      Sai quanto spendi<br>e <span style="font-style:italic;color:#C9E1D7">non senti niente</span>.
+      Sai quanto spendi<br>e <span style="font-style:italic;color:#B4D3EC">non senti niente</span>.
     </div>
-    <div style="font-size:22px;color:#A5BDB5;margin-top:26px">Implantologia · Invisalign · Sedazione cosciente</div>
+    <div style="font-size:22px;color:#9DB6C9;margin-top:26px">Implantologia · Invisalign · Sedazione cosciente</div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:22px;display:flex;justify-content:space-between;align-items:center">
-    <div style="font-size:19px;color:#F2E9D8;font-weight:700">★★★★★&nbsp;&nbsp;5,0 su 310 recensioni Google</div>
-    <div style="font-size:16px;color:#7E958D">Via Maragliano 5, Genova · 010 5959492</div>
+    <div style="font-size:19px;color:#F2AC5E;font-weight:700">★★★★★&nbsp;&nbsp;5,0 su 310 recensioni Google</div>
+    <div style="font-size:16px;color:#7E96A8">Via Maragliano 5, Genova · 010 5959492</div>
   </div>
 </div></body>'''
 

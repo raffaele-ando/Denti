@@ -140,7 +140,7 @@ REDIRECT = {
 def htaccess():
     righe = "\n".join(f"Redirect 301 /{a} /{b}" for a, b in sorted(REDIRECT.items())
                       if a != b.split("#")[0])
-    return f"""# Redirect 301 dal vecchio sito — vedi docs/02-strategia-ia-wireframe.md
+    return f"""# Redirect 301 dal vecchio sito: vedi docs/02-strategia-ia-wireframe.md
 # Nessuno dei {len(REDIRECT)} URL storici deve restituire 404.
 Options -Indexes
 ErrorDocument 404 /404.html

@@ -47,41 +47,58 @@
 
 /* ---- 2. Token -------------------------------------------------------- */
 :root {
-  /* Colore — l'inchiostro è un nero-verde: nessun grigio neutro nel sistema */
-  --ink:        #0A1714;
-  --ink-2:      #1D302B;
-  --muted:      #5C6C67;
-  --muted-2:    #86928D;
-  --line:       #DFDAD1;
-  --line-soft:  #EBE7E0;
+  /* ── Colore ──────────────────────────────────────────────────────────
+     Impianto 60-30-10.
+       60%  carta calda, il fondo su cui tutto respira
+       30%  blu marino, che porta competenza e affidabilità
+       10%  ambra, complementare al blu: è ciò che l'occhio trova per primo
+     L'ambra non decora, marca soltanto i punti in cui vogliamo un'azione o
+     un dato. Il rosso resta confinato al marchio, mai in campo ampio: in
+     odontoiatria richiama il sangue.
+     Contrasti verificati: ink/carta 16,6 · blu700/carta 8,6 · bianco/blu700
+     9,1 · ink/ambra500 7,1 · ambra700/carta 5,5. Tutti sopra WCAG AA.       */
 
-  --paper:      #FBFAF7;
-  --paper-2:    #F4F1EB;
-  --paper-3:    #EDE8DF;
+  --ink:        #0B1A28;
+  --ink-2:      #1B2F42;
+  --muted:      #5A6B7A;
+  --muted-2:    #74838F;
+  --line:       #DDD9D2;
+  --line-soft:  #ECE8E1;
+  --line-cool:  #D8E2EA;
 
-  --green-900:  #08251F;
-  --green-800:  #0B3A31;
-  --green-700:  #114C41;   /* primaria */
-  --green-600:  #16604F;
-  --green-500:  #1F8069;
-  --green-200:  #C9E1D7;
-  --green-100:  #E3EFE9;
-  --green-050:  #F0F7F3;
+  --paper:      #FAF8F5;
+  --paper-2:    #F3F0EA;
+  --paper-3:    #EAE5DC;
 
-  --red:        #C4342E;   /* croce di Genova — solo marchio */
-  --brass:      #A87A33;   /* trattamenti ad alto valore */
-  --brass-100:  #F2E7D2;
-  --gold:       #E0A93B;   /* stelle recensioni */
+  --brand-900:  #08243C;
+  --brand-800:  #0D3557;
+  --brand-700:  #134B7A;   /* primaria */
+  --brand-600:  #1A5E96;
+  --brand-500:  #2A7CBF;
+  --brand-200:  #B4D3EC;
+  --brand-100:  #DBEAF7;
+  --brand-050:  #EEF6FC;
 
-  --focus:      #1F8069;
+  --accent-700: #96560F;   /* testo ambra su fondo chiaro */
+  --accent-600: #C2731F;
+  --accent-500: #E4913B;   /* riempimento dei richiami */
+  --accent-400: #F2AC5E;
+  --accent-100: #FBE9CF;
+  --accent-050: #FDF6EA;
+
+  --red:        #C4342E;   /* croce di Genova, solo marchio */
+  --gold:       #E0A93B;   /* stelle delle recensioni */
+  --verde-ok:   #1E7A5A;   /* conferme, spunte */
+
+  --focus:      #1A5E96;
 
   /* Tipografia */
   --sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --serif: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
 
   --fs-display: clamp(2.9rem, 1.4rem + 6.4vw, 6.5rem);
-  --fs-h1:      clamp(2.4rem, 1.3rem + 4.6vw, 4.4rem);
-  --fs-h2:      clamp(1.95rem, 1.25rem + 2.9vw, 3.2rem);
+  --fs-h1:      clamp(2.1rem, 1.25rem + 3.6vw, 3.7rem);
+  --fs-h2:      clamp(1.72rem, 1.18rem + 2.3vw, 2.65rem);
   --fs-h3:      clamp(1.35rem, 1.1rem + 1.1vw, 1.85rem);
   --fs-h4:      clamp(1.1rem, 1rem + .5vw, 1.3rem);
   --fs-lead:    clamp(1.08rem, 1rem + .55vw, 1.42rem);
@@ -105,10 +122,11 @@
   --r-xl: 34px;
   --r-pill: 999px;
 
-  --sh-1: 0 1px 2px rgba(10,23,20,.05), 0 2px 8px rgba(10,23,20,.04);
-  --sh-2: 0 2px 6px rgba(10,23,20,.06), 0 12px 32px -8px rgba(10,23,20,.10);
-  --sh-3: 0 4px 12px rgba(10,23,20,.07), 0 28px 60px -16px rgba(10,23,20,.16);
-  --sh-green: 0 10px 30px -10px rgba(17,76,65,.45);
+  --sh-1: 0 1px 2px rgba(11,26,40,.05), 0 2px 8px rgba(11,26,40,.04);
+  --sh-2: 0 2px 6px rgba(11,26,40,.06), 0 12px 32px -8px rgba(11,26,40,.11);
+  --sh-3: 0 4px 12px rgba(11,26,40,.07), 0 28px 60px -16px rgba(11,26,40,.17);
+  --sh-brand: 0 10px 28px -10px rgba(19,75,122,.45);
+  --sh-accent: 0 10px 28px -10px rgba(194,115,31,.55);
 
   /* Movimento */
   --ease: cubic-bezier(.22,1,.36,1);
@@ -160,7 +178,7 @@ table { border-collapse: collapse; width: 100%; }
   border-radius: 3px;
 }
 
-::selection { background: var(--green-200); color: var(--green-900); }
+::selection { background: var(--brand-200); color: var(--brand-900); }
 
 /* ---- 4. Tipografia --------------------------------------------------- */
 h1, h2, h3, h4, .display {
@@ -183,7 +201,7 @@ h4 { font-size: var(--fs-h4); line-height: 1.3; letter-spacing: -.008em; font-we
 .accent-i {
   font-style: italic;
   font-variation-settings: 'SOFT' 60, 'WONK' 1, 'opsz' 120;
-  color: var(--green-700);
+  color: var(--accent-700);
 }
 
 .lead {
@@ -206,7 +224,7 @@ p + p { margin-top: .9em; }
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--green-600);
+  color: var(--accent-700);
 }
 .eyebrow::before {
   content: '';
@@ -229,7 +247,7 @@ p + p { margin-top: .9em; }
   line-height: .9;
   letter-spacing: -.04em;
   font-variation-settings: 'SOFT' 0, 'WONK' 0, 'opsz' 144;
-  color: var(--green-700);
+  color: var(--brand-700);
   font-variant-numeric: lining-nums;
 }
 
@@ -246,8 +264,8 @@ p + p { margin-top: .9em; }
 .prose p, .prose ul { color: var(--muted); }
 .prose h3 { margin: 2.2em 0 .6em; color: var(--ink); }
 .prose strong { color: var(--ink); font-weight: 650; }
-.prose a { color: var(--green-700); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1.5px; }
-.prose a:hover { color: var(--green-500); }
+.prose a { color: var(--brand-700); text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1.5px; }
+.prose a:hover { color: var(--brand-500); }
 
 /* ---- 5. Layout ------------------------------------------------------- */
 .wrap {
@@ -264,12 +282,15 @@ section { position: relative; }
 .section-sm { padding-block: clamp(3rem, 2rem + 4vw, 5.5rem); }
 
 .bg-paper2 { background: var(--paper-2); }
-.bg-green  { background: var(--green-050); }
-.bg-dark   { background: var(--green-900); color: #DCE9E4; }
+.bg-warm   { background: var(--accent-050); }
+.bg-cool   { background: var(--brand-050); }
+.bg-tint  { background: var(--brand-050); }
+.bg-dark   { background: var(--brand-900); color: #B9CEDF; }
 .bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4 { color: #FFFDF9; }
-.bg-dark .lead, .bg-dark .muted { color: #A5BDB5; }
-.bg-dark .eyebrow { color: var(--green-200); }
-.bg-dark .stat-n { color: #F2E9D8; }
+.bg-dark .lead, .bg-dark .muted { color: #9DB6C9; }
+.bg-dark .eyebrow { color: var(--accent-400); }
+.bg-dark .stat-n { color: var(--accent-400); }
+.bg-dark .accent-i { color: var(--accent-400); }
 
 .grid { display: grid; gap: var(--gutter); }
 .g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -300,7 +321,7 @@ section { position: relative; }
 
 .rule { height: 1px; background: var(--line); border: 0; }
 
-.section-head { max-width: 44rem; margin-bottom: var(--sp-block); }
+.section-head { max-width: 48rem; margin-bottom: var(--sp-block); }
 .section-head.is-center { margin-inline: auto; text-align: center; }
 .section-head .lead { margin-top: 1rem; }
 .section-head h2 + .lead { margin-top: .9rem; }
@@ -313,7 +334,7 @@ section { position: relative; }
 }
 .skip-link {
   position: absolute; top: -100%; left: 1rem; z-index: 999;
-  background: var(--green-700); color: #fff;
+  background: var(--brand-700); color: #fff;
   padding: .75rem 1.25rem; border-radius: 0 0 var(--r-sm) var(--r-sm);
   font-weight: 600;
 }
