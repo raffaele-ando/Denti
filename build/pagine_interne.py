@@ -176,9 +176,8 @@ def trattamento(t):
     <div data-reveal="left">
       <span class="eyebrow has-n"><span class="eyebrow__n">5</span>Prezzo</span>
       <h2 class="mt-4">Quanto <span class="accent-i">costa</span></h2>
-      <p class="lead mt-6">Dopo la prima visita ricevi un preventivo scritto con le lavorazioni una
-      per una e il totale. Quella cifra vale fino alla fine della cura, anche se il lavoro dovesse
-      rivelarsi più lungo del previsto.</p>
+      <p class="lead mt-6">Dopo la prima visita ricevi un preventivo scritto con le lavorazioni
+      una per una, i tempi previsti e il totale, alle cifre del tariffario pubblico.</p>
       {nota}
       <div class="mt-8 row gap-3">
         <a class="btn" href="{r}prezzi.html">Tariffario completo</a>
@@ -378,7 +377,7 @@ def studio():
     <p class="lead mt-6" data-reveal style="--d:120ms">Di solito la TAC si prenota in un centro
     radiologico, la protesi parte per un laboratorio esterno e l'ortodonzista riceve da un'altra
     parte: fra un passaggio e l'altro se ne vanno settimane, e a portare le buste sei tu. Qui la
-    sala raggi, il laboratorio e gli otto clinici stanno dietro la stessa porta.</p>
+    sala raggi, il laboratorio e i sette clinici stanno dietro la stessa porta.</p>
   </div>
 </section>
 
@@ -426,7 +425,7 @@ def team():
         "image": f"{S['sito']}/assets/img/team/{m['slug']}.webp",
     } for m in clinici]
 
-    out = head(d, "Il team: otto specialisti a Genova | Studio Piccardo",
+    out = head(d, "Il team: sette clinici a Genova | Studio Piccardo",
                "L'équipe dello studio: chirurgo orale e implantologo, ortodonzista specialista Invisalign, parodontologo con 4 pubblicazioni, pedodonzista, due igienisti dentali laureati.",
                "team.html", persone_schema, tema_scuro=True)
     out += header(d, "team")
@@ -436,8 +435,8 @@ def team():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Il team", None)])}
     <span class="eyebrow" data-reveal>L'équipe</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Chi ti visita la prima volta è chi ti <span class="accent-i">seguirà fino alla fine</span></h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Otto clinici specializzati in discipline
+    <h1 class="mt-4" data-reveal style="--d:60ms">Chi ti curerà lo <span class="accent-i">sai già adesso</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Sette clinici specializzati in discipline
     diverse, più la segreteria e le assistenti alla poltrona. Il tuo caso resta dentro lo studio:
     quando servono più competenze si mettono d'accordo fra loro, e tu continui a parlare con la
     stessa persona.</p>
@@ -487,7 +486,7 @@ def team():
     <div class="grid g3" data-stagger="80">
       {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. Piccardo", "Formato verticale, primo piano, fondo dello studio riconoscibile.", ar="4/3", scena="video")}
       {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott.ssa Gibelli", "Una clip per ciascun clinico dell'équipe.", ar="4/3", scena="video")}
-      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. De Giovanni", "Stessa inquadratura e stesso fondo per tutte e otto.", ar="4/3", scena="video")}
+      {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. De Giovanni", "Stessa inquadratura e stesso fondo per tutte le clip.", ar="4/3", scena="video")}
     </div>
     <div class="mt-8 center">
       <a class="btn btn--ghost" href="{S['social']['youtube']}" target="_blank" rel="noopener">{ico('youtube')} Il canale YouTube dello studio</a>
@@ -495,7 +494,7 @@ def team():
   </div>
 </section>'''
     out += cta_finale(d, "Vuoi parlare con uno di loro?",
-                      "Alla prima visita incontri il clinico che seguirà il tuo caso. Se servono più competenze si mettono d'accordo fra loro, e a te arriva un piano solo.")
+                      "Ogni disciplina ha il suo clinico, con il titolo e l'anno accanto. Se vuoi parlare con uno di loro prima di prenotare, chiedilo in segreteria.")
     out += '</main>'
     out += drawer_persona()
     out += footer(d)
@@ -532,10 +531,10 @@ def prezzi():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Prezzi", None)])}
     <span class="eyebrow" data-reveal>Prezzi</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Il preventivo che firmi è la cifra che <span class="accent-i">pagherai alla fine</span></h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">La cifra in fondo al preventivo è quella
-    che pagherai davvero. Se il lavoro si rivela più lungo del previsto, la differenza resta a
-    carico nostro.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Ogni prezzo è pubblicato, <span class="accent-i">prima che tu chiami</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Trentasei prestazioni con il loro costo,
+    dalla prima visita alla riabilitazione su impianti. Dopo la visita il piano di cura arriva
+    scritto, con le voci una per una e il totale.</p>
     <div class="hero__cta" data-reveal style="--d:180ms">
       <a class="btn btn--lg" href="#preventivo">Preventivo online gratuito</a>
       <a class="btn btn--lg btn--ghost" href="{S['booking']}" target="_blank" rel="noopener">Prenota la prima visita</a>
@@ -732,7 +731,7 @@ def contatti():
     </div>
     <div class="ribbon mt-8" data-reveal>{ico('pronto')}<span>
       <b>Hai male adesso?</b> Chiama subito il <a href="tel:{S['tel']}" style="color:inherit;text-decoration:underline">{S['tel_display']}</a>:
-      cerchiamo sempre uno spazio in giornata. <a href="trattamenti/urgenze.html" style="color:inherit;text-decoration:underline">Cosa fare nell'attesa</a>.
+      chiamare presto nella giornata aiuta a trovare spazio. <a href="trattamenti/urgenze.html" style="color:inherit;text-decoration:underline">Cosa fare nell'attesa</a>.
     </span></div>
   </div>
 </section>'''

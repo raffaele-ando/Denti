@@ -227,7 +227,7 @@ dict(
     clinico="francesca-gibelli",
     caso="ortodonzia",
     prezzi=[("Rata Invisalign", "da 125,00 / mese"), ("Prima visita e piano di cura", "110,00")],
-    prezzo_nota="Il costo complessivo dipende dalla complessità del caso e dal numero di allineatori. Viene definito dopo la visita ortodontica e non cambia più: è scritto nel preventivo.",
+    prezzo_nota="Il costo complessivo dipende dalla complessità del caso e dal numero di allineatori. Viene definito dopo la visita ortodontica e messo per iscritto nel preventivo.",
     faq=[
         ("Si vedono?", "Sono trasparenti e aderenti. A distanza di conversazione, nella grande maggioranza dei casi non si notano. Su alcuni denti vengono applicati piccoli attacchi in composito del colore del dente, che servono a far presa: quelli sono leggermente visibili da vicino."),
         ("Quanto dura il trattamento?", "Dipende dal caso: da pochi mesi per correzioni limitate fino a 18–24 mesi per i casi complessi. Il numero esatto di mascherine, e quindi la durata, li conosci al ClinCheck: prima di firmare qualsiasi cosa."),
@@ -693,15 +693,15 @@ dict(
 # ═══════════════════════════════════════════════════════════════════ urgenze
 dict(
     slug="urgenze",
-    breve="Aperti lunedì-sabato 8:00-20:30 e reperibili in urgenza. Se chiami la mattina, quasi sempre troviamo uno spazio in giornata.",
+    breve="Aperti lunedì-sabato 8:00-20:30, e per i pazienti dello studio il dentista è reperibile anche in urgenza.",
     nav="Urgenze e dolore",
     gruppo="Ho paura",
     icona="pronto",
     meta_title="Dentista urgenze a Genova: mal di denti oggi | Studio Piccardo",
     meta_desc="Urgenze odontoiatriche a Genova centro. Aperti lunedì-sabato 8:00-20:30, reperibilità per i pazienti dello studio. Anche servizio a domicilio.",
     eyebrow="Urgenze",
-    h1="Se hai male <span class='accent-i'>oggi</span>, chiama adesso: cerchiamo sempre uno spazio in giornata",
-    lead="Lo studio è aperto dal lunedì al sabato dalle 8:00 alle 20:30, sabato compreso per intero, e teniamo sempre margine in agenda per le urgenze. I pazienti già in cura hanno inoltre un numero di reperibilità attivo anche fuori orario. Più presto chiami nella giornata, più spazio troviamo.",
+    h1="Se hai male <span class='accent-i'>oggi</span>, chiama adesso",
+    lead="Lo studio è aperto dal lunedì al sabato dalle 8:00 alle 20:30, sabato compreso per intero, sabato compreso. I pazienti già in cura hanno inoltre un numero di reperibilità attivo anche fuori orario. Più presto chiami nella giornata, più è probabile trovare spazio.",
     hero_media=None,
     keyfacts=[
         ("Aperti", "Lun–Sab", "8:00 – 20:30"),
@@ -746,7 +746,7 @@ dict(
     prezzi=[("Prima visita e piano di cura", "110,00"), ("Estrazione semplice", "110,00")],
     prezzo_nota="Anche in urgenza il preventivo si fa prima di iniziare. Il dolore non è mai una ragione per non sapere quanto si spende.",
     faq=[
-        ("Mi ricevete oggi?", "Nella grande maggioranza dei casi sì. Chiama il <a href='tel:+390105959492'>010 5959492</a> il prima possibile nella giornata: più presto chiami, più spazio c'è. Se sei già paziente dello studio, dillo subito."),
+        ("Mi ricevete oggi?", "Chiama il <a href='tel:+390105959492'>010 5959492</a> il prima possibile nella giornata: più presto chiami, più è probabile che ci sia spazio. Se sei già paziente dello studio, dillo subito."),
         ("Devo essere già vostro paziente?", "No. Le urgenze si accolgono anche se non ci hai mai visto prima. Molti dei nostri pazienti attuali sono arrivati esattamente così."),
         ("Il sabato siete aperti?", "Sì, tutto il giorno, 8:00–20:30. È uno dei motivi per cui molti pazienti che lavorano ci scelgono."),
         ("Fate anche a domicilio?", "Sì, per pazienti che non possono muoversi. Si va a casa o in casa di cura con l'attrezzatura portatile. Va concordato telefonicamente."),

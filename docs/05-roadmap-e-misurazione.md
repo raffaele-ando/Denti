@@ -24,6 +24,30 @@ Nessuno di questi è stato inventato: dove non conoscevamo il valore, l'abbiamo 
 
 ---
 
+## 1-bis. Promesse operative: cosa il sito può dire, e cosa no
+
+L'export del vecchio sito documenta attrezzature, titoli, prezzi e orari. **Non documenta come lo
+studio organizza il lavoro**, e in una prima stesura ci avevo messo delle promesse operative che
+nessuna fonte sosteneva. Le ho tolte tutte. Restano qui perché diverse sono probabilmente vere, e
+se lo studio le conferma per iscritto si possono rimettere: sono argomenti di vendita forti.
+
+| Promessa rimossa | Perché è stata tolta | Cosa serve per rimetterla |
+|---|---|---|
+| «Chi ti visita la prima volta è chi ti seguirà fino alla fine» | Nessun riscontro, e il vecchio sito descrive lo staff come «dott. Piccardo e i migliori **dentisti collaboratori odontoiatri specialisti** nelle varie discipline»: un caso multidisciplinare vede per forza più clinici | Conferma dello studio su come vengono assegnati i casi |
+| «Il preventivo che firmi è la cifra che pagherai alla fine» e «se il lavoro si rivela più lungo del previsto, la differenza resta a carico nostro» | È un **impegno contrattuale**, e non compare da nessuna parte nell'export. Comparivano in dodici punti del sito | Conferma scritta dello studio. Se la danno, è probabilmente l'argomento più forte che hanno |
+| «Cerchiamo sempre uno spazio in giornata» | Il vecchio sito dice solo «per i pazienti dello studio il dentista sarà comunque reperibile anche in urgenza». Diverso, e più debole | Conferma sulla gestione reale dell'agenda urgenze |
+| «Ti rispondiamo entro due giorni lavorativi» | Il vecchio modulo preventivi dice «ti risponderà **il prima possibile**». Un tempo di risposta dichiarato è una promessa misurabile | Il tempo medio reale di risposta |
+| «La tua storia la racconti una volta sola» | Stessa radice della prima: presuppone un coordinamento interno che non è documentato | Come circolano le informazioni fra i clinici |
+| «Otto specialisti» / «otto clinici» | La pagina *Chi siamo* del vecchio sito ne elenca **sette**: Piccardo, Gibelli, Parodi Baiardi, Tuo, De Giovanni, Grasso, Pulitanò. Più segreteria e assistenti | Elenco aggiornato dell'équipe |
+
+**Regola per chi scriverà la prossima riga.** Attrezzature, titoli, prezzi e orari si possono
+affermare, perché hanno una fonte. Un comportamento organizzativo, un tempo di risposta o una
+garanzia economica **no**, finché lo studio non lo mette per iscritto. La differenza non è
+formale: la prima categoria è verificabile da chiunque, la seconda espone lo studio a una
+contestazione, e su un sito sanitario anche a qualcosa di peggio.
+
+---
+
 ## 2. Da collegare prima della pubblicazione
 
 **1. Endpoint dei moduli.** Oggi i due form validano lato client e mostrano la conferma, ma non inviano nulla (`app.js`, blocco *Form: validazione + invio simulato*). Serve un endpoint. Tre opzioni, in ordine di preferenza:

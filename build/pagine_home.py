@@ -70,7 +70,7 @@ def render():
       </h1>
       <p class="lead mt-6" data-reveal style="--d:160ms">
         Implantologia, ortodonzia invisibile e chirurgia orale. Sedazione cosciente
-        disponibile per ogni seduta, otto specialisti nella stessa sede, tariffario
+        disponibile per ogni seduta, sette clinici nella stessa sede, tariffario
         pubblico.
       </p>
       <div class="hero__cta" data-reveal style="--d:240ms">
@@ -111,7 +111,7 @@ def render():
         ("4000", "+", "impianti osteointegrati inseriti dal 1999", False),
         ("99.8", "%", "la percentuale di successo sulla casistica dello studio", False),
         ("1997", "", "l'anno in cui il Dott. Piccardo ha iniziato a esercitare", True),
-        ("8", "", "clinici specializzati in discipline diverse", False),
+        ("7", "", "clinici, ognuno con la sua disciplina", False),
     ]
     celle = "".join(
         '''<div class="stat-bar__item" data-reveal style="--d:{d}ms">
@@ -134,7 +134,7 @@ def render():
             "che si scelgono in base a quanto è forte l&rsquo;ansia e a quanto durerà l&rsquo;intervento.",
             "trattamenti/paura-del-dentista.html", "Come funziona la sedazione", guida=True)
         + _pilastro(
-            "euro", "Il preventivo che firmi vale fino alla fine",
+            "euro", "Il tariffario è pubblico, voce per voce",
             "Trentasei prestazioni sono pubblicate online con il loro costo, dalla prima visita "
             "all&rsquo;impianto. Dopo la visita ricevi un piano di cura scritto, con le voci una per "
             "una, i tempi previsti e le alternative possibili. L&rsquo;importo si può rateizzare a "
@@ -156,7 +156,7 @@ def render():
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">1</span>Perché qui</span>
       <h2 class="mt-4">Prima di cominciare sai cosa sentirai, quanto pagherai e <span class="accent-i">quanto ci vorrà</span></h2>
-      <p class="lead">Se poi il lavoro si rivela più lungo del previsto, la differenza resta a carico nostro.</p>
+      <p class="lead">Il tariffario è online e il piano di cura arriva scritto dopo la prima visita.</p>
     </div>
     <div class="g-feature" data-stagger="90">{pilastri}</div>
   </div>

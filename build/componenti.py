@@ -111,10 +111,10 @@ def striscia_team(depth=0):
     <div class="between section-head" style="max-width:none;align-items:flex-end" data-reveal>
       <div style="max-width:40rem">
         <span class="eyebrow has-n"><span class="eyebrow__n">5</span>L'équipe</span>
-        <h2 class="mt-4">La tua storia la racconti <span class="accent-i">una volta sola</span></h2>
-        <p class="lead">Ortodontista, chirurgo e odontotecnico stanno di solito in tre indirizzi
-        diversi, e chi fa la spola in mezzo sei tu. Qui condividono lo stesso corridoio: il tuo
-        caso lo discutono fra loro e tu ricevi un piano solo, già messo d'accordo.</p>
+        <h2 class="mt-4">Gli specialisti, la sala raggi e il laboratorio <span class="accent-i">sono allo stesso indirizzo</span></h2>
+        <p class="lead">Ortodonzia, chirurgia orale, endodonzia, pedodonzia e igiene hanno ognuna il
+        proprio clinico, e lavorano nei 300 metri quadri di Via Maragliano 5, insieme alla sala
+        raggi e al laboratorio odontotecnico.</p>
       </div>
       <a class="btn btn--ghost hide-mobile" href="{r}team.html">Conosci il team {ico('freccia')}</a>
     </div>
@@ -279,7 +279,7 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
     situazione e un ordine di grandezza della spesa. Il servizio è gratuito e dopo resti libero
     di decidere: serve a farti un'idea prima di venire.</p>
     <ul class="ticks mt-8">
-      <li>{ico('check')}<span>Ti rispondiamo entro <b>due giorni lavorativi</b>, via email o al telefono che ci lasci</span></li>
+      <li>{ico('check')}<span>Ti risponde il Dott. Piccardo, via email o al telefono che ci lasci</span></li>
       <li>{ico('check')}<span>Il servizio è gratuito, e dopo resti libero di decidere</span></li>
       <li>{ico('check')}<span>Quando la panoramica da sola non basta te lo scriviamo, con il motivo</span></li>
     </ul>
@@ -348,7 +348,7 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
     <div class="form-success">
       {ico('check')}
       <h3>Richiesta inviata</h3>
-      <p class="muted mt-4">Ti rispondiamo entro due giorni lavorativi all'indirizzo che ci hai lasciato.
+      <p class="muted mt-4">Ti rispondiamo all'indirizzo che ci hai lasciato, il prima possibile.
       Se la questione è urgente chiama il <a href="tel:{S['tel']}" style="color:var(--brand-700);font-weight:650">{S['tel_display']}</a>.</p>
     </div>
   </div>
