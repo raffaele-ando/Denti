@@ -52,14 +52,14 @@ def og_default():
     <path d="M16 8.4c-2.35 0-4 1.45-4 3.75 0 1.45.43 2.65.69 4.1.26 1.36.17 2.73.43 4.1.17.94.51 1.88 1.2 1.88.69 0 .86-.94 1.03-1.96.17-.85.26-1.79.65-1.79s.48.94.65 1.79c.17 1.02.34 1.96 1.03 1.96.69 0 1.03-.94 1.2-1.88.26-1.37.17-2.74.43-4.1.26-1.45.69-2.65.69-4.1 0-2.3-1.65-3.75-4-3.75z" fill="#08251F"/>
   </g>
   <text x="66" y="26" font-family="Georgia,serif" font-size="38" fill="#FFFDF9">Piccardo</text>
-  <text x="67" y="46" font-family="Helvetica,sans-serif" font-size="12" letter-spacing="4" fill="#7E958D">STUDIO ODONTOIATRICO · GENOVA</text>
+  <text x="67" y="46" font-family="Helvetica,sans-serif" font-size="12" letter-spacing="4" fill="var(--su-scuro-3)">STUDIO ODONTOIATRICO · GENOVA</text>
 </g>
 <text x="80" y="300" font-family="Georgia,serif" font-size="62" fill="#FFFDF9">Sai quanto spendi</text>
 <text x="80" y="372" font-family="Georgia,serif" font-size="62" fill="#FFFDF9">e <tspan font-style="italic" fill="#C9E1D7">non senti niente</tspan>.</text>
-<text x="80" y="452" font-family="Helvetica,sans-serif" font-size="23" fill="#A5BDB5">Implantologia · Invisalign · Sedazione cosciente</text>
+<text x="80" y="452" font-family="Helvetica,sans-serif" font-size="23" fill="var(--su-scuro-2)">Implantologia · Invisalign · Sedazione cosciente</text>
 <g transform="translate(80 510)">
   <text x="0" y="20" font-family="Helvetica,sans-serif" font-size="19" fill="#F2E9D8">★★★★★  5,0 su 310 recensioni Google</text>
-  <text x="0" y="52" font-family="Helvetica,sans-serif" font-size="17" fill="#7E958D">Via Maragliano 5, Genova · lun–sab 8:00–20:30 · 010 5959492</text>
+  <text x="0" y="52" font-family="Helvetica,sans-serif" font-size="17" fill="var(--su-scuro-3)">Via Maragliano 5, Genova · lun–sab 8:00–20:30 · 010 5959492</text>
 </g>
 </svg>'''
 

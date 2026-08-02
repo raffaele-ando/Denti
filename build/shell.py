@@ -19,7 +19,8 @@ def wa_link():
 
 
 # ═══════════════════════════════════════════════════════════════════ HEAD
-def head(depth, titolo, descrizione, canonical, schema_extra=None, og_img="assets/img/og-default.png"):
+def head(depth, titolo, descrizione, canonical, schema_extra=None,
+         og_img="assets/img/og-default.png", tema_scuro=False):
     r = rel(depth)
     schema = {
         "@context": "https://schema.org",
@@ -93,7 +94,7 @@ def head(depth, titolo, descrizione, canonical, schema_extra=None, og_img="asset
 <link rel="apple-touch-icon" href="{r}assets/img/brand/icon-180.png">
 {ld}
 </head>
-<body>
+<body class="{'hero-scuro' if tema_scuro else ''}">
 <a class="skip-link" href="#main">Vai al contenuto</a>'''
 
 
@@ -199,7 +200,7 @@ def cta_finale(depth, titolo="Prenota la prima visita e scopri esattamente cosa 
       <a class="btn btn--lg btn--ghost" href="tel:{S['tel']}">{ico('telefono')} {S['tel_display']}</a>
       <a class="btn btn--lg btn--ghost" href="{wa_link()}" target="_blank" rel="noopener">{ico('whatsapp')} WhatsApp</a>
     </div>
-    <p class="xs mt-6" style="color:#7E958D">{S['orari_testo']} · {S['via']}, {S['citta']} · 3 posti auto gratuiti</p>
+    <p class="xs mt-6" style="color:var(--su-scuro-3)">{S['orari_testo']} · {S['via']}, {S['citta']} · 3 posti auto gratuiti</p>
   </div>
 </div>
 </section>'''
@@ -225,7 +226,7 @@ def footer(depth):
       <p class="mt-6">{S['ragione_sociale']}<br>{S['via']} · {S['cap']} {S['citta']}</p>
       <p class="mt-4"><a href="tel:{S['tel']}"><b>{S['tel_display']}</b></a><br>
       WhatsApp {S['whatsapp_display']}</p>
-      <p class="mt-4" style="color:#6E8880;font-size:var(--fs-xs)">{S['orari_testo']}</p>
+      <p class="mt-4" style="color:var(--su-scuro-3);font-size:var(--fs-xs)">{S['orari_testo']}</p>
       <div class="socials mt-6">{soc}</div>
     </div>
     <div>
@@ -254,7 +255,7 @@ def footer(depth):
         <li><a href="{r}contatti.html">Dove siamo e parcheggio</a></li>
         <li><a href="{S['booking']}" target="_blank" rel="noopener">Prenotazione online</a></li>
       </ul>
-      <p class="mt-6" style="font-size:var(--fs-xs);color:#6E8880">{S['autorizzazione']}<br>
+      <p class="mt-6" style="font-size:var(--fs-xs);color:var(--su-scuro-3)">{S['autorizzazione']}<br>
       Direttore Sanitario: {S['dir_san']}</p>
     </div>
   </div>
@@ -270,29 +271,42 @@ def footer(depth):
 
 
 # ═══════════════════════════════════════════════════════════ COMPONENTI
-def media_slot(tipo, testo, nota, ar="3/2", dark=False, scena="poltrona", extra=""):
-    """Riquadro che tiene il posto di una fotografia ancora da scattare.
+# Ogni scena illustrata è stata sostituita da un'icona in filigrana: il
+# segnaposto deve leggersi come una scheda di produzione, non come un disegno.
+_ICONA_SCENA = {
+    "poltrona": "scan", "maschera": "calma", "laboratorio": "corona",
+    "radiologia": "scan", "sterilizzazione": "scudo", "ingresso": "pin",
+    "parcheggio": "auto", "bimbi": "bimbo", "equipe": "gruppo",
+    "mascherine": "mascherina", "faccetta": "scintilla", "video": "play",
+    "prima-dopo": "scambio",
+}
 
-    Al posto di un rettangolo grigio mostra un'illustrazione vettoriale del
-    soggetto: la pagina resta leggibile e piacevole anche prima dello shooting.
-    La specifica di scatto resta stampata sotto, e `data-shot` la rende
-    cercabile nel codice, così nessun buco può passare inosservato.
+
+def media_slot(tipo, testo, nota, ar="3/2", dark=False, scena="poltrona", extra=""):
+    """Scheda di scatto: tiene il posto di un media ancora da produrre.
+
+    Non è un'illustrazione né un rettangolo grigio, ma una scheda di
+    produzione: crocini di taglio agli angoli, formato dichiarato, soggetto in
+    evidenza e nota tecnica per il fotografo. Comunica che quel vuoto è una
+    decisione, non una dimenticanza, e resta cercabile con `data-shot`.
     """
-    from illustrazioni import illustrazione
-    d = " media-slot--dark" if dark else ""
-    return f'''<figure class="media-slot{d}" data-reveal="fade" data-shot="{testo}" style="--ar:{ar}"{extra}>
-  <div class="media-slot__art">{illustrazione(scena)}</div>
-  <span class="media-slot__tag">{ico("camera" if not tipo.lower().startswith("video") else "video")}{tipo}</span>
-  <figcaption class="media-slot__cap">
-    <b>{testo}</b>
-    <span>{nota}</span>
+    d = " shotcard--dark" if dark else ""
+    v = "video" if tipo.lower().startswith("video") else "foto"
+    etichetta = "Video da produrre" if v == "video" else "Fotografia da produrre"
+    return f'''<figure class="shotcard{d}" data-reveal="fade" data-shot="{testo}" style="--ar:{ar}"{extra}>
+  <span class="shotcard__ghost" aria-hidden="true">{ico(_ICONA_SCENA.get(scena, "camera"))}</span>
+  <span class="shotcard__kind">{ico("video" if v == "video" else "camera")}{etichetta}</span>
+  <span class="shotcard__ratio">{ar.replace("/", ":")}</span>
+  <figcaption class="shotcard__body">
+    <p class="shotcard__subj">{testo}</p>
+    <p class="shotcard__spec">{nota}</p>
   </figcaption>
 </figure>'''
 
 
 def rating_badge(depth=0, dark=False):
     r = rel(depth)
-    col = "color:#DCE9E4" if dark else ""
+    col = "color:var(--su-scuro)" if dark else ""
     return f'''<a class="rating-inline" style="{col}" href="{r}recensioni.html">
   {stelle()}<b>{S['voto']}</b><span class="sep">·</span><span style="font-weight:500">{S['n_recensioni']} recensioni Google</span>
 </a>'''

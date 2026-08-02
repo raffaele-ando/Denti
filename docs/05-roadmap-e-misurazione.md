@@ -20,6 +20,7 @@ Nessuno di questi è stato inventato: dove non conoscevamo il valore, l'abbiamo 
 | `build/content.py` → `email` | Indirizzo email reale | Attualmente `info@dentista.ge`, da verificare |
 | Orari | Il sito attuale dichiara sia «8.00–20.00» sia «8.00–20.30» | Abbiamo adottato **8:00–20:30**: da confermare |
 | Convenzioni | L'elenco varia fra homepage e pagina convenzioni (`HELP CARD` e `HBM` compaiono solo in una) | Ne abbiamo unificati 19: da validare |
+| **Valutazione media Google** | Il sito riporta **5,0** su 310 recensioni, ripreso dall'estratto della scheda fornito a inizio progetto e **mai verificato in autonomia** | La media cambia a ogni nuova recensione. **Va riletta su Google Maps prima di pubblicare** e corretta in `build/content.py` → `voto`. I titoli del sito non poggiano più sulla media ma sul numero di recensioni, che è documentato: se la media fosse 4,9 non cambierebbe una riga di copy |
 
 ---
 
@@ -40,6 +41,27 @@ Nessuno di questi è stato inventato: dove non conoscevamo il valore, l'abbiamo 
 **4. Google Business Profile.** Allineare NAP (nome, indirizzo, telefono) e orari a quelli del sito, e collegare la nuova URL. È il primo fattore di posizionamento locale.
 
 **5. Search Console.** Inviare `sitemap.xml`, monitorare le 404 nelle prime quattro settimane, chiedere la reindicizzazione delle 17 nuove pagine.
+
+---
+
+## 2-bis. Cosa esisteva già, e cosa è nuovo
+
+Una precisazione utile in fase di presentazione allo studio, per non spacciare
+per novità ciò che c'era già.
+
+| Servizio | Nel sito precedente | Nel redesign |
+|---|---|---|
+| **Valutazione gratuita della panoramica** | **Esisteva.** La pagina `preventivo.html` diceva: «Per avere un preventivo invia tramite posta elettronica la tua richiesta dettagliata. Se hai la possibilità non dimenticarti di inviare come allegato la tua panoramica», e il footer di ogni pagina prometteva «preventivi implantologia protesi gratuiti» | Stesso servizio, reso usabile. Prima era una pagina di terzo livello con un modulo che accettava allegati **fino a 100 KB**, quando una panoramica ne pesa da 2 a 8 MB: di fatto il caricamento non funzionava. Ora il limite è 15 MB, il modulo è in homepage e in due pagine, e dichiara i tempi di risposta |
+| Prenotazione online | Esisteva, tramite widget MioDottore | Stesso strumento, promosso a bottone primario |
+| Tariffario pubblico | Esisteva | Stesso contenuto, con ricerca, filtri e calcolatore di rata |
+| Finanziamento a tasso 0 | Esisteva | Stesso, con simulatore |
+| Sedazione cosciente | Esisteva, in due pagine di terzo livello | Promossa a pagina pilastro, perché è il differenziante più forte |
+| Tour virtuale Google | Esisteva | Stesso embed, in un contesto che lo spiega |
+
+**Non abbiamo inventato nessun servizio nuovo.** Il redesign riordina, rende
+usabile e mette in evidenza ciò che lo studio già offriva: è esattamente il
+motivo per cui è proponibile senza chiedere al cliente di cambiare nulla della
+propria organizzazione.
 
 ---
 

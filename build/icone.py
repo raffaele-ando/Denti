@@ -38,7 +38,7 @@ OG = FONTS + '''<body style="width:1200px;height:630px;background:#08243C;positi
     <div style="font-family:Fraunces;font-size:70px;line-height:1.02;color:#FFFDF9;letter-spacing:-.03em;font-weight:400">
       Sai quanto spendi<br>e <span style="font-style:italic;color:#B4D3EC">non senti niente</span>.
     </div>
-    <div style="font-size:22px;color:#9DB6C9;margin-top:26px">Implantologia · Invisalign · Sedazione cosciente</div>
+    <div style="font-size:22px;color:var(--su-scuro-2);margin-top:26px">Implantologia · Invisalign · Sedazione cosciente</div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:22px;display:flex;justify-content:space-between;align-items:center">
     <div style="font-size:19px;color:#F2AC5E;font-weight:700">★★★★★&nbsp;&nbsp;5,0 su 310 recensioni Google</div>

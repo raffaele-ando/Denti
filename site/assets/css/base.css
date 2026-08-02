@@ -61,7 +61,7 @@
   --ink:        #0B1A28;
   --ink-2:      #1B2F42;
   --muted:      #5A6B7A;
-  --muted-2:    #74838F;
+  --muted-2:    #5F6E7C;
   --line:       #DDD9D2;
   --line-soft:  #ECE8E1;
   --line-cool:  #D8E2EA;
@@ -91,6 +91,12 @@
   --verde-ok:   #1E7A5A;   /* conferme, spunte */
 
   --focus:      #1A5E96;
+
+  /* Testo sui fondi blu scuri. Tenuti separati dai grigi su carta perché
+     su #08243C i valori chiari devono salire molto per restare leggibili.  */
+  --su-scuro:      #C3D6E4;   /* 10,7:1 */
+  --su-scuro-2:    #A7BFD0;   /*  8,3:1 */
+  --su-scuro-3:    #93ABBF;   /*  6,7:1, solo per note e metadati */
 
   /* Tipografia */
   --sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -285,12 +291,14 @@ section { position: relative; }
 .bg-warm   { background: var(--accent-050); }
 .bg-cool   { background: var(--brand-050); }
 .bg-tint  { background: var(--brand-050); }
-.bg-dark   { background: var(--brand-900); color: #B9CEDF; }
+.bg-dark   { background: var(--brand-900); color: var(--su-scuro); }
 .bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4 { color: #FFFDF9; }
-.bg-dark .lead, .bg-dark .muted { color: #9DB6C9; }
+.bg-dark .lead, .bg-dark .muted, .bg-dark .small, .bg-dark .xs,
+.bg-dark p, .bg-dark li, .bg-dark span, .bg-dark dt, .bg-dark small { color: var(--su-scuro-2); }
+.bg-dark b, .bg-dark strong { color: #FFFDF9; }
 .bg-dark .eyebrow { color: var(--accent-400); }
 .bg-dark .stat-n { color: var(--accent-400); }
-.bg-dark .accent-i { color: var(--accent-400); }
+.bg-dark .accent-i, .on-dark .accent-i { color: var(--accent-400); }
 
 .grid { display: grid; gap: var(--gutter); }
 .g2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -320,6 +328,33 @@ section { position: relative; }
 .center-x { margin-inline: auto; }
 
 .rule { height: 1px; background: var(--line); border: 0; }
+
+/* Occhiello numerato: dà alla pagina un indice visibile mentre si scorre */
+.eyebrow__n {
+  display: inline-grid; place-items: center;
+  width: 1.55em; height: 1.55em; margin-right: .1em;
+  border-radius: 50%;
+  background: var(--accent-500); color: var(--ink);
+  font-size: .875em; font-weight: 800; letter-spacing: 0;
+}
+.eyebrow.has-n::before { display: none; }
+
+/* ── Ranghi di sezione ─────────────────────────────────────────────────
+   Il difetto peggiore di una pagina lunga è che tutti i blocchi pesino
+   uguale. Qui esistono tre ranghi dichiarati, e in ogni pagina il rango 1
+   compare una volta sola.                                                */
+.sec--1 { padding-block: clamp(5.5rem, 3rem + 8vw, 11rem); }
+.sec--1 .section-head { max-width: 54rem; }
+.sec--1 .section-head h2 { font-size: var(--fs-h1); }
+.sec--1 .eyebrow { font-size: .8125rem; }
+
+.sec--3 { padding-block: clamp(2.75rem, 2rem + 2.5vw, 4rem); }
+.sec--3 .section-head { margin-bottom: 1.75rem; max-width: 42rem; }
+.sec--3 .section-head h2 { font-size: clamp(1.28rem, 1.1rem + .8vw, 1.6rem); }
+.sec--3 .lead { font-size: 1rem; }
+
+/* Filetto che separa i blocchi di servizio da quelli di contenuto */
+.sec--3 + .sec--3 { padding-top: 0; }
 
 .section-head { max-width: 48rem; margin-bottom: var(--sp-block); }
 .section-head.is-center { margin-inline: auto; text-align: center; }

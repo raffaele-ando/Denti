@@ -31,7 +31,13 @@ STUDIO = {
     "booking": "http://www.miodottore.it/strutture/ambulatorio-dentistico-dr-u-piccardo-srl?utm_source=widget-clinic-50939&utm_medium=link&widget=1&fid=50939&saasonly=true",
     "gmaps": "https://www.google.com/maps/place/Dott.+U.+Piccardo+,+Dentista+Implantologia+Genova/@44.404043,8.9382993,17z",
     "recensioni_url": "https://www.google.com/maps/place/Dott.+U.+Piccardo+,+Dentista+Implantologia+Genova/@44.404043,8.9382993,17z/data=!4m7!3m6!1s0x12d343c3d1f9069b:0x930c52f023ce72d9!8m2!3d44.404043!4d8.940488!9m1!1b1",
+    # ATTENZIONE: "voto" proviene dall'estratto della scheda Google fornito a
+    # inizio progetto e NON è stato verificato in autonomia. Prima della
+    # pubblicazione va riletto direttamente su Google Maps: la media cambia a
+    # ogni nuova recensione. Il numero di recensioni è invece documentato.
+    # I titoli del sito non poggiano più sulla media, ma sul numero.
     "voto": "5,0",
+    "voto_verificato": False,
     "n_recensioni": 310,
     "voto_fb": "4,9",
     "social": {

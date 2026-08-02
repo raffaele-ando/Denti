@@ -248,7 +248,7 @@
   display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
 }
 .mega__promo h5 { color: #FFFDF9; font-family: var(--serif); font-size: 1.22rem; font-weight: 400; letter-spacing: -.02em; text-transform: none; }
-.mega__promo p { font-size: var(--fs-xs); color: #A5BDB5; }
+.mega__promo p { font-size: var(--fs-xs); color: var(--su-scuro-2); }
 
 /* Burger */
 .burger {
@@ -490,52 +490,81 @@
 .tcard__price b { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--accent-700); letter-spacing: -.02em; }
 .tcard__link { position: absolute; inset: 0; }
 
-/* ===== Segnaposto media =============================================== */
-/* Il buco fotografico non resta un buco: al suo posto c'è un'illustrazione
-   che racconta comunque il soggetto, con sotto la specifica di scatto.      */
-.media-slot {
+/* ===== Scheda di scatto =============================================== */
+/* Dove manca un media si mette una scheda di produzione: crocini di taglio,
+   formato, soggetto e nota per il fotografo. Deve sembrare una decisione di
+   art direction, non un buco.                                              */
+.shotcard {
   position: relative;
-  display: block;
+  display: flex; flex-direction: column; justify-content: flex-end;
   aspect-ratio: var(--ar, 3/2);
+  padding: clamp(1.1rem, .8rem + 1vw, 1.7rem);
   border-radius: var(--r-lg);
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 9px, rgba(19,75,122,.028) 9px 18px),
+    var(--paper-2);
+  border: 1px solid var(--line);
   overflow: hidden;
-  background: var(--brand-050);
-  border: 1px solid var(--brand-100);
   isolation: isolate;
 }
-.media-slot__art { position: absolute; inset: 0; }
-.media-slot__art svg { width: 100%; height: 100%; }
-
-.media-slot__tag {
-  position: absolute; top: .9rem; left: .9rem; z-index: 2;
-  display: inline-flex; align-items: center; gap: .4em;
-  padding: .34em .8em;
-  border-radius: var(--r-pill);
-  background: rgba(250,248,245,.92);
-  backdrop-filter: blur(6px);
-  color: var(--brand-700);
-  font-size: .625rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
-  box-shadow: var(--sh-1);
+/* crocini di taglio */
+.shotcard::before, .shotcard::after {
+  content: ''; position: absolute; width: 22px; height: 22px; pointer-events: none;
+  border-color: var(--brand-200); border-style: solid;
 }
-.media-slot__tag svg { width: 12px; height: 12px; }
+.shotcard::before { top: 12px; left: 12px; border-width: 1.5px 0 0 1.5px; }
+.shotcard::after  { bottom: 12px; right: 12px; border-width: 0 1.5px 1.5px 0; }
 
-.media-slot__cap {
-  position: absolute; inset: auto 0 0 0; z-index: 2;
-  display: grid; gap: .15rem;
-  padding: 1.6rem .95rem .85rem;
-  background: linear-gradient(to top, rgba(250,248,245,.97) 42%, rgba(250,248,245,0));
-  color: var(--brand-700);
+.shotcard__ghost {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -58%);
+  width: 38%; max-width: 150px; aspect-ratio: 1;
+  color: var(--brand-200);
+  opacity: .5;
+  display: grid; place-items: center;
+  z-index: -1;
 }
-.media-slot__cap b { font-size: var(--fs-xs); font-weight: 700; line-height: 1.35; }
-.media-slot__cap span { font-size: .6875rem; font-weight: 500; color: var(--muted); line-height: 1.4; }
+.shotcard__ghost svg { width: 100%; height: 100%; stroke-width: 1.1; }
 
-.media-slot--dark { background: var(--brand-900); border-color: rgba(255,255,255,.14); }
-.media-slot--dark .media-slot__tag { background: rgba(8,36,60,.85); color: var(--accent-400); }
-.media-slot--dark .media-slot__cap {
-  background: linear-gradient(to top, rgba(8,36,60,.97) 42%, rgba(8,36,60,0));
-  color: #FFFDF9;
+.shotcard__kind {
+  position: absolute; top: clamp(1.1rem, .8rem + 1vw, 1.7rem); left: clamp(1.1rem, .8rem + 1vw, 1.7rem);
+  display: inline-flex; align-items: center; gap: .45em;
+  font-size: .625rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent-700);
 }
-.media-slot--dark .media-slot__cap span { color: #9DB6C9; }
+.shotcard__kind svg { width: 13px; height: 13px; }
+
+.shotcard__ratio {
+  position: absolute; top: clamp(1.1rem, .8rem + 1vw, 1.7rem); right: clamp(1.1rem, .8rem + 1vw, 1.7rem);
+  font-size: .625rem; font-weight: 700; letter-spacing: .1em;
+  color: var(--muted-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.shotcard__body { position: relative; max-width: 34rem; }
+.shotcard__subj {
+  font-family: var(--serif); font-size: clamp(1rem, .92rem + .38vw, 1.22rem);
+  font-weight: 400; line-height: 1.24; letter-spacing: -.015em; color: var(--ink);
+  text-wrap: balance;
+}
+.shotcard__spec {
+  margin-top: .5rem; padding-top: .5rem;
+  border-top: 1px solid var(--line);
+  font-size: .6875rem; line-height: 1.45; color: var(--muted);
+}
+
+.shotcard--dark {
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 9px, rgba(255,255,255,.035) 9px 18px),
+    var(--brand-900);
+  border-color: rgba(255,255,255,.16);
+}
+.shotcard--dark::before, .shotcard--dark::after { border-color: rgba(255,255,255,.3); }
+.shotcard--dark .shotcard__ghost { color: var(--brand-500); opacity: .45; }
+.shotcard--dark .shotcard__kind { color: var(--accent-400); }
+.shotcard--dark .shotcard__ratio { color: var(--su-scuro-3); }
+.shotcard--dark .shotcard__subj { color: #FFFDF9; }
+.shotcard--dark .shotcard__spec { color: var(--su-scuro-2); border-top-color: rgba(255,255,255,.16); }
 
 /* ===== Selettore per intenzione ======================================= */
 .intent { }
@@ -714,6 +743,8 @@
   opacity: 0; transition: opacity .38s var(--ease);
 }
 .person-drawer.is-open .person-drawer__bd { opacity: 1; }
+.media-slot--dark .media-slot__cap span { color: var(--su-scuro-2); }
+
 .person-drawer__panel {
   position: absolute; top: 0; right: 0; bottom: 0;
   width: min(38rem, 100%);
@@ -723,7 +754,9 @@
   transition: transform .44s var(--ease);
   box-shadow: -20px 0 60px -20px rgba(8,37,31,.3);
 }
-.person-drawer.is-open .person-drawer__panel { transform: none; }
+.person-drawer.is-open .media-slot--dark .media-slot__cap span { color: var(--su-scuro-2); }
+
+.person-drawer__panel { transform: none; }
 .person-drawer__close {
   position: sticky; top: 0; z-index: 2;
   margin-left: auto;
@@ -799,13 +832,15 @@
 
 /* Calcolatore rata */
 .calc {
-  background: var(--brand-900); color: #DCE9E4;
+  background: var(--brand-900); color: var(--su-scuro);
   border-radius: var(--r-xl);
   padding: clamp(1.6rem, 1rem + 2.4vw, 2.75rem);
 }
 .calc__grid { display: grid; grid-template-columns: 1fr auto; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
 @media (max-width: 780px) { .calc__grid { grid-template-columns: 1fr; } }
-.calc label { display: block; font-size: var(--fs-xs); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8FAAA2; margin-bottom: .6rem; }
+.calc label { display: block; font-size: var(--fs-xs); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--su-scuro-2); margin-bottom: .6rem; }
+.calc .accent-i { color: var(--accent-400); }
+.calc .seg button { color: var(--su-scuro-2); }
 .calc__amount { font-family: var(--serif); font-size: 2rem; font-weight: 400; letter-spacing: -.03em; color: #FFFDF9; line-height: 1; }
 
 input[type='range'] {
@@ -1048,15 +1083,16 @@ input[type='range']::-moz-range-thumb {
 }
 .cta-final > * { position: relative; }
 .cta-final h2 { color: #FFFDF9; }
-.cta-final .lead { color: #A5BDB5; margin-inline: auto; max-width: 34rem; }
+.cta-final .lead { color: var(--su-scuro-2); margin-inline: auto; max-width: 34rem; }
+.cta-final .xs { color: var(--su-scuro-3); }
 .cta-final__btns { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin-top: 2rem; }
 .cta-final .btn::after { background: var(--accent-400); }
 .cta-final .btn--ghost { --btn-fg: #FFFDF9; --btn-bd: rgba(255,255,255,.34); }
 
 /* ===== Footer ========================================================== */
-.footer { background: var(--brand-900); color: #93ABA3; padding-top: clamp(3rem, 2rem + 4vw, 5rem); }
+.footer { background: var(--brand-900); color: var(--su-scuro-2); padding-top: clamp(3rem, 2rem + 4vw, 5rem); }
 .footer .brand__name { color: #FFFDF9; }
-.footer .brand__sub  { color: #7E958D; }
+.footer .brand__sub  { color: var(--su-scuro-3); }
 .footer .brand__mark .tooth { fill: var(--brand-900); }
 .footer a { transition: color var(--t); }
 .footer a:hover { color: #FFFDF9; }
@@ -1077,7 +1113,7 @@ input[type='range']::-moz-range-thumb {
   border-top: 1px solid rgba(255,255,255,.1);
   padding-block: 1.5rem;
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
-  font-size: var(--fs-xs); color: #6E8880;
+  font-size: var(--fs-xs); color: var(--su-scuro-3);
 }
 .footer__legal a { text-decoration: underline; text-underline-offset: .2em; }
 .socials { display: flex; gap: .5rem; }
@@ -1158,6 +1194,7 @@ input[type='range']::-moz-range-thumb {
 }
 .pull--i { font-style: italic; }
 .bg-dark .pull { color: #FFFDF9; }
+.bg-dark .pull-cite { color: var(--su-scuro-3); }
 .pull-cite { margin-top: 1.1rem; font-size: var(--fs-xs); font-weight: 650; color: var(--muted-2); letter-spacing: .04em; }
 
 /* Nastro informativo */
@@ -1170,3 +1207,110 @@ input[type='range']::-moz-range-thumb {
 }
 .ribbon svg { width: 17px; height: 17px; flex: none; color: var(--accent-600); }
 .ribbon b { color: #7A430A; }
+
+
+/* ===== Intestazione di pagina, variabile per famiglia ================== */
+/* Ogni gruppo di trattamenti ha la propria apertura: chi naviga fra due
+   pagine deve accorgersi di essersi spostato.                             */
+.pagehero { position: relative; overflow: hidden; padding-top: calc(var(--header-h) + clamp(2rem,1rem+3.5vw,4rem)); padding-bottom: clamp(2.5rem,1.5rem+3vw,4.5rem); }
+.pagehero__mark {
+  position: absolute; right: -3%; top: 8%;
+  width: clamp(14rem, 34vw, 30rem); aspect-ratio: 1;
+  color: var(--brand-100); opacity: .55; pointer-events: none;
+}
+.pagehero__mark svg { width: 100%; height: 100%; stroke-width: .7; }
+
+.pagehero--paura { background: var(--brand-900); }
+.pagehero--paura .breadcrumb, .pagehero--paura .breadcrumb li:last-child { color: var(--su-scuro-3); }
+.pagehero--paura .breadcrumb a:hover { color: #fff; }
+.pagehero--paura h1 { color: #FFFDF9; }
+.pagehero--paura .lead { color: var(--su-scuro-2); }
+.pagehero--paura .eyebrow { color: var(--accent-400); }
+.pagehero--paura .accent-i { color: var(--accent-400); }
+.pagehero--paura .pagehero__mark { color: var(--brand-700); opacity: .8; }
+.pagehero--paura .btn--ghost { --btn-fg: #FFFDF9; --btn-bd: rgba(255,255,255,.32); }
+.pagehero--paura .btn--ghost::after { background: #FFFDF9; }
+.pagehero--paura .btn--ghost:hover { color: var(--brand-900); }
+
+.pagehero--valore { background: linear-gradient(170deg, var(--accent-050), var(--paper) 62%); }
+.pagehero--valore .pagehero__mark { color: var(--accent-100); opacity: .9; }
+
+.pagehero--cura { background: linear-gradient(170deg, var(--brand-050), var(--paper) 62%); }
+
+/* Barra di famiglia: dice a colpo d'occhio in che ramo del sito ci si trova */
+.famiglia {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .4rem .95rem .4rem .5rem;
+  border-radius: var(--r-pill);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  font-size: var(--fs-xs); font-weight: 700; color: var(--ink-2);
+  box-shadow: var(--sh-1);
+}
+.famiglia svg { width: 15px; height: 15px; color: var(--accent-700); }
+.famiglia .ico {
+  display: grid; place-items: center; width: 26px; height: 26px;
+  border-radius: 50%; background: var(--accent-100);
+}
+.pagehero--paura .famiglia { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.2); color: #FFFDF9; }
+.pagehero--paura .famiglia .ico { background: rgba(255,255,255,.12); }
+.pagehero--paura .famiglia svg { color: var(--accent-400); }
+
+/* ===== Griglia asimmetrica ============================================= */
+/* Tre card uguali in fila sono la disposizione più prevedibile che esista.
+   Qui la prima pesa il doppio e detta la gerarchia della sezione.          */
+.g-feature { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: var(--gutter); align-items: stretch; }
+@media (max-width: 1000px) { .g-feature { grid-template-columns: 1fr 1fr; } .g-feature > :first-child { grid-column: 1 / -1; } }
+@media (max-width: 620px)  { .g-feature { grid-template-columns: 1fr; } }
+
+.card--lead {
+  background: var(--brand-900);
+  border-color: var(--brand-900);
+  color: var(--su-scuro);
+}
+.card--lead h3 { color: #FFFDF9; font-size: clamp(1.42rem, 1.15rem + 1.1vw, 1.95rem); }
+.card--lead p { color: var(--su-scuro-2); }
+.card--lead .icon-box { background: rgba(255,255,255,.1); color: var(--accent-400); }
+.card--lead .link-arrow { color: var(--accent-400); }
+.card--lead:hover { transform: translateY(-4px); box-shadow: var(--sh-3); }
+
+/* ===== Citazione a fascia ============================================== */
+.quote-band {
+  position: relative;
+  padding: 1.5rem 0 0 2.75rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.quote-band::before {
+  content: '\201C';
+  position: absolute; left: -.1rem; top: .55rem;
+  font-family: var(--serif); font-size: 4.5rem; line-height: 1;
+  color: var(--accent-400); opacity: .85;
+}
+.quote-band .pull { font-size: clamp(1.18rem, 1rem + .85vw, 1.6rem); line-height: 1.32; }
+
+
+/* ===== Header sopra un'intestazione scura ============================== */
+/* Finché la pagina è in cima e sotto la barra c'è il blu marino, i testi
+   dell'header si invertono. Allo scroll la barra torna chiara.            */
+body.hero-scuro .header:not(.is-stuck) .brand__name,
+body.hero-scuro .header:not(.is-stuck) .nav__link,
+body.hero-scuro .header:not(.is-stuck) .tel-link { color: #FFFDF9; }
+body.hero-scuro .header:not(.is-stuck) .brand__sub { color: var(--su-scuro-3); }
+body.hero-scuro .header:not(.is-stuck) .brand__mark .tooth { fill: var(--brand-900); }
+body.hero-scuro .header:not(.is-stuck) .tel-link svg { color: var(--accent-400); }
+body.hero-scuro .header:not(.is-stuck) .nav__link:hover,
+body.hero-scuro .header:not(.is-stuck) .nav__item.is-open > .nav__link {
+  background: rgba(255,255,255,.12); color: #FFFDF9;
+}
+body.hero-scuro .header:not(.is-stuck) .nav__link[aria-current='page']::after { background: var(--accent-400); }
+body.hero-scuro .header:not(.is-stuck) .burger { border-color: rgba(255,255,255,.32); }
+body.hero-scuro .header:not(.is-stuck) .burger span,
+body.hero-scuro .header:not(.is-stuck) .burger span::before,
+body.hero-scuro .header:not(.is-stuck) .burger span::after { background: #FFFDF9; }
+
+/* Più aria sotto la barra: la pillola di famiglia non deve sfiorarla */
+.pagehero { padding-top: calc(var(--header-h) + clamp(2.75rem, 1.5rem + 4vw, 5rem)); }
+.pagehero .breadcrumb { margin-bottom: 1.5rem; }
+
+/* L'icona in filigrana della scheda di scatto respira un po' di più */
+.shotcard__ghost { width: 46%; max-width: 190px; }

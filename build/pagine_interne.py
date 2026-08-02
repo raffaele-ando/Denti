@@ -35,7 +35,7 @@ def trattamento(t):
     }
 
     out = head(d, t["meta_title"], t["meta_desc"], f"trattamenti/{slug}.html",
-               [faq_schema, bc_schema])
+               [faq_schema, bc_schema], tema_scuro=(t["gruppo"] == "Ho paura"))
     out += header(d, "trattamenti")
     out += '<main id="main">'
 
@@ -45,14 +45,16 @@ def trattamento(t):
         hm = t["hero_media"]
         media = f'<div data-reveal="scale" style="--d:180ms">{media_slot("Foto", hm["testo"], hm["nota"], ar=hm["ar"], scena=hm.get("scena", "poltrona"))}</div>'
     colonne = "hero__grid" if media else ""
+    variante = {"Ho paura": "paura", "Voglio un sorriso migliore": "valore",
+                "Mi manca un dente": "valore"}.get(t["gruppo"], "cura")
     out += f'''
-<section class="hero">
-  <div class="aura aura--1"></div>
+<section class="pagehero pagehero--{variante}">
+  <span class="pagehero__mark">{ico(t['icona'])}</span>
   <div class="wrap {colonne}">
     <div{'' if media else ' style="max-width:52rem"'}>
       {breadcrumb(d, [("Trattamenti", "trattamenti.html"), (t["nav"], None)])}
-      <span class="eyebrow" data-reveal>{t['eyebrow']}</span>
-      <h1 class="mt-4" data-reveal style="--d:60ms">{t['h1']}</h1>
+      <span class="famiglia" data-reveal><span class="ico">{ico(t['icona'])}</span>{t['gruppo']}</span>
+      <h1 class="mt-6" data-reveal style="--d:60ms">{t['h1']}</h1>
       <p class="lead mt-6" data-reveal style="--d:120ms">{t['lead']}</p>
       <div class="hero__cta" data-reveal style="--d:180ms">
         <a class="btn btn--lg" href="{S['booking']}" target="_blank" rel="noopener">{ico('calendario')} Prenota una valutazione</a>
@@ -83,10 +85,10 @@ def trattamento(t):
     if t.get("diagramma"):
         passi = "".join(f'<div class="step"><div><h4>{a}</h4><p>{b}</p></div></div>' for a, b in t["steps"])
         out += f'''
-<section class="section bg-paper2">
+<section class="section sec--1 bg-paper2">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Come funziona</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">1</span>Come funziona</span>
       <h2 class="mt-4">{t['diagramma_titolo']}</h2>
       <p class="lead">{t['diagramma_sub']}</p>
     </div>
@@ -107,7 +109,7 @@ def trattamento(t):
 <section class="section">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Onestamente</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">2</span>Onestamente</span>
       <h2 class="mt-4">{t['fit_titolo']}</h2>
     </div>
     <div class="fit" data-reveal>
@@ -132,7 +134,7 @@ def trattamento(t):
 <section class="section bg-tint">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Le prove</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">3</span>Le prove</span>
       <h2 class="mt-4">Cosa ci distingue su <span class="accent-i">questo trattamento</span></h2>
       <p class="lead">Tre elementi concreti, che potete verificare uno per uno.</p>
     </div>
@@ -153,7 +155,7 @@ def trattamento(t):
       </div>
     </div>
     <div data-reveal="right">
-      <span class="eyebrow">Chi se ne occupa</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">4</span>Chi se ne occupa</span>
       <h2 class="mt-4">{m['nome']}</h2>
       <p class="small muted mt-2">{m['ruolo']}</p>
       <p class="lead mt-6">{m['sintesi']}</p>
@@ -173,7 +175,7 @@ def trattamento(t):
 <section class="section bg-paper2" id="prezzo">
   <div class="wrap split">
     <div data-reveal="left">
-      <span class="eyebrow">Prezzo</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">5</span>Prezzo</span>
       <h2 class="mt-4">Quanto costa, secondo il nostro <span class="accent-i">tariffario pubblico</span></h2>
       <p class="lead mt-6">Le voci qui accanto sono quelle che riguardano questo trattamento e sono
       le stesse che trovate nel tariffario completo. Dopo la prima visita ricevete un preventivo
@@ -200,7 +202,7 @@ def trattamento(t):
 <section class="section">
   <div class="wrap" style="max-width:56rem">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Domande frequenti</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">6</span>Domande frequenti</span>
       <h2 class="mt-4">Le domande che ci sentiamo fare <span class="accent-i">più spesso</span></h2>
       <p class="lead">Sono quelle che arrivano in prima visita e al telefono, con le risposte che diamo di persona.</p>
     </div>
@@ -215,7 +217,7 @@ def trattamento(t):
   <p>{TRATT_BY_SLUG[c]['breve']}</p>
 </a>''' for c in t["correlati"])
     out += f'''
-<section class="section-sm">
+<section class="sec--3">
   <div class="wrap">
     <h3 class="mb-6" data-reveal>Se stai valutando questo, spesso serve anche</h3>
     <div class="grid g3" data-stagger="80">{corr}</div>
@@ -253,9 +255,9 @@ def hub_trattamenti():
                "trattamenti.html")
     out += header(d, "trattamenti")
     out += f'''<main id="main">
-<section class="subhero">
-  <div class="aura aura--1"></div>
-  <div class="wrap" style="max-width:52rem">
+<section class="pagehero pagehero--cura">
+  <span class="pagehero__mark">{ico("dente")}</span>
+  <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Trattamenti", None)])}
     <span class="eyebrow" data-reveal>Trattamenti</span>
     <h1 class="mt-4" data-reveal style="--d:60ms">Dieci percorsi di cura, raggruppati per <span class="accent-i">tipo di problema</span></h1>
@@ -371,8 +373,8 @@ def studio():
                "studio.html")
     out += header(d, "studio")
     out += f'''<main id="main">
-<section class="subhero">
-  <div class="aura aura--1"></div>
+<section class="pagehero pagehero--cura">
+  <span class="pagehero__mark">{ico("scan")}</span>
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Lo studio", None)])}
     <span class="eyebrow" data-reveal>Lo studio</span>
@@ -432,11 +434,11 @@ def team():
 
     out = head(d, "Il team: otto specialisti a Genova | Studio Piccardo",
                "L'équipe dello studio: chirurgo orale e implantologo, ortodonzista specialista Invisalign, parodontologo con 4 pubblicazioni, pedodonzista, due igienisti dentali laureati.",
-               "team.html", persone_schema)
+               "team.html", persone_schema, tema_scuro=True)
     out += header(d, "team")
     out += f'''<main id="main">
-<section class="subhero">
-  <div class="aura aura--1"></div>
+<section class="pagehero pagehero--paura">
+  <span class="pagehero__mark">{ico("gruppo")}</span>
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Il team", None)])}
     <span class="eyebrow" data-reveal>L'équipe</span>
@@ -536,8 +538,8 @@ def prezzi():
                "prezzi.html")
     out += header(d, "prezzi")
     out += f'''<main id="main">
-<section class="subhero">
-  <div class="aura aura--1"></div>
+<section class="pagehero pagehero--valore">
+  <span class="pagehero__mark">{ico("euro")}</span>
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Prezzi", None)])}
     <span class="eyebrow" data-reveal>Prezzi</span>
@@ -588,7 +590,7 @@ def prezzi():
             <div class="calc__amount" id="calc-importo-val">3.500 €</div>
             <input type="range" id="calc-importo" min="500" max="12000" step="100" value="3500"
                    aria-label="Importo del piano di cura in euro">
-            <div class="between xs" style="color:#7E958D"><span>500 €</span><span>12.000 €</span></div>
+            <div class="between xs" style="color:var(--su-scuro-3)"><span>500 €</span><span>12.000 €</span></div>
           </div>
           <div class="mt-8">
             <label>Durata</label>
@@ -598,12 +600,12 @@ def prezzi():
           </div>
         </div>
         <div class="calc__out">
-          <div class="xs" style="color:#8FAAA2;letter-spacing:.1em;text-transform:uppercase;font-weight:700">Rata mensile</div>
+          <div class="xs" style="color:var(--su-scuro-2);letter-spacing:.1em;text-transform:uppercase;font-weight:700">Rata mensile</div>
           <div class="calc__rate mt-4"><span id="calc-rata">97</span> €</div>
-          <p class="xs mt-6" id="calc-nota" style="color:#8FAAA2">Tasso 0. TAN 0%, importo fino a 5.000 €</p>
+          <p class="xs mt-6" id="calc-nota" style="color:var(--su-scuro-2)">Tasso 0. TAN 0%, importo fino a 5.000 €</p>
         </div>
       </div>
-      <p class="xs mt-8" style="color:#6E8880;border-top:1px solid rgba(255,255,255,.1);padding-top:1rem">
+      <p class="xs mt-8" style="color:var(--su-scuro-3);border-top:1px solid rgba(255,255,255,.1);padding-top:1rem">
         Simulazione indicativa a scopo informativo, non costituisce offerta contrattuale ai sensi del
         D.lgs. 385/1993. Il tasso 0 si applica a importi fino a 5.000 €; oltre tale soglia il calcolo qui
         mostrato è una stima prudenziale su TAN 4,9%. Condizioni, TAEG e fattibilità sono determinati
@@ -665,17 +667,17 @@ def recensioni():
                "recensioni.html")
     out += header(d, "recensioni")
     out += f'''<main id="main">
-<section class="subhero">
-  <div class="aura aura--1"></div>
+<section class="pagehero pagehero--valore">
+  <span class="pagehero__mark">{ico("stella")}</span>
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Recensioni", None)])}
     <span class="eyebrow" data-reveal>Recensioni</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Trecentodieci pazienti hanno recensito lo studio su Google, e la media è <span class="accent-i">cinque su cinque</span></h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Su un campione di trecentodieci valutazioni,
-    una media piena è un risultato raro. Le recensioni sono tutte pubbliche sulla scheda Google
-    dello studio e chiunque può leggerle per intero. Qui sotto ne riportiamo integralmente una
-    selezione, scelta per raccontare i motivi ricorrenti per cui i pazienti tornano: alcune
-    risalgono a quindici anni fa.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">310 recensioni pubbliche, riportate qui <span class="accent-i">senza tagli</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Sono tutte sulla scheda Google dello studio,
+    dove chiunque può controllarle e dove nessuno può cancellarle. Qui sotto ne trovate una
+    selezione riportata parola per parola, comprese quelle di dodici e quattordici anni fa.
+    Le abbiamo scelte per coprire situazioni diverse, non per convenienza: nella pagina compaiono
+    anche i casi lunghi e complicati.</p>
   </div>
 </section>'''
     out += blocco_recensioni(d, limite=99, titolo="La parola ai pazienti", occhiello="Google · Facebook")
@@ -690,7 +692,7 @@ def recensioni():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Come le leggiamo</span>
-      <h2 class="mt-4">Gli argomenti che i pazienti citano <span class="accent-i">più spesso</span></h2>
+      <h2 class="mt-4">Le tre parole che ricorrono più di tutte: <span class="accent-i">avanguardia, ambiente, prezzi</span></h2>
       <p class="lead mt-6">Le etichette qui accanto le genera Google da sola, analizzando il testo
       delle recensioni e contando le parole ricorrenti. Nessuno le sceglie e nessuno le può
       modificare, ed è proprio questo che le rende interessanti: dicono su cosa lo studio viene
@@ -720,8 +722,8 @@ def contatti():
                "contatti.html")
     out += header(d, "contatti")
     out += f'''<main id="main">
-<section class="subhero">
-  <div class="aura aura--1"></div>
+<section class="pagehero pagehero--cura">
+  <span class="pagehero__mark">{ico("pin")}</span>
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Contatti", None)])}
     <span class="eyebrow" data-reveal>Contatti</span>

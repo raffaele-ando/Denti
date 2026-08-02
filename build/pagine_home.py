@@ -10,8 +10,9 @@ from componenti import (blocco_recensioni, striscia_team, prima_dopo,
                         blocco_convenzioni, mappa)
 
 
-def _pilastro(icona, titolo, testo, link, label, cls=""):
-    return f'''<article class="card card--pillar card--hover" data-reveal>
+def _pilastro(icona, titolo, testo, link, label, cls="", guida=False):
+    g = " card--lead" if guida else ""
+    return f'''<article class="card card--pillar card--hover{g}" data-reveal>
   <div class="icon-box {cls}">{ico(icona)}</div>
   <h3>{titolo}</h3>
   <p>{testo}</p>
@@ -131,7 +132,7 @@ def render():
             "ha poi lavorato come sedazionista. Lo studio pratica la sedazione cosciente "
             "inalatoria, quella endovenosa e la comunicazione ipnotica: tre strumenti diversi, "
             "che si scelgono in base a quanto è forte l&rsquo;ansia e a quanto durerà l&rsquo;intervento.",
-            "trattamenti/paura-del-dentista.html", "Come funziona la sedazione")
+            "trattamenti/paura-del-dentista.html", "Come funziona la sedazione", guida=True)
         + _pilastro(
             "euro", "Il prezzo lo conosci prima di sederti",
             "Trentasei prestazioni sono pubblicate online con il loro costo, dalla prima visita "
@@ -149,17 +150,17 @@ def render():
             "studio.html", "Guarda com&rsquo;è fatto lo studio")
     )
     out += f'''
-<section class="section">
+<section class="section sec--1">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Perché qui</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">1</span>Perché qui</span>
       <h2 class="mt-4">Tre motivi per sceglierci, e la <span class="accent-i">prova</span> di ciascuno</h2>
       <p class="lead">Qualsiasi studio può scrivere «professionalità» e «tecnologia
       all&rsquo;avanguardia»: sono parole che non costano nulla. Qui sotto trovate tre affermazioni
       precise e, accanto a ognuna, il titolo universitario, il numero o il documento che la
       sostiene. Sono tutte verificabili.</p>
     </div>
-    <div class="grid g3" data-stagger="90">{pilastri}</div>
+    <div class="g-feature" data-stagger="90">{pilastri}</div>
   </div>
 </section>'''
 
@@ -178,7 +179,7 @@ def render():
 <section class="section bg-paper2">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Trattamenti</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">2</span>Trattamenti</span>
       <h2 class="mt-4">Ogni percorso comincia da un <span class="accent-i">problema diverso</span></h2>
       <p class="lead">Scegli la situazione che ti somiglia di più. Al posto di un elenco di
       quaranta prestazioni vedrai le tre che riguardano davvero il tuo caso, ciascuna con il
@@ -202,7 +203,7 @@ def render():
                   ar="4/3", dark=True, scena="video")}
     </div>
     <div data-reveal="right">
-      <span class="eyebrow">Odontofobia</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">3</span>Odontofobia</span>
       <h2 class="mt-4">Se rimandi le cure per paura, ci sono <span class="accent-i">tre strade</span> per uscirne</h2>
       <p class="lead mt-6">L'odontofobia si comporta come un riflesso condizionato. Nasce quasi
       sempre da un episodio reale, spesso dell'infanzia, e il corpo la ripropone appena riconosce
@@ -224,9 +225,10 @@ def render():
         prima ancora che serva somministrare qualcosa.</span></li>
       </ul>
       <div class="mt-8"><a class="btn" href="trattamenti/paura-del-dentista.html">{ico('calma')} Leggi come funziona la sedazione</a></div>
-      <figure class="mt-12" style="border-left:2px solid var(--brand-500);padding-left:1.25rem">
-        <p class="pull pull--i" style="font-size:clamp(1.15rem,1rem+.8vw,1.5rem);line-height:1.35">«58 primavere sulle spalle e prima estrazione di dente del giudizio. Non ho sentito niente.»</p>
-        <figcaption class="pull-cite">Fabio Burlando · recensione Google</figcaption>
+      <figure class="quote-band mt-12">
+        <p class="pull pull--i">«Ero terrorizzata al solo pensiero di andare dal dentista.
+        Lui mi ha fatto passare completamente la paura, mai sentito dolore.»</p>
+        <figcaption class="pull-cite">Chicca Grisaffi, recensione pubblica su Google</figcaption>
       </figure>
     </div>
   </div>
@@ -241,7 +243,7 @@ def render():
     # ───────────────────────────────────────────────────────── RECENSIONI
     out += blocco_recensioni(
         0, limite=9,
-        titolo="Trecentodieci pazienti hanno recensito lo studio, e la media è <span class='accent-i'>cinque su cinque</span>",
+        titolo="Nelle 310 recensioni pubbliche tornano sempre le <span class='accent-i'>stesse tre cose</span>",
         occhiello="La parola ai pazienti")
 
     # ────────────────────────────────────────────────────── PREZZI ESTRATTO
@@ -256,12 +258,12 @@ def render():
 <section class="section">
   <div class="wrap split">
     <div data-reveal="left">
-      <span class="eyebrow">Prezzi</span>
-      <h2 class="mt-4">Il tariffario è <span class="accent-i">pubblico</span> e lo trovi per intero</h2>
-      <p class="lead mt-6">Trentasei prestazioni con il costo indicato accanto, dalla pulizia dei
-      denti alla riabilitazione su impianti. Pubblicarlo ci espone al confronto, e va bene così:
-      chi arriva sapendo già quanto spenderà si siede in poltrona molto più tranquillo, e quella
-      tranquillità vale più di qualche preventivo in meno.</p>
+      <span class="eyebrow has-n"><span class="eyebrow__n">6</span>Prezzi</span>
+      <h2 class="mt-4">Trentasei prezzi online, così puoi confrontarci <span class="accent-i">prima di telefonare</span></h2>
+      <p class="lead mt-6">Chi cerca un dentista sta quasi sempre valutando due o tre studi, e la
+      prima cosa che vorrebbe sapere è da che cifre si parte. Pubblicare il tariffario ci espone
+      al confronto diretto, il che va benissimo: preferiamo che qualcuno decida di non venire
+      leggendo un numero sullo schermo, piuttosto che scoprirlo seduto sulla poltrona.</p>
       <div class="ribbon mt-8">{ico('euro')}<span><b>Finanziamento a tasso 0</b> fino a 5.000 €, fino a 36 rate. Tasso agevolato oltre.</span></div>
       <div class="mt-8 row gap-3">
         <a class="btn" href="prezzi.html">Tariffario completo</a>

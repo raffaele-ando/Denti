@@ -61,7 +61,7 @@ def prima_dopo(depth=0, caso=None, titolo=None):
 <section class="section">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Casi clinici</span>
+      <span class="eyebrow has-n"><span class="eyebrow__n">4</span>Casi clinici</span>
       <h2 class="mt-4">{tit}</h2>
       <p class="lead">Trascina il cursore sull'immagine per confrontare la situazione iniziale
       con il risultato. Pubblichiamo soltanto i casi documentati con protocollo fotografico
@@ -105,11 +105,12 @@ def striscia_team(depth=0):
   <div class="wrap">
     <div class="between section-head" style="max-width:none;align-items:flex-end" data-reveal>
       <div style="max-width:40rem">
-        <span class="eyebrow">L'équipe</span>
-        <h2 class="mt-4">Dieci persone che lavorano nella <span class="accent-i">stessa sede</span></h2>
-        <p class="lead">Otto clinici specializzati in discipline diverse, più la segreteria e le
-        assistenti alla poltrona. Quando un caso ne richiede due o tre insieme, se ne discute in
-        équipe nella stanza accanto, invece di rimbalzarti da uno studio all'altro.</p>
+        <span class="eyebrow has-n"><span class="eyebrow__n">5</span>L'équipe</span>
+        <h2 class="mt-4">L'ortodontista, il chirurgo e l'odontotecnico lavorano a <span class="accent-i">dieci metri</span> l'uno dall'altro</h2>
+        <p class="lead">Di solito queste tre figure stanno in tre indirizzi diversi, e il paziente
+        fa da corriere fra loro. Qui condividono lo stesso corridoio: un caso complesso si discute
+        a voce nel giro di cinque minuti e tu ricevi un piano solo, non tre pareri da mettere
+        d'accordo.</p>
       </div>
       <a class="btn btn--ghost hide-mobile" href="{r}team.html">Conosci il team {ico('freccia')}</a>
     </div>
@@ -218,7 +219,7 @@ def blocco_recensioni(depth=0, limite=9, titolo=None, occhiello="Recensioni", te
 def blocco_convenzioni(depth=0):
     pills = "".join(f'<span class="pill">{c}</span>' for c in CONVENZIONI)
     return f'''
-<section class="section-sm" id="convenzioni">
+<section class="sec--3" id="convenzioni">
   <div class="wrap center mb-6" data-reveal>
     <span class="eyebrow is-bare">Convenzioni attive</span>
     <h3 class="mt-4">Lo studio è convenzionato con {len(CONVENZIONI)} fondi e casse sanitarie</h3>
@@ -270,11 +271,11 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
 <div class="grid g2" style="align-items:start">
   <div data-reveal="left">
     <span class="eyebrow">Gratuito</span>
-    <h2 class="mt-4">Hai già una <span class="accent-i">panoramica</span>? Guardiamola insieme</h2>
-    <p class="lead mt-6">Allegala al modulo qui accanto: il Dott. Piccardo la esamina e ti risponde
-    con una prima valutazione della situazione e un ordine di grandezza della spesa. È un modo per
-    farti un'idea concreta prima ancora di prendere un appuntamento, e non comporta né costi né
-    impegni.</p>
+    <h2 class="mt-4">Hai già una <span class="accent-i">panoramica</span>? Mandacela e la guardiamo</h2>
+    <p class="lead mt-6">È un servizio che offriamo da anni: allega la radiografia al modulo qui
+    accanto e il Dott. Piccardo la esamina, poi ti risponde con una prima lettura della situazione
+    e un ordine di grandezza della spesa. Serve a farti un'idea concreta prima ancora di fissare un
+    appuntamento, e non comporta costi né impegni.</p>
     <ul class="ticks mt-8">
       <li>{ico('check')}<span>Ti rispondiamo entro <b>due giorni lavorativi</b>, via email o al telefono che ci lasci</span></li>
       <li>{ico('check')}<span>Il servizio è gratuito e non ti vincola a prenotare</span></li>
