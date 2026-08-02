@@ -273,7 +273,7 @@ def hub_trattamenti():
 STUDIO_SEZIONI = [
     dict(id="tecnologia", occhiello="Diagnosi", titolo="La TAC per l'impianto la fai <span class='accent-i'>nella stessa visita</span>",
          testo="""<p>Sala raggi interna con <b>TAC Cone Beam 3D</b>, ortopantomografo con braccio tele e teleradiografo, tutti digitali.
-         Consente radiografie tridimensionali delle ossa facciali, panoramiche e teleradiografie del cranio per l'ortodonzia.</p>
+         Consente radiografie tridimensionali delle ossa facciali, panoramiche anche pediatriche, teleradiografie del cranio per l'ortodonzia, radiografie dei seni mascellari, dell'articolazione temporo-mandibolare e del carpo.</p>
          <p>Tutti i sistemi radiografici sono digitali, con un <b>abbattimento superiore all'80% della dose</b> rispetto alla pellicola tradizionale.
          Le radiografie e la TAC si fanno in questa stanza, e la diagnosi si chiude nella stessa seduta.</p>""",
          dati=[("TAC 3D", "Cone Beam, ossa facciali"), ("−80%", "dose radiante"), ("Scanner", "niente paste da impronta")],
@@ -318,9 +318,11 @@ STUDIO_SEZIONI = [
          testo="""<p>Circa 300 mq al piano terra con accesso diretto dalla strada. L'intera struttura è stata
          progettata e realizzata ai fini del superamento e dell'eliminazione delle barriere architettoniche,
          nel rispetto del <b>D.M. 236/89</b>.</p>
-         <p>Bagno attrezzato per persone con disabilità, dotato anche di <b>fasciatoio</b>. In sala d'attesa
-         un'area gioco dedicata ai bambini. Per chi resta a casa è attivo il
-         <b>servizio a domicilio</b>, con attrezzatura portatile, anche presso case di cura.</p>""",
+         <p>Il servizio igienico è progettato per l'uso in autonomia da parte di una persona in carrozzina,
+         con <b>sistema di allarme</b> e <b>mappa tattile in Braille</b>, e ha anche il fasciatoio. In sala
+         d'attesa ci sono un'area gioco per i bambini, spazio di manovra e una <b>carrozzina a
+         disposizione</b>. Per chi resta a casa è attivo il <b>servizio a domicilio</b>, con riunito
+         portatile, anche presso case di cura.</p>""",
          dati=[("300 mq", "al piano terra"), ("236/89", "norma sulle barriere"), ("A domicilio", "su richiesta")],
          media=("Foto", "Ingresso dalla strada e sala d'attesa riordinata",
                 "Riordinare prima dello scatto. Grandangolo moderato, verticali corrette.", "3/2", "ingresso")),
@@ -390,7 +392,9 @@ def studio():
           <span class="eyebrow">Tour virtuale</span>
           <h2 class="mt-4">Guarda dove ti siederai, <span class="accent-i">prima di venire</span></h2>
           <p class="lead mt-6" style="max-width:40rem">Sala d'attesa, reception, zone operative,
-          sala raggi, sterilizzazione e laboratorio sono tutti su Google Street View. Se l'ansia
+          sala raggi, sterilizzazione e laboratorio sono tutti su Google Street View. In sala d'attesa
+          sono appesi i diplomi di laurea, i master e le specializzazioni di tutta l'équipe, e c'è
+          il wi-fi con password. Se l'ansia
           è il tuo problema, vedere le stanze prima di entrarci cambia molto.</p>
           <div class="map-embed mt-8" data-reveal>
             <iframe src="https://www.google.com/maps/embed?pb=!4v1523268454645!6m8!1m7!1sCAoSLEFGMVFpcFBqTUlxaDktbERtaUItU0lQUGx6SktwZHRzV2haN2ZSb2FKVjdk!2m2!1d44.40396939!2d8.9403753!3f218.3372179200444!4f-3.67608424969697!5f0.7820865974627469"
@@ -555,7 +559,8 @@ def prezzi():
         <h3 class="mt-6">Fino a 5.000 euro puoi rateizzare a tasso zero</h3>
         <p class="mt-2">Il finanziamento arriva a trentasei rate senza interessi. Sopra i cinquemila
         euro passa a tasso agevolato, con condizioni che dipendono dall'istituto convenzionato. La
-        pratica si apre in segreteria e la risposta arriva in genere in giornata.</p></article>
+        pratica si apre in segreteria e la risposta arriva in genere in giornata. In alternativa
+        c'è <b>Pagodil</b>, che dilaziona la spesa in dodici rate direttamente dal bancomat.</p></article>
       <article class="card" data-reveal><div class="icon-box">{ico('scudo')}</div>
         <h3 class="mt-6">Il 19 per cento torna con la dichiarazione</h3>
         <p class="mt-2">Le spese odontoiatriche rientrano fra gli oneri detraibili, quindi una parte
@@ -618,7 +623,7 @@ def prezzi():
     <div class="tariff-table" id="tariffario" data-reveal>{tabella}</div>
     <p id="tariff-empty" class="center muted mt-8" hidden>Questa voce non è in elenco.
     Per le voci non elencate rivolgiti alla segreteria: <a href="tel:{S['tel']}" style="color:var(--brand-700);font-weight:650">{S['tel_display']}</a>.</p>
-    <p class="xs muted mt-6">Prezzi in euro, IVA esente ai sensi dell'art. 10 DPR 633/72. Per le prestazioni non
+    <p class="xs muted mt-6">Si paga in contanti, bancomat, carta di credito, assegno, con il finanziamento o con la propria convenzione. Prezzi in euro, IVA esente ai sensi dell'art. 10 DPR 633/72. Per le prestazioni non
     elencate rivolgersi alla segreteria. I prezzi possono variare in funzione della complessità del caso:
     l'importo definitivo è quello indicato nel preventivo scritto consegnato dopo la prima visita.</p>
   </div>

@@ -281,6 +281,7 @@ def form_preventivo(depth=0, id_form="form-preventivo"):
     <ul class="ticks mt-8">
       <li>{ico('check')}<span>Ti risponde il Dott. Piccardo, via email o al telefono che ci lasci</span></li>
       <li>{ico('check')}<span>Il servizio è gratuito, e dopo resti libero di decidere</span></li>
+      <li>{ico('check')}<span>In segreteria puoi chiedere il giustificativo per il lavoro e i buoni regalo per igiene o sbiancamento</span></li>
       <li>{ico('check')}<span>Quando la panoramica da sola non basta te lo scriviamo, con il motivo</span></li>
     </ul>
     <div class="form-note mt-8">{ico('info')}<span>Una valutazione a distanza serve a orientarti

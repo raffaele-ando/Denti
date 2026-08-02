@@ -112,6 +112,52 @@ iterazione:
 
 ---
 
+## 1-quater. Audit inverso: cosa si era perso nel passaggio
+
+Consolidare 62 pagine in 19 significa tagliare, ed è giusto. Ma tagliare la prosa non deve
+significare perdere i fatti. Ho preso 73 argomenti presenti nell'export e li ho cercati uno per uno
+nel sito nuovo: **54 c'erano, 19 no**. Tredici erano perdite vere e sono stati recuperati.
+
+**Nessuna URL è rimasta orfana:** tutte e 60 le pagine interne dell'originale hanno il loro
+redirect 301, la sessantunesima è la home.
+
+### Recuperati
+
+| Perso | Dove è tornato |
+|---|---|
+| **Ansiolisi orale con benzodiazepine** | Pagina paura del dentista. Era la terza via di sedazione documentata in `sedazione.md`, e il sito nuovo ne citava solo due |
+| **Rialzo del seno mascellare** con piezoelettrico | Chirurgia orale, scheda innesti |
+| **Innesto con membrana o griglia in titanio** | Chirurgia orale, scheda innesti |
+| **Damon System** e attacchi estetici | Invisalign e ortodonzia, dove si spiega quando l'apparecchio fisso resta la scelta migliore |
+| **Radiografie del carpo e dell'articolazione temporo-mandibolare** | Pagina studio, sala raggi: completano il «tutto in sede» |
+| **Mappa tattile in Braille** e **sistema di allarme** nel bagno | Pagina studio, accessibilità. Era il dettaglio più forte che avevo perso |
+| **Carrozzina a disposizione** in sala d'attesa | Pagina studio, accessibilità |
+| **Diplomi, master e specializzazioni appesi in sala d'attesa** | Pagina studio. È la prova fisica di ciò che il sito sostiene, e non la citavo |
+| **Wi-fi con password** | Pagina studio |
+| **Pagodil, dodici rate dal bancomat** | Pagina prezzi, accanto al finanziamento a tasso zero |
+| **Metodi di pagamento**: contanti, bancomat, carta, assegno, convenzione | Nota del tariffario |
+| **Buoni regalo** per igiene e sbiancamento | Modulo preventivo |
+| **Giustificativo per il datore di lavoro** | Modulo preventivo |
+
+### Tagliati e lasciati fuori, con motivo
+
+- **Uscite di emergenza ed estintori a norma:** obbligo di legge per qualunque locale pubblico,
+  non dice niente su questo studio.
+- **Dodici poltroncine in sala d'attesa:** dettaglio d'arredo senza conseguenze per chi legge.
+- **«Addetta al recupero crediti in caso di morosità»:** informazione interna. Sul sito comunica
+  al paziente che è considerato un potenziale insolvente, prima ancora di essere entrato.
+- **MioDottore:** non è perso, è riusato. È il sistema di prenotazione online collegato a tutti i
+  pulsanti «Prenota». Resta da valutare se citarlo anche come terza fonte di recensioni.
+
+### Una promessa trovata nell'audit, non pubblicata
+
+`segretariadentista.md` dice che la segreteria «organizza gli orari dei medici odontoiatri in modo
+che vi sia sempre presente un medico odontoiatra **ogni giorno dell'anno**». È nella fonte, ma
+contraddice l'orario pubblicato su ogni pagina, dove la domenica è chiusa. **Da chiarire con lo
+studio prima di usarla:** se vale per la reperibilità e non per l'apertura, va detto così.
+
+---
+
 ## 2. Da collegare prima della pubblicazione
 
 **1. Endpoint dei moduli.** Oggi i due form validano lato client e mostrano la conferma, ma non inviano nulla (`app.js`, blocco *Form: validazione + invio simulato*). Serve un endpoint. Tre opzioni, in ordine di preferenza:
