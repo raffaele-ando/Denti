@@ -1,0 +1,56 @@
+name: Pubblica su GitHub Pages
+
+# Pubblica il contenuto di `site/` come sito GitHub Pages.
+#
+# Da fare una volta sola, su GitHub:
+#   Settings → Pages → Build and deployment → Source: "GitHub Actions"
+# Da quel momento ogni push su questo branch ripubblica il sito.
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - claude/dental-studio-redesign-acgd4w
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Una pubblicazione alla volta; non annulla quella già in corso.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rigenera il sito dai sorgenti
+        run: python3 build/make.py
+
+      - name: Verifica link, asset e meta
+        run: python3 build/check.py
+
+      - name: Disattiva Jekyll
+        run: touch site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

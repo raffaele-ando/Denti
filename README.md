@@ -68,6 +68,26 @@ python3 -m http.server 8899 --directory site   # anteprima locale
 Per pubblicare basta caricare il contenuto di `site/` su un hosting statico o Apache.
 Non serve Node, non serve un CMS, non serve un database.
 
+### Anteprima su GitHub Pages
+
+Il sito vive in `site/`, non nella radice del repository: senza configurazione GitHub Pages
+mostrerebbe il `README.md` al posto della homepage. Sono previste due strade, entrambe già pronte.
+
+**Consigliata — pubblicazione automatica.**
+`Settings → Pages → Build and deployment → Source: GitHub Actions`.
+Il workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) rigenera il sito dai
+sorgenti, esegue il controllo qualità e pubblica `site/` sulla radice del dominio Pages.
+Da quel momento ogni push aggiorna il sito da solo.
+Indirizzo risultante: `https://<utente>.github.io/<repo>/`
+
+**Alternativa — pubblicazione dal branch.**
+`Settings → Pages → Source: Deploy from a branch`, branch `claude/dental-studio-redesign-acgd4w`,
+cartella `/ (root)`. In questo caso l'`index.html` nella radice reindirizza automaticamente
+a `site/index.html`: il sito si apre lo stesso, con un indirizzo un livello più profondo.
+
+Tutti i percorsi interni sono relativi, quindi il sito funziona identico sia sulla radice di un
+dominio sia in una sottocartella. Il file `.nojekyll` disattiva l'elaborazione Jekyll di GitHub.
+
 Per modificare un prezzo, un orario o un contenuto: `build/content.py` e `build/trattamenti.py`,
 poi `make.py`. Il dato si aggiorna in tutte le pagine in cui compare.
 
