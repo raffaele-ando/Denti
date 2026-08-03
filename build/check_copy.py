@@ -78,6 +78,17 @@ REGOLE = [
         r"\b(invece di (scoprir|sapere|dover)|piuttosto che (scoprir|dover|andare)|"
         r"a differenza di (chi|quelli|altri)|molti (altri )?studi|altri studi|"
         r"come fanno (in )?(molti|altri)|troppo onerosi)\b", re.I)),
+    # F12. asserzione ovvia sulla sede. Un titolo che informa il lettore del
+    # fatto che le stanze dello studio stanno dentro lo studio non aggiunge
+    # niente al senso comune: è la classe C2 di docs/07, ed è la prima cosa
+    # che è stata contestata in questo progetto. Ci sono ricascato una volta
+    # con «gli specialisti, la sala raggi e il laboratorio sono allo stesso
+    # indirizzo», quindi adesso c'è una rete.
+    ("F12 ovvietà sulla sede", re.compile(
+        r"\b(la sala raggi|il laboratorio|la tac|lo scanner|le radiografie|"
+        r"gli specialisti|i clinici|l'ambulatorio)\b[^.]{0,70}?\b(è|sono|si fanno|stanno)\b"
+        r"[^.]{0,40}?\b(qui|dentro|in sede|allo stesso indirizzo|nella stessa sede|"
+        r"nello stesso posto|intern[oaie])\b", re.I)),
 ]
 
 # L'unica negazione ammessa in un titolo. «Non ho sentito niente» è la frase
@@ -114,6 +125,8 @@ for f in sorted(ROOT.rglob("*.html")):
                 if nome.startswith("F5"):
                     if tipo != "titolo" or DEROGHE.search(t):
                         continue
+                if nome.startswith("F12") and tipo not in ("titolo", "sottotitolo"):
+                    continue
                 if nome.startswith("F6"):
                     if tipo not in ("titolo", "sottotitolo") or DEROGHE_F6.search(t):
                         continue

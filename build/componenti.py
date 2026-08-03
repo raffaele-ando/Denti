@@ -111,10 +111,11 @@ def striscia_team(depth=0):
     <div class="between section-head" style="max-width:none;align-items:flex-end" data-reveal>
       <div style="max-width:40rem">
         <span class="eyebrow has-n"><span class="eyebrow__n">5</span>L'équipe</span>
-        <h2 class="mt-4">Gli specialisti, la sala raggi e il laboratorio <span class="accent-i">sono allo stesso indirizzo</span></h2>
-        <p class="lead">Ortodonzia, chirurgia orale, endodonzia, pedodonzia e igiene hanno ognuna il
-        proprio clinico, e lavorano nei 300 metri quadri di Via Maragliano 5, insieme alla sala
-        raggi e al laboratorio odontotecnico.</p>
+        <h2 class="mt-4">Per ogni disciplina c'è chi <span class="accent-i">la fa tutti i giorni</span></h2>
+        <p class="lead">La Dott.ssa Gibelli si occupa solo di ortodonzia dal 2003. Il Dott. De Giovanni
+        di parodontologia e chirurgia. La Dott.ssa Tuo solo di bambini. E il Dott. Piccardo, prima di
+        laurearsi in odontoiatria, si era diplomato odontotecnico: le corone che ti mette le sa
+        anche costruire.</p>
       </div>
       <a class="btn btn--ghost hide-mobile" href="{r}team.html">Conosci il team {ico('freccia')}</a>
     </div>

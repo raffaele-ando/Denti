@@ -338,6 +338,37 @@ Nello stesso giro sono stati sistemati i testi che nessun controllo guardava:
 
 ---
 
+### Il rischio della sovracorrezione
+
+Un errore commesso mentre correggevo un altro errore, che vale la pena lasciare scritto.
+
+Avevo tolto «La tua storia la racconti una volta sola» perché prometteva un coordinamento interno
+che nessuna fonte documentava. Al suo posto ho scritto:
+
+> ✗ «Gli specialisti, la sala raggi e il laboratorio sono allo stesso indirizzo»
+
+Verificatissima, e inutile: uno studio dentistico ha la sala raggi al proprio indirizzo per
+definizione. È la classe **C2** della tassonomia, l'asserzione che non aggiorna il *common ground*,
+cioè esattamente il difetto che aveva aperto tutta questa revisione con «Le radiografie si fanno
+qui» e «Il laboratorio odontotecnico è dentro». E il *dove* riporta l'origo dentro lo studio, che è
+la **C3**: la stessa planimetria di «lavorano a dieci metri l'uno dall'altro», riscritta peggio.
+Il tutto come titolo di una sezione che mostra dieci facce, e che quindi parlava di immobili sopra
+delle persone.
+
+**La regola che mancava:** il rimedio a un'affermazione senza fonte non è dire una cosa vera e
+banale. È cercare **il fatto verificato che ha una conseguenza per chi legge**. Sostituire una
+promessa inventata con un'ovvietà documentata non è un miglioramento, è un pareggio verso il basso.
+
+Il fatto verificato con conseguenza c'era, e stava nell'export: ogni disciplina ha un clinico che
+fa solo quella, e il Dott. Piccardo era odontotecnico prima di essere odontoiatra, quindi le corone
+che mette le sa anche costruire. Titolo attuale: **«Per ogni disciplina c'è chi la fa tutti i
+giorni»**.
+
+`check_copy.py` ha ora la regola F12, che segnala i titoli in cui una stanza o un'attrezzatura
+dello studio viene dichiarata presente nello studio.
+
+---
+
 ## 7. Il registro: F8, la scrittura che si mette in mostra
 
 Il difetto che restava dopo tutti i passaggi precedenti non era nei contenuti ma nel **tono**.
