@@ -369,6 +369,40 @@ dello studio viene dichiarata presente nello studio.
 
 ---
 
+### Il residuo di una promessa già cancellata
+
+Dopo aver tolto «Chi ti visita la prima volta è chi ti seguirà fino alla fine», perché nessuna
+fonte la sosteneva, il titolo della pagina team era diventato:
+
+> ✗ «Chi ti curerà lo sai già adesso»
+
+Tre difetti in cinque parole, più un quarto che è il peggiore.
+
+1. **Dislocazione con clitico di ripresa** (C10): *chi ti curerà **lo** sai*. È il tratto del
+   parlato che avevo già bandito e per cui avevo già scritto un rilevatore. Il rilevatore
+   catturava solo la forma enfatica con «noi» posposto, quindi è passata.
+2. **Metadiscorso** (C1): «lo sai già adesso» significa *questa pagina contiene l'elenco*. È la
+   pagina che descrive il proprio contenuto, travestita da beneficio.
+3. **Non falsificabile**: qualunque studio con una pagina team può scrivere la stessa riga.
+4. **Era il residuo della promessa cancellata.** Alludeva alla continuità di cura senza
+   impegnarsi: abbastanza vaga da essere difendibile, abbastanza suggestiva da far credere la
+   cosa che avevo appena eliminato perché non vera. Peggio del titolo originale, non meglio.
+
+**Regola aggiunta:** quando si toglie un'affermazione non verificata, si toglie anche la sua
+ombra. Un titolo che la evoca senza dirla è più disonesto di quello che la diceva.
+
+Titolo attuale: **«Ognuno di loro ha studiato una cosa, e continua a studiarla»**, con sotto i tre
+fatti che lo reggono (Gibelli solo ortodonzia dal 2003, De Giovanni quattro pubblicazioni
+indicizzate, Tuo solo bambini).
+
+Il rilevatore F9 ora cerca il clitico di ripresa in tutti i titoli, non solo nella forma con
+«noi». Nel corpo resta limitato, perché lì un clitico oggetto è italiano scritto normale e nessuna
+espressione regolare sa distinguere *«se la scegli»* da una dislocazione. Applicato subito, ha
+trovato altre due dislocazioni scritte da me in giornata: *«le corone che ti mette le sa anche
+costruire»* e *«La TAC per l'impianto la fai nella stessa visita»*.
+
+---
+
 ## 7. Il registro: F8, la scrittura che si mette in mostra
 
 Il difetto che restava dopo tutti i passaggi precedenti non era nei contenuti ma nel **tono**.

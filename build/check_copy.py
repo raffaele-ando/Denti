@@ -64,7 +64,15 @@ REGOLE = [
     # enfatico: «te la leggiamo noi», «alla pratica pensiamo noi».
     ("F9 dislocazione parlata", re.compile(
         r"\b(te|ce|glie)\s?(la|lo|li|le)\s+\w+(iamo|ate|ano)\s+noi\b|"
-        r"\b(ci\s+)?(pensiamo|facciamo|diciamo|vediamo|scriviamo|troviamo)\s+noi\b", re.I)),
+        r"\b(ci\s+)?(pensiamo|facciamo|diciamo|vediamo|scriviamo|troviamo)\s+noi\b|"
+        # Clitico di ripresa dopo un sintagma anteposto: «chi ti curerà LO sai»,
+        # «la tua storia LA racconti». In italiano scritto il clitico sta prima
+        # del verbo solo se qualcosa è stato spostato in testa alla frase.
+        r"(?<!^)(?<!\bnon )\b(lo|la|li|le|ne)\s+"
+        r"(sai|sa|sanno|sappiamo|racconti|racconta|raccontiamo|cura|curano|curiamo|"
+        r"fai|fa|fanno|facciamo|vedi|vede|vedono|trovi|trova|troviamo|paghi|paga|"
+        r"scegli|sceglie|scegliamo|porti|porta|portiamo|metti|mette|mettiamo|"
+        r"togli|toglie|togliamo|leggi|legge|leggiamo|apri|apre|apriamo)\b", re.I)),
     # F10. autoelogio: enfatizzatori e parole che ogni concorrente può
     # scrivere a costo zero. Vedi docs/07, classe C1.
     ("F10 autoelogio", re.compile(
@@ -127,6 +135,12 @@ for f in sorted(ROOT.rglob("*.html")):
                         continue
                 if nome.startswith("F12") and tipo not in ("titolo", "sottotitolo"):
                     continue
+                # Il clitico di ripresa si giudica solo nei titoli: in un
+                # paragrafo «se la scegli» è un normale pronome oggetto, non
+                # una dislocazione, e la differenza non si vede da una regex.
+                if nome.startswith("F9") and tipo not in ("titolo", "sottotitolo") \
+                        and not re.search(r"\bnoi\b", hit.group(0)):
+                    continue
                 if nome.startswith("F6"):
                     if tipo not in ("titolo", "sottotitolo") or DEROGHE_F6.search(t):
                         continue
@@ -150,6 +164,10 @@ for f in sorted(ROOT.rglob("*.html")):
                      "F10 autoelogio", "F11 frecciata al concorrente"):
             rx = dict(REGOLE)[nome]
             hit = rx.search(t)
+            # Nel corpo il clitico oggetto è italiano scritto normale («se la
+            # scegli»): lì si giudica solo la forma enfatica con «noi».
+            if hit and nome.startswith("F9") and "noi" not in hit.group(0).lower():
+                continue
             if hit and not any(p[0] == rp and p[3] == hit.group(0) for p in problemi):
                 problemi.append((rp, "paragrafo", nome, hit.group(0), t[:96]))
 

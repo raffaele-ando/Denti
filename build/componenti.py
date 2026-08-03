@@ -111,11 +111,11 @@ def striscia_team(depth=0):
     <div class="between section-head" style="max-width:none;align-items:flex-end" data-reveal>
       <div style="max-width:40rem">
         <span class="eyebrow has-n"><span class="eyebrow__n">5</span>L'équipe</span>
-        <h2 class="mt-4">Per ogni disciplina c'è chi <span class="accent-i">la fa tutti i giorni</span></h2>
+        <h2 class="mt-4">Ciascuno fa una disciplina sola, <span class="accent-i">tutti i giorni</span></h2>
         <p class="lead">La Dott.ssa Gibelli si occupa solo di ortodonzia dal 2003. Il Dott. De Giovanni
         di parodontologia e chirurgia. La Dott.ssa Tuo solo di bambini. E il Dott. Piccardo, prima di
-        laurearsi in odontoiatria, si era diplomato odontotecnico: le corone che ti mette le sa
-        anche costruire.</p>
+        laurearsi in odontoiatria, si era diplomato odontotecnico, e il laboratorio dove nascono le
+        corone lo ha voluto per questo.</p>
       </div>
       <a class="btn btn--ghost hide-mobile" href="{r}team.html">Conosci il team {ico('freccia')}</a>
     </div>

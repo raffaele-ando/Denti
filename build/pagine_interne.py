@@ -271,7 +271,7 @@ def hub_trattamenti():
 
 # ══════════════════════════════════════════════════════════════ LO STUDIO
 STUDIO_SEZIONI = [
-    dict(id="tecnologia", occhiello="Diagnosi", titolo="La TAC per l'impianto la fai <span class='accent-i'>nella stessa visita</span>",
+    dict(id="tecnologia", occhiello="Diagnosi", titolo="La TAC per l'impianto si fa <span class='accent-i'>nella stessa visita</span>",
          testo="""<p>Sala raggi interna con <b>TAC Cone Beam 3D</b>, ortopantomografo con braccio tele e teleradiografo, tutti digitali.
          Consente radiografie tridimensionali delle ossa facciali, panoramiche anche pediatriche, teleradiografie del cranio per l'ortodonzia, radiografie dei seni mascellari, dell'articolazione temporo-mandibolare e del carpo.</p>
          <p>Tutti i sistemi radiografici sono digitali, con un <b>abbattimento superiore all'80% della dose</b> rispetto alla pellicola tradizionale.
@@ -439,11 +439,10 @@ def team():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Il team", None)])}
     <span class="eyebrow" data-reveal>L'équipe</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Chi ti curerà lo <span class="accent-i">sai già adesso</span></h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Sette clinici specializzati in discipline
-    diverse, più la segreteria e le assistenti alla poltrona. Il tuo caso resta dentro lo studio:
-    quando servono più competenze si mettono d'accordo fra loro, e tu continui a parlare con la
-    stessa persona.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Ognuno di loro ha studiato una cosa, e <span class="accent-i">continua a studiarla</span></h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">La Dott.ssa Gibelli si occupa solo di
+    ortodonzia dal 2003. Il Dott. De Giovanni ha quattro pubblicazioni indicizzate su PubMed. La
+    Dott.ssa Tuo vede solo bambini. Ogni titolo porta l'ateneo che lo ha rilasciato e l'anno.</p>
   </div>
 </section>
 
