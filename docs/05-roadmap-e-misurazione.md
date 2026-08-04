@@ -55,6 +55,34 @@ sito attuale, lette per intero (43.228 parole, 1.702 righe dopo aver tolto il te
 su ogni pagina). Esito: **cinque errori miei, due contraddizioni interne alla fonte, due dati che
 esistevano e che avevo dichiarato mancanti.**
 
+### Un secondo giro sulle promesse, e perché il primo non era bastato
+
+Il primo audit sulle promesse operative cercava **le frasi che ricordavo**, non la forma. Quattro
+inviti erano sopravvissuti proprio per questo. Il secondo giro ha cercato per costruzione, cioè
+ogni frase che offre una possibilità al lettore, e li ha trovati tutti.
+
+| Rimosso | Perché |
+|---|---|
+| «Vuoi parlare con uno di loro? … chiedilo in segreteria» *(richiamo pagina team)* | Zero riscontri. L'unica cosa vicina è `direzionesanitaria.md`: l'ufficio del direttore «è a disposizione dei pazienti per discutere delle loro problematiche terapeutiche», che riguarda chi è già in cura e solo il Dott. Piccardo |
+| «Puoi venire solo a guardare. Puoi fissare un appuntamento in cui non si cura nulla» *(richiamo pagina studio)* | Zero riscontri |
+| «Diversi nostri pazienti hanno cominciato esattamente così, e la volta dopo si sono seduti» | **Prova inventata.** Non è una promessa esagerata, è una statistica di comportamento dei pazienti che non esiste da nessuna parte |
+| «Molti pazienti hanno iniziato così» *(FAQ paura del dentista)* | Stessa cosa |
+| «Chiedila subito al telefono: … la riceviamo ogni giorno» | Frequenza inventata |
+
+Le due CTA su misura sono state sostituite con quella standard, verificata. La FAQ «E se ho paura
+anche solo di venire in studio?» ora risponde con due cose documentate: la sedazione si concorda
+già per la prima seduta (`protossido.md`) e le stanze sono visitabili su Street View
+(`virtuale.md`).
+
+**Promesse dello stesso tipo che invece hanno una fonte**, e che restano: la prenotazione dei posti
+auto in segreteria (`posteggio.md`), il servizio a domicilio (`domicilio.md`), la sedazione su
+richiesta anche per l'igiene (`protossido.md`), l'invio della panoramica per il preventivo
+(`preventivo.md`).
+
+**Rete permanente:** `check_copy.py` ha la regola F15, che segnala ogni frase costruita come
+un'offerta. Le quattro verificate qui sopra sono in un elenco di deroghe con la pagina che le
+documenta. Se ne compare una nuova, o ha una fonte e si aggiunge all'elenco, o esce dal sito.
+
 ### Errori corretti
 
 | Affermazione | Fonte | Correzione |

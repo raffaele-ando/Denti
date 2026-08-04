@@ -408,8 +408,7 @@ def studio():
   </div>
 </section>'''
     out += mappa(d)
-    out += cta_finale(d, "Puoi venire solo a guardare",
-                      "Puoi fissare un appuntamento in cui non si cura nulla: entri, guardi, parli con qualcuno e te ne vai. Diversi nostri pazienti hanno cominciato esattamente così, e la volta dopo si sono seduti.")
+    out += cta_finale(d)
     out += '</main>' + footer(d)
     return out
 
@@ -497,8 +496,7 @@ def team():
     </div>
   </div>
 </section>'''
-    out += cta_finale(d, "Vuoi parlare con uno di loro?",
-                      "Ogni disciplina ha il suo clinico, con il titolo e l'anno accanto. Se vuoi parlare con uno di loro prima di prenotare, chiedilo in segreteria.")
+    out += cta_finale(d)
     out += '</main>'
     out += drawer_persona()
     out += footer(d)

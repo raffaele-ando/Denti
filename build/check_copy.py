@@ -103,7 +103,7 @@ REGOLE = [
     # ha rilasciato e l'anno»: tre travestimenti della stessa frase, che mi è
     # passata tre volte in tre revisioni diverse.
     ("F13 elenco dei campi", re.compile(
-        r"\b(ogni|con)\s+(titolo|voce|scheda|riga|prestazione)\b[^.]{0,45}?"
+        r"\b(ogni|con)\s+(il |la |lo |i |le |gli )?(titolo|voce|scheda|riga|prestazione)\b[^.]{0,45}?"
         r"\b(porta|riporta|indica|ha accanto|è accompagnat)\b|"
         r"\btitolo esatto\b|\bateneo (che lo ha rilasciato|e l'anno)\b|"
         r"\b(sotto|accanto|di seguito) (ci sono|trovi|trovate)\b|"
@@ -115,7 +115,25 @@ REGOLE = [
         r"\b(continua a (studiar|formar|aggiornar)|formazione continua|"
         r"sempre aggiornat|costante aggiornamento|in continuo aggiornamento|"
         r"corsi di aggiornamento ogni anno)\w*", re.I)),
+    # F15. promessa di servizio. Ogni frase che offre una possibilità al
+    # lettore è un impegno che lo studio dovrà mantenere al telefono. Vanno
+    # tutte ricondotte a una fonte nell'export, e quelle già verificate stanno
+    # nell'elenco qui sotto con la pagina che le documenta. Se ne compare una
+    # nuova, o ha una fonte e si aggiunge all'elenco, o si toglie dal sito.
+    ("F15 promessa di servizio", re.compile(
+        r"\b(si può fissare|puoi fissare|puoi chiedere|basta chieder|chiedilo|chiedila|"
+        r"puoi parlare|puoi venire|si può richiedere|su richiesta|è possibile prenotare)\w*", re.I)),
 ]
+
+# Promesse di servizio già ricondotte a una fonte nell'export.
+PROMESSE_VERIFICATE = re.compile(
+    r"posti auto|"          # posteggio.md: prenotazione tramite segreteria
+    r"a domicilio|"         # domicilio.md
+    r"in sedazione|"        # protossido.md: sedazione su richiesta, igiene compresa
+    r"sedazione cosciente|"
+    r"panoramica|"          # preventivo.md: allegare la panoramica
+    r"in visita",           # chiedere chiarimenti in visita: non è un servizio
+    re.I)
 
 # L'unica negazione ammessa in un titolo. «Non ho sentito niente» è la frase
 # che i pazienti scrivono da soli nelle recensioni: qui la negazione cancella
@@ -153,6 +171,8 @@ for f in sorted(ROOT.rglob("*.html")):
                         continue
                 if nome.startswith("F12") and tipo not in ("titolo", "sottotitolo"):
                     continue
+                if nome.startswith("F15") and PROMESSE_VERIFICATE.search(t):
+                    continue
                 # Il clitico di ripresa si giudica solo nei titoli: in un
                 # paragrafo «se la scegli» è un normale pronome oggetto, non
                 # una dislocazione, e la differenza non si vede da una regex.
@@ -179,7 +199,10 @@ for f in sorted(ROOT.rglob("*.html")):
         if "Trascina qui il file" in t:
             t = t.replace("Trascina qui il file", "")
         for nome in ("F2 istruzioni", "F4 formula vietata", "F9 dislocazione parlata",
-                     "F10 autoelogio", "F11 frecciata al concorrente"):
+                     "F10 autoelogio", "F11 frecciata al concorrente",
+                     "F15 promessa di servizio"):
+            if nome.startswith("F15") and PROMESSE_VERIFICATE.search(t):
+                continue
             rx = dict(REGOLE)[nome]
             hit = rx.search(t)
             # Nel corpo il clitico oggetto è italiano scritto normale («se la
