@@ -439,10 +439,11 @@ def team():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Il team", None)])}
     <span class="eyebrow" data-reveal>L'équipe</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Ognuno di loro ha studiato una cosa, e <span class="accent-i">continua a studiarla</span></h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">La Dott.ssa Gibelli si occupa solo di
-    ortodonzia dal 2003. Il Dott. De Giovanni ha quattro pubblicazioni indicizzate su PubMed. La
-    Dott.ssa Tuo vede solo bambini. Ogni titolo porta l'ateneo che lo ha rilasciato e l'anno.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Chi ti <span class="accent-i">curerà</span>?</h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">La Dott.ssa Gibelli fa solo ortodonzia dal
+    2003. Il Dott. De Giovanni opera e pubblica: quattro lavori indicizzati su PubMed. La Dott.ssa
+    Tuo si occupa dei bambini ed è referente per la Liguria della Società Italiana di Odontoiatria
+    Infantile.</p>
   </div>
 </section>
 

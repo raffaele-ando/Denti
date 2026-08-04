@@ -403,6 +403,36 @@ costruire»* e *«La TAC per l'impianto la fai nella stessa visita»*.
 
 ---
 
+### Tre tentativi sullo stesso titolo, e il difetto che si ricicla
+
+La pagina team ha richiesto tre riscritture, e ognuna ha sbagliato in modo diverso. Vale la pena
+lasciarle tutte, perché il pattern è più istruttivo del risultato.
+
+| Tentativo | Difetto |
+|---|---|
+| «Chi ti visita la prima volta è chi ti seguirà fino alla fine» | Promessa operativa non verificata, contraddetta dall'organizzazione dello studio |
+| «Chi ti curerà lo sai già adesso» | Dislocazione parlata, metadiscorso, e l'ombra della promessa appena cancellata |
+| «Ognuno di loro ha studiato una cosa, e continua a studiarla» | Origo dello studio, vanto di un obbligo di legge, sostantivo vago |
+| **«Chi ti curerà?»** | **Scelta.** È la domanda che il lettore si sta facendo, e le dieci facce sotto sono la risposta. Una domanda non può essere ovvia né vantarsi |
+
+**Il vanto di un obbligo** merita un nome suo, ed è la regola **F14**. La formazione continua è
+obbligatoria per legge per ogni professionista sanitario italiano: presentarla come un pregio
+costa zero e vale zero, esattamente come «professionalità». Il controllo automatico l'ha subito
+trovata anche in una scheda di implantologia intitolata «Formazione continua», che era lì da
+settimane.
+
+**L'elenco dei campi** è la regola **F13**, e nasce da una frase che mi è passata **tre volte in
+tre revisioni diverse**, ogni volta travestita:
+
+> ✗ «Titolo esatto, ateneo che lo ha rilasciato, anno accademico»
+> ✗ «Sotto ci sono i percorsi completi, con l'ateneo e l'anno di ogni titolo»
+> ✗ «Ogni titolo porta l'ateneo che lo ha rilasciato e l'anno»
+
+Sono la stessa cosa: il testo descrive la **struttura del dato** invece di dare il dato. Quando un
+difetto ritorna tre volte con parole diverse, il giudizio non basta e serve una rete.
+
+---
+
 ## 7. Il registro: F8, la scrittura che si mette in mostra
 
 Il difetto che restava dopo tutti i passaggi precedenti non era nei contenuti ma nel **tono**.

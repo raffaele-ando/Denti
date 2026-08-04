@@ -139,7 +139,7 @@ dict(
          "Oltre <b>4.000 impianti osteointegrati</b> con successiva protesi dal 1999, con una percentuale di successo dichiarata del <b>99,8%</b>. Due pubblicazioni sul carico immediato (Implant Journal e Academy of Osseointegration, 2004)."),
         ("scan", "Tutto sotto lo stesso tetto",
          "TAC Cone Beam 3D, scanner intraorale, chirurgia e <b>laboratorio odontotecnico interno</b> iscritto al Ministero della Salute. Tutto resta in sede, e le modifiche si fanno mentre sei sulla poltrona."),
-        ("libro", "Formazione continua",
+        ("libro", "Tre master, l'ultimo in implantologia digitale",
          "Due perfezionamenti universitari, un corso all'<b>Université Claude Bernard</b> di Lione e tre master di II livello, l'ultimo in <b>Implantologia Digitale</b> (Padova, 2022)."),
     ],
     clinico="uberto-piccardo",

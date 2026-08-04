@@ -97,6 +97,24 @@ REGOLE = [
         r"gli specialisti|i clinici|l'ambulatorio)\b[^.]{0,70}?\b(è|sono|si fanno|stanno)\b"
         r"[^.]{0,40}?\b(qui|dentro|in sede|allo stesso indirizzo|nella stessa sede|"
         r"nello stesso posto|intern[oaie])\b", re.I)),
+    # F13. elenco dei campi: il testo descrive la struttura del dato che sta
+    # sotto invece di dare il dato. «Titolo esatto, ateneo, anno accademico»,
+    # «Sotto ci sono i percorsi completi», «Ogni titolo porta l'ateneo che lo
+    # ha rilasciato e l'anno»: tre travestimenti della stessa frase, che mi è
+    # passata tre volte in tre revisioni diverse.
+    ("F13 elenco dei campi", re.compile(
+        r"\b(ogni|con)\s+(titolo|voce|scheda|riga|prestazione)\b[^.]{0,45}?"
+        r"\b(porta|riporta|indica|ha accanto|è accompagnat)\b|"
+        r"\btitolo esatto\b|\bateneo (che lo ha rilasciato|e l'anno)\b|"
+        r"\b(sotto|accanto|di seguito) (ci sono|trovi|trovate)\b|"
+        r"\bcon (nome e cognome|l'ateneo e l'anno)\b", re.I)),
+    # F14. vanto di un obbligo. La formazione continua è dovuta per legge a
+    # ogni professionista sanitario: presentarla come un pregio costa zero e
+    # vale zero, esattamente come «professionalità».
+    ("F14 vanto di un obbligo", re.compile(
+        r"\b(continua a (studiar|formar|aggiornar)|formazione continua|"
+        r"sempre aggiornat|costante aggiornamento|in continuo aggiornamento|"
+        r"corsi di aggiornamento ogni anno)\w*", re.I)),
 ]
 
 # L'unica negazione ammessa in un titolo. «Non ho sentito niente» è la frase
