@@ -102,7 +102,31 @@
 
 <section class="section-sm">
   <div class="wrap">
-    <div class="grid g3" data-stagger="80">
+    <div class="dg-box" data-reveal><svg class="dg" viewBox="0 0 424 244" role="img" aria-label="Il piano di cura scritto: ogni lavorazione con il suo prezzo e il totale in fondo"><style>
+ .dg{font-family:'Manrope',sans-serif}
+ .dg-lbl{font-size:8.5px;font-weight:700;fill:#5A6B7A;letter-spacing:.04em;text-transform:uppercase}
+ .dg-n{font-size:9px;font-weight:800;fill:#134B7A}
+ .dg-cap{font-size:9.5px;font-weight:600;fill:#0B1A28}
+ .dg-bone{fill:#EAE5DC;stroke:#DDD9D2;stroke-width:.8}
+ .dg-gum{fill:#E9C9C4}
+ .dg-tooth{fill:#FBFAF7;stroke:#DDD9D2;stroke-width:.8}
+ .dg-metal{fill:#134B7A}
+ .dg-line{stroke:#DDD9D2;stroke-width:1;stroke-dasharray:3 3}
+ .dg-acc{fill:#2A7CBF}
+ [data-reveal].is-in .dg-draw{stroke-dashoffset:0}
+ .dg-draw{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.6s cubic-bezier(.22,1,.36,1) .2s}
+ .dg-pop{opacity:0;transform:scale(.7);transform-origin:center;transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+ [data-reveal].is-in .dg-pop{opacity:1;transform:none}
+ [data-reveal].is-in .dg-pop:nth-of-type(2){transition-delay:.15s}
+ [data-reveal].is-in .dg-pop:nth-of-type(3){transition-delay:.3s}
+ [data-reveal].is-in .dg-pop:nth-of-type(4){transition-delay:.45s}
+ .dg-grow{transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+ [data-reveal].is-in .dg-grow{transform:none}
+ .dg-barra{transform:scaleX(0);transform-origin:left center;transition:transform .8s cubic-bezier(.22,1,.36,1) var(--dd,0s)}
+ [data-reveal].is-in .dg-barra{transform:none}
+ @media(prefers-reduced-motion:reduce){.dg-draw{stroke-dashoffset:0}.dg-pop{opacity:1;transform:none}.dg-grow,.dg-barra{transform:none}}
+</style><rect x="16" y="10" width="316" height="220" rx="8" fill="#FBFAF7" stroke="#DDD9D2"/><path d="M16 48h316" stroke="#DDD9D2"/><path d="M16 18a8 8 0 0 1 8-8h300a8 8 0 0 1 8 8v30H16z" fill="#F3F0EA"/><text class="dg-cap" x="32" y="34" font-size="12">Piano di cura</text><text class="dg-lbl" x="316" y="34" text-anchor="end" font-size="8.5">Prezzo</text><g class="dg-pop" style="transition-delay:0.0s"><text class="dg-cap" x="32" y="70" font-size="10.5">Igiene orale professionale</text><text class="dg-cap" x="316" y="70" text-anchor="end" font-size="10.5">100,00 €</text><path d="M32 78h284" stroke="#ECE8E1"/></g><g class="dg-pop" style="transition-delay:0.11s"><text class="dg-cap" x="32" y="98" font-size="10.5">Otturazione media, 2 elementi</text><text class="dg-cap" x="316" y="98" text-anchor="end" font-size="10.5">260,00 €</text><path d="M32 106h284" stroke="#ECE8E1"/></g><g class="dg-pop" style="transition-delay:0.22s"><text class="dg-cap" x="32" y="126" font-size="10.5">Devitalizzazione, 2 canali</text><text class="dg-cap" x="316" y="126" text-anchor="end" font-size="10.5">210,00 €</text><path d="M32 134h284" stroke="#ECE8E1"/></g><g class="dg-pop" style="transition-delay:0.33s"><text class="dg-cap" x="32" y="154" font-size="10.5">Corona in zirconia</text><text class="dg-cap" x="316" y="154" text-anchor="end" font-size="10.5">770,00 €</text><path d="M32 162h284" stroke="#ECE8E1"/></g><path d="M16 190h316" stroke="#DDD9D2"/><g class="dg-pop" style="transition-delay:.55s"><rect x="160" y="196" width="156" height="26" rx="6" fill="#DBEAF7"/><text class="dg-cap" x="174" y="213" font-size="10.5" fill="#134B7A">Totale</text><text class="dg-cap" x="304" y="213" text-anchor="end" font-size="12" fill="#134B7A">1.340,00 €</text></g><text class="dg-lbl" x="32" y="213" font-size="8" fill="#74838F">In visita</text><path class="dg-draw" d="M342 46v144" stroke="#2A7CBF" stroke-width="1.4" stroke-dasharray="150" stroke-dashoffset="150"/><text class="dg-lbl" x="350" y="104" font-size="8" fill="#2A7CBF">Ogni</text><text class="dg-lbl" x="350" y="117" font-size="8" fill="#2A7CBF">voce</text><text class="dg-lbl" x="350" y="130" font-size="8" fill="#2A7CBF">separata</text></svg></div>
+    <div class="grid g3 mt-12" data-stagger="80">
       <article class="card" data-reveal><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9Z"/><path d="M13.5 3.5V9H19M8.6 13.4h6.8M8.6 16.6h4.4"/></svg></div>
         <h3 class="mt-6">Un preventivo scritto, voce per voce</h3>
         <p class="mt-2">Al termine della prima visita ti consegniamo un piano di cura su carta, con

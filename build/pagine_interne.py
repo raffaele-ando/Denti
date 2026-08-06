@@ -4,9 +4,9 @@
 from content import (STUDIO as S, TARIFFARIO, CONVENZIONI, TEAM, TEAM_BY_SLUG,
                      RECENSIONI, TEMI_RECENSIONI)
 from trattamenti import TRATTAMENTI, TRATT_BY_SLUG
-from ui import ico, diagramma, stelle
+from ui import ico, diagramma, stelle, barre_temi
 from shell import (head, header, footer, cta_finale, media_slot, breadcrumb,
-                   rel, wa_link, orari_lista, rating_badge)
+                   rel, wa_link, orari_lista, rating_badge, foto)
 from componenti import (blocco_recensioni, blocco_convenzioni, mappa,
                         form_preventivo, scheda_membro, drawer_persona,
                         prima_dopo)
@@ -78,6 +78,21 @@ def trattamento(t):
 <section class="section-sm">
   <div class="wrap">
     <div class="prose" data-reveal style="max-width:46rem">{blocchi}</div>
+  </div>
+</section>'''
+
+    # ── fotografia documentaria, dove l'archivio dello studio ne ha una
+    if t.get("foto_doc"):
+        fd = t["foto_doc"]
+        out += f'''
+<section class="section-sm">
+  <div class="wrap split" style="align-items:center">
+    <div data-reveal="left">{foto(1, fd["file"], fd["alt"], fd["didascalia"], fd["w"], fd["h"])}</div>
+    <div data-reveal="right">
+      <span class="eyebrow">{fd["occhiello"]}</span>
+      <h2 class="mt-4">{fd["titolo"]}</h2>
+      <p class="lead mt-6">{fd["testo"]}</p>
+    </div>
   </div>
 </section>'''
 
@@ -262,6 +277,12 @@ def hub_trattamenti():
     La prima visita costa 110 euro in tutti i casi.</p>
   </div>
 </section>
+<section class="section-sm">
+  <div class="wrap" style="max-width:52rem">
+    {foto(d, "sala-attesa", "La sala d'attesa dello studio, con i diplomi alle pareti e la carrozzina a disposizione",
+          "Via Maragliano 5. Da qui si passa per tutte le cure che seguono.", 332, 394, ar="16/9", lazy=False)}
+  </div>
+</section>
 <section class="section" style="padding-top:0"><div class="wrap">{sezioni}</div></section>'''
     out += blocco_convenzioni(d)
     out += cta_finale(d)
@@ -277,7 +298,10 @@ STUDIO_SEZIONI = [
          <p>Tutti i sistemi radiografici sono digitali, con un <b>abbattimento superiore all'80% della dose</b> rispetto alla pellicola tradizionale.
          Le radiografie e la TAC si fanno in questa stanza, e la diagnosi si chiude nella stessa seduta.</p>""",
          dati=[("TAC 3D", "Cone Beam, ossa facciali"), ("−80%", "dose radiante"), ("Scanner", "niente paste da impronta")],
-         media=("Foto", "TAC Cone Beam e scanner intraorale, dettaglio ravvicinato",
+         foto=("sala-raggi", "L'ortopantomografo digitale nella sala raggi dello studio",
+               "La sala raggi. Le radiografie e la TAC si eseguono qui, nella stessa seduta della visita.",
+               250, 208),
+         media=("Foto", "TAC Cone Beam, dettaglio ravvicinato del braccio e del sensore",
                 "Inquadratura stretta sul dettaglio, macchinario tagliato dai bordi.", "4/3", "radiologia")),
     dict(id="sterilizzazione", occhiello="Sicurezza biologica", titolo="Ogni strumento arriva da te <span class='accent-i'>sigillato e datato</span>",
          testo="""<p>Sala di sterilizzazione separata, con pareti in smalto lavabile e disinfettabile
@@ -296,6 +320,9 @@ STUDIO_SEZIONI = [
          <p>In pratica: le prove si fanno mentre sei sulla poltrona, i ritocchi cromatici si eseguono sul momento
          e una protesi rotta si ripara <b>in giornata</b>, senza spedizioni e senza attese.</p>""",
          dati=[("CAD-CAM", "zirconia e composito"), ("Stesso giorno", "riparazioni"), ("Min. Salute", "lab. iscritto")],
+         foto=("laboratorio", "Il banco del laboratorio odontotecnico interno, con gli strumenti in uso",
+               "Il banco del laboratorio, dentro lo studio. Le corone in zirconia nascono qui.",
+               454, 303),
          media=("Foto", "Mani dell'odontotecnico su una corona in zirconia",
                 "Mani in azione sul manufatto, fresa o pennello in campo. Luce laterale.", "4/3", "laboratorio")),
     dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Attrezzati come un ambulatorio di emergenza",
@@ -307,6 +334,10 @@ STUDIO_SEZIONI = [
          <p><b>Tutto il personale è formato BLSD</b> e ogni mese si tiene una riunione con esercitazione pratica
          su manichino e defibrillatore trainer, perché una manovra si ricorda con le mani.</p>""",
          dati=[("DAE", "defibrillatore in sede"), ("14", "farmaci d'emergenza"), ("Ogni mese", "esercitazione")],
+         foto_doppia=[("defibrillatore", "Il defibrillatore semiautomatico appeso alla parete, sotto il cartello DAE",
+                       "Il defibrillatore, in sala d'attesa.", 230, 307),
+                      ("carrello-emergenze", "Il carrello delle emergenze con le scatole dei farmaci",
+                       "Il carrello: una scatola per ciascun quadro clinico.", 224, 204)],
          media=None),
     dict(id="continuita", occhiello="Continuità", titolo="L'intervento va avanti anche se salta la corrente",
          testo="""<p>Un gruppo di continuità UPS garantisce alle tre zone operative <b>tre ore di autonomia</b>
@@ -324,7 +355,10 @@ STUDIO_SEZIONI = [
          disposizione</b>. Per chi resta a casa è attivo il <b>servizio a domicilio</b>, con riunito
          portatile, anche presso case di cura.</p>""",
          dati=[("300 mq", "al piano terra"), ("236/89", "norma sulle barriere"), ("A domicilio", "su richiesta")],
-         media=("Foto", "Ingresso dalla strada e sala d'attesa riordinata",
+         foto=("sala-attesa", "La sala d'attesa con i diplomi alle pareti e la carrozzina a disposizione",
+               "La sala d'attesa: pavimento in piano, carrozzina a disposizione, diplomi alle pareti.",
+               332, 394),
+         media=("Foto", "Ingresso dalla strada, ripreso dal marciapiede",
                 "Riordinare prima dello scatto. Grandangolo moderato, verticali corrette.", "3/2", "ingresso")),
     dict(id="parcheggio", occhiello="Parcheggio", titolo="Parcheggi nel cortile, <span class='accent-i'>gratis</span>",
          testo="""<p>Nel cortile interno attiguo allo studio sono disponibili <b>tre posti auto riservati ai pazienti,
@@ -332,8 +366,9 @@ STUDIO_SEZIONI = [
          <p>In alternativa: Piazza della Vittoria a cinque minuti a piedi, Stazione Brignole a cinque minuti,
          e una ventina di linee bus con fermata in Via XX Settembre o Via Macaggi.</p>""",
          dati=[("3", "posti auto gratuiti"), ("5 min", "da Brignole"), ("20+", "linee bus")],
-         media=("Foto", "Posto auto interno con auto parcheggiata, di giorno",
-                "Luce diurna, auto in sosta, cancello visibile. Niente scatti notturni.", "3/2", "parcheggio")),
+         foto=("cortile", "Il cortile interno con il posto auto e l'ingresso dello studio",
+               "Il cortile interno di Via Maragliano 5: tre posti riservati ai pazienti.",
+               720, 479)),
 ]
 
 
@@ -345,7 +380,13 @@ def studio():
     for s in STUDIO_SEZIONI:
         dati = "".join(f'<div class="keyfact"><dt>{b}</dt><dd>{a}</dd></div>' for a, b in s["dati"])
         media = ""
-        if s["media"]:
+        if s.get("foto"):
+            n, alt, cap, w, h = s["foto"]
+            media = f'<div data-reveal="right">{foto(0, n, alt, cap, w, h)}</div>'
+        elif s.get("foto_doppia"):
+            coppia = "".join(foto(0, n, alt, cap, w, h) for n, alt, cap, w, h in s["foto_doppia"])
+            media = f'<div data-reveal="right"><div class="docfoto-grid">{coppia}</div></div>'
+        elif s.get("media"):
             k, txt, nota, ar, scena = s["media"]
             media = f'<div data-reveal="right">{media_slot(k, txt, nota, ar=ar, scena=scena)}</div>'
         dia = ""
@@ -545,7 +586,8 @@ def prezzi():
 
 <section class="section-sm">
   <div class="wrap">
-    <div class="grid g3" data-stagger="80">
+    <div class="dg-box" data-reveal>{diagramma('preventivo')}</div>
+    <div class="grid g3 mt-12" data-stagger="80">
       <article class="card" data-reveal><div class="icon-box">{ico('documento')}</div>
         <h3 class="mt-6">Un preventivo scritto, voce per voce</h3>
         <p class="mt-2">Al termine della prima visita ti consegniamo un piano di cura su carta, con
@@ -666,12 +708,7 @@ def recensioni():
   </div>
 </section>'''
     out += blocco_recensioni(d, limite=99, titolo="La parola ai pazienti", occhiello="Google · Facebook")
-    schede_temi = "".join(
-        '<div class="card" style="padding:1.25rem">'
-        f'<div class="stat-n" style="font-size:2.4rem">{c}</div>'
-        f'<p class="small muted mt-2">{n.lower()}</p></div>'
-        for n, c in TEMI_RECENSIONI[:6]
-    )
+    schede_temi = barre_temi(TEMI_RECENSIONI)
     out += f'''
 <section class="section">
   <div class="wrap split">
@@ -681,9 +718,7 @@ def recensioni():
       <p class="lead mt-6">Etichette e conteggi sono generati da Google sul testo delle recensioni.</p>
       <a class="btn mt-8" href="{S['recensioni_url']}" target="_blank" rel="noopener">{ico('stella')} Leggile tutte su Google</a>
     </div>
-    <div data-reveal="right">
-      <div class="grid g2" style="gap:1rem">{schede_temi}</div>
-    </div>
+    <div data-reveal="right">{schede_temi}</div>
   </div>
 </section>'''
     out += cta_finale(d)
@@ -706,8 +741,14 @@ def contatti():
     <span class="eyebrow" data-reveal>Contatti</span>
     <h1 class="mt-4" data-reveal style="--d:60ms">Ci trovi dal lunedì al sabato, <span class="accent-i">fino alle 20:30</span></h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Al telefono trovi Carlotta. Su WhatsApp
-    puoi scrivere anche di sera e ti richiamiamo alla prima apertura. Dal calendario online
-    il calendario online resta aperto a qualunque ora.</p>
+    puoi scrivere anche di sera e ti richiamiamo alla prima apertura. Il calendario online
+    resta aperto a qualunque ora.</p>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="wrap" style="max-width:52rem">
+    <div class="dg-box" data-reveal>{diagramma('orari')}</div>
   </div>
 </section>
 
@@ -801,10 +842,19 @@ def note_legali():
     è tenuta a pubblicare sul proprio sito gli estremi della polizza assicurativa per la responsabilità
     civile verso terzi e verso i prestatori d'opera, con l'indicazione della compagnia, della classe
     di rischio e dei massimali.</p>
-    <ul class="ticks mt-4">
+    <div class="stat-bar mt-6" style="border-radius:var(--r-lg)"><div class="wrap" style="padding:0">
+      <div class="stat-bar__grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="stat-bar__item" data-reveal>
+          <div class="stat-n"><span data-count="2000000" data-plain>2.000.000</span><span class="stat-suffix"> €</span></div>
+          <p class="stat-bar__lbl">il massimale della polizza RC professionale</p></div>
+        <div class="stat-bar__item" data-reveal style="--d:70ms">
+          <div class="stat-n"><span data-plain>0</span></div>
+          <p class="stat-bar__lbl">i contenziosi con i pazienti negli ultimi cinque anni</p></div>
+      </div>
+    </div></div>
+    <ul class="ticks mt-6">
       <li>{ico('check')}<span>Polizza n. <b>2024/03/2585668</b>, <b>Reale Mutua Assicurazioni</b></span></li>
       <li>{ico('check')}<span>Decorrenza 31/12/2024, scadenza il 31/12 di ogni anno</span></li>
-      <li>{ico('check')}<span>Massimale <b>2.000.000 €</b></span></li>
     </ul>
     <p class="mt-6">Ai sensi dell'art. 4, comma 3, della stessa legge, la struttura pubblica i dati
     sui risarcimenti erogati nell'ultimo quinquennio. <b>Negli ultimi cinque anni l'Ambulatorio
@@ -836,10 +886,30 @@ def pagina404():
     out += f'''<main id="main">
 <section class="section center" style="padding-top:calc(var(--header-h) + 6rem)">
   <div class="wrap" style="max-width:38rem">
-    <div class="stat-n" style="font-size:6rem">404</div>
-    <h1 class="mt-6">Questa pagina si è spostata.</h1>
-    <p class="lead mt-6">Quello che cercavi si è spostato altrove. Riparti da qui, oppure
-    chiamaci e ti diciamo dov'è finito.</p>
+    <svg viewBox="0 0 320 150" class="dg" role="img" aria-label="Un dente fuori dalla sua arcata"
+         style="max-width:20rem;margin-inline:auto" data-reveal>
+      <style>.n404{{font-family:'Fraunces',serif;font-size:64px;font-weight:600;fill:#EAE5DC}}</style>
+      <text class="n404" x="18" y="104">4</text><text class="n404" x="232" y="104">4</text>
+      <path d="M84 96a76 40 0 0 1 152 0" fill="none" stroke="#E9C9C4" stroke-width="10" stroke-linecap="round"/>
+      <g fill="#FBFAF7" stroke="#DDD9D2" stroke-width="1.2">
+        <rect x="96" y="70" width="17" height="24" rx="4" transform="rotate(-34 104 82)"/>
+        <rect x="122" y="60" width="18" height="26" rx="4" transform="rotate(-19 131 73)"/>
+        <rect x="186" y="60" width="18" height="26" rx="4" transform="rotate(19 195 73)"/>
+        <rect x="211" y="70" width="17" height="24" rx="4" transform="rotate(34 219 82)"/>
+      </g>
+      <g fill="none" stroke="#B4D3EC" stroke-width="1.4" stroke-dasharray="4 4">
+        <rect x="151" y="52" width="20" height="28" rx="5"/>
+      </g>
+      <g class="dg-pop">
+        <rect x="146" y="16" width="22" height="30" rx="5" fill="#FBFAF7" stroke="#2A7CBF"
+              stroke-width="1.5" transform="rotate(14 157 31)"/>
+      </g>
+      <path class="dg-draw" d="M162 46q6 -8 2 -14" fill="none" stroke="#2A7CBF" stroke-width="1.4"
+            stroke-dasharray="20" stroke-dashoffset="20"/>
+    </svg>
+    <h1 class="mt-6">Questa pagina si è spostata</h1>
+    <p class="lead mt-6">L'indirizzo non corrisponde più a nulla. Da qui si riparte dalla home
+    o dall'elenco dei trattamenti; in segreteria sanno dire dov'è finita la pagina che cercavi.</p>
     <div class="hero__cta" style="justify-content:center">
       <a class="btn btn--lg" href="index.html">Torna alla home</a>
       <a class="btn btn--lg btn--ghost" href="trattamenti.html">Tutti i trattamenti</a>

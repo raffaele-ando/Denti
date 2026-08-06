@@ -85,6 +85,14 @@ dict(
 # ══════════════════════════════════════════════════════════════ implantologia
 dict(
     slug="implantologia",
+    foto_doc=dict(
+        file="sala-raggi", w=250, h=208,
+        alt="L'ortopantomografo digitale nella sala raggi dello studio",
+        didascalia="La sala raggi dello studio.",
+        occhiello="Diagnosi in sede", titolo="La TAC si fa qui, nella stessa visita",
+        testo="La sala raggi ospita la TAC Cone Beam tridimensionale, l'ortopantomografo e il "
+              "teleradiografo, tutti digitali. Altezza, spessore e densità dell'osso e la posizione "
+              "del nervo si misurano prima di progettare l'impianto, senza uscire dallo studio."),
     prove_h2="La casistica, l'attrezzatura in sede e i titoli",
     breve="Radici in titanio al posto dei denti mancanti, e i denti sani accanto restano intatti. TAC 3D, chirurgia e corona nella stessa sede.",
     nav="Implantologia",
@@ -318,6 +326,14 @@ dict(
 # ══════════════════════════════════════════════════════════ protesi e corone
 dict(
     slug="protesi-e-corone",
+    foto_doc=dict(
+        file="laboratorio", w=454, h=303,
+        alt="Il banco del laboratorio odontotecnico interno, con gli strumenti in uso",
+        didascalia="Il banco del laboratorio odontotecnico, dentro lo studio.",
+        occhiello="Laboratorio interno", titolo="Il laboratorio è a pochi metri dalla poltrona",
+        testo="Iscritto al Ministero della Salute e collocato dentro lo studio. È il motivo per cui "
+              "una prova si fa nella stessa seduta, un ritocco cromatico si esegue sul momento e una "
+              "protesi rotta si ripara in giornata, senza spedizioni."),
     prove_h2="L'impronta, le riparazioni e il prezzo",
     breve="Corone in zirconia progettate e fresate nel laboratorio interno. Prove immediate, riparazioni in giornata.",
     nav="Protesi e corone",
@@ -742,8 +758,23 @@ dict(
         "Iniziare un antibiotico avanzato da una cura precedente senza indicazione",
         "Aspettare che «passi da solo»: il dolore pulpare non passa, si trasforma in ascesso",
     ],
-    diagramma=None,
-    steps=[],
+    diagramma="dente-espulso",
+    diagramma_titolo="Se un dente salta via, i minuti contano",
+    diagramma_sub="Un dente permanente espulso da un trauma si può reimpiantare. Quanto attecchisce dipende quasi solo da come viene tenuto nel tragitto e da quanto dura il tragitto.",
+    steps=[
+        ("Raccoglilo per la corona", "La parte bianca, quella che si vede quando sorridi. Le cellule del legamento parodontale stanno sulla radice, e sono quelle che permettono al dente di riattaccarsi."),
+        ("Non pulirlo", "Niente sfregamenti, niente spazzolino, niente disinfettanti. Se è caduto per terra si sciacqua un istante sotto l'acqua corrente, senza strofinare."),
+        ("Tienilo nel latte", "Il latte è la soluzione più a portata di mano con la giusta concentrazione salina. In alternativa soluzione fisiologica o, in mancanza d'altro, la tua saliva. Mai a secco."),
+        ("Chiama e vieni", "Reimpiantato entro 30–60 minuti ha buone probabilità di attecchire. Chiama mentre sei in strada: 010 5959492."),
+    ],
+    foto_doc=dict(
+        file="unita-portatile", w=385, h=575,
+        alt="Il riunito portatile aperto nella sua valigia, con i manipoli e i tubi",
+        didascalia="Il riunito portatile che il dentista porta a casa o in casa di cura.",
+        occhiello="A domicilio", titolo="Il riunito sta in una valigia",
+        testo="Per chi non può muoversi il dentista si sposta a casa o in casa di cura con questa "
+              "attrezzatura: turbina, micromotore, aspirazione e siringa aria-acqua. Quando serve "
+              "viene anche l'odontotecnico, per riparare una protesi sul posto."),
     proofs=[
         ("orologio", "Aperti anche il sabato, tutto il giorno",
          "<b>Lunedì–sabato, 8:00–20:30.</b> Il sabato per intero. Per i pazienti dello studio il dentista resta reperibile anche in urgenza fuori orario."),

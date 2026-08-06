@@ -1358,3 +1358,35 @@ body.hero-scuro .header:not(.is-stuck) .burger span::after { background: #FFFDF9
 }
 .da-completare svg { width: 17px; height: 17px; flex: none; margin-top: 2px; color: var(--accent-700); }
 .da-completare b { color: var(--accent-700); }
+
+/* ── Fotografia documentaria ────────────────────────────────────────────
+   Archivio dello studio: scatti amatoriali, tagliati stretti e desaturati.
+   La cornice li tiene insieme e li dichiara per quello che sono, cioè prove
+   di un fatto, non immagini d'atmosfera. */
+.docfoto { margin: 0; }
+.docfoto img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line-soft);
+  background: var(--paper-2);
+}
+.docfoto[style*="--ar"] img { aspect-ratio: var(--ar); object-fit: cover; }
+.split > * > .docfoto { max-width: 22rem; }
+.docfoto figcaption {
+  margin-top: .7rem;
+  font-size: .8125rem; line-height: 1.5;
+  color: var(--muted);
+  max-width: 30rem;
+}
+.docfoto-grid {
+  display: grid; gap: clamp(1rem, 2.5vw, 1.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+/* Cornice dei diagrammi quando stanno da soli, fuori da una scheda. */
+.dg-box {
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: clamp(1rem, 3vw, 2rem);
+}

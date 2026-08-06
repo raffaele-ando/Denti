@@ -540,3 +540,46 @@ La regola è automatizzata in `check_copy.py` come **F16 accento senza rema**.
 L'elenco delle parole ammesse è deliberatamente breve e va allungato a mano, un
 termine alla volta, con la motivazione: un elenco che cresce da solo tornerebbe
 a colorare tutto.
+
+---
+
+## Che cosa fa un'immagine in queste pagine
+
+Ogni pagina del sito porta almeno un elemento visivo. Non per riempire: un
+blocco di testo lungo senza appoggio visivo viene abbandonato prima, e su un
+sito sanitario ogni affermazione non verificabile costa fiducia. Le immagini
+qui fanno tre lavori distinti, e vale la pena tenerli separati.
+
+**I diagrammi spiegano una sequenza.** Dieci illustrazioni vettoriali, animate
+all'ingresso nel viewport, mostrano un processo in quattro tempi. Una sequenza
+comunica per differenza: se due riquadri contigui condividono quasi tutti i
+pixel, restano solo le didascalie, cioè testo travestito da illustrazione.
+Cinque dei dieci diagrammi erano in questo stato e sono stati rifatti in modo
+che fra un riquadro e l'altro cambi la silhouette dell'oggetto o la posizione
+di un corpo nello spazio, che sono le due variabili visive che si leggono per
+prime (Cleveland e McGill, 1984, sulla precisione dei compiti percettivi
+elementari).
+
+**Le barre sostituiscono i numeri da leggere.** Gli orari della settimana e le
+etichette che Google estrae dalle recensioni erano elenchi di cifre. Confrontare
+due numeri scritti costringe a leggerli e a tenerli a mente; confrontare due
+lunghezze non costa nulla. Nel caso degli orari il confronto è anche il
+messaggio: sei barre identiche dicono che il sabato è un giorno pieno come il
+lunedì, e in un elenco di righe «8:00 – 20:30» ripetute sei volte non si vede,
+perché si legge il primo rigo e si smette.
+
+**Le fotografie provano un fatto già scritto.** L'archivio del sito precedente
+contiene 102 immagini, quasi tutte collage di scatti fatti in anni e con luci
+diverse: nessuna regge come apertura. Sette documentano però cose che il testo
+afferma e che il lettore non ha motivo di credere sulla parola, dal
+defibrillatore appeso al muro al riunito portatile nella sua valigia. Sono
+state ritagliate strette, desaturate e virate su un'unica gamma (`build/foto.py`),
+e stanno accanto al paragrafo che descrivono, mai da sole. Ogni fotografia ha
+una didascalia che dice che cosa si sta guardando: una fotografia di
+attrezzatura è illeggibile a chi non lavora in uno studio dentistico, e senza
+l'ancoraggio verbale il lettore vede un oggetto grigio (Barthes, *Rhétorique de
+l'image*, 1964: la didascalia come *ancrage*).
+
+Dove non c'è né un diagramma né una fotografia utilizzabile, resta la scheda di
+scatto (`shotcard`), che dichiara il formato e il soggetto da produrre. È una
+decisione visibile, non un buco.

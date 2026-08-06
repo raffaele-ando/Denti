@@ -304,6 +304,23 @@ def media_slot(tipo, testo, nota, ar="3/2", dark=False, scena="poltrona", extra=
 </figure>'''
 
 
+def foto(depth, nome, alt, didascalia, w, h, ar=None, lazy=True):
+    """Fotografia documentaria dell'archivio dello studio, con didascalia.
+
+    Il taglio è stretto e la resa desaturata: sono scatti amatoriali di anni
+    diversi, e reggono solo come prova di un fatto già scritto nel testo, non
+    come immagine d'atmosfera. La didascalia dice che cosa si sta guardando:
+    senza l'ancoraggio verbale una fotografia di attrezzatura è illeggibile a
+    chi non lavora in uno studio dentistico.
+    """
+    r = rel(depth)
+    stile = f' style="--ar:{ar}"' if ar else ""
+    return f'''<figure class="docfoto"{stile} data-reveal="fade">
+  <img src="{r}assets/img/studio/{nome}.webp" width="{w}" height="{h}" alt="{alt}"{' loading="lazy" decoding="async"' if lazy else ''}>
+  <figcaption>{didascalia}</figcaption>
+</figure>'''
+
+
 def rating_badge(depth=0, dark=False):
     r = rel(depth)
     col = "color:var(--su-scuro)" if dark else ""

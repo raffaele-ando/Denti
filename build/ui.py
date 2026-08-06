@@ -109,7 +109,9 @@ _STILE_DIAG = """<style>
  [data-reveal].is-in .dg-pop:nth-of-type(4){transition-delay:.45s}
  .dg-grow{transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.22,1,.36,1)}
  [data-reveal].is-in .dg-grow{transform:none}
- @media(prefers-reduced-motion:reduce){.dg-draw{stroke-dashoffset:0}.dg-pop{opacity:1;transform:none}.dg-grow{transform:none}}
+ .dg-barra{transform:scaleX(0);transform-origin:left center;transition:transform .8s cubic-bezier(.22,1,.36,1) var(--dd,0s)}
+ [data-reveal].is-in .dg-barra{transform:none}
+ @media(prefers-reduced-motion:reduce){.dg-draw{stroke-dashoffset:0}.dg-pop{opacity:1;transform:none}.dg-grow,.dg-barra{transform:none}}
 </style>"""
 
 
@@ -649,4 +651,150 @@ def diagramma(tipo):
         s += '</svg>'
         return s
 
+    if tipo == "orari":
+        # La settimana come sei barre della stessa lunghezza. Il fatto che lo
+        # studio sia aperto il sabato quanto il lunedì è la cosa che distingue
+        # questi orari da quelli di quasi tutti gli studi, e in un elenco di
+        # righe «8:00 – 20:30» ripetute sei volte non si vede: si legge il
+        # primo rigo e si smette. In forma di barre si vede al primo sguardo.
+        #
+        # Il viewBox è stretto di proposito: un diagramma disegnato su 512 unità
+        # e mostrato dentro 340 px di telefono rimpicciolisce il testo sotto la
+        # soglia di lettura. Qui l'unità del disegno è vicina al pixel reale.
+        giorni = [("Lunedì", 1), ("Martedì", 1), ("Mercoledì", 1), ("Giovedì", 1),
+                  ("Venerdì", 1), ("Sabato", 1), ("Domenica", 0)]
+        s = ('<svg class="dg" viewBox="0 0 360 196" role="img" aria-label="Gli orari di apertura '
+             'della settimana: dal lunedì al sabato 8:00-20:30, domenica chiuso">' + _STILE_DIAG)
+        x0, x1 = 74, 348                                  # 8:00 → 21:00
+        scala = (x1 - x0) / 13.0
+        for h in range(8, 22, 2):
+            gx = x0 + (h - 8) * scala
+            s += f'<line x1="{gx:.0f}" y1="18" x2="{gx:.0f}" y2="190" stroke="#ECE8E1" stroke-width="1"/>'
+            s += f'<text class="dg-lbl" x="{gx:.0f}" y="12" text-anchor="middle" font-size="8">{h}</text>'
+        for i, (g, aperto) in enumerate(giorni):
+            y = 24 + i * 24
+            s += f'<text class="dg-lbl" x="66" y="{y+13}" text-anchor="end" font-size="8.5">{g}</text>'
+            larghezza = 12.5 * scala
+            if aperto:
+                s += (f'<rect class="dg-barra" x="{x0}" y="{y}" width="{larghezza:.0f}" height="18" rx="9" '
+                      f'fill="#2A7CBF" fill-opacity=".9" style="--dd:{i*.07:.2f}s"/>')
+                s += (f'<text class="dg-cap" x="{x0+larghezza/2:.0f}" y="{y+13}" text-anchor="middle" '
+                      f'fill="#FBFAF7" font-size="10">8:00 – 20:30</text>')
+            else:
+                s += (f'<rect x="{x0}" y="{y}" width="{larghezza:.0f}" height="18" rx="9" fill="none" '
+                      f'stroke="#DDD9D2" stroke-width="1" stroke-dasharray="3 3"/>')
+                s += (f'<text class="dg-lbl" x="{x0+larghezza/2:.0f}" y="{y+13}" text-anchor="middle" '
+                      f'font-size="9" fill="#74838F">chiuso</text>')
+        s += '</svg>'
+        return s
+
+    if tipo == "preventivo":
+        # Il foglio che si porta a casa. La pagina afferma che il piano di cura
+        # arriva scritto voce per voce: mostrarlo costa meno parole che
+        # descriverlo, e rende verificabile la promessa invece di ripeterla.
+        righe = [("Igiene orale professionale", "100,00"), ("Otturazione media, 2 elementi", "260,00"),
+                 ("Devitalizzazione, 2 canali", "210,00"), ("Corona in zirconia", "770,00")]
+        s = ('<svg class="dg" viewBox="0 0 424 244" role="img" aria-label="Il piano di cura scritto: '
+             'ogni lavorazione con il suo prezzo e il totale in fondo">' + _STILE_DIAG)
+        s += '<rect x="16" y="10" width="316" height="220" rx="8" fill="#FBFAF7" stroke="#DDD9D2"/>'
+        s += '<path d="M16 48h316" stroke="#DDD9D2"/>'
+        s += '<path d="M16 18a8 8 0 0 1 8-8h300a8 8 0 0 1 8 8v30H16z" fill="#F3F0EA"/>'
+        s += '<text class="dg-cap" x="32" y="34" font-size="12">Piano di cura</text>'
+        s += '<text class="dg-lbl" x="316" y="34" text-anchor="end" font-size="8.5">Prezzo</text>'
+        for i, (voce, prezzo) in enumerate(righe):
+            y = 70 + i * 28
+            s += (f'<g class="dg-pop" style="transition-delay:{i*.11}s">'
+                  f'<text class="dg-cap" x="32" y="{y}" font-size="10.5">{voce}</text>'
+                  f'<text class="dg-cap" x="316" y="{y}" text-anchor="end" font-size="10.5">{prezzo} €</text>'
+                  f'<path d="M32 {y+8}h284" stroke="#ECE8E1"/></g>')
+        s += '<path d="M16 190h316" stroke="#DDD9D2"/>'
+        s += ('<g class="dg-pop" style="transition-delay:.55s">'
+              '<rect x="160" y="196" width="156" height="26" rx="6" fill="#DBEAF7"/>'
+              '<text class="dg-cap" x="174" y="213" font-size="10.5" fill="#134B7A">Totale</text>'
+              '<text class="dg-cap" x="304" y="213" text-anchor="end" font-size="12" fill="#134B7A">1.340,00 €</text></g>')
+        s += '<text class="dg-lbl" x="32" y="213" font-size="8" fill="#74838F">In visita</text>'
+        s += ('<path class="dg-draw" d="M342 46v144" stroke="#2A7CBF" stroke-width="1.4" '
+              'stroke-dasharray="150" stroke-dashoffset="150"/>')
+        for k, w in enumerate(["Ogni", "voce", "separata"]):
+            s += f'<text class="dg-lbl" x="350" y="{104+k*13}" font-size="8" fill="#2A7CBF">{w}</text>'
+        s += '</svg>'
+        return s
+
+    if tipo == "dente-espulso":
+        # Quattro gesti in ordine, con il tempo che li governa. Chi ha appena
+        # perso un dente in un trauma non legge un paragrafo: guarda le figure
+        # e agisce. L'ultimo riquadro porta la finestra temporale, perché è
+        # l'informazione che decide l'esito.
+        eti = [("Raccoglilo", "mai per la radice"),
+               ("Non pulirlo", "niente sfregamenti"),
+               ("Nel latte", "o fisiologica"),
+               ("Vieni subito", "entro 30–60 minuti")]
+        s = ('<svg class="dg" viewBox="0 0 512 168" role="img" aria-label="Che cosa fare con un dente '
+             'espulso da un trauma, in quattro passaggi">' + _STILE_DIAG)
+        for i, (t, d) in enumerate(eti):
+            x = i * 131
+            cx = x + 59
+            s += _pannello(x)
+            if i == 0:
+                s += _molare(cx, 62, 32, 44, stile='style="stroke:#C9C4BB;stroke-width:1.1"')
+                s += (f'<path class="dg-pop" d="M{cx-24} 50a24 16 0 0 1 48 0" fill="none" stroke="#2A7CBF" '
+                      f'stroke-width="2" stroke-linecap="round"/>')          # presa sulla corona
+                s += (f'<path class="dg-pop" d="M{cx-14} 92l28 0" stroke="#C4342E" stroke-width="2" '
+                      f'stroke-linecap="round" style="transition-delay:.12s"/>')
+                s += (f'<path class="dg-pop" d="M{cx-12} 86l24 12M{cx+12} 86l-24 12" stroke="#C4342E" '
+                      f'stroke-width="1.6" stroke-linecap="round" style="transition-delay:.12s"/>')
+            elif i == 1:
+                s += _molare(cx, 62, 32, 44, stile='style="stroke:#C9C4BB;stroke-width:1.1"')
+                s += (f'<g class="dg-pop"><circle cx="{cx}" cy="60" r="30" fill="none" stroke="#C4342E" '
+                      f'stroke-width="2.2"/><path d="M{cx-21} 39l42 42" stroke="#C4342E" stroke-width="2.2" '
+                      f'stroke-linecap="round"/></g>')
+                s += (f'<path class="dg-pop" d="M{cx+24} 26q10 -6 16 2" fill="none" stroke="#C9C4BB" '
+                      f'stroke-width="2" stroke-linecap="round" style="transition-delay:.14s"/>')
+            elif i == 2:
+                s += (f'<path d="M{cx-20} 34h40v50a10 10 0 0 1-10 10h-20a10 10 0 0 1-10-10z" '
+                      f'fill="#FBFAF7" stroke="#C9C4BB" stroke-width="1.2"/>')
+                s += f'<path d="M{cx-20} 30h40v6h-40z" fill="#DDD9D2"/>'
+                s += (f'<path class="dg-grow" d="M{cx-20} 56h40v28a10 10 0 0 1-10 10h-20a10 10 0 0 1-10-10z" '
+                      f'fill="#DBEAF7"/>')
+                s += _molare(cx, 72, 22, 30, stile='style="stroke:#B4D3EC;stroke-width:1"')
+                s += f'<text class="dg-lbl" x="{cx}" y="24" text-anchor="middle" font-size="7.5">latte</text>'
+            else:
+                s += f'<circle cx="{cx}" cy="60" r="30" fill="none" stroke="#DDD9D2" stroke-width="2.5"/>'
+                s += (f'<path class="dg-draw" d="M{cx} 30a30 30 0 0 1 26 45" fill="none" stroke="#C4342E" '
+                      f'stroke-width="3.5" stroke-dasharray="70" stroke-dashoffset="70" stroke-linecap="round"/>')
+                s += (f'<path d="M{cx} 60V40M{cx} 60l13 8" stroke="#134B7A" stroke-width="2.2" '
+                      f'stroke-linecap="round"/>')
+                s += f'<circle cx="{cx}" cy="60" r="3" fill="#134B7A"/>'
+                s += (f'<text class="dg-cap" x="{cx}" y="106" text-anchor="middle" font-size="9.5" '
+                      f'fill="#C4342E">30–60 min</text>')
+            s += _passo(x, i, t, d)
+        s += '</svg>'
+        return s
+
     return ""
+
+
+def barre_temi(temi):
+    """Le etichette che Google estrae dalle recensioni, in scala.
+
+    Erano sei riquadri con un numero grande dentro. Confrontare due numeri
+    scritti costringe a leggerli e a tenerli a mente; confrontare due lunghezze
+    non costa nulla, ed è il motivo per cui una tabella di frequenze si disegna.
+    """
+    if not temi:
+        return ""
+    massimo = max(c for _, c in temi) or 1
+    x0, larg, alt = 96, 224, 28
+    s = (f'<svg class="dg" viewBox="0 0 360 {len(temi)*alt + 34}" role="img" '
+         f'aria-label="Quante volte ciascun tema compare nelle recensioni">' + _STILE_DIAG)
+    for i, (nome, conta) in enumerate(temi):
+        y = 8 + i * alt
+        w = max(18, larg * conta / massimo)
+        s += f'<text class="dg-lbl" x="{x0-12}" y="{y+14}" text-anchor="end" font-size="9">{nome.lower()}</text>'
+        s += (f'<rect class="dg-barra" x="{x0}" y="{y}" width="{w:.0f}" height="19" rx="9.5" '
+              f'fill="#2A7CBF" fill-opacity="{0.9 - i*0.06:.2f}" style="--dd:{i*.08:.2f}s"/>')
+        s += f'<text class="dg-cap" x="{x0+w+9:.0f}" y="{y+14}" font-size="11" fill="#134B7A">{conta}</text>'
+    s += (f'<text class="dg-lbl" x="{x0}" y="{len(temi)*alt+26}" font-size="8" fill="#74838F">'
+          f'Conteggi generati da Google sul testo delle recensioni.</text>')
+    s += '</svg>'
+    return s
