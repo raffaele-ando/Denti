@@ -164,6 +164,108 @@ def _fase_impianto(x, fase):
     return g
 
 
+# ── primitive condivise dai diagrammi in quattro tempi ─────────────────────
+#
+# Una sequenza comunica per differenza. Se due riquadri contigui condividono il
+# 97% dei pixel, per il sistema visivo la sequenza non esiste e restano solo le
+# didascalie, cioè testo travestito da illustrazione. Queste primitive servono a
+# costruire riquadri che cambiano silhouette, non solo dettaglio: la posizione
+# di un corpo nello spazio e il contorno di un oggetto sono le due variabili
+# visive che si leggono per prime (Cleveland e McGill, 1984).
+
+def _pannello(x, y=6, w=118, h=108):
+    return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
+
+
+def _passo(x, i, tit, det, y1=134, y2=150):
+    s = f'<text class="dg-n" x="{x+10}" y="{y1}">0{i+1}</text>'
+    s += f'<text class="dg-lbl" x="{x+28}" y="{y1}">{tit}</text>'
+    s += f'<text class="dg-lbl" x="{x+10}" y="{y2}" fill="#74838F">{det}</text>'
+    return s
+
+
+def _riunito(bx, by=100):
+    """Poltrona odontoiatrica vista di lato, schienale a destra."""
+    g = f'<rect x="{bx+8}" y="{by-18}" width="8" height="18" rx="2" fill="#DDD9D2"/>'
+    g += f'<rect x="{bx-2}" y="{by-5}" width="28" height="5" rx="2.5" fill="#C9C4BB"/>'
+    g += f'<rect x="{bx-16}" y="{by-27}" width="42" height="9" rx="4.5" fill="#DBEAF7" stroke="#B4D3EC" stroke-width=".9"/>'
+    g += f'<rect x="{bx+16}" y="{by-62}" width="10" height="36" rx="5" fill="#DBEAF7" stroke="#B4D3EC" stroke-width=".9"/>'
+    g += f'<rect x="{bx+12}" y="{by-72}" width="17" height="10" rx="5" fill="#DBEAF7" stroke="#B4D3EC" stroke-width=".9"/>'
+    return g
+
+
+def _figura(cx, by=100, alto=False, seduto=False, col="#DBEAF7", bordo="#B4D3EC"):
+    """Sagoma di persona vista di lato. `alto` distingue l'adulto dal bambino."""
+    r = 8 if alto else 7.5
+    if seduto:
+        g = f'<circle cx="{cx}" cy="{by-52}" r="{r}" fill="#EAE5DC" stroke="#DDD9D2" stroke-width=".8"/>'
+        g += f'<path d="M{cx-6} {by-28}v-13a6 6 0 0 1 12 0v13z" fill="{col}" stroke="{bordo}" stroke-width=".9"/>'
+        g += (f'<path d="M{cx-3} {by-28}h-13v9" fill="none" stroke="{bordo}" stroke-width="3" '
+              f'stroke-linecap="round" stroke-linejoin="round"/>')
+        return g
+    testa, spalla, anca = (by - 54, by - 37, by - 18) if alto else (by - 40, by - 25, by - 14)
+    g = f'<circle cx="{cx}" cy="{testa}" r="{r}" fill="#EAE5DC" stroke="#DDD9D2" stroke-width=".8"/>'
+    g += (f'<path d="M{cx-6.5} {anca}v{spalla-anca}a6.5 6.5 0 0 1 13 0v{anca-spalla}z" '
+          f'fill="{col}" stroke="{bordo}" stroke-width=".9"/>')
+    g += (f'<path d="M{cx-3.5} {anca}v{by-anca}M{cx+3.5} {anca}v{by-anca}" stroke="{bordo}" '
+          f'stroke-width="3" stroke-linecap="round"/>')
+    return g
+
+
+def _molare(cx, cy, w=32, h=42, cls="dg-tooth", stile=""):
+    """Molare visto di lato: corona bombata e due radici che si assottigliano."""
+    hw, hh = w / 2, h / 2
+    d = (f"M{cx-hw:.1f} {cy}"
+         f"V{cy-hh*.30:.1f}"
+         f"C{cx-hw:.1f} {cy-hh:.1f} {cx-hw*.55:.1f} {cy-hh:.1f} {cx:.1f} {cy-hh:.1f}"
+         f"C{cx+hw*.55:.1f} {cy-hh:.1f} {cx+hw:.1f} {cy-hh:.1f} {cx+hw:.1f} {cy-hh*.30:.1f}"
+         f"V{cy}"
+         f"L{cx+hw*.62:.1f} {cy+hh*.86:.1f}"
+         f"Q{cx+hw*.34:.1f} {cy+hh:.1f} {cx+hw*.20:.1f} {cy+hh*.20:.1f}"
+         f"L{cx-hw*.20:.1f} {cy+hh*.20:.1f}"
+         f"Q{cx-hw*.34:.1f} {cy+hh:.1f} {cx-hw*.62:.1f} {cy+hh*.86:.1f}"
+         f"Z")
+    c = f' class="{cls}"' if cls else ""
+    return f'<path{c} {stile} d="{d}"/>'
+
+
+def _corona(cx, cy, w=30, h=34, stroke="#2A7CBF", sw="1.3"):
+    """Corona protesica: cupola senza radici."""
+    hw, hh = w / 2, h / 2
+    return (f'<path class="dg-tooth" style="stroke:{stroke};stroke-width:{sw}" '
+            f'd="M{cx-hw:.1f} {cy+hh:.1f}V{cy-hh*.15:.1f}c0-{hh*.85:.1f} {hw*.42:.1f}-{hh*.85:.1f} '
+            f'{hw:.1f}-{hh*.85:.1f}s{hw:.1f} 0 {hw:.1f} {hh*.85:.1f}v{hh*1.15:.1f}z"/>')
+
+
+def _arcata(x0, cy=62, rot=None, giu=None, tinta=None):
+    """Sorriso frontale schematico: banda gengivale e otto denti.
+
+    `tinta` va passata come stile inline: una classe CSS batte l'attributo di
+    presentazione `fill`, quindi scriverlo come attributo non avrebbe effetto.
+    """
+    larg = [7.5, 8.5, 10, 11.5, 11.5, 10, 8.5, 7.5]
+    alt = [15, 18, 21, 24, 24, 21, 18, 15]
+    su = [7, 4, 1.2, 0, 0, 1.2, 4, 7]             # le laterali stanno più in alto
+    gap = 1.3
+    tot = sum(larg) + gap * 7
+    sx = x0 + 59 - tot / 2
+    g = (f'<path d="M{sx-6:.1f} {cy-22}h{tot+12:.1f}v10q-{(tot+12)/2:.1f} 15 -{tot+12:.1f} 0z" '
+         f'fill="#E9C9C4"/>')
+    xx = sx
+    for k in range(8):
+        w, h = larg[k], alt[k]
+        r = (rot or {}).get(k, 0)
+        dy = (giu or {}).get(k, 0)
+        t = (tinta or {}).get(k)
+        st = f' style="fill:{t}"' if t else ""
+        cx, top = xx + w / 2, cy - 6 + su[k] + dy
+        g += (f'<path class="dg-tooth"{st} stroke="#C9C4BB" stroke-width="1" '
+              f'transform="rotate({r} {cx:.1f} {top+h/2:.1f})" '
+              f'd="M{xx:.1f} {top:.1f}h{w}v{h-4}a{w/2:.1f} 4.6 0 0 1 -{w} 0z"/>')
+        xx += w + gap
+    return g
+
+
 def diagramma(tipo):
     """Restituisce il markup SVG del diagramma richiesto."""
 
@@ -181,32 +283,57 @@ def diagramma(tipo):
         return s
 
     if tipo == "allineatori":
-        s = '<svg class="dg" viewBox="0 0 512 170" role="img" aria-label="Progressione dell\'allineamento con le mascherine trasparenti">' + _STILE_DIAG
-        # arcata che si allinea progressivamente
+        # L'arcata vista dall'alto. Il disordine di partenza è marcato, e
+        # nell'ultimo riquadro la posizione iniziale resta in filigrana: senza
+        # il termine di paragone il lettore non può misurare lo spostamento.
         import math
+        eti = [("Situazione iniziale", "il ClinCheck la fotografa"), ("Mascherina 1", "prime settimane"),
+               ("A metà percorso", "circa venti mascherine"), ("Risultato", "e contenzione")]
+        s = ('<svg class="dg" viewBox="0 0 512 168" role="img" aria-label="Progressione '
+             'dell\'allineamento con le mascherine trasparenti">' + _STILE_DIAG)
+
+        CX, CY, RX, RY = 59, 84, 33, 27
+
+        def posa(k, dis):
+            a = math.pi * (0.11 + k * 0.0975)
+            cx = CX - RX * math.cos(a)
+            cy = CY - RY * math.sin(a)
+            rot = math.degrees(a) - 90 + (((k * 37) % 13) - 6) * 5.0 * dis
+            dx = (((k * 53) % 11) - 5) * 1.1 * dis
+            dy = (((k * 29) % 7) - 3) * 1.2 * dis
+            return cx + dx, cy + dy, rot
+
+        def arco(rx, ry, ang=0.055):
+            x1 = CX - rx * math.cos(math.pi * ang)
+            y1 = CY - ry * math.sin(math.pi * ang)
+            return f'M{x1:.1f} {y1:.1f}A{rx} {ry} 0 0 1 {2*CX-x1:.1f} {y1:.1f}'
+
         for step in range(4):
             x0 = step * 131
-            dis = 1 - step / 3.0           # disordine residuo
-            s += f'<rect x="{x0}" y="0" width="118" height="120" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
-            s += f'<path d="M{x0+18} 86a41 34 0 0 1 82 0" fill="none" class="dg-gum" stroke="#E9C9C4" stroke-width="9" stroke-linecap="round"/>'
+            dis = (1, 0.7, 0.32, 0)[step]
+            s += _pannello(x0)
+            s += (f'<g transform="translate({x0},0)">'
+                  f'<path d="{arco(40, 33)}" fill="none" stroke="#E9C9C4" stroke-width="11" '
+                  f'stroke-linecap="round"/>')
+            if step == 3:                       # filigrana della posizione iniziale
+                for k in range(9):
+                    cx, cy, rot = posa(k, 1)
+                    w = 10 if 2 <= k <= 6 else 8.4
+                    s += (f'<rect x="{cx-w/2:.1f}" y="{cy-7:.1f}" width="{w}" height="14" rx="2.8" '
+                          f'fill="none" stroke="#C9C4BB" stroke-width=".9" stroke-dasharray="2 2" '
+                          f'transform="rotate({rot:.1f} {cx:.1f} {cy:.1f})"/>')
             for k in range(9):
-                a = math.pi * (0.09 + k * 0.1025)
-                cx = x0 + 59 - 40 * math.cos(a)
-                cy = 86 - 33 * math.sin(a)
-                rot = (k - 4) * 11 + (((k * 37) % 13) - 6) * 2.6 * dis
-                dx = (((k * 53) % 11) - 5) * 0.55 * dis
-                w = 9.5 if 2 <= k <= 6 else 8
-                s += (f'<rect x="{cx-w/2+dx:.1f}" y="{cy-6:.1f}" width="{w}" height="12.5" rx="2.6" '
-                      f'class="dg-tooth" transform="rotate({rot:.1f} {cx+dx:.1f} {cy:.1f})"/>')
-            # mascherina
-            op = 0.85 if step > 0 else 0.0
-            s += (f'<path d="M{x0+16} 88a43 36 0 0 1 86 0" fill="none" stroke="#2A7CBF" '
-                  f'stroke-width="2" opacity="{op}" stroke-linecap="round"/>')
-            lab = ["Situazione iniziale", "Mascherina 1", "A metà percorso", "Risultato"][step]
-            s += f'<text class="dg-n" x="{x0+10}" y="140">0{step+1}</text>'
-            s += f'<text class="dg-lbl" x="{x0+28}" y="140">{lab}</text>'
-            if step == 0:
-                s += f'<text class="dg-lbl" x="{x0+10}" y="156" fill="#74838F">ClinCheck: lo vedi prima</text>'
+                cx, cy, rot = posa(k, dis)
+                w = 10 if 2 <= k <= 6 else 8.4
+                s += (f'<rect x="{cx-w/2:.1f}" y="{cy-7:.1f}" width="{w}" height="14" rx="2.8" '
+                      f'class="dg-tooth" transform="rotate({rot:.1f} {cx:.1f} {cy:.1f})"/>')
+            if step:                            # guscio della mascherina sopra le corone
+                s += (f'<path d="{arco(40.5, 34, .075)}" fill="none" stroke="#2A7CBF" '
+                      f'stroke-width="5" opacity=".14" stroke-linecap="round"/>')
+                s += (f'<path d="{arco(40.5, 34, .075)}" fill="none" stroke="#2A7CBF" '
+                      f'stroke-width="1.3" opacity=".85" stroke-linecap="round"/>')
+            s += '</g>'
+            s += _passo(x0, step, *eti[step])
         s += '</svg>'
         return s
 
@@ -273,54 +400,109 @@ def diagramma(tipo):
         return s
 
     if tipo == "sorriso":
+        # Le quattro fasi non sono gradi dello stesso miglioramento: sono quattro
+        # oggetti diversi (gengiva, posizione, colore, forma). Ogni riquadro
+        # mostra lo stesso sorriso e mette in evidenza un elemento diverso con
+        # uno strumento grafico diverso: cerchio, freccia, campionario, contorno.
         fasi = [("Salute", "gengive e carie"), ("Posizione", "ortodonzia"),
                 ("Colore", "igiene e sbiancamento"), ("Forma", "faccette e ceramica")]
-        s = '<svg class="dg" viewBox="0 0 512 150" role="img" aria-label="L\'ordine corretto di un percorso estetico">' + _STILE_DIAG
+        s = ('<svg class="dg" viewBox="0 0 512 168" role="img" aria-label="L\'ordine corretto '
+             'di un percorso estetico">' + _STILE_DIAG)
         for i, (t, d) in enumerate(fasi):
             x = i * 131
-            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
-            # bocca schematica che migliora
-            y = 60
-            s += f'<path d="M{x+26} {y} q33 {26 + i*2} 66 0" fill="none" stroke="#E9C9C4" stroke-width="8" stroke-linecap="round"/>'
-            for k in range(6):
-                dx = x + 32 + k * 11
-                dy = y + 9 + abs(k - 2.5) * -1.6 + (3 - i) * (((k * 29) % 7) - 3) * 0.5
-                w = 8.4
-                s += f'<rect x="{dx-w/2:.1f}" y="{dy:.1f}" width="{w}" height="10" rx="2" class="dg-tooth" opacity="{0.55+i*0.15}"/>'
-            s += f'<circle class="dg-pop" cx="{x+96}" cy="26" r="7.5" fill="#DBEAF7" style="transition-delay:{i*.12}s"/>'
-            s += f'<path class="dg-pop" d="M{x+92.5} 26l2.5 2.6 4.5-5" fill="none" stroke="#134B7A" stroke-width="1.6" stroke-linecap="round" style="transition-delay:{i*.12}s"/>'
-            s += f'<text class="dg-n" x="{x+10}" y="118">0{i+1}</text>'
-            s += f'<text class="dg-lbl" x="{x+28}" y="118">{t}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#74838F">{d}</text>'
+            s += _pannello(x)
+            if i == 0:
+                s += _arcata(x, 62)
+                s += f'<ellipse cx="{x+73}" cy="70" rx="3.6" ry="4.6" fill="#8C5A3C" opacity=".8"/>'
+                s += (f'<circle class="dg-pop" cx="{x+73}" cy="70" r="10.5" fill="none" stroke="#C4342E" '
+                      f'stroke-width="1.5" stroke-dasharray="2.5 2.5"/>')
+                s += (f'<path d="M{x+31} 47q8 -6 16 0" fill="none" stroke="#C4342E" stroke-width="2.4" '
+                      f'stroke-linecap="round" opacity=".85"/>')
+                s += (f'<circle class="dg-pop" cx="{x+39}" cy="47" r="10.5" fill="none" stroke="#C4342E" '
+                      f'stroke-width="1.5" stroke-dasharray="2.5 2.5" style="transition-delay:.16s"/>')
+            elif i == 1:
+                s += _arcata(x, 62, rot={2: -22, 5: 18}, giu={3: 3})
+                s += (f'<path class="dg-draw" d="M{x+26} 36q12 -10 22 4" fill="none" stroke="#2A7CBF" '
+                      f'stroke-width="1.7" stroke-dasharray="40" stroke-dashoffset="40" stroke-linecap="round"/>')
+                s += f'<path d="M{x+43} 38l6 3-2 6z" fill="#2A7CBF"/>'
+                s += (f'<path class="dg-draw" d="M{x+92} 36q-12 -10 -22 4" fill="none" stroke="#2A7CBF" '
+                      f'stroke-width="1.7" stroke-dasharray="40" stroke-dashoffset="40" '
+                      f'stroke-linecap="round" style="transition-delay:.35s"/>')
+                s += f'<path d="M{x+75} 38l-6 3 2 6z" fill="#2A7CBF"/>'
+            elif i == 2:
+                s += _arcata(x, 62, tinta={0: "#D3C4A6", 1: "#DCCFB5", 2: "#E6DCC8", 3: "#EFE9DC"})
+                s += f'<path d="M{x+59} 38v52" stroke="#134B7A" stroke-width="1" stroke-dasharray="3 3"/>'
+                for k, col in enumerate(["#D3C4A6", "#DCCFB5", "#EAE2D3", "#FBFAF7"]):
+                    s += (f'<rect class="dg-pop" x="{x+30+k*15}" y="94" width="13" height="10" rx="2" '
+                          f'fill="{col}" stroke="#C9C4BB" stroke-width=".8" style="transition-delay:{k*.09}s"/>')
+            else:
+                s += _arcata(x, 62)
+                s += (f'<path class="dg-pop" d="M{x+40} 52h26v30a10 8 0 0 1-26 0z" '
+                      f'fill="none" stroke="#2A7CBF" stroke-width="1.6" stroke-dasharray="3.5 2.5"/>')
+                s += (f'<path class="dg-pop" d="M{x+84} 50q10 4 10 21t-10 21q5-21 0-42z" fill="#DBEAF7" '
+                      f'stroke="#2A7CBF" stroke-width="1.1" style="transition-delay:.2s"/>')
+                s += (f'<path class="dg-pop" d="M{x+87} 56q5 6 5 15" fill="none" stroke="#FBFAF7" '
+                      f'stroke-width="1.6" stroke-linecap="round" style="transition-delay:.3s"/>')
+            s += _passo(x, i, t, d)
         s += '</svg>'
         return s
 
     if tipo == "protesi":
+        # Quattro silhouette diverse: il dente, il reticolo, il disco di zirconia
+        # da cui la corona viene ricavata, la corona in bocca. Il terzo riquadro
+        # è il salto percettivo che tiene insieme la sequenza.
         fasi = [("Scansione", "impronta digitale"), ("CAD", "progettazione 3D"),
                 ("CAM", "fresatura in zirconia"), ("Prova", "e cementazione")]
-        s = '<svg class="dg" viewBox="0 0 512 150" role="img" aria-label="Dal dente al manufatto protesico con flusso digitale">' + _STILE_DIAG
+        s = ('<svg class="dg" viewBox="0 0 512 168" role="img" aria-label="Dal dente al manufatto '
+             'protesico con flusso digitale">' + _STILE_DIAG)
         for i, (t, d) in enumerate(fasi):
             x = i * 131
-            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
-            cx, cy = x + 59, 54
+            cx, cy = x + 59, 62
+            s += _pannello(x)
             if i == 0:
-                s += f'<path class="dg-tooth" d="M{cx-18} {cy+22}V{cy-8}c0-9 7-15 18-15s18 6 18 15v30z"/>'
+                s += (f'<path class="dg-pop" d="M{cx} 32L{cx-30} {cy+26}L{cx+30} {cy+26}z" fill="#2A7CBF" '
+                      f'fill-opacity=".10"/>')
+                s += _molare(cx, cy + 2, 34, 46, stile='style="stroke:#C9C4BB;stroke-width:1.2"')
                 for k in range(5):
-                    s += f'<path class="dg-pop" d="M{cx-20} {cy-14+k*9}h40" stroke="#2A7CBF" stroke-width="1" opacity=".5" style="transition-delay:{k*.06}s"/>'
+                    s += (f'<path class="dg-pop" d="M{cx} 32L{cx-26+k*13:.0f} {cy+26}" '
+                          f'stroke="#2A7CBF" stroke-width=".9" stroke-opacity=".5" '
+                          f'style="transition-delay:{k*.07}s"/>')
+                s += f'<rect x="{cx-8}" y="18" width="16" height="8" rx="2.5" fill="#134B7A"/>'
+                s += f'<path d="M{cx-3.5} 26h7l-3.5 5z" fill="#134B7A"/>'
             elif i == 1:
-                s += f'<path d="M{cx-18} {cy+22}V{cy-8}c0-9 7-15 18-15s18 6 18 15v30z" fill="none" stroke="#2A7CBF" stroke-width="1.2" stroke-dasharray="3 2"/>'
+                s += _molare(cx, cy, 34, 46, cls="",
+                             stile='fill="none" stroke="#2A7CBF" stroke-width="1.4" stroke-dasharray="3.5 2.5"')
+                s += f'<clipPath id="cad{i}{x}"><rect x="{cx-17}" y="{cy-23}" width="34" height="46"/></clipPath>'
+                s += f'<g clip-path="url(#cad{i}{x})" opacity=".4">'
+                for k in range(5):
+                    s += f'<path d="M{cx-17} {cy-20+k*10}h34" stroke="#2A7CBF" stroke-width=".7"/>'
                 for k in range(4):
-                    s += f'<circle class="dg-pop" cx="{cx-14+k*10}" cy="{cy-6}" r="2" fill="#2A7CBF" style="transition-delay:{k*.08}s"/>'
+                    s += f'<path d="M{cx-19+k*11} {cy-23}l10 46" stroke="#2A7CBF" stroke-width=".7"/>'
+                s += '</g>'
+                for k in range(4):
+                    s += (f'<rect class="dg-pop" x="{cx-18+k*11}" y="{cy-27}" width="4.5" height="4.5" '
+                          f'fill="#134B7A" style="transition-delay:{k*.08}s"/>')
             elif i == 2:
-                s += f'<rect x="{cx-22}" y="{cy-16}" width="44" height="40" rx="4" fill="#EAE5DC" stroke="#DDD9D2"/>'
-                s += f'<path class="dg-tooth" d="M{cx-14} {cy+18}V{cy-6}c0-7 6-12 14-12s14 5 14 12v24z"/>'
-                s += f'<path class="dg-pop" d="M{cx} {cy-30}v10" stroke="#134B7A" stroke-width="2.4" stroke-linecap="round"/>'
+                s += f'<circle cx="{cx}" cy="{cy+4}" r="34" fill="#EAE5DC" stroke="#C9C4BB" stroke-width="1.2"/>'
+                s += (f'<circle cx="{cx}" cy="{cy+4}" r="28" fill="none" stroke="#DDD9D2" '
+                      f'stroke-width=".8" stroke-dasharray="2 3"/>')
+                s += _corona(cx, cy + 6, 28, 34)
+                s += (f'<g class="dg-pop"><rect x="{cx-4}" y="16" width="8" height="13" rx="2" fill="#134B7A"/>'
+                      f'<path d="M{cx} 29v7" stroke="#134B7A" stroke-width="1.6"/>'
+                      f'<path d="M{cx-2.5} 36h5l-2.5 4z" fill="#134B7A"/></g>')
             else:
-                s += f'<path class="dg-gum" d="M{cx-24} {cy+12}h48v14h-48z"/>'
-                s += f'<path class="dg-tooth" d="M{cx-16} {cy+14}V{cy-10}c0-8 7-13 16-13s16 5 16 13v24z" stroke="#2A7CBF" stroke-width="1.2"/>'
-            s += f'<text class="dg-n" x="{x+10}" y="118">0{i+1}</text>'
-            s += f'<text class="dg-lbl" x="{x+28}" y="118">{t}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#74838F">{d}</text>'
+                s += (f'<path class="dg-bone" d="M{x+20} {cy+16}h78a6 6 0 0 1 6 6v10a6 6 0 0 1-6 6H'
+                      f'{x+20}a6 6 0 0 1-6-6v-10a6 6 0 0 1 6-6z"/>')
+                s += f'<path class="dg-gum" d="M{x+20} {cy+10}h78v8H{x+20}z"/>'
+                s += (f'<path d="M{cx-8} {cy+22}V{cy+2}q0-5 8-5t8 5v20z" fill="#E0D9CC" '
+                      f'stroke="#C9C4BB" stroke-width=".8"/>')
+                s += _corona(cx, cy - 6, 30, 36, sw="1.5")
+                s += (f'<path d="M{cx-15} {cy+12}h30" stroke="#2A7CBF" stroke-width=".9" '
+                      f'stroke-dasharray="2.5 2"/>')
+                s += f'<circle class="dg-pop" cx="{cx+28}" cy="{cy-24}" r="9.5" fill="#DBEAF7"/>'
+                s += (f'<path class="dg-pop" d="M{cx+24} {cy-24}l3 3.2 5.5-6" fill="none" stroke="#134B7A" '
+                      f'stroke-width="1.8" stroke-linecap="round" style="transition-delay:.1s"/>')
+            s += _passo(x, i, t, d)
         s += '</svg>'
         return s
 
@@ -344,53 +526,126 @@ def diagramma(tipo):
         return s
 
     if tipo == "chirurgia":
+        # Il terzo riquadro è quello che porta l'informazione: il dente non c'è
+        # più, l'alveolo è vuoto e i due frammenti sono sopra l'osso. Prima la
+        # sequenza cambiava solo di qualche tratto e i quattro riquadri
+        # sembravano lo stesso disegno ripetuto.
         fasi = [("TAC 3D", "si vede il nervo"), ("Anestesia", "e sedazione"),
-                ("Intervento", "accesso e sutura"), ("Controllo", "rimozione punti")]
-        s = '<svg class="dg" viewBox="0 0 512 150" role="img" aria-label="Le fasi di un\'estrazione pianificata">' + _STILE_DIAG
+                ("Intervento", "odontotomia"), ("Controllo", "rimozione punti")]
+        s = ('<svg class="dg" viewBox="0 0 512 168" role="img" aria-label="Le fasi di '
+             'un\'estrazione pianificata">' + _STILE_DIAG)
+
+        def dente(cx, cy, op=1.0):
+            return (f'<g opacity="{op}">' +
+                    _molare(cx, cy - 4, 32, 44, stile='style="stroke:#C9C4BB;stroke-width:1.1"') +
+                    '</g>')
+
         for i, (t, d) in enumerate(fasi):
             x = i * 131
-            cx, cy = x + 59, 54
-            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
-            s += f'<path class="dg-bone" d="M{x+16} {cy+2}h86v30a5 5 0 0 1-5 5H{x+21}a5 5 0 0 1-5-5z"/>'
+            cx, cy = x + 59, 68
+            s += _pannello(x)
+            s += f'<path class="dg-bone" d="M{x+14} {cy}h90v32a6 6 0 0 1-6 6H{x+20}a6 6 0 0 1-6-6z"/>'
+            s += f'<path class="dg-gum" d="M{x+14} {cy-6}h90v6H{x+14}z"/>'
             if i == 0:
-                s += f'<path class="dg-tooth" d="M{cx-14} {cy+2}V{cy-16}c0-7 6-11 14-11s14 4 14 11v18z" opacity=".9"/>'
-                s += f'<path class="dg-tooth" d="M{cx-10} {cy+2}l3 22M{cx+10} {cy+2}l-3 22" stroke="#DDD9D2" fill="none"/>'
-                s += f'<path class="dg-draw" d="M{x+20} {cy+26}h82" stroke="#C4342E" stroke-width="1.6" stroke-dasharray="90" stroke-dashoffset="90"/>'
+                s += dente(cx, cy)
+                s += (f'<path class="dg-draw" d="M{x+20} {cy+26}h78" stroke="#C4342E" stroke-width="2.2" '
+                      f'stroke-dasharray="90" stroke-dashoffset="90" stroke-linecap="round"/>')
+                s += (f'<path d="M{cx+12} {cy+21}v5" stroke="#C4342E" stroke-width="1" '
+                      f'stroke-dasharray="2 2"/>')
                 s += f'<text class="dg-lbl" x="{x+20}" y="{cy+38}" font-size="7" fill="#C4342E">nervo</text>'
             elif i == 1:
-                s += f'<path class="dg-tooth" d="M{cx-14} {cy+2}V{cy-16}c0-7 6-11 14-11s14 4 14 11v18z" opacity=".55"/>'
+                s += dente(cx, cy, .45)
+                s += (f'<g class="dg-pop"><rect x="{cx+22}" y="{cy-48}" width="8" height="20" rx="2" '
+                      f'fill="#DBEAF7" stroke="#134B7A" stroke-width="1"/>'
+                      f'<path d="M{cx+26} {cy-28}v9" stroke="#134B7A" stroke-width="1.4"/></g>')
                 for k in range(3):
-                    s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-8}" r="{10+k*8}" fill="none" stroke="#2A7CBF" stroke-width="1" opacity="{.5-k*.13}" style="transition-delay:{k*.14}s"/>'
+                    s += (f'<circle class="dg-pop" cx="{cx}" cy="{cy-12}" r="{10+k*8}" fill="none" '
+                          f'stroke="#2A7CBF" stroke-width="1.2" opacity="{.6-k*.16}" '
+                          f'style="transition-delay:{k*.14}s"/>')
             elif i == 2:
-                s += f'<path class="dg-pop" d="M{cx-16} {cy-4}q16 -16 32 0" fill="none" stroke="#2A7CBF" stroke-width="1.6"/>'
-                for k in range(4):
-                    s += f'<path class="dg-pop" d="M{cx-11+k*7.5} {cy-13}v10" stroke="#134B7A" stroke-width="1.4" style="transition-delay:{k*.09}s"/>'
+                # alveolo vuoto: il buco è il contenuto informativo del riquadro
+                s += (f'<path d="M{cx-15} {cy-6}v20a15 20 0 0 0 30 0v-20z" fill="#C9C4BB"/>')
+                s += (f'<path d="M{cx-11} {cy-4}v18a11 16 0 0 0 22 0v-18z" fill="#B9B3A8"/>')
+                s += (f'<g class="dg-pop"><g transform="rotate(-24 {cx-19} {cy-32})">'
+                      f'<path class="dg-tooth" d="M{cx-26} {cy-42}h14v10q0 12 -7 14 -7-2 -7-14z"/></g></g>')
+                s += (f'<g class="dg-pop" style="transition-delay:.16s"><g transform="rotate(26 {cx+19} {cy-32})">'
+                      f'<path class="dg-tooth" d="M{cx+12} {cy-42}h14v10q0 12 -7 14 -7-2 -7-14z"/></g></g>')
+                s += (f'<g class="dg-pop" style="transition-delay:.3s">'
+                      f'<rect x="{cx-3}" y="{cy-48}" width="6" height="14" rx="2" fill="#134B7A"/>'
+                      f'<path d="M{cx} {cy-34}v6" stroke="#134B7A" stroke-width="1.6"/>'
+                      f'<path d="M{cx-2.5} {cy-28}h5l-2.5 4z" fill="#134B7A"/></g>')
             else:
-                s += f'<path class="dg-gum" d="M{cx-18} {cy-4}h36v8h-36z"/>'
-                s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-16}" r="9" fill="#DBEAF7"/>'
-                s += f'<path class="dg-pop" d="M{cx-4} {cy-16}l3 3 5.5-6" fill="none" stroke="#134B7A" stroke-width="1.7" stroke-linecap="round"/>'
-            s += f'<text class="dg-n" x="{x+10}" y="118">0{i+1}</text>'
-            s += f'<text class="dg-lbl" x="{x+28}" y="118">{t}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#74838F">{d}</text>'
+                s += f'<path class="dg-gum" d="M{cx-19} {cy-8}h38v10h-38z"/>'
+                for k in range(3):
+                    s += (f'<path class="dg-pop" d="M{cx-15+k*14} {cy-11}l7 8M{cx-8+k*14} {cy-11}l-7 8" '
+                          f'stroke="#134B7A" stroke-width="1.3" stroke-linecap="round" '
+                          f'style="transition-delay:{k*.1}s"/>')
+                s += (f'<circle class="dg-pop" cx="{cx+30}" cy="{cy-34}" r="9.5" fill="#DBEAF7" '
+                      f'style="transition-delay:.34s"/>')
+                s += (f'<path class="dg-pop" d="M{cx+26} {cy-34}l3 3.2 5.5-6" fill="none" stroke="#134B7A" '
+                      f'stroke-width="1.8" stroke-linecap="round" style="transition-delay:.42s"/>')
+            s += _passo(x, i, t, d)
         s += '</svg>'
         return s
 
     if tipo == "bimbo":
+        # La variabile che cambia da un riquadro all'altro è la posizione del
+        # bambino rispetto alla poltrona: lontano, seduto, seduto con i genitori,
+        # fuori con una traiettoria di ritorno. La posizione lungo un asse comune
+        # è la variabile visiva che si legge con più precisione, e qui è anche
+        # la cosa che il testo vuole dire: la prima visita serve ad avvicinarsi.
         fasi = [("Si guarda", "la poltrona è un gioco"), ("Si conta", "«quanti denti hai?»"),
                 ("Si spiega", "ai genitori, e a lui"), ("Si torna", "in un posto noto")]
-        s = '<svg class="dg" viewBox="0 0 512 150" role="img" aria-label="La prima visita di un bambino, passo per passo">' + _STILE_DIAG
+        s = ('<svg class="dg" viewBox="0 0 512 168" role="img" aria-label="La prima visita di un '
+             'bambino, passo per passo">' + _STILE_DIAG)
         for i, (t, d) in enumerate(fasi):
             x = i * 131
-            cx, cy = x + 59, 52
-            s += f'<rect x="{x}" y="8" width="118" height="90" rx="10" fill="#FBFAF7" stroke="#ECE8E1"/>'
-            s += f'<circle class="dg-pop" cx="{cx}" cy="{cy-8}" r="13" fill="#EAE5DC" style="transition-delay:{i*.1}s"/>'
-            s += f'<path class="dg-pop" d="M{cx-16} {cy+24}a16 16 0 0 1 32 0z" fill="#DBEAF7" style="transition-delay:{i*.1+.05}s"/>'
-            s += f'<circle cx="{cx-4.5}" cy="{cy-10}" r="1.4" fill="#0B1A28"/><circle cx="{cx+4.5}" cy="{cy-10}" r="1.4" fill="#0B1A28"/>'
-            arco = 4 + i * 1.6
-            s += f'<path d="M{cx-5} {cy-3}q5 {arco} 10 0" fill="none" stroke="#0B1A28" stroke-width="1.3" stroke-linecap="round"/>'
-            s += f'<text class="dg-n" x="{x+10}" y="118">0{i+1}</text>'
-            s += f'<text class="dg-lbl" x="{x+28}" y="118">{t}</text>'
-            s += f'<text class="dg-lbl" x="{x+10}" y="134" fill="#74838F">{d}</text>'
+            s += _pannello(x)
+            s += f'<path d="M{x+10} 100h98" stroke="#ECE8E1" stroke-width="1.4" stroke-linecap="round"/>'
+            s += _riunito(x + 66)
+            if i == 0:
+                s += _figura(x + 20)
+                # linea di sguardo, non freccia: nel primo riquadro il bambino guarda
+                s += (f'<path class="dg-draw" d="M{x+29} 60h18" stroke="#2A7CBF" stroke-width="1.2" '
+                      f'stroke-dasharray="20" stroke-dashoffset="20" stroke-linecap="round"/>')
+                s += (f'<path class="dg-pop" d="M{x+47} 60a6 4 0 0 1 11 0 6 4 0 0 1-11 0z" fill="none" '
+                      f'stroke="#2A7CBF" stroke-width="1.2"/>')
+                s += f'<circle class="dg-pop" cx="{x+52.5}" cy="60" r="1.7" fill="#2A7CBF" style="transition-delay:.12s"/>'
+            elif i == 1:
+                s += _figura(x + 70, seduto=True)
+                s += (f'<circle class="dg-pop" cx="{x+56}" cy="50" r="4.2" fill="#FBFAF7" '
+                      f'stroke="#134B7A" stroke-width="1.3"/>')
+                s += (f'<path class="dg-pop" d="M{x+53} 53l-10 7" stroke="#134B7A" stroke-width="1.6" '
+                      f'stroke-linecap="round"/>')
+                for k in range(4):
+                    s += (f'<path class="dg-pop dg-tooth" d="M{x+15+k*11} 22h8v7a4 3.4 0 0 1 -8 0z" '
+                          f'style="transition-delay:{.1+k*.11}s"/>')
+                s += f'<text class="dg-lbl" x="{x+15}" y="44" font-size="7.5" fill="#134B7A">1 2 3 4</text>'
+            elif i == 2:
+                s += _figura(x + 70, seduto=True)
+                s += _figura(x + 20, alto=True, col="#E7E2DA", bordo="#C9C4BB")
+                s += _figura(x + 38, alto=True, col="#E7E2DA", bordo="#C9C4BB")
+                s += (f'<g class="dg-pop"><rect x="{x+10}" y="14" width="44" height="20" rx="9" '
+                      f'fill="#DBEAF7"/><path d="M{x+22} 34l-2 7 9-7z" fill="#DBEAF7"/>'
+                      f'<path d="M{x+18} 21h28M{x+18} 27h18" stroke="#134B7A" stroke-width="1.5" '
+                      f'stroke-linecap="round" opacity=".55"/></g>')
+            else:
+                # la sagoma tratteggiata sulla poltrona è la memoria della prima volta
+                s += (f'<g opacity=".55"><path d="M{x+64} 72v-13a6 6 0 0 1 12 0v13z" fill="none" '
+                      f'stroke="#B4D3EC" stroke-width="1.1" stroke-dasharray="3 2.5"/>'
+                      f'<circle cx="{x+70}" cy="48" r="7.5" fill="none" stroke="#C9C4BB" '
+                      f'stroke-width="1.1" stroke-dasharray="3 2.5"/></g>')
+                s += _figura(x + 22)
+                s += (f'<path class="dg-draw" d="M{x+30} 46q20 -22 40 -4" fill="none" stroke="#2A7CBF" '
+                      f'stroke-width="1.4" stroke-dasharray="64" stroke-dashoffset="64" '
+                      f'stroke-linecap="round"/>')
+                s += f'<path d="M{x+65} 36l6 5-6 4z" fill="#2A7CBF"/>'
+                s += (f'<g class="dg-pop" style="transition-delay:.5s">'
+                      f'<rect x="{x+40}" y="16" width="20" height="18" rx="3" fill="#FBFAF7" '
+                      f'stroke="#2A7CBF" stroke-width="1.1"/>'
+                      f'<path d="M{x+40} 22h20" stroke="#2A7CBF" stroke-width="1.1"/>'
+                      f'<circle cx="{x+50}" cy="28" r="2.6" fill="#2A7CBF"/></g>')
+            s += _passo(x, i, t, d)
         s += '</svg>'
         return s
 
