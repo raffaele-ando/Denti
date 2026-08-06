@@ -174,7 +174,7 @@ dict(
     meta_title="Invisalign a Genova: ortodonzia invisibile da 125 €/mese | Piccardo",
     meta_desc="Invisalign a Genova con ortodonzista specialista in Ortognatodonzia. Mascherine trasparenti, risultato visibile prima di iniziare. Da 125 €/mese a tasso zero.",
     eyebrow="Ortodonzia invisibile",
-    h1="Con Invisalign vedi al computer il tuo sorriso finale <span class='accent-i'>prima</span> di indossare la prima mascherina",
+    h1="Con Invisalign vedi al computer il tuo sorriso finale prima di indossare la prima mascherina",
     lead="Invisalign parte da una scansione tridimensionale della bocca e da un piano di trattamento costruito al computer. Prima che tu indossi la prima mascherina, l'ortodonzista ti mostra a schermo la sequenza completa degli spostamenti e il risultato finale: solo a quel punto decidi se cominciare.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Mascherine Invisalign in mano, dettaglio", scena="mascherine",
                     nota="Luce di finestra e fondo neutro, così si legge la trasparenza del materiale."),
@@ -558,7 +558,7 @@ dict(
     meta_title="Igiene dentale professionale a Genova: 100 € | Studio Piccardo",
     meta_desc="Pulizia dei denti professionale a Genova con igienisti dentali laureati. 100 €. Controllo delle mucose incluso. Anche in sedazione cosciente per chi ha sensibilità.",
     eyebrow="Prevenzione",
-    h1="Un'ora di igiene ogni sei mesi costa meno delle <span class='accent-i'>cure che evita</span>",
+    h1="Un'ora di igiene ogni sei mesi costa meno delle cure che evita",
     lead="200 euro all'anno di igiene professionale intercettano le carie mentre ancora non fanno male e non si vedono, cioè mentre costano 130 euro invece di 1.540. Le sedute sono affidate a igienisti dentali laureati, comprendono il controllo delle mucose e, per chi ha denti molto sensibili, si possono eseguire in sedazione cosciente.",
     hero_media=None,
     keyfacts=[
@@ -700,7 +700,7 @@ dict(
     meta_title="Dentista urgenze a Genova: mal di denti oggi | Studio Piccardo",
     meta_desc="Urgenze odontoiatriche a Genova centro. Aperti lunedì-sabato 8:00-20:30, reperibilità per i pazienti dello studio. Anche servizio a domicilio.",
     eyebrow="Urgenze",
-    h1="Se hai male <span class='accent-i'>oggi</span>, chiama adesso",
+    h1="Se hai male oggi, chiama adesso",
     lead="Lo studio è aperto dal lunedì al sabato dalle 8:00 alle 20:30, sabato compreso per intero, sabato compreso. I pazienti già in cura hanno inoltre un numero di reperibilità attivo anche fuori orario. Più presto chiami nella giornata, più è probabile trovare spazio.",
     hero_media=None,
     keyfacts=[

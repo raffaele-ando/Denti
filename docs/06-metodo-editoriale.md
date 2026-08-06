@@ -499,3 +499,44 @@ in lettere nei titoli e le ripetizioni della stessa struttura. Va eseguito prima
 consegna, insieme a `check.py` e `check_contrasto.py`.
 
 Il controllo non sostituisce il giudizio: segnala i sospetti, la decisione resta di chi scrive.
+
+---
+
+## L'accento cade sul rema
+
+Nei titoli una parola è colorata con `accent-i`. Colorare è un atto di
+sottolineatura tipografica: chi legge lo interpreta come *questa è la notizia*.
+La linguistica funzionale distingue nella frase il **tema**, ciò di cui si parla
+e che il lettore già possiede, e il **rema**, l'informazione nuova (Praga: Mathesius,
+Firbas, «dinamismo comunicativo»; Halliday parla di *New* contro *Given*). Nella
+prosa il rema si segnala con la posizione e con l'intonazione; su una pagina web
+si segnala con il colore. Se il colore cade sul tema, il segnale mente.
+
+Una revisione di tutti i titoli ha trovato quarantacinque accenti. Trenta erano
+ripetizioni del template delle dieci pagine di trattamento: «Perché conviene farlo
+**qui**», «Quanto **costa**», «Le domande che ci fanno **più spesso**». Gli altri
+cadevano su code di parole funzionali: «ti **curerà**», «ogni **mese**», «il suo
+**prezzo**», «si è **spostata**». Nessuna di queste parole è verificabile, nessuna
+è ripetibile a memoria, nessuna distingue una pagina dall'altra: colorandole si
+prometteva un contenuto che non arrivava.
+
+Due effetti, entrambi documentati. Il primo è il **cry wolf** della segnaletica:
+un marcatore di rilievo usato senza contenuto perde valore di segnale e viene
+ignorato anche quando finalmente ne ha uno (è lo stesso meccanismo dell'*alarm
+fatigue* in ergonomia cognitiva, e della *banner blindness* di Benway e Lane, 1998).
+Il secondo è che un accento ripetuto identico su dieci pagine informa il lettore
+che sta guardando un modello, non una pagina scritta per lui: il colore rivela la
+macchina che ha generato il testo.
+
+**Regola.** L'accento è ammesso solo su un elemento che il lettore potrebbe
+verificare o riferire a qualcun altro: una cifra (`4.000 impianti`, `fino alle
+20:30`), un nome proprio (`Brignole`, `Invisalign`), un nome concreto o un fatto
+ripetibile (`sedazione cosciente`, `laboratorio interno`, `sigillato e datato`).
+Mai un verbo di appoggio, un avverbio locativo, un pronome, un aggettivo
+valutativo. Se il titolo non contiene niente che meriti l'accento, il titolo va
+senza accento: quarantacinque sono diventati diciassette.
+
+La regola è automatizzata in `check_copy.py` come **F16 accento senza rema**.
+L'elenco delle parole ammesse è deliberatamente breve e va allungato a mano, un
+termine alla volta, con la motivazione: un elenco che cresce da solo tornerebbe
+a colorare tutto.

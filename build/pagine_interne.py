@@ -135,7 +135,7 @@ def trattamento(t):
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">3</span>Le prove</span>
-      <h2 class="mt-4">Perché conviene farlo <span class="accent-i">qui</span></h2>
+      <h2 class="mt-4">Perché conviene farlo qui</h2>
     </div>
     <div class="grid g3" data-stagger="90">{prove}</div>
   </div>
@@ -175,7 +175,7 @@ def trattamento(t):
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow has-n"><span class="eyebrow__n">5</span>Prezzo</span>
-      <h2 class="mt-4">Quanto <span class="accent-i">costa</span></h2>
+      <h2 class="mt-4">Quanto costa</h2>
       <p class="lead mt-6">Dopo la prima visita ricevi un preventivo scritto con le lavorazioni
       una per una, i tempi previsti e il totale, alle cifre del tariffario pubblico.</p>
       {nota}
@@ -200,7 +200,7 @@ def trattamento(t):
   <div class="wrap" style="max-width:56rem">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">6</span>Domande frequenti</span>
-      <h2 class="mt-4">Le domande che ci fanno <span class="accent-i">più spesso</span></h2>
+      <h2 class="mt-4">Le domande che ci fanno più spesso</h2>
     </div>
     <div class="acc" data-single data-reveal>{faq}</div>
   </div>
@@ -256,7 +256,7 @@ def hub_trattamenti():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Trattamenti", None)])}
     <span class="eyebrow" data-reveal>Trattamenti</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Per cominciare basta sapere <span class="accent-i">dove ti fa male</span></h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Per cominciare basta sapere dove ti fa male</h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Quanto dura, chi la esegue e quanto costa
     stanno scritti dentro ogni cura. E in diversi casi la risposta giusta è una cura più
     semplice di quella che immagini, oppure nessuna.</p>
@@ -271,7 +271,7 @@ def hub_trattamenti():
 
 # ══════════════════════════════════════════════════════════════ LO STUDIO
 STUDIO_SEZIONI = [
-    dict(id="tecnologia", occhiello="Diagnosi", titolo="La TAC per l'impianto si fa <span class='accent-i'>nella stessa visita</span>",
+    dict(id="tecnologia", occhiello="Diagnosi", titolo="La TAC per l'impianto si fa nella stessa visita",
          testo="""<p>Sala raggi interna con <b>TAC Cone Beam 3D</b>, ortopantomografo con braccio tele e teleradiografo, tutti digitali.
          Consente radiografie tridimensionali delle ossa facciali, panoramiche anche pediatriche, teleradiografie del cranio per l'ortodonzia, radiografie dei seni mascellari, dell'articolazione temporo-mandibolare e del carpo.</p>
          <p>Tutti i sistemi radiografici sono digitali, con un <b>abbattimento superiore all'80% della dose</b> rispetto alla pellicola tradizionale.
@@ -290,7 +290,7 @@ STUDIO_SEZIONI = [
          diagramma="sterilizzazione",
          media=("Foto", "Mani guantate che imbustano lo strumentario",
                 "Dettaglio delle mani e della busta, non panoramica della stanza.", "4/3", "sterilizzazione")),
-    dict(id="laboratorio", occhiello="Protesi", titolo="I ritocchi alla protesi <span class='accent-i'>si fanno mentre aspetti</span>",
+    dict(id="laboratorio", occhiello="Protesi", titolo="I ritocchi alla protesi si fanno mentre aspetti",
          testo="""<p>Laboratorio odontotecnico interno <b>iscritto al Ministero della Salute</b>, dove si realizzano
          protesi mobili, riparazioni immediate e tutte le protesi fisse in zirconia o composito con tecnologia CAD-CAM.</p>
          <p>In pratica: le prove si fanno mentre sei sulla poltrona, i ritocchi cromatici si eseguono sul momento
@@ -298,7 +298,7 @@ STUDIO_SEZIONI = [
          dati=[("CAD-CAM", "zirconia e composito"), ("Stesso giorno", "riparazioni"), ("Min. Salute", "lab. iscritto")],
          media=("Foto", "Mani dell'odontotecnico su una corona in zirconia",
                 "Mani in azione sul manufatto, fresa o pennello in campo. Luce laterale.", "4/3", "laboratorio")),
-    dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Attrezzati <span class='accent-i'>come un ambulatorio di emergenza</span>",
+    dict(id="sicurezza", occhiello="Emergenze mediche", titolo="Attrezzati come un ambulatorio di emergenza",
          testo="""<p>Defibrillatore automatico, ossigeno, pallone ambu e cannule orofaringee, pulsossimetro,
          misuratori di pressione da braccio e da polso, misuratore digitale della glicemia e dell'INR.</p>
          <p>Quattordici farmaci d'emergenza organizzati in scatole dedicate, una per ciascun quadro clinico:
@@ -308,7 +308,7 @@ STUDIO_SEZIONI = [
          su manichino e defibrillatore trainer, perché una manovra si ricorda con le mani.</p>""",
          dati=[("DAE", "defibrillatore in sede"), ("14", "farmaci d'emergenza"), ("Ogni mese", "esercitazione")],
          media=None),
-    dict(id="continuita", occhiello="Continuità", titolo="L'intervento va avanti <span class='accent-i'>anche se salta la corrente</span>",
+    dict(id="continuita", occhiello="Continuità", titolo="L'intervento va avanti anche se salta la corrente",
          testo="""<p>Un gruppo di continuità UPS garantisce alle tre zone operative <b>tre ore di autonomia</b>
          in caso di black-out. Significa che un intervento iniziato si porta a termine.</p>
          <p>Lo studio dispone inoltre di un piano antincendio a norma.</p>""",
@@ -375,7 +375,7 @@ def studio():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Lo studio", None)])}
     <span class="eyebrow" data-reveal>Lo studio</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Entri una volta sola, e dentro <span class="accent-i">c'è già tutto</span></h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Entri una volta sola, e dentro c'è già tutto</h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Di solito la TAC si prenota in un centro
     radiologico, la protesi parte per un laboratorio esterno e l'ortodonzista riceve da un'altra
     parte: fra un passaggio e l'altro se ne vanno settimane, e a portare le buste sei tu. Qui la
@@ -390,7 +390,7 @@ def studio():
       <div>{sezioni}
         <section class="studio-section" id="tour">
           <span class="eyebrow">Tour virtuale</span>
-          <h2 class="mt-4">Guarda dove ti siederai, <span class="accent-i">prima di venire</span></h2>
+          <h2 class="mt-4">Guarda dove ti siederai, prima di venire</h2>
           <p class="lead mt-6" style="max-width:40rem">Sala d'attesa, reception, zone operative,
           sala raggi, sterilizzazione e laboratorio sono tutti su Google Street View. In sala d'attesa
           sono appesi i diplomi di laurea, i master e le specializzazioni di tutta l'équipe, e c'è
@@ -438,7 +438,7 @@ def team():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Il team", None)])}
     <span class="eyebrow" data-reveal>L'équipe</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Chi ti <span class="accent-i">curerà</span>?</h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Chi ti curerà?</h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">La Dott.ssa Gibelli fa solo ortodonzia dal
     2003. Il Dott. De Giovanni opera e pubblica: quattro lavori indicizzati su PubMed. La Dott.ssa
     Tuo si occupa dei bambini ed è referente per la Liguria della Società Italiana di Odontoiatria
@@ -458,7 +458,7 @@ def team():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Formazione</span>
-      <h2 class="mt-4">Dove hanno studiato, e <span class="accent-i">cosa hanno pubblicato</span></h2>
+      <h2 class="mt-4">Dove hanno studiato, e cosa hanno pubblicato</h2>
       <p class="lead mt-6">Le pubblicazioni del Dott. De Giovanni sono indicizzate su PubMed:
       l'identificativo accanto a ciascuna porta al testo originale, senza passare da noi.</p>
       <ul class="ticks mt-8">
@@ -483,7 +483,7 @@ def team():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Video</span>
-      <h2 class="mt-4">Senti come parlano, <span class="accent-i">prima di incontrarli</span></h2>
+      <h2 class="mt-4">Senti come parlano, prima di incontrarli</h2>
       <p class="lead">Un minuto a testa, sulla domanda che si sentono fare più spesso.</p>
     </div>
     <div class="grid g3" data-stagger="80">
@@ -533,7 +533,7 @@ def prezzi():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Prezzi", None)])}
     <span class="eyebrow" data-reveal>Prezzi</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Ogni prezzo è pubblicato, <span class="accent-i">prima che tu chiami</span></h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Ogni prezzo è pubblicato, prima che tu chiami</h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Trentasei prestazioni con il loro costo,
     dalla prima visita alla riabilitazione su impianti. Dopo la visita il piano di cura arriva
     scritto, con le voci una per una e il totale.</p>
@@ -574,7 +574,7 @@ def prezzi():
       <div class="calc__grid">
         <div>
           <span class="eyebrow is-bare" style="color:var(--brand-200)">Calcola la rata</span>
-          <h2 class="mt-4" style="color:#FFFDF9">Quanto pagheresti <span class="accent-i">ogni mese</span></h2>
+          <h2 class="mt-4" style="color:#FFFDF9">Quanto pagheresti ogni mese</h2>
           <div class="mt-8">
             <label for="calc-importo">Importo del piano di cura</label>
             <div class="calc__amount" id="calc-importo-val">3.500 €</div>
@@ -609,7 +609,7 @@ def prezzi():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Tariffario</span>
-      <h2 class="mt-4">Ogni prestazione, con il <span class="accent-i">suo prezzo</span></h2>
+      <h2 class="mt-4">Ogni prestazione, con il suo prezzo</h2>
       <p class="lead">Per le prestazioni non in elenco, chiedi in segreteria.</p>
     </div>
     <div class="tariff-toolbar" data-reveal>
@@ -631,7 +631,7 @@ def prezzi():
   <div class="wrap">
     <div class="section-head is-center" data-reveal>
       <span class="eyebrow is-bare">Convenzioni</span>
-      <h2 class="mt-4">Se hai un fondo sanitario, <span class="accent-i">probabilmente è qui</span></h2>
+      <h2 class="mt-4">Se hai un fondo sanitario, probabilmente è qui</h2>
       <p class="lead">Portane gli estremi quando prenoti: apriamo noi la pratica e prepariamo i documenti,
       e in molti casi la quota coperta viene già scalata dal preventivo.</p>
     </div>
@@ -660,7 +660,7 @@ def recensioni():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Recensioni", None)])}
     <span class="eyebrow" data-reveal>Recensioni</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Com'è andata, raccontata da <span class="accent-i">chi c'è passato</span></h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Com'è andata, raccontata da chi c'è passato</h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Alcuni avevano paura da vent'anni, altri
     cercavano solo un secondo preventivo. Qui sono riportate parola per parola dalla scheda
     Google, dove restano pubbliche.</p>
@@ -678,7 +678,7 @@ def recensioni():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Cosa scrivono</span>
-      <h2 class="mt-4">Se cerchi un motivo preciso, <span class="accent-i">probabilmente è uno di questi</span></h2>
+      <h2 class="mt-4">Se cerchi un motivo preciso, probabilmente è uno di questi</h2>
       <p class="lead mt-6">Le etichette le genera Google contando le parole che tornano più spesso.
       Non le scegliamo noi.</p>
       <a class="btn mt-8" href="{S['recensioni_url']}" target="_blank" rel="noopener">{ico('stella')} Leggile tutte su Google</a>
@@ -839,7 +839,7 @@ def pagina404():
 <section class="section center" style="padding-top:calc(var(--header-h) + 6rem)">
   <div class="wrap" style="max-width:38rem">
     <div class="stat-n" style="font-size:6rem">404</div>
-    <h1 class="mt-6">Questa pagina <span class="accent-i">si è spostata</span>.</h1>
+    <h1 class="mt-6">Questa pagina si è spostata.</h1>
     <p class="lead mt-6">Quello che cercavi si è spostato altrove. Riparti da qui, oppure
     chiamaci e ti diciamo dov'è finito.</p>
     <div class="hero__cta" style="justify-content:center">

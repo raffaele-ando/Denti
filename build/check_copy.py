@@ -212,6 +212,38 @@ for f in sorted(ROOT.rglob("*.html")):
             if hit and not any(p[0] == rp and p[3] == hit.group(0) for p in problemi):
                 problemi.append((rp, "paragrafo", nome, hit.group(0), t[:96]))
 
+# F16. accento senza rema.
+#
+# Il colore su una parola di un titolo è un segnale di rilievo informativo: chi
+# legge lo interpreta come «questa è la notizia». Se cade su una parola vuota —
+# un avverbio locativo, un verbo di appoggio, un pronome — il segnale promette
+# un contenuto che non arriva e, ripetuto su venti pagine, smette di significare
+# qualcosa. L'accento è ammesso solo su ciò che il lettore potrebbe verificare o
+# ripetere a memoria: una cifra, un nome proprio, un nome concreto.
+REMA = re.compile(
+    r"\d"                                    # una cifra: 4.000, 20:30, 1997
+    r"|\b(Brignole|Invisalign|PubMed|Google|Padova|Genova|Milano|Lumineers"
+    r"|Damon|Maragliano|Street View)\b"      # nomi propri verificabili
+    r"|\b(sedazione|impianti?|coron[ae]|zirconia|titanio|laboratorio|TAC"
+    r"|panoramic\w+|preventivo|tariffario|pubblicazioni|master|mascherin\w+"
+    r"|dent[ei]|osso|nervo|gratis|in piano|sigillato e datato"
+    r"|non senti niente)\b",                 # nomi concreti e fatti ripetibili
+    re.I)
+
+accenti = []
+for f in sorted(ROOT.rglob("*.html")):
+    rp = f.relative_to(ROOT).as_posix()
+    if rp in ("note-legali.html", "404.html"):
+        continue
+    for m in re.finditer(r"""<span class=['"]accent-i['"]>(.*?)</span>""",
+                         f.read_text(encoding="utf-8"), re.S):
+        parola = testo(m.group(1))
+        if not REMA.search(parola):
+            accenti.append((rp, parola))
+
+for rp, parola in accenti:
+    problemi.append((rp, "accento", "F16 accento senza rema", parola, parola))
+
 ripetuti = {k: v for k, v in strutture.items() if len(v) > 2}
 
 print(f"Blocchi redazionali analizzati in {len(list(ROOT.rglob('*.html'))) - 2} pagine\n")

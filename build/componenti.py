@@ -52,7 +52,7 @@ def prima_dopo(depth=0, caso=None, titolo=None):
             media_slot("Foto · prima e dopo", "Secondo caso clinico dello stesso trattamento",
                        "Protocollo standardizzato: stessa focale, flash anulare, retrattori e bilanciamento del bianco fissato.",
                        ar="4/3", scena="prima-dopo") + '</div>'
-        tit = titolo or "Quanto ci è voluto, <span class='accent-i'>in questo caso</span>"
+        tit = titolo or "Quanto ci è voluto, in questo caso"
     else:
         slot = media_slot("Foto · prima e dopo", "Caso di implantologia a carico immediato",
                           "Serie standard: frontale, laterale destra e sinistra, occlusale. Consenso scritto archiviato.",
@@ -61,7 +61,7 @@ def prima_dopo(depth=0, caso=None, titolo=None):
             "Stessa illuminazione e stessa distanza nelle due sessioni, nessun ritocco oltre il bilanciamento del colore.",
             ar="4/3", scena="faccetta")
         corpo = f'<div class="grid g2">{_slider("riabilitazione", depth)}{_slider("ortodonzia", depth)}{slot}</div>'
-        tit = titolo or "Quanto ci è voluto, e <span class='accent-i'>quanto è costato</span>"
+        tit = titolo or "Quanto ci è voluto, e quanto è costato"
 
     return f'''
 <section class="section">
@@ -111,7 +111,7 @@ def striscia_team(depth=0):
     <div class="between section-head" style="max-width:none;align-items:flex-end" data-reveal>
       <div style="max-width:40rem">
         <span class="eyebrow has-n"><span class="eyebrow__n">5</span>L'équipe</span>
-        <h2 class="mt-4">Ciascuno fa una disciplina sola, <span class="accent-i">tutti i giorni</span></h2>
+        <h2 class="mt-4">Ciascuno fa una disciplina sola, tutti i giorni</h2>
         <p class="lead">La Dott.ssa Gibelli si occupa solo di ortodonzia dal 2003. Il Dott. De Giovanni
         di parodontologia e chirurgia. La Dott.ssa Tuo solo di bambini. E il Dott. Piccardo, prima di
         laurearsi in odontoiatria, si era diplomato odontotecnico, e il laboratorio dove nascono le

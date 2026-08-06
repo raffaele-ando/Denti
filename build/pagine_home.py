@@ -155,7 +155,7 @@ def render():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">1</span>Perché qui</span>
-      <h2 class="mt-4">Prima di cominciare sai cosa sentirai, quanto pagherai e <span class="accent-i">quanto ci vorrà</span></h2>
+      <h2 class="mt-4">Prima di cominciare sai cosa sentirai, quanto pagherai e quanto ci vorrà</h2>
       <p class="lead">Il tariffario è online e il piano di cura arriva scritto dopo la prima visita.</p>
     </div>
     <div class="g-feature" data-stagger="90">{pilastri}</div>
@@ -178,7 +178,7 @@ def render():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">2</span>Trattamenti</span>
-      <h2 class="mt-4">Cosa ti <span class="accent-i">porta qui</span>?</h2>
+      <h2 class="mt-4">Cosa ti porta qui?</h2>
     </div>
     <div class="intent" data-tabs data-reveal>
       <div class="intent__tabs" role="tablist" aria-label="Scegli il motivo della visita">{tabs}</div>
@@ -199,7 +199,7 @@ def render():
     </div>
     <div data-reveal="right">
       <span class="eyebrow has-n"><span class="eyebrow__n">3</span>Odontofobia</span>
-      <h2 class="mt-4">Puoi decidere tu <span class="accent-i">quanta ansia sentire</span></h2>
+      <h2 class="mt-4">Puoi decidere tu quanta ansia sentire</h2>
       <p class="lead mt-6">La paura del dentista nasce quasi sempre da qualcosa che è successo
       davvero, spesso da bambini, e il corpo la ripropone appena riconosce il rumore del riunito
       o l'odore dello studio. È una reazione automatica, e contro una reazione automatica servono
@@ -236,7 +236,7 @@ def render():
     # ───────────────────────────────────────────────────────── RECENSIONI
     out += blocco_recensioni(
         0, limite=9,
-        titolo="310 persone hanno raccontato <span class='accent-i'>com'è andata</span>",
+        titolo="310 persone hanno raccontato com'è andata",
         occhiello="La parola ai pazienti")
 
     # ────────────────────────────────────────────────────── PREZZI ESTRATTO
@@ -252,7 +252,7 @@ def render():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow has-n"><span class="eyebrow__n">6</span>Prezzi</span>
-      <h2 class="mt-4">I prezzi sono <span class="accent-i">tutti online</span></h2>
+      <h2 class="mt-4">I prezzi sono tutti online</h2>
       <p class="lead mt-6">Dalla seduta di igiene alla riabilitazione su impianti. Dopo la prima
       visita ricevi un preventivo scritto con il totale, e quel totale vale fino alla fine
       della cura.</p>
