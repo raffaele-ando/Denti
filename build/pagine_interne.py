@@ -135,7 +135,7 @@ def trattamento(t):
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">3</span>Le prove</span>
-      <h2 class="mt-4">Perché conviene farlo qui</h2>
+      <h2 class="mt-4">{t.get('prove_h2', 'Come è organizzato questo trattamento')}</h2>
     </div>
     <div class="grid g3" data-stagger="90">{prove}</div>
   </div>
@@ -256,10 +256,10 @@ def hub_trattamenti():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Trattamenti", None)])}
     <span class="eyebrow" data-reveal>Trattamenti</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Per cominciare basta sapere dove ti fa male</h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Quanto dura, chi la esegue e quanto costa
-    stanno scritti dentro ogni cura. E in diversi casi la risposta giusta è una cura più
-    semplice di quella che immagini, oppure nessuna.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Dalla seduta di igiene alla riabilitazione su impianti</h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Dieci schede, una per disciplina: che cosa
+    comporta il trattamento, quanto dura, quale clinico lo esegue e quanto costa a tariffario.
+    La prima visita costa 110 euro in tutti i casi.</p>
   </div>
 </section>
 <section class="section" style="padding-top:0"><div class="wrap">{sezioni}</div></section>'''
@@ -375,11 +375,11 @@ def studio():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Lo studio", None)])}
     <span class="eyebrow" data-reveal>Lo studio</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Entri una volta sola, e dentro c'è già tutto</h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Di solito la TAC si prenota in un centro
-    radiologico, la protesi parte per un laboratorio esterno e l'ortodonzista riceve da un'altra
-    parte: fra un passaggio e l'altro se ne vanno settimane, e a portare le buste sei tu. Qui la
-    sala raggi, il laboratorio e i sette clinici stanno dietro la stessa porta.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">La sala raggi, il laboratorio e i sette clinici stanno dietro la stessa porta</h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Circa 300 metri quadri al piano terra, in
+    Via Maragliano 5. Dentro ci sono la TAC Cone Beam tridimensionale, il laboratorio odontotecnico
+    iscritto al Ministero della Salute, la sala di sterilizzazione separata e tre zone operative
+    con un gruppo di continuità dedicato.</p>
   </div>
 </section>
 
@@ -390,12 +390,11 @@ def studio():
       <div>{sezioni}
         <section class="studio-section" id="tour">
           <span class="eyebrow">Tour virtuale</span>
-          <h2 class="mt-4">Guarda dove ti siederai, prima di venire</h2>
+          <h2 class="mt-4">Le stanze sono su Google Street View</h2>
           <p class="lead mt-6" style="max-width:40rem">Sala d'attesa, reception, zone operative,
           sala raggi, sterilizzazione e laboratorio sono tutti su Google Street View. In sala d'attesa
           sono appesi i diplomi di laurea, i master e le specializzazioni di tutta l'équipe, e c'è
-          il wi-fi con password. Se l'ansia
-          è il tuo problema, vedere le stanze prima di entrarci cambia molto.</p>
+          il wi-fi con password.</p>
           <div class="map-embed mt-8" data-reveal>
             <iframe src="https://www.google.com/maps/embed?pb=!4v1523268454645!6m8!1m7!1sCAoSLEFGMVFpcFBqTUlxaDktbERtaUItU0lQUGx6SktwZHRzV2haN2ZSb2FKVjdk!2m2!1d44.40396939!2d8.9403753!3f218.3372179200444!4f-3.67608424969697!5f0.7820865974627469"
                     title="Tour virtuale della sala d'attesa" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -460,7 +459,7 @@ def team():
       <span class="eyebrow">Formazione</span>
       <h2 class="mt-4">Dove hanno studiato, e cosa hanno pubblicato</h2>
       <p class="lead mt-6">Le pubblicazioni del Dott. De Giovanni sono indicizzate su PubMed:
-      l'identificativo accanto a ciascuna porta al testo originale, senza passare da noi.</p>
+      l'identificativo accanto a ciascuna è il PMID e porta al testo originale.</p>
       <ul class="ticks mt-8">
         <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Implantoprotesi</b>. Università di Genova, 110/110</span></li>
         <li>{ico('check')}<span>Master II livello in <b style="color:#FFFDF9">Sedazione ed emergenze</b>. Università di Padova</span></li>
@@ -483,8 +482,8 @@ def team():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow">Video</span>
-      <h2 class="mt-4">Senti come parlano, prima di incontrarli</h2>
-      <p class="lead">Un minuto a testa, sulla domanda che si sentono fare più spesso.</p>
+      <h2 class="mt-4">La domanda che si sentono fare più spesso</h2>
+      <p class="lead">Una clip di un minuto per ciascun clinico, girata in studio.</p>
     </div>
     <div class="grid g3" data-stagger="80">
       {media_slot("Video · 15″", "«La domanda che mi fanno più spesso». Dott. Piccardo", "Formato verticale, primo piano, fondo dello studio riconoscibile.", ar="4/3", scena="video")}
@@ -533,7 +532,7 @@ def prezzi():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Prezzi", None)])}
     <span class="eyebrow" data-reveal>Prezzi</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Ogni prezzo è pubblicato, prima che tu chiami</h1>
+    <h1 class="mt-4" data-reveal style="--d:60ms">Il tariffario completo, voce per voce</h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Trentasei prestazioni con il loro costo,
     dalla prima visita alla riabilitazione su impianti. Dopo la visita il piano di cura arriva
     scritto, con le voci una per una e il totale.</p>
@@ -562,8 +561,8 @@ def prezzi():
       <article class="card" data-reveal><div class="icon-box">{ico('scudo')}</div>
         <h3 class="mt-6">Il 19 per cento torna con la dichiarazione</h3>
         <p class="mt-2">Le spese odontoiatriche rientrano fra gli oneri detraibili, quindi una parte
-        di quanto spendi la recuperi l'anno successivo. La ricevuta fiscale viene emessa sempre e
-        per l'importo effettivamente pagato, anche se non la chiedi.</p></article>
+        di quanto spendi la recuperi l'anno successivo. La ricevuta fiscale riporta l'importo
+        pagato ed è il documento che serve per la detrazione.</p></article>
     </div>
   </div>
 </section>
@@ -631,7 +630,7 @@ def prezzi():
   <div class="wrap">
     <div class="section-head is-center" data-reveal>
       <span class="eyebrow is-bare">Convenzioni</span>
-      <h2 class="mt-4">Se hai un fondo sanitario, probabilmente è qui</h2>
+      <h2 class="mt-4">I fondi e le casse sanitarie convenzionate</h2>
       <p class="lead">Portane gli estremi quando prenoti: apriamo noi la pratica e prepariamo i documenti,
       e in molti casi la quota coperta viene già scalata dal preventivo.</p>
     </div>
@@ -660,10 +659,10 @@ def recensioni():
   <div class="wrap" style="max-width:54rem">
     {breadcrumb(d, [("Recensioni", None)])}
     <span class="eyebrow" data-reveal>Recensioni</span>
-    <h1 class="mt-4" data-reveal style="--d:60ms">Com'è andata, raccontata da chi c'è passato</h1>
-    <p class="lead mt-6" data-reveal style="--d:120ms">Alcuni avevano paura da vent'anni, altri
-    cercavano solo un secondo preventivo. Qui sono riportate parola per parola dalla scheda
-    Google, dove restano pubbliche.</p>
+    <h1 class="mt-4" data-reveal style="--d:60ms">310 recensioni Google, riportate parola per parola</h1>
+    <p class="lead mt-6" data-reveal style="--d:120ms">Il testo è quello pubblicato sulla scheda
+    Google dello studio, dove ogni recensione resta consultabile con il nome di chi l'ha scritta
+    e la data.</p>
   </div>
 </section>'''
     out += blocco_recensioni(d, limite=99, titolo="La parola ai pazienti", occhiello="Google · Facebook")
@@ -678,9 +677,8 @@ def recensioni():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow">Cosa scrivono</span>
-      <h2 class="mt-4">Se cerchi un motivo preciso, probabilmente è uno di questi</h2>
-      <p class="lead mt-6">Le etichette le genera Google contando le parole che tornano più spesso.
-      Non le scegliamo noi.</p>
+      <h2 class="mt-4">Le parole che tornano più spesso</h2>
+      <p class="lead mt-6">Etichette e conteggi sono generati da Google sul testo delle recensioni.</p>
       <a class="btn mt-8" href="{S['recensioni_url']}" target="_blank" rel="noopener">{ico('stella')} Leggile tutte su Google</a>
     </div>
     <div data-reveal="right">
@@ -709,7 +707,7 @@ def contatti():
     <h1 class="mt-4" data-reveal style="--d:60ms">Ci trovi dal lunedì al sabato, <span class="accent-i">fino alle 20:30</span></h1>
     <p class="lead mt-6" data-reveal style="--d:120ms">Al telefono trovi Carlotta. Su WhatsApp
     puoi scrivere anche di sera e ti richiamiamo alla prima apertura. Dal calendario online
-    prenoti da solo, a qualunque ora.</p>
+    il calendario online resta aperto a qualunque ora.</p>
   </div>
 </section>
 

@@ -226,7 +226,7 @@ def blocco_convenzioni(depth=0):
 <section class="sec--3" id="convenzioni">
   <div class="wrap center mb-6" data-reveal>
     <span class="eyebrow is-bare">Convenzioni attive</span>
-    <h3 class="mt-4">Il tuo fondo sanitario è probabilmente fra questi</h3>
+    <h3 class="mt-4">Fondi e casse sanitarie convenzionate</h3>
   <p class="lead mt-4" style="max-width:42rem;margin-inline:auto">Portane gli estremi quando
   prenoti: apriamo noi la pratica.</p>
   </div>

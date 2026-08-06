@@ -66,12 +66,12 @@ def render():
     <div>
       <div data-reveal>{rating_badge(0)}</div>
       <h1 class="display hero__title" data-reveal style="--d:80ms">
-        Sai quanto spendi<br>prima di sederti,<br>e <span class="accent-i">non senti niente</span>.
+        Uno studio dentistico<br>a Genova, con il <span class="accent-i">laboratorio</span><br>e la sala raggi in sede.
       </h1>
       <p class="lead mt-6" data-reveal style="--d:160ms">
-        Implantologia, ortodonzia invisibile e chirurgia orale. Sedazione cosciente
-        disponibile per ogni seduta, sette clinici nella stessa sede, tariffario
-        pubblico.
+        Sette clinici, ognuno con la sua disciplina: implantologia, ortodonzia
+        invisibile, chirurgia orale, protesi, pedodonzia. Le cure si possono eseguire
+        anche in sedazione cosciente, e il tariffario è pubblicato per intero.
       </p>
       <div class="hero__cta" data-reveal style="--d:240ms">
         <a class="btn btn--lg" href="{S['booking']}" target="_blank" rel="noopener">{ico('calendario')} Prenota la prima visita</a>
@@ -155,8 +155,8 @@ def render():
   <div class="wrap">
     <div class="section-head" data-reveal>
       <span class="eyebrow has-n"><span class="eyebrow__n">1</span>Perché qui</span>
-      <h2 class="mt-4">Prima di cominciare sai cosa sentirai, quanto pagherai e quanto ci vorrà</h2>
-      <p class="lead">Il tariffario è online e il piano di cura arriva scritto dopo la prima visita.</p>
+      <h2 class="mt-4">Come si lavora in questo studio</h2>
+      <p class="lead">Tre aspetti che valgono per tutte le cure, dalla seduta di igiene alla riabilitazione su impianti.</p>
     </div>
     <div class="g-feature" data-stagger="90">{pilastri}</div>
   </div>
@@ -199,12 +199,12 @@ def render():
     </div>
     <div data-reveal="right">
       <span class="eyebrow has-n"><span class="eyebrow__n">3</span>Odontofobia</span>
-      <h2 class="mt-4">Puoi decidere tu quanta ansia sentire</h2>
+      <h2 class="mt-4">Il livello di sedazione si stabilisce prima della seduta</h2>
       <p class="lead mt-6">La paura del dentista nasce quasi sempre da qualcosa che è successo
       davvero, spesso da bambini, e il corpo la ripropone appena riconosce il rumore del riunito
-      o l'odore dello studio. È una reazione automatica, e contro una reazione automatica servono
-      dei farmaci. Prima della seduta si parla di quanto sei in ansia e si sceglie insieme
-      <b style="color:#FFFDF9">con cosa spegnerla</b>, fino al livello che vuoi tu.</p>
+      o l'odore dello studio. È una reazione automatica, e a una reazione automatica si risponde
+      con la farmacologia. Prima della seduta si valuta quanta ansia c'è e si sceglie insieme
+      <b style="color:#FFFDF9">quale sedazione usare</b>, fino al grado che preferisci.</p>
       <ul class="ticks mt-8">
         <li>{ico('check')}<span><b style="color:#FFFDF9">Sedazione cosciente inalatoria.</b>
         Una miscela personalizzata di ossigeno e protossido d'azoto, respirata da una mascherina
@@ -252,7 +252,7 @@ def render():
   <div class="wrap split">
     <div data-reveal="left">
       <span class="eyebrow has-n"><span class="eyebrow__n">6</span>Prezzi</span>
-      <h2 class="mt-4">I prezzi sono tutti online</h2>
+      <h2 class="mt-4">Il preventivo che ricevi è quello che paghi</h2>
       <p class="lead mt-6">Dalla seduta di igiene alla riabilitazione su impianti. Dopo la prima
       visita ricevi un preventivo scritto con il totale, e quel totale vale fino alla fine
       della cura.</p>

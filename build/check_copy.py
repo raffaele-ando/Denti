@@ -141,8 +141,19 @@ PROMESSE_VERIFICATE = re.compile(
 # Ogni altra eccezione va discussa, non aggiunta di nascosto a questa riga.
 DEROGHE_F6 = re.compile(r"non senti niente", re.I)
 
-# Frasi in cui il numerale è la notizia e quindi resta legittimo.
-DEROGHE = re.compile(r"(tasso zero|5\.000|rate|master|impianti|recensioni|specialisti)", re.I)
+# F5 colpisce il numerale scritto in lettere quando il numero è la notizia: in
+# quel caso la cifra si legge prima e si ricorda meglio. Dentro una frase
+# corrente, invece, «sette clinici» e «ogni sei mesi» sono italiano normale e
+# una cifra suonerebbe da modulo. Queste sono le deroghe, una per motivo.
+DEROGHE = re.compile(
+    r"tasso zero|5\.000|rate|master|impianti|recensioni|specialisti"
+    r"|sette clinici"          # conteggio dell'équipe, dentro una frase corrente
+    r"|sei mesi",              # intervallo di richiamo, idem
+    re.I)
+
+# Etichette di sezione volutamente identiche su tutte le schede di trattamento:
+# ripeterle è il punto, perché rendono le dieci pagine confrontabili.
+ETICHETTE_STRUTTURALI = {"quanto costa", "le domande che"}
 
 problemi = []
 strutture = {}
@@ -244,7 +255,8 @@ for f in sorted(ROOT.rglob("*.html")):
 for rp, parola in accenti:
     problemi.append((rp, "accento", "F16 accento senza rema", parola, parola))
 
-ripetuti = {k: v for k, v in strutture.items() if len(v) > 2}
+ripetuti = {k: v for k, v in strutture.items()
+            if len(v) > 2 and k not in ETICHETTE_STRUTTURALI}
 
 print(f"Blocchi redazionali analizzati in {len(list(ROOT.rglob('*.html'))) - 2} pagine\n")
 if problemi:

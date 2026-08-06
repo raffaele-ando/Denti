@@ -11,6 +11,7 @@ TRATTAMENTI = [
 # ══════════════════════════════════════════════════════════ paura del dentista
 dict(
     slug="paura-del-dentista",
+    prove_h2="Chi somministra la sedazione, e con quale formazione",
     breve="Sedazione cosciente inalatoria ed endovenosa, ipnosi clinica. Prima si decide con cosa spegnere l'ansia, poi si comincia.",
     nav="Paura del dentista",
     gruppo="Ho paura",
@@ -32,7 +33,7 @@ dict(
         ("Il corpo reagisce prima che tu possa decidere",
          "L'odontofobia si comporta come una risposta appresa, non come un tratto del carattere. Quasi sempre nasce da un'esperienza reale: un'anestesia che non ha funzionato, un medico che non si è fermato quando era il momento, un dolore da bambini. Il corpo la registra e la ripropone ogni volta che sente il rumore del riunito. Chiedere a una persona di «farsi coraggio» equivale a chiederle di sopprimere un riflesso: nella pratica non funziona quasi mai, e in compenso aggiunge un senso di inadeguatezza a una paura che c'era già."),
         ("Cosa cambia qui",
-         "Trattiamo l'ansia come un parametro clinico. Prima di qualsiasi cura decidiamo insieme <b>quale livello di sedazione serve</b>, esattamente come si decide il tipo di anestesia. Non la riserviamo ai casi difficili: puoi chiederla anche per una semplice seduta di igiene, e succede spesso."),
+         "Trattiamo l'ansia come un parametro clinico. Prima di qualsiasi cura decidiamo insieme <b>quale livello di sedazione serve</b>, esattamente come si decide il tipo di anestesia. Non la riserviamo ai casi difficili: puoi chiederla anche per una semplice seduta di igiene."),
     ],
     fit_titolo="Quando ha senso la sedazione cosciente",
     fit_yes_t="Ha senso se",
@@ -52,7 +53,7 @@ dict(
     ],
     diagramma="ansia",
     diagramma_titolo="Cosa succede, minuto per minuto",
-    diagramma_sub="La sedazione cosciente inalatoria è una miscela personalizzata di ossigeno e protossido d'azoto. Resti sveglio, rispondi, collabori. Ma non ti importa.",
+    diagramma_sub="La sedazione cosciente inalatoria è una miscela personalizzata di ossigeno e protossido d'azoto. Resti sveglio, rispondi alle domande e collabori: quello che cambia è la reazione emotiva a ciò che sta accadendo.",
     steps=[
         ("Ne parliamo prima", "In prima visita si stabilisce il livello di sedazione, si escludono controindicazioni e si spiega esattamente cosa sentirai. Nessuna sorpresa: è metà del lavoro."),
         ("La mascherina nasale", "Appoggiata sul naso, respiri normalmente. Nel giro di 2–3 minuti arriva una sensazione di leggerezza e distacco. Continui a sentire e a rispondere."),
@@ -84,6 +85,7 @@ dict(
 # ══════════════════════════════════════════════════════════════ implantologia
 dict(
     slug="implantologia",
+    prove_h2="La casistica, l'attrezzatura in sede e i titoli",
     breve="Radici in titanio al posto dei denti mancanti, e i denti sani accanto restano intatti. TAC 3D, chirurgia e corona nella stessa sede.",
     nav="Implantologia",
     gruppo="Mi manca un dente",
@@ -108,7 +110,7 @@ dict(
         ("Il corpo tratta il titanio come osso",
          "Il titanio è totalmente biocompatibile: il rigetto immunitario, nel senso in cui lo si intende per i trapianti, <b>non esiste</b>. Può però accadere che l'impianto non si osteointegri, o che perda il suo sostegno per una peri-implantite. In quel caso l'impianto si rimuove senza traumi e, se l'osso lo consente, si sostituisce con uno di dimensioni maggiori, spesso nella stessa seduta."),
         ("Quante probabilità ci sono che duri",
-         "Le percentuali di sopravvivenza degli impianti sono del <b>95% nel mascellare superiore</b> e del <b>99% nella mandibola</b>: sono i dati della letteratura internazionale. Chiunque prometta il 100% sta semplificando."),
+         "Le percentuali di sopravvivenza degli impianti sono del <b>95% nel mascellare superiore</b> e del <b>99% nella mandibola</b>: sono i dati della letteratura internazionale."),
     ],
     fit_titolo="L'impianto è la scelta giusta?",
     fit_yes_t="Sì, quando",
@@ -153,7 +155,7 @@ dict(
     ],
     prezzo_nota="Un dente singolo completo, impianto più corona, costa <b>1.540 €</b>. Con il finanziamento a tasso 0 sono 43 € al mese per 36 mesi.",
     faq=[
-        ("Fa male?", "L'intervento si esegue in anestesia locale e non si sente. Il post-operatorio è generalmente più leggero di un'estrazione: gonfiore per 2–3 giorni, gestito con antidolorifici comuni. Se l'idea dell'intervento ti blocca, la <a href='paura-del-dentista.html'>sedazione cosciente</a> risolve il problema a monte."),
+        ("Fa male?", "L'intervento si esegue in anestesia locale. Il post-operatorio è generalmente più leggero di un'estrazione: gonfiore per 2–3 giorni, gestito con antidolorifici comuni. Se l'idea dell'intervento ti blocca, la <a href='paura-del-dentista.html'>sedazione cosciente</a> risolve il problema a monte."),
         ("Quanto dura un impianto?", "Non c'è una scadenza. Dipende dall'igiene domiciliare, dai controlli periodici e dal fumo. Gli impianti inseriti in questo studio nei primi anni Duemila sono in gran parte ancora in funzione. A farli perdere è quasi sempre la peri-implantite, un'infiammazione dell'osso attorno alla vite, che si previene con l'igiene professionale."),
         ("Posso avere i denti in giornata?", "In molti casi sì. Il <b>carico immediato</b> prevede che nella stessa seduta si inseriscano gli impianti e si avviti una protesi provvisoria fissa. È possibile sia sul singolo dente sia sull'intera arcata, ma solo se le condizioni ossee lo permettono: la decisione si prende sulla TAC, non a priori."),
         ("E se non ho abbastanza osso?", "Si aggiunge. Gli innesti di osso ricostruiscono il volume dove manca. Preferiamo prelievi da <b>zone intraorali</b>, così da evitare il prelievo extraorale che richiederebbe un ortopedico. Sono interventi che eseguiamo quando non c'è altra scelta riabilitativa: non come routine."),
@@ -166,6 +168,7 @@ dict(
 # ═════════════════════════════════════════════════════════ invisalign / orto
 dict(
     slug="invisalign-ortodonzia",
+    prove_h2="Chi segue il trattamento, e a quali condizioni",
     breve="Mascherine trasparenti progettate al computer: vedi il risultato finale prima di indossare la prima.",
     nav="Invisalign e ortodonzia",
     gruppo="Voglio un sorriso migliore",
@@ -174,8 +177,8 @@ dict(
     meta_title="Invisalign a Genova: ortodonzia invisibile da 125 €/mese | Piccardo",
     meta_desc="Invisalign a Genova con ortodonzista specialista in Ortognatodonzia. Mascherine trasparenti, risultato visibile prima di iniziare. Da 125 €/mese a tasso zero.",
     eyebrow="Ortodonzia invisibile",
-    h1="Con Invisalign vedi al computer il tuo sorriso finale prima di indossare la prima mascherina",
-    lead="Invisalign parte da una scansione tridimensionale della bocca e da un piano di trattamento costruito al computer. Prima che tu indossi la prima mascherina, l'ortodonzista ti mostra a schermo la sequenza completa degli spostamenti e il risultato finale: solo a quel punto decidi se cominciare.",
+    h1="Con <span class='accent-i'>Invisalign</span> il piano di trattamento si approva prima di cominciare",
+    lead="Il trattamento parte da una scansione tridimensionale della bocca. Su quel modello la Dott.ssa Gibelli progetta lo spostamento dente per dente, e la sequenza completa, dalla posizione attuale al risultato, si guarda insieme sullo schermo. Le mascherine si producono soltanto dopo che il piano è stato approvato.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Mascherine Invisalign in mano, dettaglio", scena="mascherine",
                     nota="Luce di finestra e fondo neutro, così si legge la trasparenza del materiale."),
     keyfacts=[
@@ -187,10 +190,10 @@ dict(
     intro=[
         ("Come funziona davvero",
          "Si parte da un'impronta di precisione, che viene scansionata per ricavare un <b>modello 3D della tua bocca</b>. Su quel modello la dott.ssa Gibelli dà le istruzioni sullo spostamento dente per dente; dopo alcune revisioni si arriva al piano definitivo e si producono le mascherine: tutte insieme, dalla prima all'ultima. Le cambi ogni due settimane: ciascuna sposta i denti di una frazione di millimetro."),
-        ("Le togli quando mangi, e quando ti pare",
-         "Mangi quello che vuoi, ti lavi i denti normalmente e nelle occasioni in cui non vuoi averle addosso le metti in tasca. Il rovescio della medaglia è che <b>funzionano solo se le porti</b>: 20–22 ore al giorno. È l'unico vero requisito del trattamento."),
+        ("Si tolgono per mangiare e per lavarsi i denti",
+         "Mangi quello che vuoi, ti lavi i denti normalmente e nelle occasioni in cui preferisci non averle addosso le metti in tasca. In cambio <b>funzionano solo se le porti</b>: 20–22 ore al giorno. È l'unico vero requisito del trattamento."),
         ("Quando l'apparecchio fisso resta la scelta migliore",
-         "Per alcuni casi, e in particolare in età evolutiva, restano la scelta migliore l'ortodonzia intercettiva e funzionale o l'apparecchio fisso, con la tecnica <b>Damon System</b> a bassa frizione o con gli attacchi estetici trasparenti. E prima di un impianto può servire un'<b>ortodonzia pre-implantare</b> per riportare i denti nella posizione corretta. Si sceglie in visita, non per moda."),
+         "Per alcuni casi, e in particolare in età evolutiva, restano la scelta migliore l'ortodonzia intercettiva e funzionale o l'apparecchio fisso, con la tecnica <b>Damon System</b> a bassa frizione o con gli attacchi estetici trasparenti. E prima di un impianto può servire un'<b>ortodonzia pre-implantare</b> per riportare i denti nella posizione corretta. Quale sia la tecnica giusta si decide in visita, sul caso."),
     ],
     fit_titolo="Invisalign fa per te?",
     fit_yes_t="Funziona bene su",
@@ -203,7 +206,7 @@ dict(
     ],
     fit_no_t="Da valutare con attenzione se",
     fit_no=[
-        "Non pensi di riuscire a portarle 20–22 ore al giorno: in quel caso l'apparecchio fisso è più onesto",
+        "Non pensi di riuscire a portarle 20–22 ore al giorno: in quel caso l'apparecchio fisso dà un risultato più prevedibile",
         "Il caso richiede movimenti scheletrici importanti: si valuta un approccio combinato",
         "Sei in piena crescita: spesso conviene prima un'ortodonzia intercettiva",
     ],
@@ -212,7 +215,7 @@ dict(
     diagramma_sub="Ogni allineatore applica una forza leggera e continua. Il movimento è progettato al millesimo prima ancora che tu indossi il primo.",
     steps=[
         ("Visita ortodontica", "Valutazione, fotografie, teleradiografia del cranio e panoramica: tutte eseguite in studio. Si stabilisce se Invisalign è indicato o se serve altro."),
-        ("Il ClinCheck", "Il piano di trattamento virtuale. <b>Vedi a schermo il tuo sorriso finale</b> e la sequenza dei movimenti. È il momento in cui decidi, con un'informazione che l'ortodonzia tradizionale non può darti."),
+        ("Il ClinCheck", "Il piano di trattamento virtuale. <b>Vedi a schermo il tuo sorriso finale</b> e la sequenza dei movimenti. È il momento in cui decidi, con il numero esatto di mascherine e la durata già stabiliti."),
         ("Le mascherine", "Arrivano tutte insieme. Le cambi ogni due settimane a casa. I controlli in studio sono diradati: meno appuntamenti dell'apparecchio fisso."),
         ("Contenzione", "Alla fine serve mantenere il risultato. Senza contenzione i denti tendono a tornare indietro: è la parte del trattamento che si sottovaluta più spesso."),
     ],
@@ -221,8 +224,8 @@ dict(
          "La dott.ssa <b>Francesca Gibelli</b> ha la specializzazione in Ortognatodonzia (Università di Milano, <b>70/70</b>) e il perfezionamento universitario in tecnica Invisalign. Dal 2003 si occupa esclusivamente di ortodonzia."),
         ("euro", "125 € al mese, tasso zero",
          "Il trattamento è dilazionabile in <b>36 rate a partire da 125 € al mese</b> con il finanziamento a tasso 0. Nessun anticipo obbligatorio."),
-        ("scudo", "Solo l'originale",
-         "Invisalign è supportato da studi clinici pluriennali e oltre <b>2 milioni di pazienti trattati</b>. Qui si usa il sistema originale, con medico certificato."),
+        ("scudo", "Sistema originale, medico certificato",
+         "Invisalign è supportato da studi clinici pluriennali e da oltre <b>2 milioni di pazienti trattati</b>. Lo studio usa il sistema originale e la Dott.ssa Gibelli ha il perfezionamento universitario nella tecnica."),
     ],
     clinico="francesca-gibelli",
     caso="ortodonzia",
@@ -234,7 +237,7 @@ dict(
         ("Fa male?", "Nei primi due giorni dopo ogni cambio si avverte una pressione: è il segnale che il dente si sta muovendo. Si tratta di un indolenzimento sordo, che si attenua nel giro di poche ore. Molti pazienti la descrivono come più tollerabile dell'apparecchio fisso."),
         ("Posso farlo da adulto?", "Invisalign è nato proprio per gli adulti. Oggi è applicabile anche agli adolescenti, ma la maggior parte dei pazienti che trattiamo ha fra i 25 e i 55 anni. Non esiste un'età oltre la quale i denti non si muovono più: esiste la parodontite, che va esclusa prima."),
         ("Devo togliermele per mangiare?", "Sì, sempre. E devi rimetterle subito dopo aver lavato i denti. Bevi solo acqua con le mascherine indossate: bevande calde o zuccherate le deformano o le macchiano."),
-        ("E se perdo una mascherina?", "Si passa alla successiva o si torna alla precedente a seconda del punto del trattamento, e in caso si richiede la sostituzione. Non è un dramma, ma va segnalato subito: non improvvisare."),
+        ("E se perdo una mascherina?", "Si passa alla successiva o si torna alla precedente a seconda del punto del trattamento, e in caso si richiede la sostituzione. Va segnalato subito in studio, che richiede la sostituzione al laboratorio."),
     ],
     correlati=["estetica-del-sorriso", "igiene-e-prevenzione", "bambini"],
 ),
@@ -242,6 +245,7 @@ dict(
 # ═══════════════════════════════════════════════════════ estetica del sorriso
 dict(
     slug="estetica-del-sorriso",
+    prove_h2="Chi progetta il caso, e dove nasce la ceramica",
     breve="Faccette sottili come una lente a contatto e sbiancamento professionale. L'obiettivo è che sembrino veri.",
     nav="Estetica del sorriso",
     gruppo="Voglio un sorriso migliore",
@@ -250,8 +254,8 @@ dict(
     meta_title="Faccette dentali e sbiancamento a Genova | Studio Piccardo",
     meta_desc="Estetica dentale a Genova: faccette Lumineers sottili come una lente a contatto e sbiancamento professionale. Sbiancamento 275 €, tariffario pubblico.",
     eyebrow="Estetica dentale",
-    h1="Faccette e sbiancamenti che passano <span class='accent-i'>per denti tuoi</span>",
-    lead="Un lavoro estetico riuscito passa inosservato: i denti sembrano semplicemente i tuoi, in una versione migliore. Ci arriviamo con faccette in ceramica dello spessore di una lente a contatto, con lo sbiancamento professionale e soprattutto scegliendo insieme fin dove spingersi, perché il limite giusto cambia da viso a viso.",
+    h1="Faccette in ceramica e sbiancamento, progettati sulla proporzione del viso",
+    lead="Le faccette sono lamine di ceramica dello spessore di una lente a contatto, applicate sulla superficie esterna dei denti anteriori; lo sbiancamento agisce sul colore senza toccare la forma. In entrambi i casi si parte dalla proporzione del viso e dalla linea del sorriso, e il colore si fissa prima di progettare qualunque cosa.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Faccetta in ceramica su polpastrello, macro", scena="faccetta",
                     nota="Fondo scuro e luce radente, per far leggere lo spessore quasi nullo."),
     keyfacts=[
@@ -266,7 +270,7 @@ dict(
         ("Sbiancamento professionale",
          "Si esegue in studio o a domicilio con mascherine personalizzate. Non danneggia lo smalto se eseguito con i protocolli corretti e su denti sani: per questo la prima cosa da fare è <b>l'igiene professionale</b>, che da sola in molti casi restituisce già due o tre gradazioni."),
         ("«Voglio che sembrino i miei»",
-         "È la frase che sentiamo più spesso da chi arriva per l'estetica, e diventa il vincolo del progetto. Si parte dalla proporzione del viso e dalla linea del sorriso, prima ancora di scegliere una gradazione di colore: il bianco più chiaro del catalogo è quasi sempre quello sbagliato."),
+         "Il limite si concorda in visita e cambia da viso a viso. Si parte dalla proporzione del volto e dalla linea del sorriso, prima ancora di scegliere una gradazione di colore: il bianco più chiaro del catalogo è quasi sempre quello sbagliato."),
     ],
     fit_titolo="Cosa scegliere",
     fit_yes_t="Basta lo sbiancamento se",
@@ -314,6 +318,7 @@ dict(
 # ══════════════════════════════════════════════════════════ protesi e corone
 dict(
     slug="protesi-e-corone",
+    prove_h2="L'impronta, le riparazioni e il prezzo",
     breve="Corone in zirconia progettate e fresate nel laboratorio interno. Prove immediate, riparazioni in giornata.",
     nav="Protesi e corone",
     gruppo="Mi manca un dente",
@@ -321,7 +326,7 @@ dict(
     meta_title="Corone, ponti e protesi dentali a Genova | Studio Piccardo",
     meta_desc="Corone in zirconia CAD-CAM dal laboratorio interno, ponti, protesi mobili e scheletrati. Riparazioni immediate. Corona in zirconia 770 €.",
     eyebrow="Protesi",
-    h1="Le corone in zirconia le progettiamo e le fresiamo nel <span class='accent-i'>laboratorio interno</span>",
+    h1="Progettiamo e fresiamo le corone in zirconia nel <span class='accent-i'>laboratorio interno</span>",
     lead="Il laboratorio odontotecnico è iscritto al Ministero della Salute e si trova all'interno dello studio. Le corone in zirconia vengono disegnate al computer sul modello della tua bocca e fresate lì, a pochi metri dalla poltrona: le prove si fanno nella stessa seduta, i ritocchi cromatici sul momento e una protesi rotta si ripara in giornata.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Mani dell'odontotecnico su una corona in zirconia", scena="laboratorio",
                     nota="Mani in azione sul manufatto, fresa o pennello in campo. Luce laterale."),
@@ -351,7 +356,7 @@ dict(
         "Mancano molti denti e la riabilitazione fissa completa non è sostenibile",
         "L'osso è fortemente riassorbito e gli innesti non sono indicati",
         "Serve una soluzione intermedia in tempi brevi",
-        "Hai già una protesi che balla: spesso bastano due impianti per bloccarla",
+        "Hai già una protesi mobile che si sposta mentre mangi: spesso bastano due impianti per ancorarla",
     ],
     diagramma="protesi",
     diagramma_titolo="Dal dente al manufatto",
@@ -366,7 +371,7 @@ dict(
         ("scan", "L'impronta si prende con uno scanner",
          "Scanner intraorale: la scansione tridimensionale sostituisce la pasta da impronta. Chi ha il riflesso del vomito lo nota subito."),
         ("orologio", "Riparazioni in giornata",
-         "Il laboratorio interno esegue <b>riparazioni immediate</b> e aggiunte di elementi sulle protesi mobili. Non resti giorni senza denti in attesa che torni il manufatto."),
+         "Il laboratorio interno esegue <b>riparazioni immediate</b> e aggiunte di elementi sulle protesi mobili: il manufatto torna in bocca nella stessa giornata."),
         ("euro", "Prezzo pubblico",
          "Corona in zirconia <b>770 €</b>, protesi totale per arcata <b>1.650 €</b>, overdenture su impianti <b>2.200 €</b>. Tutto il tariffario è online."),
     ],
@@ -392,6 +397,7 @@ dict(
 # ═══════════════════════════════════════════════════════════ cure conservative
 dict(
     slug="cure-conservative",
+    prove_h2="La diagnosi, la sedazione e il prezzo dichiarato",
     breve="Otturazioni estetiche e devitalizzazioni: tutto quello che serve per tenerti il dente che hai.",
     nav="Otturazioni e devitalizzazioni",
     gruppo="Prevenzione e famiglia",
@@ -399,7 +405,7 @@ dict(
     meta_title="Otturazioni e devitalizzazioni a Genova | Studio Piccardo",
     meta_desc="Otturazioni estetiche in composito e devitalizzazioni a Genova. Otturazione da 130 €, devitalizzazione da 160 €. Tariffario pubblico, sedazione su richiesta.",
     eyebrow="Conservativa ed endodonzia",
-    h1="Otturazioni e devitalizzazioni servono a <span class='accent-i'>tenerti il tuo dente</span>",
+    h1="Otturazioni e devitalizzazioni servono a conservare il <span class='accent-i'>dente naturale</span>",
     lead="Un dente naturale, anche compromesso, resta quasi sempre preferibile a qualunque cosa possa sostituirlo. Le otturazioni in composito fermano la carie finché è superficiale; la devitalizzazione recupera denti che sembravano ormai da togliere, rimuovendo la polpa infiammata e sigillando i canali.",
     hero_media=None,
     keyfacts=[
@@ -410,9 +416,9 @@ dict(
     ],
     intro=[
         ("Otturazioni in composito, del colore del dente",
-         "Le otturazioni si eseguono in composito, un materiale del colore del dente che si lega alla struttura residua. Rispetto alla vecchia amalgama non richiede di rimuovere tessuto sano per creare ritenzione meccanica: <b>si toglie solo la carie</b>. E non si vede."),
+         "Le otturazioni si eseguono in composito, un materiale del colore del dente che si lega alla struttura residua. Rispetto alla vecchia amalgama non richiede di rimuovere tessuto sano per creare ritenzione meccanica: <b>si toglie solo la carie</b>, e il restauro resta del colore del dente."),
         ("Devitalizzazione: il trattamento più temuto e più frainteso",
-         "Quando la carie raggiunge la polpa, il tessuto vivo dentro il dente, l'infiammazione provoca il classico mal di denti notturno. La devitalizzazione rimuove la polpa, disinfetta i canali e li sigilla. È l'alternativa all'estrazione. <b>Si esegue in anestesia e non fa male</b>: il dolore che i pazienti ricordano è quello che avevano <i>prima</i> di arrivare in studio."),
+         "Quando la carie raggiunge la polpa, il tessuto vivo dentro il dente, l'infiammazione provoca il classico mal di denti notturno. La devitalizzazione rimuove la polpa, disinfetta i canali e li sigilla. È l'alternativa all'estrazione. <b>Si esegue in anestesia locale</b>: il dolore che i pazienti associano a questo trattamento è quello della pulpite, cioè quello che avevano <i>prima</i> di arrivare in studio."),
         ("Dopo la devitalizzazione",
          "Un dente devitalizzato diventa più fragile perché non è più irrorato. Nei denti posteriori, sottoposti a carichi masticatori elevati, si protegge quasi sempre con una <a href='protesi-e-corone.html'>corona</a>. Saltare questo passaggio è la causa più frequente di frattura a distanza di anni."),
     ],
@@ -459,7 +465,7 @@ dict(
     ],
     prezzo_nota="",
     faq=[
-        ("La devitalizzazione fa male?", "No. Si esegue in anestesia locale e durante la seduta non si sente. Il dolore associato a questo trattamento nella memoria collettiva è quello della pulpite <i>prima</i> dell'intervento: è proprio ciò che la devitalizzazione elimina."),
+        ("La devitalizzazione fa male?", "Si esegue in anestesia locale, esattamente come un'otturazione. Il dolore associato a questo trattamento nella memoria collettiva è quello della pulpite <i>prima</i> dell'intervento: è proprio ciò che la devitalizzazione elimina."),
         ("Quante sedute servono?", "In genere una o due, a seconda del numero di canali e della presenza di infezione. I denti anteriori hanno un canale, i molari fino a tre o quattro."),
         ("Il dente devitalizzato si scurisce?", "Può succedere, soprattutto sugli anteriori. Si risolve con uno sbiancamento interno o con una faccetta, a seconda del caso."),
         ("Perché devo mettere una capsula dopo?", "Perché il dente devitalizzato perde elasticità e, sui settori posteriori, può fratturarsi sotto il carico masticatorio. La corona lo cercia e lo protegge. Sui denti anteriori, se la perdita di struttura è limitata, a volte basta una ricostruzione."),
@@ -470,6 +476,7 @@ dict(
 # ══════════════════════════════════════════════════════════════ chirurgia orale
 dict(
     slug="chirurgia-orale",
+    prove_h2="Il chirurgo, la TAC e il carrello delle emergenze",
     breve="Denti del giudizio inclusi, estrazioni difficili, parodontologia e innesti. Con TAC 3D e chirurgo dedicato.",
     nav="Chirurgia orale e parodontologia",
     gruppo="Mi manca un dente",
@@ -515,7 +522,7 @@ dict(
     diagramma_sub="La TAC allunga la preparazione e accorcia l'intervento.",
     steps=[
         ("TAC Cone Beam", "Si visualizza in tre dimensioni la posizione delle radici e il decorso del nervo alveolare inferiore. È l'esame che rende prevedibile l'intervento."),
-        ("Anestesia e sedazione", "Anestesia locale, con sedazione cosciente se la scegli. Per gli interventi lunghi è la differenza fra un'ora sopportabile e un'ora terribile."),
+        ("Anestesia e sedazione", "Anestesia locale, con sedazione cosciente se la scegli. Negli interventi lunghi si concorda in anticipo, insieme al tipo di anestesia."),
         ("L'intervento", "Accesso, rimozione, sutura. Le estrazioni degli ottavi inclusi ossei sono le più impegnative e richiedono odontotomia."),
         ("Il decorso", "Ghiaccio nelle prime ore, antibiotico e antidolorifico secondo prescrizione, controllo per la rimozione dei punti. Numero di reperibilità per i pazienti dello studio."),
     ],
@@ -551,7 +558,8 @@ dict(
 # ══════════════════════════════════════════════════════════ igiene e prevenzione
 dict(
     slug="igiene-e-prevenzione",
-    breve="Un'ora ogni sei mesi con igienisti laureati. L'unico trattamento che fa risparmiare invece di costare.",
+    prove_h2="Chi esegue la seduta, e con quale strumentario",
+    breve="Un'ora ogni sei mesi con igienisti dentali laureati, controllo delle mucose compreso.",
     nav="Igiene e prevenzione",
     gruppo="Prevenzione e famiglia",
     icona="foglia",
@@ -571,7 +579,7 @@ dict(
         ("Cosa si fa davvero in una seduta di igiene",
          "Rimozione del tartaro sopra e sotto gengiva (detartrasi), rimozione delle pigmentazioni con air-flow, lucidatura, sondaggio parodontale e, quando indicata, applicazione di fluoro. Al di là della pulizia in sé, la seduta funziona come esame periodico: intercetta carie iniziali, recessioni gengivali e tasche parodontali finché sono ancora reversibili."),
         ("Lo screening del cavo orale è dentro il prezzo",
-         "Durante l'igiene si esegue anche il <b>controllo delle mucose orali</b>, cioè lo screening di base per il cancro del cavo orale, che preso in tempo si risolve quasi sempre. Non compare in nessun preventivo perché non si fa pagare, ed è probabilmente la cosa più importante della seduta."),
+         "Durante l'igiene si esegue anche il <b>controllo delle mucose orali</b>, cioè lo screening di base per il cancro del cavo orale, dove la diagnosi precoce è ciò che cambia la prognosi. Il controllo è compreso nella seduta e non compare come voce separata nel preventivo."),
         ("Se hai impianti o protesi",
          "Il mantenimento igienico non è opzionale: è la condizione per cui gli impianti durano. La peri-implantite si previene con controlli periodici e strumentario dedicato, non si cura facilmente una volta insediata."),
     ],
@@ -621,6 +629,7 @@ dict(
 # ═══════════════════════════════════════════════════════════════════ bambini
 dict(
     slug="bambini",
+    prove_h2="Chi vede i bambini, e come è attrezzato lo studio",
     breve="La prima volta si guarda, si conta e si torna a casa. Perché abbia voglia di tornarci anche fra vent'anni.",
     nav="Bambini",
     gruppo="Prevenzione e famiglia",
@@ -629,7 +638,7 @@ dict(
     meta_desc="Odontoiatria infantile a Genova: prima visita giocosa, fluoroprofilassi, ortodonzia intercettiva. Area gioco in sala d'attesa e fasciatoio.",
     eyebrow="Pedodonzia",
     h1="La prima visita di un bambino serve solo a <span class='accent-i'>contare i denti</span>",
-    lead="Il modo in cui un bambino vive il primo appuntamento condiziona il suo rapporto con il dentista per i trent'anni successivi, e spesso anche quello dei suoi figli. Per questo la prima volta la dedichiamo interamente a fargli conoscere lo studio: sale sulla poltrona, la fa muovere, conta i denti allo specchietto e torna a casa. Le cure, se servono, cominciano all'appuntamento dopo.",
+    lead="La prima volta la dedichiamo interamente a fargli conoscere lo studio: sale sulla poltrona, la fa muovere, conta i denti allo specchietto e torna a casa. Le cure, se servono, cominciano all'appuntamento dopo, in un posto che ormai conosce.",
     hero_media=dict(tipo="foto", ar="4/5", testo="Area gioco in sala d'attesa, bambino di spalle o solo mani", scena="bimbi",
                     nota="Bambino di spalle o solo le mani. Liberatoria dei genitori firmata prima dello scatto."),
     keyfacts=[
@@ -640,7 +649,7 @@ dict(
     ],
     intro=[
         ("Perché i denti da latte contano",
-         "Due ragioni concrete. La prima: anche i denti da latte possono infettarsi e fare molto male. La seconda, meno intuitiva: <b>la perdita precoce di un dentino sposta i denti vicini</b> e crea problemi di allineamento e occlusione nell'adulto che quel bambino diventerà. Curare un dente da latte non è una spesa a perdere."),
+         "Due ragioni concrete. La prima: anche i denti da latte possono infettarsi e fare molto male. La seconda, meno intuitiva: <b>la perdita precoce di un dentino sposta i denti vicini</b> e crea problemi di allineamento e occlusione quando arrivano i denti permanenti."),
         ("Quando portarlo la prima volta",
          "Fra i <b>4 e i 6 anni</b> è il momento giusto per «fare la conta dei denti»: a quell'età in bocca devono esserci 20 denti da latte. È anche il momento in cui si possono intercettare problemi ortodontici con una diagnosi molto precoce, e correggere in modo conservativo morso inverso, masticazione sbagliata e asimmetrie facciali: evitando interventi chirurgici a crescita ultimata."),
         ("Si comincia dal primo dentino, con una garza",
@@ -668,7 +677,7 @@ dict(
         ("Si guarda", "Il bambino esplora lo studio, sale sulla poltrona, la fa salire e scendere. La poltrona diventa un gioco, non un tavolo operatorio."),
         ("Si conta", "«Facciamo la conta dei denti.» Si guarda in bocca con lo specchietto e si contano insieme. È già una visita, ma non lo sembra."),
         ("Si spiega", "Ai genitori: cosa c'è, cosa non c'è, cosa si fa adesso e cosa si controlla fra sei mesi. Al bambino: che è andato benissimo."),
-        ("Si torna", "Se serve una cura, si fissa un secondo appuntamento. Il bambino torna in un posto che già conosce: ed è tutta un'altra cosa."),
+        ("Si torna", "Se serve una cura, si fissa un secondo appuntamento. Il bambino torna in un posto che già conosce, e la seconda volta comincia da lì."),
     ],
     proofs=[
         ("stella", "Un'odontoiatra dedicata",
@@ -693,6 +702,7 @@ dict(
 # ═══════════════════════════════════════════════════════════════════ urgenze
 dict(
     slug="urgenze",
+    prove_h2="Orari, diagnosi in sede, emergenze mediche",
     breve="Aperti lunedì-sabato 8:00-20:30, e per i pazienti dello studio il dentista è reperibile anche in urgenza.",
     nav="Urgenze e dolore",
     gruppo="Ho paura",
@@ -701,7 +711,7 @@ dict(
     meta_desc="Urgenze odontoiatriche a Genova centro. Aperti lunedì-sabato 8:00-20:30, reperibilità per i pazienti dello studio. Anche servizio a domicilio.",
     eyebrow="Urgenze",
     h1="Se hai male oggi, chiama adesso",
-    lead="Lo studio è aperto dal lunedì al sabato dalle 8:00 alle 20:30, sabato compreso per intero, sabato compreso. I pazienti già in cura hanno inoltre un numero di reperibilità attivo anche fuori orario. Più presto chiami nella giornata, più è probabile trovare spazio.",
+    lead="Lo studio è aperto dal lunedì al sabato dalle 8:00 alle 20:30, il sabato per l'intera giornata. I pazienti già in cura hanno inoltre un numero di reperibilità attivo anche fuori orario. Più presto chiami nella giornata, più è probabile trovare spazio.",
     hero_media=None,
     keyfacts=[
         ("Aperti", "Lun–Sab", "8:00 – 20:30"),
@@ -747,8 +757,8 @@ dict(
     prezzo_nota="Anche in urgenza il preventivo si fa prima di iniziare. Il dolore non è mai una ragione per non sapere quanto si spende.",
     faq=[
         ("Mi ricevete oggi?", "Chiama il <a href='tel:+390105959492'>010 5959492</a> il prima possibile nella giornata: più presto chiami, più è probabile che ci sia spazio. Se sei già paziente dello studio, dillo subito."),
-        ("Devo essere già vostro paziente?", "No. Le urgenze si accolgono anche se non ci hai mai visto prima. Molti dei nostri pazienti attuali sono arrivati esattamente così."),
-        ("Il sabato siete aperti?", "Sì, tutto il giorno, 8:00–20:30. È uno dei motivi per cui molti pazienti che lavorano ci scelgono."),
+        ("Devo essere già vostro paziente?", "No. Le urgenze si accolgono anche se non ci hai mai visto prima. Al telefono servono il nome, un recapito e la descrizione del sintomo."),
+        ("Il sabato siete aperti?", "Sì, tutto il giorno, 8:00–20:30: il sabato ha lo stesso orario degli altri giorni."),
         ("Fate anche a domicilio?", "Sì, per pazienti che non possono muoversi. Si va a casa o in casa di cura con l'attrezzatura portatile. Va concordato telefonicamente."),
     ],
     correlati=["chirurgia-orale", "cure-conservative", "paura-del-dentista"],
